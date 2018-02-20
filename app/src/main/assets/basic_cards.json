@@ -1,0 +1,64 @@
+{
+  "cards": {
+    "mod_basic_plus_0": {
+      "deck": "basic"
+    },
+    "mod_basic_plus_1": {
+      "deck": "basic"
+    },
+    "mod_basic_minus_1": {
+      "deck": "basic"
+    },
+    "mod_basic_minus_2": {
+      "deck": "basic"
+    },
+    "mod_basic_plus_2": {
+      "deck": "basic"
+    },
+    "mod_basic_miss_shuffle": {
+      "deck": "basic",
+      "special": "shuffle"
+    },
+    "mod_basic_x2_shuffle": {
+      "deck": "basic",
+      "special": "shuffle"
+    },
+    "mod_extra_bless_remove": {
+      "deck": "extra",
+      "special": "remove"
+    },
+    "mod_extra_curse_remove": {
+      "deck": "extra",
+      "special": "remove"
+    },
+    "mod_extra_minus_1": {
+      "deck": "extra"
+    }
+  },
+  "basic": [
+    {
+      "card": "mod_basic_plus_0",
+      "count": 6
+    },
+    {
+      "card": "mod_basic_plus_1",
+      "count": 5
+    },
+    {
+      "card": "mod_basic_minus_1",
+      "count": 5
+    },
+    {
+      "card": "mod_basic_minus_2"
+    },
+    {
+      "card": "mod_basic_plus_2"
+    },
+    {
+      "card": "mod_basic_miss_shuffle"
+    },
+    {
+      "card": "mod_basic_x2_shuffle"
+    }
+  ]
+}

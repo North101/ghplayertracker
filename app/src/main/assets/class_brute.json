@@ -1,0 +1,167 @@
+{
+  "name": "Inox Brute",
+  "color": "#233D60",
+  "health": [
+    10,
+    12,
+    14,
+    16,
+    18,
+    20,
+    22,
+    24,
+    26
+  ],
+  "cards": {
+    "mod_class_brute_plus_1": {
+      "deck": "class"
+    },
+    "mod_class_brute_plus_3": {
+      "deck": "class"
+    },
+    "mod_class_brute_push_1_rolling": {
+      "deck": "class",
+      "special": "rolling"
+    },
+    "mod_class_brute_pierce_3_rolling": {
+      "deck": "class",
+      "special": "rolling"
+    },
+    "mod_class_brute_stun_rolling": {
+      "deck": "class",
+      "special": "rolling"
+    },
+    "mod_class_brute_disarm_rolling": {
+      "deck": "class",
+      "special": "rolling"
+    },
+    "mod_class_brute_muddle_rolling": {
+      "deck": "class",
+      "special": "rolling"
+    },
+    "mod_class_brute_target_rolling": {
+      "deck": "class",
+      "special": "rolling"
+    },
+    "mod_class_brute_plus_1_shield_1": {
+      "deck": "class"
+    }
+  },
+  "perks": [
+    {
+      "cards": [
+        {
+          "action": "remove",
+          "count": 2,
+          "card": "mod_basic_minus_1"
+        }
+      ],
+      "text": "Remove two [[icon_minus_1]] cards"
+    },
+    {
+      "cards": [
+        {
+          "action": "remove",
+          "card": "mod_basic_minus_1"
+        },
+        {
+          "action": "add",
+          "card": "mod_class_brute_plus_1"
+        }
+      ],
+      "text": "Replace one [[icon_minus_1]] card with one [[icon_plus_1]] card"
+    },
+    {
+      "cards": [
+        {
+          "action": "add",
+          "count": 2,
+          "card": "mod_class_brute_plus_1"
+        }
+      ],
+      "count": 2,
+      "text": "Add two [[icon_plus_1]] cards"
+    },
+    {
+      "cards": [
+        {
+          "action": "add",
+          "card": "mod_class_brute_plus_3"
+        }
+      ],
+      "text": "Add one [[icon_plus_3]] card"
+    },
+    {
+      "cards": [
+        {
+          "action": "add",
+          "count": 3,
+          "card": "mod_class_brute_push_1_rolling"
+        }
+      ],
+      "count": 2,
+      "text": "Add three [[icon_rolling]] PUSH [[icon_push]] 1 cards"
+    },
+    {
+      "cards": [
+        {
+          "action": "add",
+          "count": 2,
+          "card": "mod_class_brute_pierce_3_rolling"
+        }
+      ],
+      "text": "Add two [[icon_rolling]] PIERCE [[icon_pierce]] 3 cards"
+    },
+    {
+      "cards": [
+        {
+          "action": "add",
+          "card": "mod_class_brute_stun_rolling"
+        }
+      ],
+      "count": 2,
+      "text": "Add one [[icon_rolling]] STUN [[icon_status_stun]] card"
+    },
+    {
+      "cards": [
+        {
+          "action": "add",
+          "card": "mod_class_brute_disarm_rolling"
+        },
+        {
+          "action": "add",
+          "card": "mod_class_brute_muddle_rolling"
+        }
+      ],
+      "text": "Add one [[icon_rolling]] DISARM [[icon_status_disarm]] card and one [[icon_rolling]] MUDDLE [[icon_status_muddle]] card"
+    },
+    {
+      "cards": [
+        {
+          "action": "add",
+          "card": "mod_class_brute_target_rolling"
+        }
+      ],
+      "count": 2,
+      "text": "Add one [[icon_rolling]] ADD TARGET [[icon_target]] card"
+    },
+    {
+      "cards": [
+        {
+          "action": "add",
+          "card": "mod_class_brute_plus_1_shield_1"
+        }
+      ],
+      "text": "Add one [[icon_plus_1]] SHIELD [[icon_shield]] 1, Self card"
+    },
+    {
+      "cards": [
+        {
+          "action": "add",
+          "card": "mod_class_brute_plus_1"
+        }
+      ],
+      "text": "Ignore negative item effects and add one [[icon_plus_1]] card"
+    }
+  ]
+}

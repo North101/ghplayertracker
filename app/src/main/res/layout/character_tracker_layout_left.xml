@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/TagEditor.Header"
+        android:text="Stats"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/health_minus"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_remove_circle_black_24dp"/>
+
+        <ImageView
+            android:id="@+id/health_plus"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_add_circle_black_24dp"/>
+
+        <EditText
+            android:id="@+id/health_text"
+            style="@style/TagEditor.EditNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right|end"
+            android:layout_weight="1"
+            android:textAlignment="viewEnd"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="30sp"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:adjustViewBounds="true"
+            android:src="@drawable/icon_heal"/>
+
+        <android.support.v4.widget.Space
+            android:layout_width="8dp"
+            android:layout_height="0dp"/>
+
+        <ImageView
+            android:id="@+id/xp_minus"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_remove_circle_black_24dp"/>
+
+        <ImageView
+            android:id="@+id/xp_plus"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_add_circle_black_24dp"/>
+
+        <EditText
+            android:id="@+id/xp_text"
+            style="@style/TagEditor.EditNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right|end"
+            android:layout_weight="1"
+            android:textAlignment="viewEnd"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="30sp"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:adjustViewBounds="true"
+            android:src="@drawable/icon_xp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/gold_minus"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_remove_circle_black_24dp"/>
+
+        <ImageView
+            android:id="@+id/gold_plus"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_add_circle_black_24dp"/>
+
+        <EditText
+            android:id="@+id/gold_text"
+            style="@style/TagEditor.EditNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right|end"
+            android:layout_weight="1"
+            android:textAlignment="viewEnd"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="30sp"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:adjustViewBounds="true"
+            android:src="@drawable/icon_loot"/>
+
+        <android.support.v4.widget.Space
+            android:layout_width="8dp"
+            android:layout_height="0dp"/>
+
+        <android.support.v4.widget.Space
+            android:layout_width="30dp"
+            android:layout_height="0dp"/>
+
+        <android.support.v4.widget.Space
+            android:layout_width="30dp"
+            android:layout_height="0dp"/>
+
+        <android.support.v4.widget.Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <android.support.v4.widget.Space
+            android:layout_width="30dp"
+            android:layout_height="0dp"/>
+    </LinearLayout>
+
+    <TextView
+        style="@style/TagEditor.Header"
+        android:text="Status Effects"/>
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <ImageView
+            android:id="@+id/status_disarm"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="1"
+            android:adjustViewBounds="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/icon_status_disarm"/>
+
+        <ImageView
+            android:id="@+id/status_stun"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_row="1"
+            android:adjustViewBounds="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/icon_status_stun"/>
+
+        <ImageView
+            android:id="@+id/status_immobilize"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_column="3"
+            android:layout_row="1"
+            android:adjustViewBounds="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/icon_status_immobilize"/>
+
+        <ImageView
+            android:id="@+id/status_strengthen"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_column="4"
+            android:layout_row="1"
+            android:adjustViewBounds="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/icon_status_strengthen"/>
+
+        <ImageView
+            android:id="@+id/status_poison"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="2"
+            android:adjustViewBounds="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/icon_status_poison"/>
+
+        <ImageView
+            android:id="@+id/status_wound"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_row="2"
+            android:adjustViewBounds="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/icon_status_wound"/>
+
+        <ImageView
+            android:id="@+id/status_muddle"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_column="3"
+            android:layout_row="2"
+            android:adjustViewBounds="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/icon_status_muddle"/>
+
+        <ImageView
+            android:id="@+id/status_invisible"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_column="4"
+            android:layout_row="2"
+            android:adjustViewBounds="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/icon_status_invisible"/>
+    </GridLayout>
+</LinearLayout>

@@ -1,0 +1,163 @@
+{
+  "name": "Quatryl Tinkerer",
+  "color": "#442715",
+  "health": [
+    8,
+    9,
+    11,
+    12,
+    14,
+    15,
+    17,
+    18,
+    20
+  ],
+  "cards": {
+    "mod_class_tinkerer_muddle_rolling": {
+      "deck": "class",
+      "special": "rolling"
+    },
+    "mod_class_tinkerer_plus_0": {
+      "deck": "class"
+    },
+    "mod_class_tinkerer_plus_1_heal_2": {
+      "deck": "class"
+    },
+    "mod_class_tinkerer_plus_1_immobilize": {
+      "deck": "class"
+    },
+    "mod_class_tinkerer_plus_1_wound": {
+      "deck": "class"
+    },
+    "mod_class_tinkerer_plus_1": {
+      "deck": "class"
+    },
+    "mod_class_tinkerer_plus_3": {
+      "deck": "class"
+    },
+    "mod_class_tinkerer_target": {
+      "deck": "class"
+    },
+    "mod_class_tinkerer_wound_rolling": {
+      "deck": "class",
+      "special": "rolling"
+    }
+  },
+  "perks": [
+    {
+      "cards": [
+        {
+          "action": "remove",
+          "count": 2,
+          "card": "mod_basic_minus_1"
+        }
+      ],
+      "text": "Remove two [[icon_minus_1]] cards",
+      "count": 2
+    },
+    {
+      "cards": [
+        {
+          "action": "remove",
+          "card": "mod_basic_minus_2"
+        },
+        {
+          "action": "add",
+          "card": "mod_class_tinkerer_plus_0"
+        }
+      ],
+      "text": "Replace one [[icon_minus_2]] card with one [[icon_plus_0]] card"
+    },
+    {
+      "cards": [
+        {
+          "action": "remove",
+          "count": 4,
+          "card": "mod_basic_plus_0"
+        }
+      ],
+      "text": "Remove four [[icon_plus_0]] cards"
+    },
+    {
+      "cards": [
+        {
+          "action": "add",
+          "count": 2,
+          "card": "mod_class_tinkerer_plus_1"
+        }
+      ],
+      "text": "Add two [[icon_plus_1]] card"
+    },
+    {
+      "cards": [
+        {
+          "action": "add",
+          "card": "mod_class_tinkerer_plus_3"
+        }
+      ],
+      "text": "Add one [[icon_plus_3]] card"
+    },
+    {
+      "cards": [
+        {
+          "action": "add",
+          "card": "mod_class_tinkerer_wound_rolling"
+        }
+      ],
+      "text": "Add two [[icon_rolling]] WOUND [[icon_status_wound]] cards"
+    },
+    {
+      "cards": [
+        {
+          "action": "add",
+          "count": 3,
+          "card": "mod_class_tinkerer_muddle_rolling"
+        }
+      ],
+      "text": "Add three [[icon_rolling]] MUDDLE [[icon_status_muddle]] cards"
+    },
+    {
+      "cards": [
+        {
+          "action": "add",
+          "card": "mod_class_tinkerer_plus_1_wound"
+        }
+      ],
+      "text": "Add one [[icon_plus_1]] WOUND [[icon_status_wound]] card",
+      "count": 2
+    },
+    {
+      "cards": [
+        {
+          "action": "add",
+          "card": "mod_class_tinkerer_plus_1_immobilize"
+        }
+      ],
+      "text": "Add one [[icon_plus_1]] IMMOBILIZE [[icon_status_immobilize]] card",
+      "count": 2
+    },
+    {
+      "cards": [
+        {
+          "action": "add",
+          "card": "mod_class_tinkerer_plus_1_heal_2"
+        }
+      ],
+      "text": "Add one [[icon_plus_1]] HEAL [[icon_heal]] 2 card",
+      "count": 2
+    },
+    {
+      "cards": [
+        {
+          "action": "add",
+          "card": "mod_class_tinkerer_target"
+        }
+      ],
+      "text": "Add one ADD TARGET [[icon_target]] card"
+    },
+    {
+      "cards": [],
+      "text": "Ignore negative scenario effects"
+    }
+  ]
+}
