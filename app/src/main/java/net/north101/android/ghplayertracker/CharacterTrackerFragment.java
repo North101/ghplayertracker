@@ -148,7 +148,7 @@ public class CharacterTrackerFragment extends Fragment {
             characterTracker = new CharacterTracker(character, basicCards);
         }
 
-        int iconId = Util.getImageResource(getContext(), character.getCharacterClass().id + "_small");
+        int iconId = Util.getImageResource(getContext(), "icon_" + character.getCharacterClass().id);
         actionBar.setLogo(iconId);
         actionBar.setTitle(character.getName());
         actionBar.setBackgroundDrawable(new ColorDrawable(character.getCharacterClass().color));

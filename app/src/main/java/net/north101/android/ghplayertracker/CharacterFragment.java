@@ -96,7 +96,7 @@ public class CharacterFragment extends Fragment {
 
         CharacterClass characterClass = character.getCharacterClass();
 
-        int iconId = Util.getImageResource(getContext(), characterClass.id + "_small");
+        int iconId = Util.getImageResource(getContext(), "icon_" + characterClass.id);
         actionBar.setLogo(iconId);
         actionBar.setTitle(characterClass.name);
         actionBar.setBackgroundDrawable(new ColorDrawable(characterClass.color));
