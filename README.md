@@ -5,7 +5,7 @@ Only the starting classes have been implemented and unfortauntly I don't have en
 
 If you'd like to help all you need to do is the following:
 * Create and fill out a .json file for the class in the assets/ folder (example .json file: https://github.com/North101/ghplayertracker/blob/master/app/src/main/assets/class_brute.json). e.g. "class_brute.json"
-* * The key for each entry in "cards" represents an image for that card in the drawable/ folder
+* * The key for each entry in "cards" represents an image of that card in the drawable/ folder
 (Note: the filename of the .json file without the .json is the class id)
 * Add the class id to assets/classes.json
 * Rename the appropriate class icon in the drawable/ folder to the class id e.g. "class_brute.png". This will be the icon shown on the Classes screen
