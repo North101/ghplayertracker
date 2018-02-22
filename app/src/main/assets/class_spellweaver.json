@@ -54,42 +54,42 @@
       "cards": [
         {
           "action": "remove",
-          "count": 4,
-          "card": "mod_basic_plus_0"
+          "repeat": 4,
+          "card_id": "mod_basic_plus_0"
         }
       ],
       "text": "Remove four [[icon_plus_0]] cards"
     },
     {
+      "ticks": 2,
       "cards": [
         {
           "action": "remove",
-          "card": "mod_basic_minus_1"
+          "card_id": "mod_basic_minus_1"
         },
         {
           "action": "add",
-          "card": "mod_class_spellweaver_plus_1"
+          "card_id": "mod_class_spellweaver_plus_1"
         }
       ],
-      "text": "Replace one [[icon_minus_1]] card with one [[icon_plus_1]] card",
-      "count": 2
+      "text": "Replace one [[icon_minus_1]] card with one [[icon_plus_1]] card"
+    },
+    {
+      "ticks": 2,
+      "cards": [
+        {
+          "action": "add",
+          "repeat": 2,
+          "card_id": "mod_class_spellweaver_plus_1"
+        }
+      ],
+      "text": "Add two [[icon_plus_1]] cards"
     },
     {
       "cards": [
         {
           "action": "add",
-          "count": 2,
-          "card": "mod_class_spellweaver_plus_1"
-        }
-      ],
-      "text": "Add two [[icon_plus_1]] cards",
-      "count": 2
-    },
-    {
-      "cards": [
-        {
-          "action": "add",
-          "card": "mod_class_spellweaver_stun"
+          "card_id": "mod_class_spellweaver_stun"
         }
       ],
       "text": "Add one STUN [[icon_status_stun]] card"
@@ -98,7 +98,7 @@
       "cards": [
         {
           "action": "add",
-          "card": "mod_class_spellweaver_plus_1_wound"
+          "card_id": "mod_class_spellweaver_plus_1_wound"
         }
       ],
       "text": "Add one [[icon_plus_1]] WOUND [[icon_status_wound]] card"
@@ -107,7 +107,7 @@
       "cards": [
         {
           "action": "add",
-          "card": "mod_class_spellweaver_plus_1_immobilize"
+          "card_id": "mod_class_spellweaver_plus_1_immobilize"
         }
       ],
       "text": "Add one [[icon_plus_1]] IMMOBILIZE [[icon_status_immobilize]] card"
@@ -116,40 +116,40 @@
       "cards": [
         {
           "action": "add",
-          "card": "mod_class_spellweaver_plus_1_curse"
+          "card_id": "mod_class_spellweaver_plus_1_curse"
         }
       ],
       "text": "Add one [[icon_plus_1]] CURSE [[icon_curse]] card"
     },
     {
+      "ticks": 2,
       "cards": [
         {
           "action": "add",
-          "card": "mod_class_spellweaver_plus_2_fire"
+          "card_id": "mod_class_spellweaver_plus_2_fire"
         }
       ],
-      "text": "Add one [[icon_plus_2]] [[icon_element_fire]] card",
-      "count": 2
+      "text": "Add one [[icon_plus_2]] [[icon_element_fire]] card"
+    },
+    {
+      "ticks": 2,
+      "cards": [
+        {
+          "action": "add",
+          "card_id": "mod_class_spellweaver_plus_2_ice"
+        }
+      ],
+      "text": "Add one [[icon_plus_2]] [[icon_element_ice]] card"
     },
     {
       "cards": [
         {
           "action": "add",
-          "card": "mod_class_spellweaver_plus_2_ice"
-        }
-      ],
-      "text": "Add one [[icon_plus_2]] [[icon_element_ice]] card",
-      "count": 2
-    },
-    {
-      "cards": [
-        {
-          "action": "add",
-          "card": "mod_class_spellweaver_earth_rolling"
+          "card_id": "mod_class_spellweaver_earth_rolling"
         },
         {
           "action": "add",
-          "card": "mod_class_spellweaver_wind_rolling"
+          "card_id": "mod_class_spellweaver_wind_rolling"
         }
       ],
       "text": "Add one [[icon_rolling]] [[icon_element_earth]] and one [[icon_rolling]] [[icon_element_wind]] card"
@@ -158,11 +158,11 @@
       "cards": [
         {
           "action": "add",
-          "card": "mod_class_spellweaver_sun_rolling"
+          "card_id": "mod_class_spellweaver_sun_rolling"
         },
         {
           "action": "add",
-          "card": "mod_class_spellweaver_moon_rolling"
+          "card_id": "mod_class_spellweaver_moon_rolling"
         }
       ],
       "text": "Add one [[icon_rolling]] [[icon_element_sun]] and one [[icon_rolling]] [[icon_element_moon]] card"

@@ -45,22 +45,22 @@
   },
   "perks": [
     {
+      "ticks": 2,
       "cards": [
         {
           "action": "remove",
-          "count": 2,
-          "card": "mod_basic_minus_1"
+          "repeat": 2,
+          "card_id": "mod_basic_minus_1"
         }
       ],
-      "text": "Remove two [[icon_minus_1]] cards",
-      "count": 2
+      "text": "Remove two [[icon_minus_1]] cards"
     },
     {
       "cards": [
         {
           "action": "remove",
-          "count": 4,
-          "card": "mod_basic_plus_0"
+          "repeat": 4,
+          "card_id": "mod_basic_plus_0"
         }
       ],
       "text": "Remove four [[icon_plus_0]] cards"
@@ -69,11 +69,11 @@
       "cards": [
         {
           "action": "remove",
-          "card": "mod_basic_minus_2"
+          "card_id": "mod_basic_minus_2"
         },
         {
           "action": "add",
-          "card": "mod_class_scoundral_plus_0"
+          "card_id": "mod_class_scoundral_plus_0"
         }
       ],
       "text": "Replace one [[icon_minus_2]] card with one [[icon_plus_0]] card"
@@ -82,66 +82,66 @@
       "cards": [
         {
           "action": "remove",
-          "card": "mod_basic_minus_1"
+          "card_id": "mod_basic_minus_1"
         },
         {
           "action": "add",
-          "card": "mod_class_scoundral_plus_1"
+          "card_id": "mod_class_scoundral_plus_1"
         }
       ],
       "text": "Replace one [[icon_minus_1]] card with one [[icon_plus_1]] card"
     },
     {
+      "ticks": 2,
       "cards": [
         {
           "action": "remove",
-          "card": "mod_basic_plus_0"
+          "card_id": "mod_basic_plus_0"
         },
         {
           "action": "add",
-          "card": "mod_class_scoundral_plus_2"
+          "card_id": "mod_class_scoundral_plus_2"
         }
       ],
-      "text": "Replace one [[icon_plus_0]] card with one [[icon_plus_2]] card",
-      "count": 2
+      "text": "Replace one [[icon_plus_0]] card with one [[icon_plus_2]] card"
+    },
+    {
+      "ticks": 2,
+      "cards": [
+        {
+          "action": "add",
+          "card_id": "mod_class_scoundral_plus_1_rolling"
+        }
+      ],
+      "text": "Add two [[icon_rolling]] [[icon_plus_1]] cards"
     },
     {
       "cards": [
         {
           "action": "add",
-          "card": "mod_class_scoundral_plus_1_rolling"
-        }
-      ],
-      "text": "Add two [[icon_rolling]] [[icon_plus_1]] cards",
-      "count": 2
-    },
-    {
-      "cards": [
-        {
-          "action": "add",
-          "count": 2,
-          "card": "mod_class_scoundral_pierce_3_rolling"
+          "repeat": 2,
+          "card_id": "mod_class_scoundral_pierce_3_rolling"
         }
       ],
       "text": "Add two [[icon_rolling]] PIERCE [[icon_pierce]] 3 cards"
     },
     {
+      "ticks": 2,
       "cards": [
         {
           "action": "add",
-          "count": 2,
-          "card": "mod_class_scoundral_poison_rolling"
+          "repeat": 2,
+          "card_id": "mod_class_scoundral_poison_rolling"
         }
       ],
-      "text": "Add two [[icon_rolling]] POISON [[icon_status_poison]] cards",
-      "count": 2
+      "text": "Add two [[icon_rolling]] POISON [[icon_status_poison]] cards"
     },
     {
       "cards": [
         {
           "action": "add",
-          "count": 2,
-          "card": "mod_class_scoundral_muddle_rolling"
+          "repeat": 2,
+          "card_id": "mod_class_scoundral_muddle_rolling"
         }
       ],
       "text": "Add two [[icon_rolling]] MUDDLE [[icon_status_muddle]] cards"
@@ -150,7 +150,7 @@
       "cards": [
         {
           "action": "add",
-          "card": "mod_class_scoundral_invisible_rolling"
+          "card_id": "mod_class_scoundral_invisible_rolling"
         }
       ],
       "text": "Add one [[icon_rolling]] INVISIBLE [[icon_status_invisible]] card"

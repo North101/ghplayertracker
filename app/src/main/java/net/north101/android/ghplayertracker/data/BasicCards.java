@@ -49,7 +49,7 @@ public class BasicCards {
         for (int i = 0; i < basicData.length(); i++) {
             JSONObject basicCardData = basicData.getJSONObject(i);
 
-            String cardId = basicCardData.getString("card");
+            String cardId = basicCardData.getString("card_id");
             int count = basicCardData.optInt("count", 1);
             basicDeck.put(cardId, count);
         }

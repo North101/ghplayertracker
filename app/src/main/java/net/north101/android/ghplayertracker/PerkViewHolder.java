@@ -74,8 +74,8 @@ public class PerkViewHolder extends BaseViewHolder<CharacterPerk> {
     public void bind(CharacterPerk item) {
         super.bind(item);
 
-        perk2.setVisibility(item.perk.count >= 2 ? View.VISIBLE : View.GONE);
-        perk3.setVisibility(item.perk.count >= 3 ? View.VISIBLE : View.GONE);
+        perk2.setVisibility(item.perk.ticks >= 2 ? View.VISIBLE : View.GONE);
+        perk3.setVisibility(item.perk.ticks >= 3 ? View.VISIBLE : View.GONE);
 
         setText(item.perk.text);
         updatePerks();
@@ -89,7 +89,7 @@ public class PerkViewHolder extends BaseViewHolder<CharacterPerk> {
 
     @Override
     public void onClick(View view) {
-        if (this.item.ticks == this.item.perk.count) {
+        if (this.item.ticks == this.item.perk.ticks) {
             this.item.ticks = 0;
         } else {
             this.item.ticks += 1;

@@ -49,22 +49,22 @@
   },
   "perks": [
     {
+      "ticks": 2,
       "cards": [
         {
           "action": "remove",
-          "count": 2,
-          "card": "mod_basic_minus_1"
+          "repeat": 2,
+          "card_id": "mod_basic_minus_1"
         }
       ],
-      "text": "Remove two [[icon_minus_1]] cards",
-      "count": 2
+      "text": "Remove two [[icon_minus_1]] cards"
     },
     {
       "cards": [
         {
           "action": "remove",
-          "count": 4,
-          "card": "mod_basic_plus_0"
+          "repeat": 4,
+          "card_id": "mod_basic_plus_0"
         }
       ],
       "text": "Remove four [[icon_plus_0]] cards"
@@ -73,13 +73,13 @@
       "cards": [
         {
           "action": "remove",
-          "count": 2,
-          "card": "mod_basic_plus_1"
+          "repeat": 2,
+          "card_id": "mod_basic_plus_1"
         },
         {
           "action": "add",
-          "count": 2,
-          "card": "mod_class_mindthief_plus_2"
+          "repeat": 2,
+          "card_id": "mod_class_mindthief_plus_2"
         }
       ],
       "text": "Replace two [[icon_plus_1]] cards with two [[icon_plus_2]] cards"
@@ -88,42 +88,42 @@
       "cards": [
         {
           "action": "remove",
-          "card": "mod_basic_minus_1"
+          "card_id": "mod_basic_minus_2"
         },
         {
           "action": "add",
-          "card": "mod_class_mindthief_plus_0"
+          "card_id": "mod_class_mindthief_plus_0"
         }
       ],
-      "text": "Replace one [[icon_minus_1]] card with one [[icon_plus_0]] card"
+      "text": "Replace one [[icon_minus_2]] card with one [[icon_plus_0]] card"
+    },
+    {
+      "ticks": 2,
+      "cards": [
+        {
+          "action": "add",
+          "card_id": "mod_class_mindthief_plus_2_ice"
+        }
+      ],
+      "text": "Add one [[icon_plus_2]] [[icon_element_ice]] card"
+    },
+    {
+      "ticks": 2,
+      "cards": [
+        {
+          "action": "add",
+          "repeat": 2,
+          "card_id": "mod_class_mindthief_plus_1_rolling"
+        }
+      ],
+      "text": "Add two [[icon_rolling]] [[icon_plus_1]] cards"
     },
     {
       "cards": [
         {
           "action": "add",
-          "card": "mod_class_mindthief_plus_2_ice"
-        }
-      ],
-      "text": "Add one [[icon_plus_2]] [[icon_element_ice]] card",
-      "count": 2
-    },
-    {
-      "cards": [
-        {
-          "action": "add",
-          "count": 2,
-          "card": "mod_class_mindthief_plus_1_rolling"
-        }
-      ],
-      "text": "Add two [[icon_rolling]] [[icon_plus_1]] cards",
-      "count": 2
-    },
-    {
-      "cards": [
-        {
-          "action": "add",
-          "count": 3,
-          "card": "mod_class_mindthief_pull_1_rolling"
+          "repeat": 3,
+          "card_id": "mod_class_mindthief_pull_1_rolling"
         }
       ],
       "text": "Add three [[icon_rolling]] PULL [[icon_pull]] 1 cards"
@@ -132,8 +132,8 @@
       "cards": [
         {
           "action": "add",
-          "count": 3,
-          "card": "mod_class_mindthief_muddle_rolling"
+          "repeat": 3,
+          "card_id": "mod_class_mindthief_muddle_rolling"
         }
       ],
       "text": "Add three [[icon_rolling]] MUDDLE [[icon_status_muddle]] cards"
@@ -142,8 +142,8 @@
       "cards": [
         {
           "action": "add",
-          "count": 2,
-          "card": "mod_class_mindthief_immobilize_rolling"
+          "repeat": 2,
+          "card_id": "mod_class_mindthief_immobilize_rolling"
         }
       ],
       "text": "Add two [[icon_rolling]] IMMOBILIZE [[icon_status_immobilize]] cards"
@@ -152,7 +152,7 @@
       "cards": [
         {
           "action": "add",
-          "card": "mod_class_mindthief_stun_rolling"
+          "card_id": "mod_class_mindthief_stun_rolling"
         }
       ],
       "text": "Add one [[icon_rolling]] STUN [[icon_status_stun]] card"
@@ -161,11 +161,11 @@
       "cards": [
         {
           "action": "add",
-          "card": "mod_class_mindthief_disarm_rolling"
+          "card_id": "mod_class_mindthief_disarm_rolling"
         },
         {
           "action": "add",
-          "card": "mod_class_mindthief_muddle_rolling"
+          "card_id": "mod_class_mindthief_muddle_rolling"
         }
       ],
       "text": "Add one [[icon_rolling]] DISARM [[icon_status_disarm]] card and one [[icon_rolling]] MUDDLE [[icon_status_muddle]] card"

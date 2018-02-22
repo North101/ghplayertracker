@@ -46,87 +46,87 @@
       "cards": [
         {
           "action": "remove",
-          "count": 4,
-          "card": "mod_basic_plus_0"
+          "repeat": 4,
+          "card_id": "mod_basic_plus_0"
         }
       ],
       "text": "Remove four [[icon_plus_0]] cards"
     },
     {
+      "ticks": 3,
       "cards": [
         {
           "action": "remove",
-          "card": "mod_basic_minus_1"
+          "card_id": "mod_basic_minus_1"
         },
         {
           "action": "add",
-          "card": "mod_class_cragheart_plus_1"
+          "card_id": "mod_class_cragheart_plus_1"
         }
       ],
-      "text": "Replace one [[icon_minus_1]] card with one [[icon_plus_1]] card",
-      "count": 3
+      "text": "Replace one [[icon_minus_1]] card with one [[icon_plus_1]] card"
     },
     {
       "cards": [
         {
           "action": "add",
-          "card": "mod_class_cragheart_minus_2"
+          "card_id": "mod_class_cragheart_minus_2"
         },
         {
           "action": "add",
-          "count": 2,
-          "card": "mod_class_cragheart_plus_2"
+          "repeat": 2,
+          "card_id": "mod_class_cragheart_plus_2"
         }
       ],
       "text": "Add one [[icon_minus_2]] card and two [[icon_plus_2]] cards"
     },
     {
+      "ticks": 2,
       "cards": [
         {
           "action": "add",
-          "card": "mod_class_cragheart_plus_1_immobilize"
+          "card_id": "mod_class_cragheart_plus_1_immobilize"
         }
       ],
-      "text": "Add one [[icon_plus_1]] IMMOBILIZE [[icon_status_immobilize]] card",
-      "count": 2
+      "text": "Add one [[icon_plus_1]] IMMOBILIZE [[icon_status_immobilize]] card"
+    },
+    {
+      "ticks": 2,
+      "cards": [
+        {
+          "action": "add",
+          "card_id": "mod_class_cragheart_plus_2_muddle"
+        }
+      ],
+      "text": "Add one [[icon_plus_2]] MUDDLE [[icon_status_muddle]] card"
     },
     {
       "cards": [
         {
           "action": "add",
-          "card": "mod_class_cragheart_plus_2_muddle"
-        }
-      ],
-      "text": "Add one [[icon_plus_2]] MUDDLE [[icon_status_muddle]] card",
-      "count": 2
-    },
-    {
-      "cards": [
-        {
-          "action": "add",
-          "count": 2,
-          "card": "mod_class_cragheart_push_2_rolling"
+          "repeat": 2,
+          "card_id": "mod_class_cragheart_push_2_rolling"
         }
       ],
       "text": "Add two [[icon_rolling]] PUSH [[icon_push]] 2 cards"
     },
     {
+      "ticks": 2,
       "cards": [
         {
           "action": "add",
-          "count": 2,
-          "card": "mod_class_cragheart_earth_rolling"
+          "repeat": 2,
+          "card_id": "mod_class_cragheart_earth_rolling"
         }
       ],
-      "text": "Add two [[icon_rolling]] [[icon_element_earth]] cards",
-      "count": 2
+      "text": "Add two [[icon_rolling]] [[icon_element_earth]] cards"
     },
     {
       "cards": [
         {
           "action": "add",
-          "count": 2,
-          "card": "mod_class_cragheart_wind_rolling"
+          "repeat": 2,
+          "card_id": "mod_class_cragheart_wind_rolling"
         }
       ],
       "text": "Add two [[icon_rolling]] [[icon_element_wind]] cards"

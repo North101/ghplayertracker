@@ -12,13 +12,13 @@ import java.util.List;
 @Parcel
 public class Perk {
     public final List<PerkItem> perkItems;
-    public final int count;
+    public final int ticks;
     public final String text;
 
     @ParcelConstructor
-    Perk(List<PerkItem> perkItems, int count, String text) {
+    Perk(List<PerkItem> perkItems, int ticks, String text) {
         this.perkItems = perkItems;
-        this.count = count;
+        this.ticks = ticks;
         this.text = text;
     }
 
@@ -29,9 +29,9 @@ public class Perk {
             perkItems.add(PerkItem.parse(perksData.getJSONObject(i)));
         }
 
-        int count = data.optInt("count", 1);
+        int ticks = data.optInt("ticks", 1);
         String text = data.getString("text");
 
-        return new Perk(perkItems, count, text);
+        return new Perk(perkItems, ticks, text);
     }
 }

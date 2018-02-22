@@ -50,11 +50,11 @@ public class CharacterTracker {
                 for (PerkItem perkItem : perk.perkItems) {
                     Card card = Card.get(perkItem.cardId);
                     if (perkItem.perkAction == PerkAction.add) {
-                        for (int perkItemCount = 0; perkItemCount < perkItem.count; perkItemCount++) {
+                        for (int perkItemCount = 0; perkItemCount < perkItem.repeat; perkItemCount++) {
                             deck.add(card);
                         }
                     } else if (perkItem.perkAction == PerkAction.remove) {
-                        for (int perkItemCount = 0; perkItemCount < perkItem.count; perkItemCount++) {
+                        for (int perkItemCount = 0; perkItemCount < perkItem.repeat; perkItemCount++) {
                             deck.remove(card);
                         }
                     }

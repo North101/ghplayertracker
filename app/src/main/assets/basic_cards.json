@@ -37,28 +37,28 @@
   },
   "basic": [
     {
-      "card": "mod_basic_plus_0",
+      "card_id": "mod_basic_plus_0",
       "count": 6
     },
     {
-      "card": "mod_basic_plus_1",
+      "card_id": "mod_basic_plus_1",
       "count": 5
     },
     {
-      "card": "mod_basic_minus_1",
+      "card_id": "mod_basic_minus_1",
       "count": 5
     },
     {
-      "card": "mod_basic_minus_2"
+      "card_id": "mod_basic_minus_2"
     },
     {
-      "card": "mod_basic_plus_2"
+      "card_id": "mod_basic_plus_2"
     },
     {
-      "card": "mod_basic_miss_shuffle"
+      "card_id": "mod_basic_miss_shuffle"
     },
     {
-      "card": "mod_basic_x2_shuffle"
+      "card_id": "mod_basic_x2_shuffle"
     }
   ]
 }
