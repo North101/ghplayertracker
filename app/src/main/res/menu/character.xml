@@ -10,7 +10,7 @@
 
     <item
         android:id="@+id/start"
-        android:icon="@drawable/icon_attack_inverse"
+        android:icon="@drawable/icon_attack_inverse_2"
         android:title="Start"
         app:showAsAction="always"/>
 </menu>

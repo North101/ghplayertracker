@@ -1,5 +1,6 @@
 package net.north101.android.ghplayertracker;
 
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -27,6 +28,7 @@ import net.north101.android.ghplayertracker.data.Character;
 import net.north101.android.ghplayertracker.data.CharacterClass;
 import net.north101.android.ghplayertracker.data.CharacterList;
 import net.north101.android.ghplayertracker.data.CharacterPerk;
+import net.north101.android.ghplayertracker.data.CharacterTracker;
 import net.north101.android.ghplayertracker.data.Level;
 import net.north101.android.ghplayertracker.data.Perk;
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
@@ -41,6 +43,7 @@ import org.androidannotations.annotations.FocusChange;
 import org.androidannotations.annotations.FragmentArg;
 import org.androidannotations.annotations.InstanceState;
 import org.androidannotations.annotations.ItemSelect;
+import org.androidannotations.annotations.OnActivityResult;
 import org.androidannotations.annotations.OptionsItem;
 import org.androidannotations.annotations.OptionsMenu;
 import org.androidannotations.annotations.ViewById;
@@ -76,7 +79,6 @@ public class CharacterFragment extends Fragment {
     @ViewById(R.id.minus_1_text)
     TextView minus1TextView;
 
-    @InstanceState
     @FragmentArg("character")
     Character character;
 
@@ -120,6 +122,11 @@ public class CharacterFragment extends Fragment {
 
         levelAdapter = new LevelAdapter(characterClass.levels);
         levelsView.setAdapter(levelAdapter);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
 
         nameView.setText(character.getName());
         updateXPText();
@@ -127,11 +134,6 @@ public class CharacterFragment extends Fragment {
         updateMinus1Text();
         updateGoldText();
         updateHealthText();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
 
         //HACK!
         keyboardEeventListener = KeyboardVisibilityEvent.registerEventListener(getActivity(), new KeyboardVisibilityEventListener() {
@@ -171,12 +173,29 @@ public class CharacterFragment extends Fragment {
 
         Fragment fragment = new CharacterTrackerFragment_();
         fragment.setArguments(args);
+        fragment.setTargetFragment(this, 1);
 
         getActivity().getSupportFragmentManager().beginTransaction()
             .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right)
             .replace(R.id.content, fragment)
             .addToBackStack(null)
             .commit();
+    }
+
+    @OnActivityResult(1)
+    void onTrackerComplete(int resultCode, Intent data) {
+        if (resultCode != AppCompatActivity.RESULT_OK)
+            return;
+
+        int xp = data.getIntExtra("xp", 0);
+        character.setXP(character.getXP() + xp);
+
+        int gold = data.getIntExtra("gold", 0);
+        character.setGold(character.getGold() + gold);
+
+        Bundle args = new Bundle();
+        args.putParcelable("character", Parcels.wrap(character));
+        this.getArguments().putAll(args);
     }
 
     @ItemSelect(R.id.levels_select)
@@ -200,6 +219,10 @@ public class CharacterFragment extends Fragment {
             CharacterPerk characterPerk = perkAdapter.items.get(i);
             character.getPerks()[i] = characterPerk.ticks;
         }
+
+        Bundle args = new Bundle();
+        args.putParcelable("character", Parcels.wrap(character));
+        getArguments().putAll(args);
     }
 
     @EditorAction(R.id.xp_text)

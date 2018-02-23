@@ -1,9 +1,11 @@
 package net.north101.android.ghplayertracker;
 
+import android.content.Intent;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.drawable.ColorDrawable;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.ActionBar;
@@ -35,8 +37,12 @@ import org.androidannotations.annotations.EditorAction;
 import org.androidannotations.annotations.FocusChange;
 import org.androidannotations.annotations.FragmentArg;
 import org.androidannotations.annotations.InstanceState;
+import org.androidannotations.annotations.OptionsItem;
+import org.androidannotations.annotations.OptionsMenu;
 import org.androidannotations.annotations.ViewById;
 import org.json.JSONException;
+import org.parceler.Parcel;
+import org.parceler.Parcels;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,6 +52,7 @@ import java.util.Random;
 import net.north101.android.ghplayertracker.data.PlayedCards;
 import jp.wasabeef.recyclerview.animators.FadeInDownAnimator;
 
+@OptionsMenu(R.menu.character_tracker)
 @EFragment(R.layout.character_tracker_layout)
 public class CharacterTrackerFragment extends Fragment {
     Random randomGenerator = new Random();
@@ -224,6 +231,15 @@ public class CharacterTrackerFragment extends Fragment {
             keyboardEeventListener.unregister();
             keyboardEeventListener = null;
         }
+    }
+
+    @OptionsItem(R.id.complete)
+    void onCompleteClick() {
+        Intent intent = new Intent();
+        intent.putExtra("xp", characterTracker.getXp());
+        intent.putExtra("gold", characterTracker.getGold());
+        getTargetFragment().onActivityResult(this.getTargetRequestCode(), AppCompatActivity.RESULT_OK, intent);
+        getFragmentManager().popBackStack();
     }
 
     @Click(R.id.status_disarm)

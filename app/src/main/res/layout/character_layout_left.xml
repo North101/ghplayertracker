@@ -24,42 +24,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/xp_text"
-            style="@style/TagEditor.EditNumber"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"/>
-
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:adjustViewBounds="true"
-            android:src="@drawable/icon_xp"/>
-
-        <EditText
-            android:id="@+id/gold_text"
-            style="@style/TagEditor.EditNumber"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"/>
-
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:adjustViewBounds="true"
-            android:src="@drawable/icon_loot"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
         <Spinner
             android:id="@+id/levels_select"
             style="@style/TagEditor.Spinner"
@@ -94,6 +58,42 @@
             android:layout_gravity="center_vertical"
             android:adjustViewBounds="true"
             android:src="@drawable/icon_heal"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/xp_text"
+            style="@style/TagEditor.EditNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:adjustViewBounds="true"
+            android:src="@drawable/icon_xp"/>
+
+        <EditText
+            android:id="@+id/gold_text"
+            style="@style/TagEditor.EditNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:adjustViewBounds="true"
+            android:src="@drawable/icon_loot"/>
     </LinearLayout>
 
     <TextView
