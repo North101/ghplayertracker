@@ -1,10 +1,10 @@
 package net.north101.android.ghplayertracker;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.DividerItemDecoration;
@@ -22,9 +22,12 @@ import net.north101.android.ghplayertracker.data.CharacterList;
 import net.north101.android.ghplayertracker.data.SelectableCharacter;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 import org.json.JSONException;
+import org.json.JSONObject;
 import org.parceler.Parcels;
 
 import java.io.IOException;
@@ -43,6 +46,8 @@ public class CharacterListFragment extends Fragment implements ActionMode.Callba
     FloatingActionButton fab;
     @ViewById(R.id.character_list)
     RecyclerView listView;
+    @ViewById(R.id.loading)
+    View loadingView;
 
     CharacterListAdapter listAdapter;
 
@@ -62,15 +67,6 @@ public class CharacterListFragment extends Fragment implements ActionMode.Callba
             }
         });
 
-        CharacterList characterList;
-        try {
-            characterList = CharacterList.load(getContext());
-        } catch (IOException | JSONException | ParseException e) {
-            e.printStackTrace();
-
-            characterList = new CharacterList();
-        }
-
         LinearLayoutManager listViewLayoutManager = new LinearLayoutManager(getContext());
         listView.setLayoutManager(listViewLayoutManager);
 
@@ -85,7 +81,7 @@ public class CharacterListFragment extends Fragment implements ActionMode.Callba
         listAdapter.setOnClickListener(onClickListener);
         listView.setAdapter(listAdapter);
 
-        setCharacterList(characterList);
+        loadCharacterList();
     }
 
     public ActionMode actionMode;
@@ -134,7 +130,33 @@ public class CharacterListFragment extends Fragment implements ActionMode.Callba
         }
     };
 
+    void loadCharacterList() {
+        listView.setVisibility(View.INVISIBLE);
+        loadingView.setVisibility(View.VISIBLE);
+
+        loadCharacterListTask(getContext());
+    }
+
+    @Background()
+    void loadCharacterListTask(Context context) {
+        CharacterList characterList;
+        try {
+            characterList = CharacterList.load(context);
+        } catch (IOException | JSONException | ParseException e) {
+            e.printStackTrace();
+
+            characterList = new CharacterList();
+        }
+
+        setCharacterList(characterList);
+    }
+
+    @UiThread(propagation = UiThread.Propagation.REUSE)
     void setCharacterList(CharacterList characterList) {
+        if (this.isRemoving()) {
+            return;
+        }
+
         ArrayList<SelectableCharacter> selectableCharacterList = new ArrayList<>();
         for (Character character : characterList.values()) {
             selectableCharacterList.add(new SelectableCharacter(character, false));
@@ -146,17 +168,22 @@ public class CharacterListFragment extends Fragment implements ActionMode.Callba
             }
         });
 
+        loadingView.setVisibility(View.GONE);
+        listView.setVisibility(View.VISIBLE);
+
         int oldSize = listAdapter.items.size();
         listAdapter.items.clear();
         listAdapter.notifyItemRangeRemoved(0, oldSize);
         listAdapter.items.addAll(selectableCharacterList);
         listAdapter.notifyItemRangeInserted(0, listAdapter.items.size());
+        listView.scheduleLayoutAnimation();
     }
 
+    @Background
     void deleteSelectedCharacters() {
-        CharacterList newCharacterList;
+        JSONObject data;
         try {
-            newCharacterList = CharacterList.load(getContext());
+            data = CharacterList.loadJSON(getContext());
         } catch (IOException | JSONException | ParseException e) {
             e.printStackTrace();
             return;
@@ -165,20 +192,22 @@ public class CharacterListFragment extends Fragment implements ActionMode.Callba
         int charactersDeleted = 0;
         for (SelectableCharacter character : listAdapter.items) {
             if (character.selected) {
-                newCharacterList.remove(character.character.getId());
+                data.remove(character.character.getId().toString());
                 charactersDeleted++;
             }
         }
-
-        try {
-            newCharacterList.save(getContext());
-        } catch (IOException | JSONException e) {
-            e.printStackTrace();
+        if (charactersDeleted > 0) {
+            try {
+                CharacterList.saveJSON(getContext(), data);
+            } catch (IOException | JSONException e) {
+                e.printStackTrace();
+                Snackbar.make(getView(), "Failed to delete character(s)", Snackbar.LENGTH_SHORT).show();
+                return;
+            }
+            setCharacterList(CharacterList.parse(getContext(), data));
         }
-
-        setCharacterList(newCharacterList);
-
         Snackbar.make(getView(), "Deleted " + String.valueOf(charactersDeleted) + " character(s)", Snackbar.LENGTH_SHORT).show();
+
     }
 
     @Override
@@ -206,9 +235,5 @@ public class CharacterListFragment extends Fragment implements ActionMode.Callba
     @Override
     public void onDestroyActionMode(ActionMode actionMode) {
         this.actionMode = null;
-        for (int i = 0; i < listAdapter.items.size(); i++) {
-            listAdapter.items.get(i).selected = false;
-            listAdapter.notifyItemChanged(i);
-        }
     }
 }

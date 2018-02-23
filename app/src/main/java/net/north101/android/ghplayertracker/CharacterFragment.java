@@ -4,7 +4,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -24,11 +23,18 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import net.north101.android.ghplayertracker.data.Character;
+import net.north101.android.ghplayertracker.data.CharacterClass;
+import net.north101.android.ghplayertracker.data.CharacterList;
+import net.north101.android.ghplayertracker.data.CharacterPerk;
+import net.north101.android.ghplayertracker.data.Level;
+import net.north101.android.ghplayertracker.data.Perk;
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener;
 import net.yslibrary.android.keyboardvisibilityevent.Unregistrar;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.EditorAction;
 import org.androidannotations.annotations.FocusChange;
@@ -39,22 +45,13 @@ import org.androidannotations.annotations.OptionsItem;
 import org.androidannotations.annotations.OptionsMenu;
 import org.androidannotations.annotations.ViewById;
 import org.json.JSONException;
+import org.json.JSONObject;
 import org.parceler.Parcels;
 
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
-import net.north101.android.ghplayertracker.CharacterTrackerFragment_;
-
-import net.north101.android.ghplayertracker.data.Character;
-import net.north101.android.ghplayertracker.data.CharacterClass;
-import net.north101.android.ghplayertracker.data.CharacterList;
-import net.north101.android.ghplayertracker.data.CharacterPerk;
-import net.north101.android.ghplayertracker.data.Level;
-import net.north101.android.ghplayertracker.data.Perk;
 
 @EFragment(R.layout.character_layout)
 @OptionsMenu(R.menu.character)
@@ -307,23 +304,32 @@ public class CharacterFragment extends Fragment {
 
     @OptionsItem(R.id.save)
     void onMenuSaveClick() {
-        updateCharacter();
-        character.setModified(new Date());
+        saveCharacter();
+    }
 
-        CharacterList characterList;
+    void saveCharacter() {
+        saveCharacterTask();
+    }
+
+    @Background
+    void saveCharacterTask() {
+        JSONObject data;
         try {
-            characterList = CharacterList.load(getContext());
+            data = CharacterList.loadJSON(getContext());
         } catch (IOException | JSONException | ParseException e) {
             e.printStackTrace();
 
-            characterList = new CharacterList();
+            data = new JSONObject();
         }
 
         try {
-            characterList.put(character.getId(), character);
-            characterList.save(getContext());
+            data.put(character.getId().toString(), character.toJSON());
+            CharacterList.parse(getContext(), data).save(getContext());
         } catch (IOException | JSONException e) {
             e.printStackTrace();
+
+            Snackbar.make(getView(), "Failed to save", Snackbar.LENGTH_SHORT).show();
+            return;
         }
 
         Snackbar.make(getView(), "Saved", Snackbar.LENGTH_SHORT).show();

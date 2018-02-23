@@ -19,7 +19,7 @@ public class ClassList {
     public final List<String> classList;
 
     @ParcelConstructor
-    protected ClassList(List<String> classList) {
+    public ClassList(List<String> classList) {
         this.classList = classList;
     }
 

@@ -2,6 +2,8 @@ package net.north101.android.ghplayertracker.data;
 
 import android.content.Context;
 
+import net.north101.android.ghplayertracker.Util;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.parceler.ParcelConverter;
@@ -10,43 +12,54 @@ import org.parceler.Parcels;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.*;
 import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.UUID;
 
-import net.north101.android.ghplayertracker.Util;
-
 public class CharacterList extends HashMap<UUID, Character> implements ParcelConverter<CharacterList> {
     public CharacterList() {
     }
 
-    public static CharacterList load(Context context) throws IOException, JSONException, ParseException {
+    public static JSONObject loadJSON(Context context) throws IOException, JSONException, ParseException {
         InputStream inputStream = context.openFileInput("characters.json");
+        return new JSONObject(Util.readAssetString(inputStream));
+    }
 
-        JSONObject data = new JSONObject(Util.readAssetString(inputStream));
+    public static CharacterList parse(Context context, JSONObject data) {
         CharacterList characterList = new CharacterList();
 
         Iterator<String> keys = data.keys();
         while (keys.hasNext()) {
             String key = keys.next();
-            Character character = Character.parse(context, data.getJSONObject(key));
-            characterList.put(character.getId(), character);
+            try {
+                Character character = Character.parse(context, data.getJSONObject(key));
+                characterList.put(character.getId(), character);
+            } catch (JSONException | IOException | ParseException e) {
+                e.printStackTrace();
+            }
         }
 
         return characterList;
     }
 
-    public void save(Context context) throws IOException, JSONException {
-        try (FileOutputStream outputStream = context.openFileOutput("characters.json", Context.MODE_PRIVATE)) {
-            JSONObject data = new JSONObject();
-            for (Character character : this.values()) {
-                data.put(character.getId().toString(), character.toJSON());
-            }
+    public static CharacterList load(Context context) throws IOException, JSONException, ParseException {
+        return parse(context, loadJSON(context));
+    }
 
+    public static void saveJSON(Context context, JSONObject data) throws IOException, JSONException {
+        try (FileOutputStream outputStream = context.openFileOutput("characters.json", Context.MODE_PRIVATE)) {
             outputStream.write(data.toString().getBytes());
         }
+    }
+
+    public void save(Context context) throws IOException, JSONException {
+        JSONObject data = new JSONObject();
+        for (Character character : this.values()) {
+            data.put(character.getId().toString(), character.toJSON());
+        }
+
+        saveJSON(context, data);
     }
 
     @Override
