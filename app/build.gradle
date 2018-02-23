@@ -24,9 +24,8 @@ android {
         applicationId "net.north101.android.ghplayertracker"
         minSdkVersion 21
         targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        versionCode 2
+        versionName "0.2"
     }
     buildTypes {
         release {
