@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GH Player Tracker</string>
+    <string name="prefs_house_rule_vantage">house_rule_vantage</string>
 </resources>

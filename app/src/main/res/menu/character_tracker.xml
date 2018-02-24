@@ -7,4 +7,9 @@
         android:icon="@drawable/icon_tick_inverse"
         android:title="Complete"
         app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/houseRuleVantage"
+        android:title="House Rule Advantage/Disadvantage"
+        android:checkable="true"/>
 </menu>

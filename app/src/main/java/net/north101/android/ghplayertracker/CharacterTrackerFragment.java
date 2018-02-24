@@ -5,7 +5,6 @@ import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.drawable.ColorDrawable;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.ActionBar;
@@ -13,6 +12,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.view.inputmethod.EditorInfo;
@@ -26,6 +28,7 @@ import net.north101.android.ghplayertracker.data.Card;
 import net.north101.android.ghplayertracker.data.CardSpecial;
 import net.north101.android.ghplayertracker.data.Character;
 import net.north101.android.ghplayertracker.data.CharacterTracker;
+import net.north101.android.ghplayertracker.data.PlayedCards;
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener;
 import net.yslibrary.android.keyboardvisibilityevent.Unregistrar;
@@ -39,17 +42,16 @@ import org.androidannotations.annotations.FragmentArg;
 import org.androidannotations.annotations.InstanceState;
 import org.androidannotations.annotations.OptionsItem;
 import org.androidannotations.annotations.OptionsMenu;
+import org.androidannotations.annotations.OptionsMenuItem;
 import org.androidannotations.annotations.ViewById;
+import org.androidannotations.annotations.sharedpreferences.Pref;
 import org.json.JSONException;
-import org.parceler.Parcel;
-import org.parceler.Parcels;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import net.north101.android.ghplayertracker.data.PlayedCards;
 import jp.wasabeef.recyclerview.animators.FadeInDownAnimator;
 
 @OptionsMenu(R.menu.character_tracker)
@@ -132,6 +134,11 @@ public class CharacterTrackerFragment extends Fragment {
     Card blessCard;
     @InstanceState
     Card curseCard;
+    @OptionsMenuItem(R.id.houseRuleVantage)
+    MenuItem houseRuleVantageMenu;
+
+    @Pref
+    SharedPrefs_ sharedPrefs;
 
     Unregistrar keyboardEeventListener;
 
@@ -203,6 +210,13 @@ public class CharacterTrackerFragment extends Fragment {
     }
 
     @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+
+        updateHouseRuleVantageMenu();
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
 
@@ -235,12 +249,21 @@ public class CharacterTrackerFragment extends Fragment {
 
     @OptionsItem(R.id.complete)
     void onCompleteClick() {
-
         Intent intent = new Intent();
         intent.putExtra("xp", characterTracker.getXp());
         intent.putExtra("gold", characterTracker.getGold());
         getTargetFragment().onActivityResult(this.getTargetRequestCode(), AppCompatActivity.RESULT_OK, intent);
         getFragmentManager().popBackStack();
+    }
+
+    @OptionsItem(R.id.houseRuleVantage)
+    void onHomebrewVantageClick() {
+        sharedPrefs.houseRuleVantage().put(!sharedPrefs.houseRuleVantage().get());
+        updateHouseRuleVantageMenu();
+    }
+
+    void updateHouseRuleVantageMenu() {
+        houseRuleVantageMenu.setChecked(sharedPrefs.houseRuleVantage().get());
     }
 
     @Click(R.id.status_disarm)
@@ -351,7 +374,20 @@ public class CharacterTrackerFragment extends Fragment {
     void onDrawDeckClicked() {
         if (split) {
             ArrayList<Card> item1 = drawCards();
-            ArrayList<Card> item2 = drawCards();
+            ArrayList<Card> item2;
+            if (sharedPrefs.houseRuleVantage().get()) {
+                item2 = drawCards();
+            } else {
+                item2 = new ArrayList<>();
+                Card splitCard = drawCard();
+                if (splitCard != null) {
+                    if (splitCard.special == CardSpecial.Rolling) {
+                        item1.add(splitCard);
+                    } else {
+                        item2.add(splitCard);
+                    }
+                }
+            }
             if (hasShuffle(item1) || hasShuffle(item2)) {
                 setShuffleEnabled(true);
             }
@@ -690,7 +726,7 @@ public class CharacterTrackerFragment extends Fragment {
         playedCardsAdapter.updateShuffledHeaderPosition();
         updateActiveDecks();
 
-        Snackbar.make(getView(), "Shuffled", Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(getActivity().findViewById(R.id.content), "Shuffled", Snackbar.LENGTH_SHORT).show();
     }
 
     boolean hasShuffle(List<Card> cards) {
@@ -706,21 +742,28 @@ public class CharacterTrackerFragment extends Fragment {
         ArrayList<Card> cards = new ArrayList<>();
 
         while (true) {
-            if (characterTracker.getDeck().size() == 0) {
-                shuffle();
-                if (characterTracker.getDeck().size() == 0) {
-                    break;
-                }
-            }
+            Card card = drawCard();
+            if (card == null)
+                break;
 
-            int index = randomGenerator.nextInt(characterTracker.getDeck().size());
-            Card card = characterTracker.getDeck().remove(index);
             cards.add(card);
             if (card.special != CardSpecial.Rolling)
                 break;
         }
 
         return cards;
+    }
+
+    Card drawCard() {
+        if (characterTracker.getDeck().size() == 0) {
+            shuffle();
+            if (characterTracker.getDeck().size() == 0) {
+                return null;
+            }
+        }
+
+        int index = randomGenerator.nextInt(characterTracker.getDeck().size());
+        return characterTracker.getDeck().remove(index);
     }
 
     void updateActiveDecks() {
