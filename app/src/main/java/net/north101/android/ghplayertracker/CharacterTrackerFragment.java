@@ -372,34 +372,31 @@ public class CharacterTrackerFragment extends Fragment {
 
     @Click(R.id.draw_deck)
     void onDrawDeckClicked() {
+        ArrayList<Card> item1 = drawCards();
+        ArrayList<Card> item2;
         if (split) {
-            ArrayList<Card> item1 = drawCards();
-            ArrayList<Card> item2;
             if (sharedPrefs.houseRuleVantage().get()) {
                 item2 = drawCards();
             } else {
                 item2 = new ArrayList<>();
-                Card splitCard = drawCard();
-                if (splitCard != null) {
-                    if (splitCard.special == CardSpecial.Rolling) {
-                        item1.add(splitCard);
-                    } else {
-                        item2.add(splitCard);
+                if (!hasSpecial(item1, CardSpecial.Rolling)) {
+                    Card splitCard = drawCard();
+                    if (splitCard != null) {
+                        if (splitCard.special == CardSpecial.Rolling) {
+                            item1.add(splitCard);
+                        } else {
+                            item2.add(splitCard);
+                        }
                     }
                 }
             }
-            if (hasShuffle(item1) || hasShuffle(item2)) {
-                setShuffleEnabled(true);
-            }
-
-            characterTracker.getPlayedCardsHistory().add(0, new PlayedCards(item1, item2, false));
         } else {
-            ArrayList<Card> item = drawCards();
-            if (hasShuffle(item)) {
-                setShuffleEnabled(true);
-            }
-            characterTracker.getPlayedCardsHistory().add(0, new PlayedCards(item, null, false));
+            item2 = null;
         }
+        if (hasSpecial(item1, CardSpecial.Shuffle) || (item2 != null && hasSpecial(item2, CardSpecial.Shuffle))) {
+            setShuffleEnabled(true);
+        }
+        characterTracker.getPlayedCardsHistory().add(0, new PlayedCards(item1, item2, false));
         playedCardsAdapter.addItem(characterTracker.getPlayedCardsHistory().get(0));
         updateActiveDecks();
     }
@@ -729,9 +726,9 @@ public class CharacterTrackerFragment extends Fragment {
         Snackbar.make(getActivity().findViewById(R.id.content), "Shuffled", Snackbar.LENGTH_SHORT).show();
     }
 
-    boolean hasShuffle(List<Card> cards) {
+    boolean hasSpecial(List<Card> cards, CardSpecial special) {
         for (Card card : cards) {
-            if (card.special == CardSpecial.Shuffle) {
+            if (card.special == special) {
                 return true;
             }
         }
