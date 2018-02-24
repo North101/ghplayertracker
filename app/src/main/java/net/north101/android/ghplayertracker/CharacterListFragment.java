@@ -201,13 +201,12 @@ public class CharacterListFragment extends Fragment implements ActionMode.Callba
                 CharacterList.saveJSON(getContext(), data);
             } catch (IOException | JSONException e) {
                 e.printStackTrace();
-                Snackbar.make(getView(), "Failed to delete character(s)", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(getActivity().findViewById(R.id.content), "Failed to delete character(s)", Snackbar.LENGTH_SHORT).show();
                 return;
             }
             setCharacterList(CharacterList.parse(getContext(), data));
         }
-        Snackbar.make(getView(), "Deleted " + String.valueOf(charactersDeleted) + " character(s)", Snackbar.LENGTH_SHORT).show();
-
+        Snackbar.make(getActivity().findViewById(R.id.content), "Deleted " + String.valueOf(charactersDeleted) + " character(s)", Snackbar.LENGTH_SHORT).show();
     }
 
     @Override

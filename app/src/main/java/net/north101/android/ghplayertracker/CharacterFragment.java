@@ -1,5 +1,6 @@
 package net.north101.android.ghplayertracker;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -7,13 +8,13 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +29,6 @@ import net.north101.android.ghplayertracker.data.Character;
 import net.north101.android.ghplayertracker.data.CharacterClass;
 import net.north101.android.ghplayertracker.data.CharacterList;
 import net.north101.android.ghplayertracker.data.CharacterPerk;
-import net.north101.android.ghplayertracker.data.CharacterTracker;
 import net.north101.android.ghplayertracker.data.Level;
 import net.north101.android.ghplayertracker.data.Perk;
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
@@ -55,10 +55,11 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @EFragment(R.layout.character_layout)
 @OptionsMenu(R.menu.character)
-public class CharacterFragment extends Fragment {
+public class CharacterFragment extends Fragment implements OnBackPressedListener {
     ActionBar actionBar;
     @ViewById(R.id.toolbar)
     Toolbar toolbar;
@@ -81,6 +82,8 @@ public class CharacterFragment extends Fragment {
 
     @FragmentArg("character")
     Character character;
+    @InstanceState
+    Character savedCharacter;
 
     LevelAdapter levelAdapter;
     PerkAdapter perkAdapter;
@@ -92,6 +95,14 @@ public class CharacterFragment extends Fragment {
     void afterViews() {
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
+
+        if (savedCharacter == null) {
+            try {
+                savedCharacter = character.clone();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+            }
+        }
 
         CharacterClass characterClass = character.getCharacterClass();
 
@@ -122,6 +133,39 @@ public class CharacterFragment extends Fragment {
 
         levelAdapter = new LevelAdapter(characterClass.levels);
         levelsView.setAdapter(levelAdapter);
+    }
+
+    @Override
+    public boolean onBackPressed() {
+        updateCharacter();
+        if (Objects.equals(character, savedCharacter))
+            return false;
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("Would you like to save your changes?")
+            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    saveCharacter(new Runnable() {
+                        @Override
+                        public void run() {
+                            getFragmentManager().popBackStack();
+                        }
+                    });
+                }
+            })
+            .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    getFragmentManager().popBackStack();
+                }
+            })
+            .setNeutralButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            })
+            .show();
+
+        return true;
     }
 
     @Override
@@ -205,7 +249,6 @@ public class CharacterFragment extends Fragment {
     }
 
     void updateHealthText() {
-        Log.d("khhjv", String.valueOf(character.getLevel()));
         maxHealthView.setText(String.valueOf(character.getMaxHealth()));
     }
 
@@ -220,9 +263,7 @@ public class CharacterFragment extends Fragment {
             character.getPerks()[i] = characterPerk.ticks;
         }
 
-        Bundle args = new Bundle();
-        args.putParcelable("character", Parcels.wrap(character));
-        getArguments().putAll(args);
+        getArguments().putParcelable("character", Parcels.wrap(character));
     }
 
     @EditorAction(R.id.xp_text)
@@ -327,15 +368,16 @@ public class CharacterFragment extends Fragment {
 
     @OptionsItem(R.id.save)
     void onMenuSaveClick() {
-        saveCharacter();
+        updateCharacter();
+        saveCharacter(null);
     }
 
-    void saveCharacter() {
-        saveCharacterTask();
+    void saveCharacter(Runnable callback) {
+        saveCharacterTask(callback);
     }
 
     @Background
-    void saveCharacterTask() {
+    void saveCharacterTask(Runnable callback) {
         JSONObject data;
         try {
             data = CharacterList.loadJSON(getContext());
@@ -351,11 +393,17 @@ public class CharacterFragment extends Fragment {
         } catch (IOException | JSONException e) {
             e.printStackTrace();
 
-            Snackbar.make(getView(), "Failed to save", Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(getActivity().findViewById(R.id.content), "Failed to save", Snackbar.LENGTH_SHORT).show();
             return;
         }
 
-        Snackbar.make(getView(), "Saved", Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(getActivity().findViewById(R.id.content), "Saved", Snackbar.LENGTH_SHORT).show();
+
+        savedCharacter = character;
+
+        if (callback != null) {
+            getActivity().runOnUiThread(callback);
+        }
     }
 
     public class LevelAdapter extends BaseAdapter {

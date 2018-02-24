@@ -12,12 +12,13 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.TimeZone;
 import java.util.UUID;
 
 @Parcel
-public class Character {
+public class Character implements Cloneable {
     public static TimeZone TIMEZONE = TimeZone.getTimeZone("UTC");
     public static DateFormat DATE_FORMATTER = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
     public static int PERK_NOTES_COUNT = 6;
@@ -190,5 +191,47 @@ public class Character {
 
     public int getMaxHealth() {
         return getCurrentLevel().health;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Character)) return false;
+
+        Character character = (Character) o;
+
+        if (xp != character.xp) return false;
+        if (getLevel() != character.getLevel()) return false;
+        if (getGold() != character.getGold()) return false;
+        if (getMinus1() != character.getMinus1()) return false;
+        if (!getId().equals(character.getId())) return false;
+        if (!getCharacterClass().equals(character.getCharacterClass())) return false;
+        if (!getName().equals(character.getName())) return false;
+        if (!Arrays.equals(getPerks(), character.getPerks())) return false;
+        // Probably incorrect - comparing Object[] arrays with Arrays.equals
+        if (!Arrays.equals(getPerkNotes(), character.getPerkNotes())) return false;
+        if (!getCreated().equals(character.getCreated())) return false;
+        return getModified().equals(character.getModified());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId().hashCode();
+        result = 31 * result + getCharacterClass().hashCode();
+        result = 31 * result + getName().hashCode();
+        result = 31 * result + xp;
+        result = 31 * result + getLevel();
+        result = 31 * result + getGold();
+        result = 31 * result + Arrays.hashCode(getPerks());
+        result = 31 * result + Arrays.hashCode(getPerkNotes());
+        result = 31 * result + getMinus1();
+        result = 31 * result + getCreated().hashCode();
+        result = 31 * result + getModified().hashCode();
+        return result;
+    }
+
+    @Override
+    public Character clone() throws CloneNotSupportedException {
+        return (Character) super.clone();
     }
 }

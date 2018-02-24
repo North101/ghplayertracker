@@ -21,4 +21,19 @@ public class PerkNote {
     public void setTicks(int ticks) {
         this.ticks = Math.min(Math.max(ticks, 0), 3);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof PerkNote)) return false;
+
+        PerkNote perkNote = (PerkNote) o;
+
+        return getTicks() == perkNote.getTicks();
+    }
+
+    @Override
+    public int hashCode() {
+        return getTicks();
+    }
 }

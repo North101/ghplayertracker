@@ -23,4 +23,18 @@ public class MainActivity extends AppCompatActivity {
 
         init = true;
     }
+
+    @Override
+    public void onBackPressed() {
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.content);
+        if (!(fragment instanceof OnBackPressedListener)) {
+            super.onBackPressed();
+            return;
+        }
+
+        if (((OnBackPressedListener) fragment).onBackPressed())
+            return;
+
+        super.onBackPressed();
+    }
 }
