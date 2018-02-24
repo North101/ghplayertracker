@@ -143,7 +143,7 @@ public class CharacterFragment extends Fragment implements OnBackPressedListener
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle("Would you like to save your changes?")
-            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     saveCharacter(new Runnable() {
                         @Override
@@ -153,12 +153,12 @@ public class CharacterFragment extends Fragment implements OnBackPressedListener
                     });
                 }
             })
-            .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+            .setNegativeButton("No", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     getFragmentManager().popBackStack();
                 }
             })
-            .setNeutralButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            .setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     dialog.dismiss();
                 }

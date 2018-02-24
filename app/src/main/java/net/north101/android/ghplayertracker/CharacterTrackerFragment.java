@@ -249,6 +249,9 @@ public class CharacterTrackerFragment extends Fragment {
 
     @OptionsItem(R.id.complete)
     void onCompleteClick() {
+        parseXPText();
+        parseGoldText();
+
         Intent intent = new Intent();
         intent.putExtra("xp", characterTracker.getXp());
         intent.putExtra("gold", characterTracker.getGold());
