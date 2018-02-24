@@ -24,12 +24,12 @@ android {
         applicationId "net.north101.android.ghplayertracker"
         minSdkVersion 21
         targetSdkVersion 27
-        versionCode 3
-        versionName "0.3"
+        versionCode 4
+        versionName "0.3.1"
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
