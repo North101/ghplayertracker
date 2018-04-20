@@ -22,7 +22,7 @@
             android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_remove_circle_black_24dp"/>
+            app:srcCompat="@drawable/ic_remove_circle_black_24dp"/>
 
         <ImageView
             android:id="@+id/bless_plus"
@@ -31,7 +31,7 @@
             android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_add_circle_black_24dp"/>
+            app:srcCompat="@drawable/ic_add_circle_black_24dp"/>
 
         <EditText
             android:id="@+id/bless_text"
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:adjustViewBounds="true"
-            android:src="@drawable/icon_bless"/>
+            app:srcCompat="@drawable/icon_bless"/>
 
         <android.support.v4.widget.Space
             android:layout_width="8dp"
@@ -61,7 +61,7 @@
             android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_remove_circle_black_24dp"/>
+            app:srcCompat="@drawable/ic_remove_circle_black_24dp"/>
 
         <ImageView
             android:id="@+id/curse_plus"
@@ -70,7 +70,7 @@
             android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_add_circle_black_24dp"/>
+            app:srcCompat="@drawable/ic_add_circle_black_24dp"/>
 
         <EditText
             android:id="@+id/curse_text"
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:adjustViewBounds="true"
-            android:src="@drawable/icon_curse"/>
+            app:srcCompat="@drawable/icon_curse"/>
     </LinearLayout>
 
     <LinearLayout
@@ -108,7 +108,7 @@
                 android:layout_gravity="center"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:rotation="180"
-                android:src="@drawable/ic_call_split_black_24dp"/>
+                app:srcCompat="@drawable/ic_call_split_black_24dp"/>
         </FrameLayout>
 
         <ImageView
@@ -119,7 +119,7 @@
             android:layout_margin="8dp"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/card_back"/>
+            app:srcCompat="@drawable/card_back"/>
 
         <FrameLayout
             android:layout_width="0dp"
@@ -133,7 +133,7 @@
                 android:layout_height="48dp"
                 android:layout_gravity="center"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/icon_shuffle"/>
+                app:srcCompat="@drawable/icon_shuffle"/>
         </FrameLayout>
     </LinearLayout>
 
