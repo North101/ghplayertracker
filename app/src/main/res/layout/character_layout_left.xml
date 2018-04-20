@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -37,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:adjustViewBounds="true"
-            android:src="@drawable/icon_jump"/>
+            app:srcCompat="@drawable/icon_jump"/>
 
         <EditText
             android:id="@+id/max_health"
@@ -57,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:adjustViewBounds="true"
-            android:src="@drawable/icon_heal"/>
+            app:srcCompat="@drawable/icon_heal"/>
     </LinearLayout>
 
     <LinearLayout
@@ -78,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:adjustViewBounds="true"
-            android:src="@drawable/icon_xp"/>
+            app:srcCompat="@drawable/icon_xp"/>
 
         <EditText
             android:id="@+id/gold_text"
@@ -93,8 +94,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:adjustViewBounds="true"
-            android:src="@drawable/icon_loot"/>
+            app:srcCompat="@drawable/icon_loot"/>
     </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/retired"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retired"/>
 
     <TextView
         style="@style/TagEditor.Header"
@@ -125,7 +132,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:adjustViewBounds="true"
-                android:src="@drawable/icon_minus_1"/>
+                app:srcCompat="@drawable/icon_minus_1"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

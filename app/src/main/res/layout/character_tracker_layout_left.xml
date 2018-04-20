@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -21,7 +22,7 @@
             android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_remove_circle_black_24dp"/>
+            app:srcCompat="@drawable/ic_remove_circle_black_24dp"/>
 
         <ImageView
             android:id="@+id/health_plus"
@@ -30,7 +31,7 @@
             android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_add_circle_black_24dp"/>
+            app:srcCompat="@drawable/ic_add_circle_black_24dp"/>
 
         <EditText
             android:id="@+id/health_text"
@@ -48,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:adjustViewBounds="true"
-            android:src="@drawable/icon_heal"/>
+            app:srcCompat="@drawable/icon_heal"/>
 
         <android.support.v4.widget.Space
             android:layout_width="8dp"
@@ -84,7 +85,7 @@
             android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_remove_circle_black_24dp"/>
+            app:srcCompat="@drawable/ic_remove_circle_black_24dp"/>
 
         <ImageView
             android:id="@+id/xp_plus"
@@ -93,7 +94,7 @@
             android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_add_circle_black_24dp"/>
+            app:srcCompat="@drawable/ic_add_circle_black_24dp"/>
 
         <EditText
             android:id="@+id/xp_text"
@@ -111,7 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:adjustViewBounds="true"
-            android:src="@drawable/icon_xp"/>
+            app:srcCompat="@drawable/icon_xp"/>
 
         <android.support.v4.widget.Space
             android:layout_width="8dp"
@@ -124,7 +125,7 @@
             android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_remove_circle_black_24dp"/>
+            app:srcCompat="@drawable/ic_remove_circle_black_24dp"/>
 
         <ImageView
             android:id="@+id/gold_plus"
@@ -133,7 +134,7 @@
             android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_add_circle_black_24dp"/>
+            app:srcCompat="@drawable/ic_add_circle_black_24dp"/>
 
         <EditText
             android:id="@+id/gold_text"
@@ -151,7 +152,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:adjustViewBounds="true"
-            android:src="@drawable/icon_loot"/>
+            app:srcCompat="@drawable/icon_loot"/>
     </LinearLayout>
 
     <TextView
@@ -171,7 +172,7 @@
             android:layout_row="1"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/icon_status_disarm"/>
+            app:srcCompat="@drawable/icon_status_disarm"/>
 
         <ImageView
             android:id="@+id/status_stun"
@@ -181,7 +182,7 @@
             android:layout_row="1"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/icon_status_stun"/>
+            app:srcCompat="@drawable/icon_status_stun"/>
 
         <ImageView
             android:id="@+id/status_immobilize"
@@ -191,7 +192,7 @@
             android:layout_row="1"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/icon_status_immobilize"/>
+            app:srcCompat="@drawable/icon_status_immobilize"/>
 
         <ImageView
             android:id="@+id/status_strengthen"
@@ -201,7 +202,7 @@
             android:layout_row="1"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/icon_status_strengthen"/>
+            app:srcCompat="@drawable/icon_status_strengthen"/>
 
         <ImageView
             android:id="@+id/status_poison"
@@ -211,7 +212,7 @@
             android:layout_row="2"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/icon_status_poison"/>
+            app:srcCompat="@drawable/icon_status_poison"/>
 
         <ImageView
             android:id="@+id/status_wound"
@@ -221,7 +222,7 @@
             android:layout_row="2"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/icon_status_wound"/>
+            app:srcCompat="@drawable/icon_status_wound"/>
 
         <ImageView
             android:id="@+id/status_muddle"
@@ -231,7 +232,7 @@
             android:layout_row="2"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/icon_status_muddle"/>
+            app:srcCompat="@drawable/icon_status_muddle"/>
 
         <ImageView
             android:id="@+id/status_invisible"
@@ -241,6 +242,6 @@
             android:layout_row="2"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/icon_status_invisible"/>
+            app:srcCompat="@drawable/icon_status_invisible"/>
     </GridLayout>
 </LinearLayout>

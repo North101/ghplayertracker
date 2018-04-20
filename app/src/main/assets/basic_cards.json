@@ -15,19 +15,19 @@
     "mod_basic_plus_2": {
       "deck": "basic"
     },
-    "mod_basic_miss_shuffle": {
+    "mod_basic_null_shuffle": {
       "deck": "basic",
       "special": "shuffle"
     },
-    "mod_basic_x2_shuffle": {
+    "mod_basic_double_shuffle": {
       "deck": "basic",
       "special": "shuffle"
     },
-    "mod_extra_bless_remove": {
+    "mod_extra_double_bless_remove": {
       "deck": "extra",
       "special": "remove"
     },
-    "mod_extra_curse_remove": {
+    "mod_extra_null_curse_remove": {
       "deck": "extra",
       "special": "remove"
     },
@@ -55,10 +55,10 @@
       "card_id": "mod_basic_plus_2"
     },
     {
-      "card_id": "mod_basic_miss_shuffle"
+      "card_id": "mod_basic_null_shuffle"
     },
     {
-      "card_id": "mod_basic_x2_shuffle"
+      "card_id": "mod_basic_double_shuffle"
     }
   ]
 }

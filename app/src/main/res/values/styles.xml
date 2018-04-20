@@ -28,7 +28,7 @@
     <style name="PopupTheme" parent="ThemeOverlay.AppCompat.Light">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:background">@android:color/transparent</item>
+        <item name="background">@android:color/transparent</item>
     </style>
 
     <style name="TagEditor"/>
@@ -74,28 +74,28 @@
     </style>
 
     <style name="TagEditor.Header">
-        <item name="android:background">@drawable/light_header_dither</item>
+        <item name="background">@drawable/light_header_dither</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">?android:textColorSecondary</item>
         <item name="android:textSize">14sp</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:paddingStart">6dp</item>
+        <item name="paddingStart">6dp</item>
         <item name="android:layout_marginBottom">8dp</item>
         <item name="android:layout_marginTop">4dp</item>
-        <item name="android:textAllCaps">true</item>
+        <item name="textAllCaps">true</item>
     </style>
 
     <style name="TagEditor.Header.NoBackground" parent="TagEditor.Header">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:background">@null</item>
-        <item name="android:paddingEnd">0dp</item>
+        <item name="background">@null</item>
+        <item name="paddingEnd">0dp</item>
         <item name="android:paddingLeft">0dp</item>
         <item name="android:paddingRight">0dp</item>
-        <item name="android:paddingStart">0dp</item>
+        <item name="paddingStart">0dp</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
