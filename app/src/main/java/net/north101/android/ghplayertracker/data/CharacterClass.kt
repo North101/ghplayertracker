@@ -38,7 +38,7 @@ data class CharacterClass(
         const val LEVEL_MAX = 9
 
         @Throws(JSONException::class)
-        private fun parse(data: JSONObject): CharacterClass {
+        fun parse(data: JSONObject): CharacterClass {
             val id = data.getString("id")
             val name = decrypt(data.getString("name"))
             val color = Color.parseColor(data.getString("color"))
@@ -74,53 +74,54 @@ data class CharacterClass(
             return String(Base64.decode(value, Base64.DEFAULT))
         }
     }
+}
 
-    class CharacterClassData(val context: Context, val data: JSONArray) {
-        companion object {
-            fun load(context: Context): CharacterClassData {
-                val data = try {
-                    loadJSON(context)
-                } catch (e: Exception) {
-                    JSONArray()
-                }
 
-                return CharacterClassData(context, data)
+class CharacterClassData(val context: Context, val data: JSONArray) {
+    companion object {
+        fun load(context: Context): CharacterClassData {
+            val data = try {
+                loadJSON(context)
+            } catch (e: Exception) {
+                JSONArray()
             }
 
-            private fun getFileInput(context: Context): InputStream {
-                val file = File(context.getExternalFilesDir(null), "classes.json")
-                return if (file.exists()) {
-                    FileInputStream(file)
-                } else {
-                    context.assets.open("classes.json", Context.MODE_PRIVATE)
-                }
-            }
+            return CharacterClassData(context, data)
+        }
 
-            @Throws(IOException::class, JSONException::class, ParseException::class)
-            private fun loadJSON(context: Context): JSONArray {
-                val inputStream = getFileInput(context)
-                return JSONArray(Util.readInputString(inputStream))
+        private fun getFileInput(context: Context): InputStream {
+            val file = File(context.getExternalFilesDir(null), "classes.json")
+            return if (file.exists()) {
+                FileInputStream(file)
+            } else {
+                context.assets.open("classes.json", Context.MODE_PRIVATE)
             }
         }
 
-        fun toList(): ArrayList<CharacterClass> {
-            val items = ArrayList<CharacterClass>()
+        @Throws(IOException::class, JSONException::class, ParseException::class)
+        private fun loadJSON(context: Context): JSONArray {
+            val inputStream = getFileInput(context)
+            return JSONArray(Util.readInputString(inputStream))
+        }
+    }
 
-            for (index in 0 until data.length()) {
-                try {
-                    val character = CharacterClass.parse(data.getJSONObject(index))
-                    items.add(character)
-                } catch (e: JSONException) {
-                    e.printStackTrace()
-                } catch (e: IOException) {
-                    e.printStackTrace()
-                } catch (e: ParseException) {
-                    e.printStackTrace()
-                }
+    fun toList(): ArrayList<CharacterClass> {
+        val items = ArrayList<CharacterClass>()
 
+        for (index in 0 until data.length()) {
+            try {
+                val character = CharacterClass.parse(data.getJSONObject(index))
+                items.add(character)
+            } catch (e: JSONException) {
+                e.printStackTrace()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            } catch (e: ParseException) {
+                e.printStackTrace()
             }
 
-            return items
         }
+
+        return items
     }
 }

@@ -18,6 +18,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.*
 import net.north101.android.ghplayertracker.data.Character
+import net.north101.android.ghplayertracker.data.CharacterData
 import net.north101.android.ghplayertracker.data.CharacterPerk
 import net.north101.android.ghplayertracker.data.Level
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent
@@ -339,7 +340,7 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
 
     open fun saveCharacterTask(callback: Runnable?) {
         val data = try {
-            Character.CharacterData.load(context!!)
+            CharacterData.load(context!!)
         } catch (e: IOException) {
             e.printStackTrace()
             null
@@ -349,7 +350,7 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
         } catch (e: ParseException) {
             e.printStackTrace()
             null
-        } ?: Character.CharacterData(context!!, JSONObject())
+        } ?: CharacterData(context!!, JSONObject())
 
         data.update(character)
 

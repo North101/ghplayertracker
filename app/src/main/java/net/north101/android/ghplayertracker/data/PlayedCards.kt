@@ -3,7 +3,6 @@ package net.north101.android.ghplayertracker.data
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 import net.north101.android.ghplayertracker.RecyclerItemCompare
-import java.util.*
 
 @Parcelize
 data class PlayedCards(
@@ -17,4 +16,8 @@ data class PlayedCards(
             val id2 = pile2?.joinToString(",", "[", "]") { it.id } ?: ""
             return id1 + id2
         }
+
+    fun hasShuffle(): Boolean {
+        return pile1.any { it.special == CardSpecial.Shuffle } || pile2?.any { it.special == CardSpecial.Shuffle } ?: false
+    }
 }

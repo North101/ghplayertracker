@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -31,6 +32,7 @@ import org.androidannotations.annotations.sharedpreferences.Pref
 import org.json.JSONException
 import java.io.IOException
 import java.util.*
+import kotlin.collections.ArrayList
 
 @OptionsMenu(R.menu.character_tracker)
 @EFragment(R.layout.character_tracker_layout)
@@ -88,8 +90,10 @@ open class CharacterTrackerFragment : Fragment() {
     protected lateinit var cursePlusView: ImageView
     @ViewById(R.id.curse_minus)
     protected lateinit var curseMinusView: ImageView
-    @ViewById(R.id.split)
-    protected lateinit var splitIconView: ImageView
+    @ViewById(R.id.advantage)
+    protected lateinit var advantageIconView: ImageView
+    @ViewById(R.id.disadvantage)
+    protected lateinit var disadvantageIconView: ImageView
     @ViewById(R.id.shuffle)
     protected lateinit var shuffleIconView: ImageView
     @ViewById(R.id.active_deck_list)
@@ -110,7 +114,7 @@ open class CharacterTrackerFragment : Fragment() {
     protected var basicCards: BasicCards? = null
     @JvmField
     @InstanceState
-    protected var split = false
+    protected var attackStatus = AttackStatus.None
     @JvmField
     @InstanceState
     protected var shuffle = false
@@ -121,6 +125,12 @@ open class CharacterTrackerFragment : Fragment() {
     @JvmField
     @InstanceState
     protected var shuffleCount = 0
+
+    enum class AttackStatus {
+        None,
+        Advantage,
+        Disadvantage,
+    }
 
     @Pref
     protected lateinit var sharedPrefs: SharedPrefs_
@@ -192,7 +202,7 @@ open class CharacterTrackerFragment : Fragment() {
         playedCardsListView.adapter = playedCardsAdapter
         playedCardsAdapter.updateItems(characterTracker.playedCardsHistory)
 
-        setSplit(split)
+        setAttackStatus(attackStatus)
         setShuffleEnabled(shuffle)
         updateActiveDecks()
         ViewCompat.setNestedScrollingEnabled(playedCardsListView, false)
@@ -358,38 +368,92 @@ open class CharacterTrackerFragment : Fragment() {
 
     @Click(R.id.draw_deck)
     fun onDrawDeckClicked() {
-        val item1 = drawCards()
-        val item2: ArrayList<Card>?
-        if (split) {
+        val playedCards = if (attackStatus == AttackStatus.Advantage) {
             if (sharedPrefs.houseRuleVantage().get()) {
-                item2 = drawCards()
+                drawHouse()
             } else {
-                item2 = ArrayList()
-                if (!hasSpecial(item1, CardSpecial.Rolling)) {
-                    val splitCard = drawCard()
-                    if (splitCard != null) {
-                        if (splitCard.special == CardSpecial.Rolling) {
-                            item1.add(splitCard)
-                        } else {
-                            item2.add(splitCard)
-                        }
-                    }
-                }
+                drawAdvantage()
+            }
+        } else if (attackStatus == AttackStatus.Disadvantage) {
+            if (sharedPrefs.houseRuleVantage().get()) {
+                drawHouse()
+            } else {
+                drawDisadvantage()
             }
         } else {
-            item2 = null
+            drawNormal()
         }
-        if (hasSpecial(item1, CardSpecial.Shuffle) || item2 != null && hasSpecial(item2, CardSpecial.Shuffle)) {
+        if (playedCards.hasShuffle()) {
             setShuffleEnabled(true)
         }
-        characterTracker.playedCardsHistory.add(0, PlayedCards(item1, item2, null))
+        characterTracker.playedCardsHistory.add(0, playedCards)
         playedCardsAdapter.updateItems(characterTracker.playedCardsHistory)
         updateActiveDecks()
     }
 
-    @Click(R.id.split)
-    fun onSplitIconClick() {
-        toggleSplit()
+    fun drawNormal(): PlayedCards {
+        return PlayedCards(drawCards(), null, null)
+    }
+
+    fun drawAdvantage(): PlayedCards {
+        val item1 = drawCards()
+        val item2 = ArrayList<Card>()
+        if (item1.count() < 2) {
+            val card = drawCard()
+            if (card.special == CardSpecial.Rolling) {
+                item1.add(card)
+            } else {
+                item2.add(card)
+            }
+        }
+        return PlayedCards(item1, item2, null)
+    }
+
+    fun drawDisadvantage(): PlayedCards {
+        val item1 = ArrayList<Card>()
+        val item2 = ArrayList<Card>()
+        val card1 = drawCard()
+        val card2 = drawCard()
+
+        item1.add(card1)
+        if (card1.special == CardSpecial.Rolling && card2.special == CardSpecial.Rolling) {
+            item1.add(card2)
+            while (true) {
+                val card = drawCard()
+                item1.add(card)
+                if (card.special != CardSpecial.Rolling)
+                    break
+            }
+        } else {
+            item2.add(card2)
+        }
+        return PlayedCards(item1, item2, null)
+    }
+
+    fun drawHouse(): PlayedCards {
+        return PlayedCards(drawCards(), drawCards(), null)
+    }
+
+    @Click(R.id.advantage)
+    fun onAdvantageIconClick() {
+        val attackStatus = if (attackStatus == AttackStatus.Advantage) {
+            AttackStatus.None
+        } else {
+            AttackStatus.Advantage
+        }
+        setAttackStatus(attackStatus)
+        Log.d("advantage", attackStatus.toString())
+    }
+
+    @Click(R.id.disadvantage)
+    fun onDisadvantageIconClick() {
+        val attackStatus = if (attackStatus == AttackStatus.Disadvantage) {
+            AttackStatus.None
+        } else {
+            AttackStatus.Disadvantage
+        }
+        setAttackStatus(attackStatus)
+        Log.d("diadvantage", attackStatus.toString())
     }
 
     @Click(R.id.shuffle)
@@ -666,16 +730,23 @@ open class CharacterTrackerFragment : Fragment() {
         }
     }
 
-    fun toggleSplit() {
-        setSplit(!this.split)
-    }
+    fun setAttackStatus(attackStatus: AttackStatus) {
+        this.attackStatus = attackStatus
 
-    fun setSplit(split: Boolean) {
-        this.split = split
-        if (split) {
-            splitIconView.setImageResource(R.drawable.ic_call_split_black_24dp)
+        advantageIconView.colorFilter = if (attackStatus == AttackStatus.Advantage) {
+            null
         } else {
-            splitIconView.setImageResource(R.drawable.ic_arrow_upward_black_24dp)
+            val matrix = ColorMatrix()
+            matrix.setSaturation(0f)  //0 means grayscale
+            ColorMatrixColorFilter(matrix)
+        }
+
+        disadvantageIconView.colorFilter = if (attackStatus == AttackStatus.Disadvantage) {
+            null
+        } else {
+            val matrix = ColorMatrix()
+            matrix.setSaturation(0f)  //0 means grayscale
+            ColorMatrixColorFilter(matrix)
         }
     }
 
@@ -726,7 +797,7 @@ open class CharacterTrackerFragment : Fragment() {
         val cards = ArrayList<Card>()
 
         while (true) {
-            val card = drawCard() ?: break
+            val card = drawCard()
 
             cards.add(card)
             if (card.special != CardSpecial.Rolling)
@@ -736,12 +807,9 @@ open class CharacterTrackerFragment : Fragment() {
         return cards
     }
 
-    fun drawCard(): Card? {
+    fun drawCard(): Card {
         if (characterTracker.deck.size == 0) {
             shuffle()
-            if (characterTracker.deck.size == 0) {
-                return null
-            }
         }
 
         val index = randomGenerator.nextInt(characterTracker.deck.size)

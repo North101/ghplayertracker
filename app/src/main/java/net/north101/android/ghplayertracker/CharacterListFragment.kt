@@ -17,6 +17,7 @@ import android.view.MenuItem
 import android.view.View
 import com.mikepenz.itemanimators.SlideDownAlphaAnimator
 import net.north101.android.ghplayertracker.data.Character
+import net.north101.android.ghplayertracker.data.CharacterData
 import net.north101.android.ghplayertracker.data.SelectableCharacter
 import org.androidannotations.annotations.*
 import org.json.JSONException
@@ -161,7 +162,7 @@ open class CharacterListFragment : Fragment(), ActionMode.Callback {
     @Background
     open fun deleteCharacters(characterList: List<Character>) {
         val data = try {
-            Character.CharacterData.load(context!!)
+            CharacterData.load(context!!)
         } catch (e: IOException) {
             e.printStackTrace()
             return

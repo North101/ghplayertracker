@@ -120,71 +120,6 @@ data class Character(
         return data
     }
 
-    class CharacterData(val context: Context, val data: JSONObject) {
-        companion object {
-            fun load(context: Context): CharacterData {
-                val data = try {
-                    loadJSON(context)
-                } catch (e: Exception) {
-                    JSONObject()
-                }
-
-                return CharacterData(context, data)
-            }
-
-            private fun getFile(context: Context): File {
-                return File(context.getExternalFilesDir(null), "characters.json")
-            }
-
-            @Throws(IOException::class, JSONException::class, ParseException::class)
-            private fun loadJSON(context: Context): JSONObject {
-                val inputStream = FileInputStream(getFile(context))
-                return JSONObject(Util.readInputString(inputStream))
-            }
-        }
-
-        fun update(character: Character): CharacterData {
-            data.put(character.id.toString(), character.toJSON())
-
-            return this
-        }
-
-        fun delete(character: Character): CharacterData {
-            data.remove(character.id.toString())
-
-            return this
-        }
-
-        @Throws(IOException::class, JSONException::class)
-        fun save() {
-            FileOutputStream(getFile(context)).use { outputStream ->
-                outputStream.write(data.toString().toByteArray())
-            }
-        }
-
-        fun toList(classList: List<CharacterClass>): ArrayList<Character> {
-            val items = ArrayList<Character>()
-
-            val keys = data.keys()
-            while (keys.hasNext()) {
-                val key = keys.next()
-                try {
-                    val character = Character.parse(data.getJSONObject(key), classList)
-                    items.add(character)
-                } catch (e: JSONException) {
-                    e.printStackTrace()
-                } catch (e: IOException) {
-                    e.printStackTrace()
-                } catch (e: ParseException) {
-                    e.printStackTrace()
-                }
-
-            }
-
-            return items
-        }
-    }
-
     companion object {
         var TIMEZONE = TimeZone.getTimeZone("UTC")!!
         var DATE_FORMATTER: DateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
@@ -223,5 +158,70 @@ data class Character(
 
             return Character(id, characterClass, name, xp, level, gold, minus1, perks, perkNotes, created, modified, retired)
         }
+    }
+}
+
+class CharacterData(val context: Context, val data: JSONObject) {
+    companion object {
+        fun load(context: Context): CharacterData {
+            val data = try {
+                loadJSON(context)
+            } catch (e: Exception) {
+                JSONObject()
+            }
+
+            return CharacterData(context, data)
+        }
+
+        private fun getFile(context: Context): File {
+            return File(context.getExternalFilesDir(null), "characters.json")
+        }
+
+        @Throws(IOException::class, JSONException::class, ParseException::class)
+        private fun loadJSON(context: Context): JSONObject {
+            val inputStream = FileInputStream(getFile(context))
+            return JSONObject(Util.readInputString(inputStream))
+        }
+    }
+
+    fun update(character: Character): CharacterData {
+        data.put(character.id.toString(), character.toJSON())
+
+        return this
+    }
+
+    fun delete(character: Character): CharacterData {
+        data.remove(character.id.toString())
+
+        return this
+    }
+
+    @Throws(IOException::class, JSONException::class)
+    fun save() {
+        FileOutputStream(getFile(context)).use { outputStream ->
+            outputStream.write(data.toString().toByteArray())
+        }
+    }
+
+    fun toList(classList: List<CharacterClass>): ArrayList<Character> {
+        val items = ArrayList<Character>()
+
+        val keys = data.keys()
+        while (keys.hasNext()) {
+            val key = keys.next()
+            try {
+                val character = Character.parse(data.getJSONObject(key), classList)
+                items.add(character)
+            } catch (e: JSONException) {
+                e.printStackTrace()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            } catch (e: ParseException) {
+                e.printStackTrace()
+            }
+
+        }
+
+        return items
     }
 }
