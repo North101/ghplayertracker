@@ -23,29 +23,31 @@ data class Character(
         val id: UUID,
         val characterClass: CharacterClass,
         var name: String,
-        protected var _xp: Int,
         protected var _level: Int,
+        protected var _xp: Int,
         protected var _gold: Int,
-        protected var _minus1: Int,
         var perks: ArrayList<Int>,
-        var perkNotes: ArrayList<PerkNote>,
+        var perkNotes: ArrayList<Int>,
         val created: Date,
         var modified: Date,
-        var retired: Boolean
+        var retired: Boolean,
+        var items: ArrayList<Item>,
+        var notes: ArrayList<String>
 ) : Parcelable {
     constructor(characterClass: CharacterClass) : this(
             UUID.randomUUID(),
             characterClass,
             characterClass.name,
-            0,
             1,
             0,
             0,
             ArrayList<Int>(characterClass.perks.indices.map { 0 }),
-            ArrayList<PerkNote>(0.until(PERK_NOTES_COUNT).map { PerkNote(0) }),
+            ArrayList<Int>(0.until(PERK_NOTES_COUNT).map { 0 }),
             Date(),
             Date(),
-            false
+            false,
+            ArrayList(),
+            ArrayList()
     )
 
     val currentLevel: Level
@@ -75,27 +77,21 @@ data class Character(
             _gold = Math.max(value, 0)
         }
 
-    @IgnoredOnParcel
-    var minus1: Int
-        get() = _minus1
-        set(value) {
-            _minus1 = Math.max(value, 0)
-        }
-
     fun copy(): Character {
         return Character(
                 id,
                 characterClass,
                 name,
-                xp,
                 level,
+                xp,
                 gold,
-                minus1,
                 ArrayList(perks),
-                ArrayList(perkNotes.map { it.copy() }),
+                ArrayList(perkNotes.map { it }),
                 created,
                 modified,
-                retired
+                retired,
+                ArrayList(items.map { it.copy() }),
+                ArrayList(notes.map { it })
         )
     }
 
@@ -108,14 +104,18 @@ data class Character(
         data.put("xp", xp)
         data.put("level", level)
         data.put("gold", gold)
-        data.put("minus1", minus1)
         data.put("perks", JSONArray(perks))
-        data.put("perk_notes", JSONArray(perkNotes.map {
-            it.ticks
-        }))
+        data.put("perk_notes", JSONArray(perkNotes))
         data.put("created", DATE_FORMATTER.format(created))
         data.put("modified", DATE_FORMATTER.format(modified))
         data.put("retired", retired)
+        data.put("items", JSONArray(items.map {
+            val item = JSONObject()
+            item.put("name", it.name)
+            item.put("type", it.type.name)
+            item
+        }))
+        data.put("notes", JSONArray(notes))
 
         return data
     }
@@ -137,26 +137,55 @@ data class Character(
             val characterClass = classList.find { it.id == className }!!
 
             val name = data.getString("name")
-            val xp = data.getInt("xp")
-            val level = data.getInt("level")
-            val gold = data.getInt("gold")
-            val minus1 = data.getInt("minus1")
+            val xp = data.optInt("xp", 0)
+            val level = data.optInt("level", 0)
+            val gold = data.optInt("gold", 0)
 
-            val perksData = data.getJSONArray("perks")
-            val perks = ArrayList(0.until(perksData.length()).map {
-                perksData.getInt(it)
+            val perksData = data.optJSONArray("perks")
+            val perks = ArrayList(0.until(perksData?.length() ?: 0).map {
+                perksData.optInt(it, 0)
             })
 
-            val perkNotesData = data.getJSONArray("perk_notes")
+            val perkNotesData = data.optJSONArray("perk_notes")
             val perkNotes = ArrayList(0.until(PERK_NOTES_COUNT).map {
-                PerkNote(perkNotesData.getInt(it))
+                perkNotesData.optInt(it, 0)
             })
 
-            val created = DATE_FORMATTER.parse(data.getString("created"))
-            val modified = DATE_FORMATTER.parse(data.getString("modified"))
+            val created = DATE_FORMATTER.parse(data.optString("created"))
+            val modified = DATE_FORMATTER.parse(data.optString("modified"))
             val retired = data.optBoolean("retired", false)
 
-            return Character(id, characterClass, name, xp, level, gold, minus1, perks, perkNotes, created, modified, retired)
+            val itemsData = data.optJSONArray("items")
+            val items = ArrayList(0.until(itemsData?.length() ?: 0).mapNotNull {
+                try {
+                    val itemData = itemsData.getJSONObject(it)
+                    Item(itemData.getString("name"), ItemType.valueOf(itemData.getString("type")))
+                } catch (e: JSONException) {
+                    e.printStackTrace()
+                    null
+                }
+            })
+
+            val notesData = data.optJSONArray("notes")
+            val notes = ArrayList(0.until(notesData?.length() ?: 0).mapNotNull {
+                notesData.optString(it, null)
+            })
+
+            return Character(
+                    id,
+                    characterClass,
+                    name,
+                    level,
+                    xp,
+                    gold,
+                    perks,
+                    perkNotes,
+                    created,
+                    modified,
+                    retired,
+                    items,
+                    notes
+            )
         }
     }
 }

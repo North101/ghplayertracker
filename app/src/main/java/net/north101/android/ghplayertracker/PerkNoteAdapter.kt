@@ -3,20 +3,24 @@ package net.north101.android.ghplayertracker
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 
-import net.north101.android.ghplayertracker.data.PerkNote
+class PerkNoteAdapter : RecyclerView.Adapter<CharacterPerkNoteViewHolder>() {
+    val items = ArrayList<PerkNoteData>()
 
-class PerkNoteAdapter(
-        val items: ArrayList<PerkNote>
-) : RecyclerView.Adapter<PerkNoteViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PerkNoteViewHolder {
-        return PerkNoteViewHolder.inflate(parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterPerkNoteViewHolder {
+        return CharacterPerkNoteViewHolder.inflate(parent)
     }
 
-    override fun onBindViewHolder(holder: PerkNoteViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CharacterPerkNoteViewHolder, position: Int) {
         holder.bind(items[position])
     }
 
     override fun getItemCount(): Int {
         return items.size
+    }
+
+    fun updateItems(items: List<PerkNoteData>) {
+        this.items.clear()
+        this.items.addAll(items)
+        this.notifyDataSetChanged()
     }
 }

@@ -19,7 +19,7 @@ abstract class BaseViewHolder<T>(itemView: View) : RecyclerView.ViewHolder(itemV
 
     }
 
-    fun unbind() {
+    open fun unbind() {
         this.item = null
         this.listener = null
     }

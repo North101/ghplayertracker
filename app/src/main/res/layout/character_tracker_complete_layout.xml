@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="Scenario Level"/>
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/scenario_level"
+            style="@style/TagEditor.Spinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="false"
+            android:focusable="false"
+            android:longClickable="false"/>
+    </LinearLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="6">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_row="1"
+            android:gravity="center"
+            android:text="Multiplier"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:layout_row="1"
+            android:gravity="center"
+            android:text="Coins"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_column="5"
+            android:layout_columnWeight="1"
+            android:layout_row="1"
+            android:gravity="center"
+            android:text="Bonus"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_gravity="fill_horizontal"
+            android:layout_row="2"
+            android:gravity="end"
+            android:paddingRight="8dp"
+            android:text="Gold"/>
+
+        <EditText
+            android:id="@+id/scenario_multiplier"
+            style="@style/TagEditor.EditNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_row="2"
+            android:text="0"/>
+
+        <TextView
+            android:layout_column="2"
+            android:layout_row="2"
+            android:text="×"/>
+
+        <EditText
+            android:id="@+id/gained_loot"
+            style="@style/TagEditor.EditNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:layout_row="2"
+            android:text="0"/>
+
+        <TextView
+            android:layout_column="4"
+            android:layout_row="2"
+            android:text="+"/>
+
+        <EditText
+            android:id="@+id/bonus_gold"
+            style="@style/TagEditor.EditNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_column="5"
+            android:layout_columnWeight="1"
+            android:layout_row="2"
+            android:text="0"/>
+
+        <TextView
+            android:layout_column="0"
+            android:layout_gravity="fill_horizontal"
+            android:layout_row="3"
+            android:gravity="end"
+            android:paddingRight="8dp"
+            android:text="Total"/>
+
+        <EditText
+            android:id="@+id/total_gold"
+            style="@style/TagEditor.EditNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_row="3"
+            android:text="0"/>
+
+        <Space
+            android:layout_height="8dp"
+            android:layout_row="4"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_row="5"
+            android:gravity="center"
+            android:text="Completion"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:layout_row="5"
+            android:gravity="center"
+            android:text="Gained"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_column="5"
+            android:layout_columnWeight="1"
+            android:layout_row="5"
+            android:gravity="center"
+            android:text="Bonus"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_gravity="fill_horizontal"
+            android:layout_row="6"
+            android:gravity="end"
+            android:paddingRight="8dp"
+            android:text="XP"/>
+
+        <EditText
+            android:id="@+id/scenario_xp"
+            style="@style/TagEditor.EditNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_row="6"
+            android:text="0"/>
+
+        <TextView
+            android:layout_column="2"
+            android:layout_row="6"
+            android:text="+"/>
+
+        <EditText
+            android:id="@+id/gained_xp"
+            style="@style/TagEditor.EditNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:layout_row="6"
+            android:text="0"/>
+
+        <TextView
+            android:layout_column="4"
+            android:layout_row="6"
+            android:text="+"/>
+
+        <EditText
+            android:id="@+id/bonus_xp"
+            style="@style/TagEditor.EditNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_column="5"
+            android:layout_columnWeight="1"
+            android:layout_row="6"
+            android:text="0"/>
+
+        <TextView
+            android:layout_column="0"
+            android:layout_gravity="fill_horizontal"
+            android:layout_row="7"
+            android:gravity="end"
+            android:paddingRight="8dp"
+            android:text="Total"/>
+
+        <EditText
+            android:id="@+id/total_xp"
+            style="@style/TagEditor.EditNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_row="7"
+            android:text="0"/>
+    </GridLayout>
+</LinearLayout>

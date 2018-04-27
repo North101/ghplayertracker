@@ -35,4 +35,8 @@ class Card(
             return cache[cardId] ?: throw RuntimeException(cardId)
         }
     }
+
+    override fun equals(other: Any?): Boolean {
+        return (other is Card && other.id == this.id)
+    }
 }

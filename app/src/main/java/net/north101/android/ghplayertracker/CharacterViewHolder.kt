@@ -27,7 +27,7 @@ class CharacterViewHolder(view: View) : BaseViewHolder<SelectableCharacter>(view
     }
 
     companion object {
-        var layout = R.layout.character_item_view
+        var layout = R.layout.character_item
 
         fun inflate(parent: ViewGroup): CharacterViewHolder {
             return CharacterViewHolder(BaseViewHolder.inflate(parent, layout))

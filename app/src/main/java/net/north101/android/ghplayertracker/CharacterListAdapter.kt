@@ -7,7 +7,7 @@ import net.north101.android.ghplayertracker.BaseViewHolder.ClickListener
 import net.north101.android.ghplayertracker.data.SelectableCharacter
 import java.util.*
 
-class CharacterListAdapter() : RecyclerView.Adapter<BaseViewHolder<*>>() {
+class CharacterListAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
     private val items = ArrayList<RecyclerItemCompare>()
 
     private var listener: ClickListener<SelectableCharacter>? = null
@@ -52,7 +52,7 @@ class CharacterListAdapter() : RecyclerView.Adapter<BaseViewHolder<*>>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
         return when (viewType) {
-            HEADER_VIEW_TYPE -> HeaderViewHolder.inflate(parent)
+            HEADER_VIEW_TYPE -> TextHeaderViewHolder.inflate(parent)
             CHARACTER_VIEW_TYPE -> CharacterViewHolder.inflate(parent)
             else -> throw RuntimeException(viewType.toString())
         }
@@ -61,7 +61,7 @@ class CharacterListAdapter() : RecyclerView.Adapter<BaseViewHolder<*>>() {
     override fun onBindViewHolder(holder: BaseViewHolder<*>, position: Int) {
         val item = items[position]
         when (holder) {
-            is HeaderViewHolder -> holder.bind(item as TextHeader)
+            is TextHeaderViewHolder -> holder.bind(item as TextHeader)
             is CharacterViewHolder -> {
                 holder.bind(item as SelectableCharacter)
                 holder.setOnItemClickListener(this.onItemClickListener)

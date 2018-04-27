@@ -39,7 +39,7 @@ open class CharacterListFragment : Fragment(), ActionMode.Callback {
 
     protected lateinit var listAdapter: CharacterListAdapter
 
-    lateinit var classViewModel: ClassViewModel
+    lateinit var classModel: ClassModel
 
     @JvmField
     @InstanceState
@@ -65,7 +65,7 @@ open class CharacterListFragment : Fragment(), ActionMode.Callback {
             args.putParcelable("character", holder.item!!.character.copy())
             fragment.arguments = args
 
-            activity!!.supportFragmentManager.beginTransaction()
+            fragmentManager!!.beginTransaction()
                     .replace(R.id.content, fragment)
                     .addToBackStack(null)
                     .commit()
@@ -87,13 +87,13 @@ open class CharacterListFragment : Fragment(), ActionMode.Callback {
 
     @AfterViews
     fun afterViews() {
-        classViewModel = ViewModelProviders.of(this.activity!!).get(ClassViewModel::class.java)
+        classModel = ViewModelProviders.of(this.activity!!).get(ClassModel::class.java)
 
         (activity as AppCompatActivity).setSupportActionBar(toolbar)
 
         fab.setOnClickListener {
             val fragment = ClassListFragment_()
-            activity!!.supportFragmentManager.beginTransaction()
+            fragmentManager!!.beginTransaction()
                     .replace(R.id.content, fragment)
                     .addToBackStack(null)
                     .commit()
@@ -117,14 +117,14 @@ open class CharacterListFragment : Fragment(), ActionMode.Callback {
         super.onResume()
 
         view!!.post {
-            classViewModel.characterList.observe(this, Observer {
+            classModel.characterList.observe(this, Observer {
                 if (it != null) {
                     Log.d("setCharacterList", UUID.randomUUID().toString())
                     setCharacterList(it)
                 }
             })
-            if (classViewModel.characterList.value == null) {
-                classViewModel.characterList.load()
+            if (classModel.characterList.value == null) {
+                classModel.characterList.load()
             }
         }
     }
@@ -136,8 +136,8 @@ open class CharacterListFragment : Fragment(), ActionMode.Callback {
         }
 
         selectedCharacters = ArrayList(selectedCharacters.map { it.copy() })
-        classViewModel.characterList.removeObservers(this)
-        classViewModel.classList.removeObservers(this)
+        classModel.characterList.removeObservers(this)
+        classModel.classList.removeObservers(this)
     }
 
     @UiThread(propagation = UiThread.Propagation.REUSE)
@@ -180,19 +180,19 @@ open class CharacterListFragment : Fragment(), ActionMode.Callback {
                 data.save()
             } catch (e: IOException) {
                 e.printStackTrace()
-                Snackbar.make(activity!!.findViewById(R.id.content), "Failed to delete character(s)", Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(activity!!.findViewById(R.id.content), "Failed to delete item(s)", Snackbar.LENGTH_SHORT).show()
                 return
             } catch (e: JSONException) {
                 e.printStackTrace()
-                Snackbar.make(activity!!.findViewById(R.id.content), "Failed to delete character(s)", Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(activity!!.findViewById(R.id.content), "Failed to delete item(s)", Snackbar.LENGTH_SHORT).show()
                 return
             }
 
             view!!.post {
-                classViewModel.characterList.load()
+                classModel.characterList.load()
             }
         }
-        Snackbar.make(activity!!.findViewById(R.id.content), "Deleted " + characterList.count().toString() + " character(s)", Snackbar.LENGTH_SHORT).show()
+        Snackbar.make(activity!!.findViewById(R.id.content), "Deleted " + characterList.count().toString() + " item(s)", Snackbar.LENGTH_SHORT).show()
     }
 
     override fun onCreateActionMode(actionMode: ActionMode, menu: Menu): Boolean {

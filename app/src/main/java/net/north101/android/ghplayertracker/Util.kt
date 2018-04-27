@@ -1,7 +1,14 @@
 package net.north101.android.ghplayertracker
 
+import android.arch.lifecycle.LifecycleOwner
+import android.arch.lifecycle.LiveData
+import android.arch.lifecycle.MediatorLiveData
+import android.arch.lifecycle.Observer
 import android.content.Context
+import android.graphics.ColorMatrix
+import android.graphics.ColorMatrixColorFilter
 import android.util.Log
+import android.widget.ImageView
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStream
@@ -26,5 +33,18 @@ object Util {
         if (i == 0)
             Log.d("getImageResource", name)
         return i
+    }
+}
+
+fun setImageViewGreyscale(imageView: ImageView, set: Boolean) {
+    if (set) {
+        val matrix = ColorMatrix()
+        matrix.setSaturation(0f)  //0 means grayscale
+        val cf = ColorMatrixColorFilter(matrix)
+        imageView.colorFilter = cf
+        imageView.alpha = 0.5f
+    } else {
+        imageView.colorFilter = null
+        imageView.alpha = 1.0f
     }
 }

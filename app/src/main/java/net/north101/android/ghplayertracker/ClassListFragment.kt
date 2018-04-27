@@ -23,7 +23,7 @@ open class ClassListFragment : Fragment() {
     @ViewById(R.id.loading)
     protected lateinit var loadingView: View
 
-    lateinit var classViewModel: ClassViewModel
+    lateinit var classModel: ClassModel
 
     protected lateinit var listAdapter: ClassListAdapter
 
@@ -36,7 +36,7 @@ open class ClassListFragment : Fragment() {
             args.putParcelable("character", character)
             fragment.arguments = args
 
-            activity!!.supportFragmentManager.beginTransaction()
+            fragmentManager!!.beginTransaction()
                     .replace(R.id.content, fragment)
                     .addToBackStack(null)
                     .commit()
@@ -45,7 +45,7 @@ open class ClassListFragment : Fragment() {
 
     @AfterViews
     fun afterViews() {
-        classViewModel = ViewModelProviders.of(this.activity!!).get(ClassViewModel::class.java)
+        classModel = ViewModelProviders.of(this.activity!!).get(ClassModel::class.java)
 
         listAdapter = ClassListAdapter()
         listAdapter.setOnClickListener(onClickListener)
@@ -59,11 +59,11 @@ open class ClassListFragment : Fragment() {
 
         listView.adapter = listAdapter
 
-        if (classViewModel.classList.value == null) {
-            classViewModel.classList.load()
+        if (classModel.classList.value == null) {
+            classModel.classList.load()
         }
         view!!.post {
-            classViewModel.classList.observe(this, Observer {
+            classModel.classList.observe(this, Observer {
                 setClassList(it)
             })
         }

@@ -1,91 +1,84 @@
 package net.north101.android.ghplayertracker
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
-import android.support.v4.view.ViewCompat
 import android.support.v7.app.ActionBar
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.*
+import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.inputmethod.EditorInfo
-import android.widget.*
+import android.util.Log
 import net.north101.android.ghplayertracker.data.Character
 import net.north101.android.ghplayertracker.data.CharacterData
-import net.north101.android.ghplayertracker.data.CharacterPerk
-import net.north101.android.ghplayertracker.data.Level
-import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent
-import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener
-import net.yslibrary.android.keyboardvisibilityevent.Unregistrar
 import org.androidannotations.annotations.*
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
 import java.text.ParseException
-import java.util.*
 
 @OptionsMenu(R.menu.character)
-@EFragment(R.layout.character_layout)
+@EFragment(R.layout.character_tracker_layout)
 open class CharacterFragment : Fragment(), OnBackPressedListener {
     protected lateinit var actionBar: ActionBar
     @ViewById(R.id.toolbar)
     protected lateinit var toolbar: Toolbar
-    @ViewById(R.id.max_health)
-    protected lateinit var maxHealthView: TextView
-    @ViewById(R.id.xp_text)
-    protected lateinit var xpTextView: EditText
-    @ViewById(R.id.levels_select)
-    protected lateinit var levelsView: Spinner
-    @ViewById(R.id.gold_text)
-    protected lateinit var goldTextView: EditText
-    @ViewById(R.id.perk_list)
-    protected lateinit var perkListView: RecyclerView
-    @ViewById(R.id.perk_note_grid)
-    protected lateinit var perkNoteGridView: RecyclerView
-    @ViewById(R.id.name)
-    protected lateinit var nameView: TextView
-    @ViewById(R.id.minus_1_text)
-    protected lateinit var minus1TextView: TextView
-    @ViewById(R.id.retired)
-    protected lateinit var retiredView: CheckBox
+    @ViewById(R.id.list1)
+    protected lateinit var listView1: RecyclerView
+    @ViewById(R.id.list2)
+    protected lateinit var listView2: RecyclerView
+
+    protected lateinit var listAdapter1: CharacterAdapter
+    protected lateinit var listAdapter2: CharacterAdapter
 
     @FragmentArg("character")
     @InstanceState
     protected lateinit var character: Character
-    @JvmField
-    @InstanceState
-    protected var savedCharacter: Character? = null
 
-    protected lateinit var levelAdapter: LevelAdapter
-    protected lateinit var perkAdapter: PerkAdapter
-    protected lateinit var perkNoteAdapter: PerkNoteAdapter
+    lateinit var classModel: ClassModel
+    lateinit var characterModel: CharacterModel
+    lateinit var trackerResultModel: TrackerResultModel
 
-    var keyboardEventListener: Unregistrar? = null
+    override fun onCreate(state: Bundle?) {
+        super.onCreate(state)
 
-    lateinit var classViewModel: ClassViewModel
+        classModel = ViewModelProviders.of(this.activity!!).get(ClassModel::class.java)
+        characterModel = ViewModelProviders.of(this).get(CharacterModel::class.java)
+        trackerResultModel = ViewModelProviders.of(this).get(TrackerResultModel::class.java)
+
+        if (state == null) {
+            characterModel.fromData(character)
+        } else {
+            Log.d("test", (state.getParcelable("character_model") as Character).name)
+            characterModel.fromData(state.getParcelable("character_model"))
+        }
+    }
+
+    override fun onSaveInstanceState(state: Bundle) {
+        state.putParcelable("character_model", characterModel.toData())
+
+        super.onSaveInstanceState(state)
+    }
 
     @AfterViews
     fun afterViews() {
-        classViewModel = ViewModelProviders.of(this.activity!!).get(ClassViewModel::class.java)
+        if (trackerResultModel.gold > 0) {
+            characterModel.gold.value = (characterModel.gold.value ?: 0) + trackerResultModel.gold
+            trackerResultModel.gold = 0
+        }
+        if (trackerResultModel.xp > 0) {
+            characterModel.xp.value = (characterModel.xp.value ?: 0) + trackerResultModel.xp
+            trackerResultModel.xp = 0
+        }
 
         (activity as AppCompatActivity).setSupportActionBar(toolbar)
         actionBar = (activity as AppCompatActivity).supportActionBar!!
-
-        if (savedCharacter == null) {
-            try {
-                savedCharacter = character.copy()
-            } catch (e: CloneNotSupportedException) {
-                e.printStackTrace()
-            }
-
-        }
 
         val characterClass = character.characterClass
 
@@ -99,246 +92,161 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
         c = Color.HSVToColor(hsv)
         actionBar.setBackgroundDrawable(ColorDrawable(c))
 
-        val characterPerkList = characterClass.perks.mapIndexed { index, i ->
-            CharacterPerk(i, character.perks.getOrElse(index, { 0 }))
+        if (!this::listAdapter1.isInitialized) {
+            listAdapter1 = CharacterAdapter()
+        }
+        listAdapter1.onNumberEditClick = callback@{
+            val fragment = when (it) {
+                "level" -> CharacterEditLevelDialog_.builder().build()
+                "xp" -> CharacterEditXPDialog_.builder().build()
+                "gold" -> CharacterEditGoldDialog_.builder().build()
+                else -> null
+            } ?: return@callback
+            fragment.setTargetFragment(this@CharacterFragment, 0)
+            fragment.show(fragmentManager, "CharacterNumberEdit")
+        }
+        listAdapter1.onItemAddClick = {
+            val fragment = CharacterItemDialog_.builder().build()
+            fragment.setTargetFragment(this, 0)
+
+            fragment.show(fragmentManager, "CharacterItemDialog_")
+        }
+        listAdapter1.onItemEditClick = {
+            val args = Bundle()
+            args.putInt("index", characterModel.items.value!!.indexOf(it))
+
+            val fragment = CharacterItemDialog_.builder().build()
+            fragment.arguments = args
+            fragment.setTargetFragment(this, 0)
+
+            fragment.show(fragmentManager, "CharacterNoteDialog")
+        }
+        listAdapter1.onItemDeleteClick = {
+            characterModel.items.value!!.remove(it)
+            characterModel.items.value = characterModel.items.value
+
+        }
+        listAdapter1.onNoteAddClick = {
+            val fragment = CharacterNoteDialog_.builder().build()
+            fragment.setTargetFragment(this, 0)
+
+            fragment.show(fragmentManager, "CharacterNoteDialog")
+        }
+        listAdapter1.onNoteEditClick = {
+            val args = Bundle()
+            args.putInt("index", characterModel.notes.value!!.indexOf(it.note))
+
+            val fragment = CharacterNoteDialog_.builder().build()
+            fragment.arguments = args
+            fragment.setTargetFragment(this, 0)
+
+            fragment.show(fragmentManager, "CharacterNoteDialog")
+        }
+        listAdapter1.onNoteDeleteClick = {
+            characterModel.notes.value!!.remove(it.note)
+            characterModel.notes.value = characterModel.notes.value
         }
 
-        val perkListLayoutManager = LinearLayoutManager(context)
-        perkListView.layoutManager = perkListLayoutManager
-        perkListView.itemAnimator = DefaultItemAnimator()
-        perkAdapter = PerkAdapter(characterPerkList)
-        perkListView.adapter = perkAdapter
-        ViewCompat.setNestedScrollingEnabled(perkListView, false)
+        val listLayoutManager1 = GridLayoutManager(context, 3)
+        listLayoutManager1.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int): Int {
+                val item = listAdapter1.getItem(position)
+                return if (item is CharacterAdapter.PerkNote) {
+                    1
+                } else {
+                    3
+                }
+            }
+        }
+        listView1.layoutManager = listLayoutManager1
+        listView1.adapter = listAdapter1
 
-        val perkNoteListLayoutManager = GridLayoutManager(context, 3)
-        perkNoteGridView.layoutManager = perkNoteListLayoutManager
-        perkNoteGridView.itemAnimator = DefaultItemAnimator()
-        perkNoteAdapter = PerkNoteAdapter(character.perkNotes)
-        perkNoteGridView.adapter = perkNoteAdapter
-        ViewCompat.setNestedScrollingEnabled(perkListView, false)
+        if (!this::listAdapter2.isInitialized) {
+            listAdapter2 = CharacterAdapter()
+        }
 
-        levelAdapter = LevelAdapter(characterClass.levels)
-        levelsView.adapter = levelAdapter
+        val listLayoutManager2 = GridLayoutManager(context, 3)
+        listLayoutManager2.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int): Int {
+                val item = listAdapter2.getItem(position)
+                return if (item is CharacterAdapter.PerkNote) {
+                    1
+                } else {
+                    3
+                }
+            }
+        }
+        listView2.layoutManager = listLayoutManager2
+        listView2.adapter = listAdapter2
+
+        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            listAdapter1.display = CharacterAdapter.DisplayItems.Both
+            listAdapter2.display = CharacterAdapter.DisplayItems.None
+        } else {
+            listAdapter1.display = CharacterAdapter.DisplayItems.Left
+            listAdapter2.display = CharacterAdapter.DisplayItems.Right
+        }
+        listAdapter1.updateItems(characterModel)
+        listAdapter2.updateItems(characterModel)
+
+        characterModel.items.observe(this, Observer {
+            listAdapter1.updateItems(characterModel)
+            listAdapter2.updateItems(characterModel)
+        })
+        characterModel.notes.observe(this, Observer {
+            listAdapter1.updateItems(characterModel)
+            listAdapter2.updateItems(characterModel)
+        })
     }
 
     override fun onBackPressed(): Boolean {
-        updateCharacter()
-        if (character == savedCharacter)
+        if (characterModel.toData() == character)
             return false
 
         val builder = AlertDialog.Builder(context!!)
         builder.setTitle("Would you like to save your changes?")
-                .setPositiveButton("Yes") { dialog, which -> saveCharacter(Runnable { fragmentManager!!.popBackStack() }) }
-                .setNegativeButton("No") { dialog, which -> fragmentManager!!.popBackStack() }
-                .setNeutralButton("Cancel") { dialog, which -> dialog.dismiss() }
+                .setPositiveButton("Yes") { dialog, which ->
+                    saveCharacter(characterModel.toData(), Runnable {
+                        fragmentManager!!.popBackStack()
+                    })
+                }
+                .setNegativeButton("No") { dialog, which ->
+                    fragmentManager!!.popBackStack()
+                }
+                .setNeutralButton("Cancel") { dialog, which ->
+                    dialog.dismiss()
+                }
                 .show()
 
         return true
     }
 
-    override fun onResume() {
-        super.onResume()
-
-        nameView.text = character.name
-        updateXPText()
-        updateLevelText()
-        updateMinus1Text()
-        updateGoldText()
-        updateHealthText()
-        retiredView.isChecked = character.retired
-
-        //HACK!
-        keyboardEventListener = KeyboardVisibilityEvent.registerEventListener(activity, KeyboardVisibilityEventListener { isOpen ->
-            if (!isOpen) {
-                val activity = activity as AppCompatActivity?
-                        ?: return@KeyboardVisibilityEventListener
-
-                val view = activity.currentFocus
-                if (view is EditText) {
-                    view.clearFocus()
-                    view.requestFocus()
-                }
-            }
-        })
-
-        view!!.post {
-            if (classViewModel.characterList.value == null) {
-                classViewModel.characterList.load()
-            }
-        }
-    }
-
-    override fun onPause() {
-        super.onPause()
-        if (keyboardEventListener != null) {
-            keyboardEventListener!!.unregister()
-            keyboardEventListener = null
-        }
-
-        updateCharacter()
-
-        classViewModel.characterList.removeObservers(this)
-        classViewModel.classList.removeObservers(this)
-    }
-
     @OptionsItem(R.id.start)
     fun onMenuStartClick() {
-        updateCharacter()
-
         val args = Bundle()
-        args.putParcelable("character", character)
+        args.putParcelable("character", characterModel.toData())
 
-        val fragment = CharacterTrackerFragment_()
+        val fragment = TrackerFragment_()
         fragment.arguments = args
         fragment.setTargetFragment(this, 1)
 
-        activity!!.supportFragmentManager.beginTransaction()
+        fragmentManager!!.beginTransaction()
                 .replace(R.id.content, fragment)
                 .addToBackStack(null)
                 .commit()
     }
 
-    @ItemSelect(R.id.levels_select)
-    fun onLevelSelect(selected: Boolean, selectedItem: Level) {
-        character.level = selectedItem.level
-        maxHealthView.text = selectedItem.health.toString()
-    }
-
-    fun updateHealthText() {
-        maxHealthView.text = character.maxHealth.toString()
-    }
-
-    fun updateCharacter() {
-        character.name = nameView.text.toString()
-        parseXPText()
-        parseGoldText()
-        parseMinus1Text()
-
-        for (i in perkAdapter.items.indices) {
-            val characterPerk = perkAdapter.items[i]
-            character.perks[i] = characterPerk.ticks
-        }
-    }
-
-    @EditorAction(R.id.xp_text)
-    fun onXPTextChange(tv: TextView, actionId: Int): Boolean {
-        if (actionId != EditorInfo.IME_ACTION_DONE) return false
-
-        parseXPText()
-        return false
-    }
-
-    @FocusChange(R.id.xp_text)
-    fun onXPTextFocus() {
-        if (!this::xpTextView.isInitialized || xpTextView.hasFocus()) return
-
-        parseXPText()
-    }
-
-    fun parseXPText() {
-        try {
-            character.xp = Integer.parseInt(xpTextView.text.toString())
-        } catch (e: Exception) {
-            e.printStackTrace()
-            Toast.makeText(context, "Invalid XP value", Toast.LENGTH_SHORT).show()
-        }
-
-        updateXPText()
-    }
-
-    fun updateXPText() {
-        val text = character.xp.toString()
-        if (text != xpTextView.text.toString()) {
-            xpTextView.setText(text)
-        }
-    }
-
-    fun updateLevelText() {
-        levelsView.setSelection(character.level - 1)
-    }
-
-    @EditorAction(R.id.gold_text)
-    fun onGoldTextChange(tv: TextView, actionId: Int): Boolean {
-        if (actionId != EditorInfo.IME_ACTION_DONE) return false
-
-        parseGoldText()
-        return false
-    }
-
-    @FocusChange(R.id.gold_text)
-    fun onGoldTextFocus() {
-        if (!this::goldTextView.isInitialized || goldTextView.hasFocus()) return
-
-        parseGoldText()
-    }
-
-    fun parseGoldText() {
-        try {
-            character.gold = Integer.parseInt(goldTextView.text.toString())
-        } catch (e: Exception) {
-            e.printStackTrace()
-            Toast.makeText(context, "Invalid Gold value", Toast.LENGTH_SHORT).show()
-        }
-
-        updateGoldText()
-    }
-
-    fun updateGoldText() {
-        val text = character.gold.toString()
-        if (text != goldTextView.text.toString()) {
-            goldTextView.setText(text)
-        }
-    }
-
-    @EditorAction(R.id.minus_1_text)
-    fun onMinus1TextChange(tv: TextView, actionId: Int): Boolean {
-        if (actionId != EditorInfo.IME_ACTION_DONE) return false
-
-        parseMinus1Text()
-        return false
-    }
-
-    @FocusChange(R.id.minus_1_text)
-    fun onMinus1TextFocus() {
-        if (!this::minus1TextView.isInitialized || minus1TextView.hasFocus()) return
-
-        parseMinus1Text()
-    }
-
-    fun parseMinus1Text() {
-        try {
-            character.minus1 = Integer.parseInt(minus1TextView.text.toString())
-        } catch (e: Exception) {
-            e.printStackTrace()
-            Toast.makeText(context, "Invalid -1 Attack modifier value", Toast.LENGTH_SHORT).show()
-        }
-
-        updateMinus1Text()
-    }
-
-    fun updateMinus1Text() {
-        val text = character.minus1.toString()
-        if (text != minus1TextView.text.toString()) {
-            minus1TextView.text = text
-        }
-    }
-
-    @Click(R.id.retired)
-    fun onRetiredClicked() {
-        character.retired = retiredView.isChecked
-    }
-
     @OptionsItem(R.id.save)
     fun onMenuSaveClick() {
-        updateCharacter()
-        saveCharacter(null)
+        character = characterModel.toData()
+        saveCharacter(character, null)
     }
 
-    fun saveCharacter(callback: Runnable?) {
-        saveCharacterTask(callback)
+    fun saveCharacter(character: Character, callback: Runnable?) {
+        saveCharacterTask(character, callback)
     }
 
-    open fun saveCharacterTask(callback: Runnable?) {
+    open fun saveCharacterTask(character: Character, callback: Runnable?) {
         val data = try {
             CharacterData.load(context!!)
         } catch (e: IOException) {
@@ -357,7 +265,7 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
         try {
             data.save()
 
-            classViewModel.characterList.load()
+            classModel.characterList.load()
         } catch (e: IOException) {
             e.printStackTrace()
 
@@ -371,46 +279,57 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
 
         Snackbar.make(activity!!.findViewById(R.id.content), "Saved", Snackbar.LENGTH_SHORT).show()
 
-        savedCharacter = character
-
         if (callback != null) {
             activity!!.runOnUiThread(callback)
         }
     }
+}
 
-    inner class LevelAdapter(val items: ArrayList<Level>) : BaseAdapter() {
-        override fun getCount(): Int {
-            return this.items.size
-        }
 
-        override fun getItem(i: Int): Level {
-            return items[i]
-        }
+@EBean
+abstract class CharacterNumberDialog : EditNumberDialog() {
+    lateinit var characterModel: CharacterModel
 
-        override fun getItemId(i: Int): Long {
-            return i.toLong()
-        }
+    @AfterViews
+    override fun afterViews() {
+        characterModel = ViewModelProviders.of(this.targetFragment!!).get(CharacterModel::class.java)
 
-        override fun getDropDownView(position: Int, view: View?, parent: ViewGroup): View {
-            var convertedView = view
-            if (convertedView == null) {
-                convertedView = LayoutInflater
-                        .from(parent.context)
-                        .inflate(android.R.layout.simple_dropdown_item_1line, parent, false)
-            }
-            (convertedView!!.findViewById<View>(android.R.id.text1) as TextView).text = getItem(position).level.toString()
-            return convertedView
-        }
-
-        override fun getView(position: Int, view: View?, parent: ViewGroup): View {
-            var convertedView = view
-            if (convertedView == null) {
-                convertedView = LayoutInflater
-                        .from(parent.context)
-                        .inflate(R.layout.spinner_text_view, parent, false)
-            }
-            (convertedView as TextView).text = getItem(position).level.toString()
-            return convertedView
-        }
+        super.afterViews()
     }
+}
+
+
+@EFragment
+open class CharacterEditLevelDialog : CharacterNumberDialog() {
+    override val title = "Edit Level"
+
+    override var value: Int
+        get() = characterModel.level.value!!
+        set(value) {
+            characterModel.level.value = value
+        }
+}
+
+
+@EFragment
+open class CharacterEditXPDialog : CharacterNumberDialog() {
+    override val title = "Edit XP"
+
+    override var value: Int
+        get() = characterModel.xp.value!!
+        set(value) {
+            characterModel.xp.value = value
+        }
+}
+
+
+@EFragment
+open class CharacterEditGoldDialog : CharacterNumberDialog() {
+    override val title = "Edit Gold"
+
+    override var value: Int
+        get() = characterModel.gold.value!!
+        set(value) {
+            characterModel.gold.value = value
+        }
 }

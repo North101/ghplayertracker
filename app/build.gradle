@@ -63,6 +63,7 @@ dependencies {
     implementation "com.android.support:preference-v14:$AndroidSupportVersion"
     implementation "com.android.support:cardview-v7:$AndroidSupportVersion"
     implementation "com.android.support.constraint:constraint-layout:1.1.0"
+    implementation "com.android.support:gridlayout-v7:$AndroidSupportVersion"
 
     implementation "android.arch.lifecycle:runtime:${ArchVersion}"
     implementation "android.arch.lifecycle:extensions:${ArchVersion}"
@@ -72,5 +73,4 @@ dependencies {
     implementation "org.androidannotations:androidannotations-api:$AAVersion"
 
     implementation "com.mikepenz:itemanimators:1.0.2@aar"
-    implementation 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:2.1.0'
 }
