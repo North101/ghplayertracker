@@ -10,10 +10,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.EditText
+import net.north101.android.ghplayertracker.livedata.SummonLiveData
 import org.androidannotations.annotations.AfterViews
 import org.androidannotations.annotations.EFragment
 import org.androidannotations.annotations.ViewById
 import java.util.*
+import kotlin.collections.HashMap
 
 @EFragment
 open class TrackerSummonDialog : DialogFragment() {
@@ -38,11 +40,11 @@ open class TrackerSummonDialog : DialogFragment() {
         view2 = inflater.inflate(R.layout.character_tracker_summon_layout, null as ViewGroup?)
 
         builder.setView(view2)
-                .setTitle("Add Summon")
-                .setPositiveButton("OK", null)
-                .setNegativeButton("CANCEL") { dialog, id ->
-                    this@TrackerSummonDialog.dialog.cancel()
-                }
+            .setTitle("Add SummonLiveData")
+            .setPositiveButton("OK", null)
+            .setNegativeButton("CANCEL") { dialog, id ->
+                this@TrackerSummonDialog.dialog.cancel()
+            }
 
         return builder.create()
     }
@@ -82,19 +84,17 @@ open class TrackerSummonDialog : DialogFragment() {
                     return@setOnClickListener
                 }
 
-                val summon = Summon(UUID.randomUUID().toString(), trackerModel)
-                summon.name.value = nameView.text.toString()
-                summon.health.value = health
-                summon.health.maxValue = health
-                summon.move.value = move
-                summon.attack.value = attack
-                summon.range.value = range
-                summon.status.forEach {
-                    it.value.value = false
-                }
-
-                trackerModel.summons.value!!.add(summon)
-                trackerModel.summons.value = trackerModel.summons.value
+                trackerModel.tracker.summons.value.add(SummonLiveData(
+                    UUID.randomUUID(),
+                    nameView.text.toString(),
+                    health,
+                    health,
+                    move,
+                    attack,
+                    range,
+                    HashMap()
+                ))
+                trackerModel.tracker.summons.value = trackerModel.tracker.summons.value
 
                 dialog.dismiss()
             }

@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.TextView
+import net.north101.android.ghplayertracker.livedata.InitLiveData
 import org.androidannotations.annotations.AfterViews
 import org.androidannotations.annotations.EFragment
 import org.androidannotations.annotations.FragmentArg
@@ -29,9 +30,9 @@ open class CharacterNoteDialog : DialogFragment() {
     lateinit var characterModel: CharacterModel
 
     var notes: ArrayList<InitLiveData<String>>
-        get() = characterModel.notes.value!!
+        get() = characterModel.character.notes.value
         set(value) {
-            characterModel.notes.value = value
+            characterModel.character.notes.value = value
         }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -40,18 +41,18 @@ open class CharacterNoteDialog : DialogFragment() {
         view2 = inflater.inflate(R.layout.character_note_layout, null as ViewGroup?)
 
         builder.setView(view2)
-                .setTitle("Edit Note")
-                .setPositiveButton("OK") { dialog, id ->
-                    if (index == null) {
-                        notes.add(InitLiveData(textView.text.toString()))
-                    } else {
-                        notes[index!!].value = textView.text.toString()
-                    }
-                    notes = notes
+            .setTitle("Edit Note")
+            .setPositiveButton("OK") { dialog, id ->
+                if (index == null) {
+                    notes.add(InitLiveData(textView.text.toString()))
+                } else {
+                    notes[index!!].value = textView.text.toString()
                 }
-                .setNegativeButton("CANCEL") { dialog, id ->
-                    this@CharacterNoteDialog.dialog.cancel()
-                }
+                notes = notes
+            }
+            .setNegativeButton("CANCEL") { dialog, id ->
+                this@CharacterNoteDialog.dialog.cancel()
+            }
 
         return builder.create()
     }

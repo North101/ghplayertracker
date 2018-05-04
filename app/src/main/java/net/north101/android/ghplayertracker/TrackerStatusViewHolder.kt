@@ -1,12 +1,12 @@
 package net.north101.android.ghplayertracker
 
-import android.arch.lifecycle.Observer
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import net.north101.android.ghplayertracker.data.Status
+import net.north101.android.ghplayertracker.livedata.TrackerLiveData
 
-class TrackerStatusViewHolder(itemView: View) : BaseViewHolder<TrackerModel>(itemView) {
+class TrackerStatusViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(itemView) {
     val statusDisarmView: ImageView = itemView.findViewById(R.id.status_disarm)
     val statusStunView: ImageView = itemView.findViewById(R.id.status_stun)
     val statusImmobilizeView: ImageView = itemView.findViewById(R.id.status_immobilize)
@@ -19,20 +19,19 @@ class TrackerStatusViewHolder(itemView: View) : BaseViewHolder<TrackerModel>(ite
     init {
         for (status in Status.values()) {
             statusToView(status).setOnClickListener {
-                item!!.status[status]!!.value = !(item!!.status[status]!!.value!!)
+                item!!.status[status]!!.value = !(item!!.status[status]!!.value)
             }
         }
     }
 
-    val statusObservers: Map<Status, Observer<Boolean>> = Status.values().map { status ->
-        status to Observer<Boolean> {
-            if (it != null) {
-                setImageViewGreyscale(statusToView(status), !it)
-            }
+    val statusObservers: Map<Status, (Boolean) -> Unit> = Status.values().map { status ->
+        val observer: ((Boolean) -> Unit) = {
+            setImageViewGreyscale(statusToView(status), !it)
         }
+        status to observer
     }.toMap()
 
-    override fun bind(item: TrackerModel) {
+    override fun bind(item: TrackerLiveData) {
         super.bind(item)
 
         for (o in statusObservers.entries) {

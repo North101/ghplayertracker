@@ -1,6 +1,5 @@
 package net.north101.android.ghplayertracker
 
-import android.arch.lifecycle.Observer
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -9,10 +8,11 @@ import android.widget.Toast
 import net.north101.android.ghplayertracker.data.Card
 import net.north101.android.ghplayertracker.data.CardSpecial
 import net.north101.android.ghplayertracker.data.PlayedCards
+import net.north101.android.ghplayertracker.livedata.TrackerLiveData
 import java.util.*
 import kotlin.collections.ArrayList
 
-class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerModel>(itemView) {
+class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(itemView) {
     var blessContainerView: View = itemView.findViewById(R.id.bless_container)
     var blessTextView: TextView = itemView.findViewById(R.id.bless_text)
     var blessPlusView: View = itemView.findViewById(R.id.bless_plus)
@@ -43,43 +43,43 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerModel>(itemV
         get() = Card["mod_extra_minus_1"]
 
     var shuffle: Boolean
-        get() = item!!.shuffle.value!!
+        get() = item!!.shuffle.value
         set(value) {
             item!!.shuffle.value = value
         }
 
     var shuffleCount: Int
-        get() = item!!.shuffleCount.value!!
+        get() = item!!.shuffleCount.value
         set(value) {
             item!!.shuffleCount.value = value
         }
 
     var drawDeck: ArrayList<Card>
-        get() = item!!.drawDeck.value!!
+        get() = item!!.drawDeck.value
         set(value) {
             item!!.drawDeck.value = value
         }
 
     var discardDeck: ArrayList<Card>
-        get() = item!!.discardDeck.value!!
+        get() = item!!.discardDeck.value
         set(value) {
             item!!.discardDeck.value = value
         }
 
     var playedCards: ArrayList<PlayedCards>
-        get() = item!!.playedCards.value!!
+        get() = item!!.playedCards.value
         set(value) {
             item!!.playedCards.value = value
         }
 
     var attackStatus: AttackStatus
-        get() = item!!.attackStatus.value!!
+        get() = item!!.attackStatus.value
         set(value) {
             item!!.attackStatus.value = value
         }
 
     var houseRule: Boolean
-        get() = item!!.houseRule.value!!
+        get() = item!!.houseRule.value
         set(value) {
             item!!.houseRule.value = value
         }
@@ -147,28 +147,22 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerModel>(itemV
         }
     }
 
-    val shuffleObserver = Observer<Boolean?> {
-        if (it != null) {
-            setShuffleEnabled(it)
-        }
+    val shuffleObserver: (Boolean) -> Unit = {
+        updateShuffle()
     }
 
-    val attackStatusObserver = Observer<AttackStatus?> {
-        if (it != null) {
-            updateAttackStatus()
-        }
+    val attackStatusObserver: (AttackStatus) -> Unit = {
+        updateAttackStatus()
     }
 
-    val deckObserver = Observer<ArrayList<Card>?> {
-        if (it != null) {
-            updateBlessText()
-            updateCurseText()
-            updateMinus1Text()
-            setImageViewGreyscale(deckView, it.isEmpty())
-        }
+    val deckObserver: (ArrayList<Card>) -> Unit = {
+        updateBlessText()
+        updateCurseText()
+        updateMinus1Text()
+        setImageViewGreyscale(deckView, it.isEmpty())
     }
 
-    override fun bind(item: TrackerModel) {
+    override fun bind(item: TrackerLiveData) {
         super.bind(item)
 
         item.shuffle.observeForever(shuffleObserver)
@@ -214,7 +208,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerModel>(itemV
         setImageViewGreyscale(disadvantageView, attackStatus != AttackStatus.Disadvantage)
     }
 
-    fun setShuffleEnabled(shuffle: Boolean) {
+    fun updateShuffle() {
         shuffleView.isEnabled = shuffle
         setImageViewGreyscale(shuffleView, !shuffle)
     }

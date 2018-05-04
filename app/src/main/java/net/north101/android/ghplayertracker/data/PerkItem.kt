@@ -7,9 +7,9 @@ import org.json.JSONObject
 
 @Parcelize
 class PerkItem(
-        val perkAction: PerkAction,
-        val cardId: String,
-        val repeat: Int
+    val perkAction: PerkAction,
+    val cardId: String,
+    val repeat: Int
 ) : Parcelable {
     companion object {
         @Throws(JSONException::class)

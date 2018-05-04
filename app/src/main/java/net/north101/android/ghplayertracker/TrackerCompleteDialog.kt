@@ -59,25 +59,25 @@ open class TrackerCompleteDialog : DialogFragment() {
         view2 = inflater.inflate(R.layout.character_tracker_complete_layout, null as ViewGroup?)
 
         builder.setView(view2)
-                .setTitle("Finish Scenario")
-                .setPositiveButton("OK") { dialog, id ->
-                    trackerResultModel.gold = try {
-                        parseGoldTotal()
-                    } catch (e: Exception) {
-                        0
-                    }
-
-                    trackerResultModel.xp = try {
-                        parseXPTotal()
-                    } catch (e: Exception) {
-                        0
-                    }
-
-                    fragmentManager!!.popBackStack()
+            .setTitle("Finish Scenario")
+            .setPositiveButton("OK") { dialog, id ->
+                trackerResultModel.gold = try {
+                    parseGoldTotal()
+                } catch (e: Exception) {
+                    0
                 }
-                .setNegativeButton("CANCEL") { dialog, id ->
-                    this@TrackerCompleteDialog.dialog.cancel()
+
+                trackerResultModel.xp = try {
+                    parseXPTotal()
+                } catch (e: Exception) {
+                    0
                 }
+
+                fragmentManager!!.popBackStack()
+            }
+            .setNegativeButton("CANCEL") { dialog, id ->
+                this@TrackerCompleteDialog.dialog.cancel()
+            }
 
         return builder.create()
     }
@@ -140,14 +140,14 @@ open class TrackerCompleteDialog : DialogFragment() {
     data class ScenarioLevel(val level: Int, val gold: Int, val xp: Int)
 
     val scenarioLevels = listOf(
-            ScenarioLevel(0, 2, 4),
-            ScenarioLevel(1, 2, 6),
-            ScenarioLevel(2, 3, 8),
-            ScenarioLevel(3, 3, 10),
-            ScenarioLevel(4, 4, 12),
-            ScenarioLevel(5, 4, 14),
-            ScenarioLevel(6, 5, 16),
-            ScenarioLevel(7, 5, 18)
+        ScenarioLevel(0, 2, 4),
+        ScenarioLevel(1, 2, 6),
+        ScenarioLevel(2, 3, 8),
+        ScenarioLevel(3, 3, 10),
+        ScenarioLevel(4, 4, 12),
+        ScenarioLevel(5, 4, 14),
+        ScenarioLevel(6, 5, 16),
+        ScenarioLevel(7, 5, 18)
     )
 }
 
@@ -168,22 +168,22 @@ class ScenarioLevelAdapter(val items: List<TrackerCompleteDialog.ScenarioLevel>)
         var convertedView = view
         if (convertedView == null) {
             convertedView = LayoutInflater
-                    .from(parent.context)
-                    .inflate(android.R.layout.simple_dropdown_item_1line, parent, false)
+                .from(parent.context)
+                .inflate(android.R.layout.simple_dropdown_item_1line, parent, false)
         }
-        (convertedView!!.findViewById<View>(android.R.id.text1) as TextView).text = getItem(position).level.toString()
+        convertedView!!.findViewById<TextView>(android.R.id.text1).text = getItem(position).level.toString()
         return convertedView
     }
 
     override fun getView(position: Int, view: View?, parent: ViewGroup): View {
-        var convertedView = view
+        var convertedView = view as TextView?
         if (convertedView == null) {
             convertedView = LayoutInflater
-                    .from(parent.context)
-                    .inflate(R.layout.spinner_text_view, parent, false)
+                .from(parent.context)
+                .inflate(R.layout.spinner_text_view, parent, false) as TextView
         }
-        (convertedView as TextView).text = getItem(position).level.toString()
-        (convertedView as TextView).textAlignment = TextView.TEXT_ALIGNMENT_TEXT_END
+        convertedView.text = getItem(position).level.toString()
+        convertedView.textAlignment = TextView.TEXT_ALIGNMENT_TEXT_END
         return convertedView
     }
 }

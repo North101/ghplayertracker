@@ -6,9 +6,9 @@ import net.north101.android.ghplayertracker.RecyclerItemCompare
 
 @Parcelize
 data class PlayedCards(
-        val pile1: ArrayList<Card>,
-        val pile2: ArrayList<Card>?,
-        var shuffledIndex: Int?
+    val pile1: ArrayList<Card>,
+    val pile2: ArrayList<Card>?,
+    var shuffledIndex: Int?
 ) : Parcelable, RecyclerItemCompare {
     override val compareItemId: String
         get() {

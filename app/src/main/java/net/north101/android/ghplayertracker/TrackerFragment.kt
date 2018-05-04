@@ -17,6 +17,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import net.north101.android.ghplayertracker.data.Card
 import net.north101.android.ghplayertracker.data.Character
+import net.north101.android.ghplayertracker.livedata.SummonLiveData
 import org.androidannotations.annotations.*
 import org.androidannotations.annotations.sharedpreferences.Pref
 
@@ -51,15 +52,15 @@ open class TrackerFragment : Fragment() {
 
         trackerResultModel = ViewModelProviders.of(this.targetFragment!!).get(TrackerResultModel::class.java)
         trackerModel = ViewModelProviders.of(this).get(TrackerModel::class.java)
-        if (state != null) {
-            trackerModel.fromData(state.getParcelable("tracker_model"))
-        } else {
+        if (state == null) {
             trackerModel.init(character)
+        } else {
+            trackerModel.fromBundle(state.getBundle("tracker_model"))
         }
     }
 
     override fun onSaveInstanceState(state: Bundle) {
-        state.putParcelable("tracker_model", trackerModel.toData())
+        state.putBundle("tracker_model", trackerModel.toBundle())
 
         super.onSaveInstanceState(state)
     }
@@ -87,6 +88,10 @@ open class TrackerFragment : Fragment() {
             fragment.setTargetFragment(this, 0)
             fragment.show(fragmentManager, "TrackerSummonDialog_")
         }
+        listAdapter1.onSummonDeleteClick = {
+            trackerModel.tracker.summons.value.remove(it)
+            trackerModel.tracker.summons.value = trackerModel.tracker.summons.value
+        }
         listAdapter1.onNumberClick = callback@{
             val fragment = when (it) {
                 "health" -> TrackerEditHealthDialog_.builder().build()
@@ -107,7 +112,7 @@ open class TrackerFragment : Fragment() {
                 val item = listAdapter1.getItem(position)
                 return if (item is CardInfo) {
                     if (item.split) 1 else 2
-                } else if (item is Summon) {
+                } else if (item is SummonLiveData) {
                     return 2
                 } else {
                     2
@@ -127,7 +132,7 @@ open class TrackerFragment : Fragment() {
                 val item = listAdapter2.getItem(position)
                 return if (item is CardInfo) {
                     if (item.split) 1 else 2
-                } else if (item is Summon) {
+                } else if (item is SummonLiveData) {
                     return 2
                 } else {
                     2
@@ -144,24 +149,24 @@ open class TrackerFragment : Fragment() {
             listAdapter1.display = TrackerAdapter.DisplayItems.Left
             listAdapter2.display = TrackerAdapter.DisplayItems.Right
         }
-        listAdapter1.updateItems(trackerModel)
-        listAdapter2.updateItems(trackerModel)
+        listAdapter1.updateItems(trackerModel.tracker)
+        listAdapter2.updateItems(trackerModel.tracker)
 
-        trackerModel.playedCards.observe(this, Observer {
+        trackerModel.tracker.playedCards.observe(this, Observer {
             if (it == null) return@Observer
 
-            listAdapter1.updateItems(trackerModel)
-            listAdapter2.updateItems(trackerModel)
+            listAdapter1.updateItems(trackerModel.tracker)
+            listAdapter2.updateItems(trackerModel.tracker)
         })
 
-        trackerModel.summons.observe(this, Observer {
+        trackerModel.tracker.summons.observe(this, Observer {
             if (it == null) return@Observer
 
-            listAdapter1.updateItems(trackerModel)
-            listAdapter2.updateItems(trackerModel)
+            listAdapter1.updateItems(trackerModel.tracker)
+            listAdapter2.updateItems(trackerModel.tracker)
         })
 
-        trackerModel.houseRule.observe(this, Observer {
+        trackerModel.tracker.houseRule.observe(this, Observer {
             if (it == null) return@Observer
 
             sharedPrefs.houseRuleVantage().put(it)
@@ -174,22 +179,22 @@ open class TrackerFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
         super.onCreateOptionsMenu(menu, inflater)
 
-        trackerModel.houseRule.value = trackerModel.houseRule.value
+        trackerModel.tracker.houseRule.value = trackerModel.tracker.houseRule.value
     }
 
     @OptionsItem(R.id.complete)
     fun onCompleteClick() {
         val fragment = TrackerCompleteDialog_.builder().build()
         fragment.arguments = Bundle()
-        fragment.arguments!!.putInt("gold", trackerModel.loot.value!!)
-        fragment.arguments!!.putInt("xp", trackerModel.xp.value!!)
+        fragment.arguments!!.putInt("gold", trackerModel.tracker.loot.value)
+        fragment.arguments!!.putInt("xp", trackerModel.tracker.xp.value)
         fragment.setTargetFragment(this, 0)
         fragment.show(fragmentManager, "TrackerCompleteDialog_")
     }
 
     @OptionsItem(R.id.houseRuleVantage)
     fun onHomebrewVantageClick() {
-        trackerModel.houseRule.value = !(trackerModel.houseRule.value!!)
+        trackerModel.tracker.houseRule.value = !(trackerModel.tracker.houseRule.value)
     }
 }
 
@@ -212,9 +217,9 @@ open class TrackerEditHealthDialog : TrackerNumberDialog() {
     override val title = "Edit Health"
 
     override var value: Int
-        get() = trackerModel.health.value!!
+        get() = trackerModel.tracker.health.value
         set(value) {
-            trackerModel.health.value = value
+            trackerModel.tracker.health.value = value
         }
 }
 
@@ -224,9 +229,9 @@ open class TrackerEditXPDialog : TrackerNumberDialog() {
     override val title = "Edit XP"
 
     override var value: Int
-        get() = trackerModel.xp.value!!
+        get() = trackerModel.tracker.xp.value
         set(value) {
-            trackerModel.xp.value = value
+            trackerModel.tracker.xp.value = value
         }
 }
 
@@ -236,9 +241,9 @@ open class TrackerEditLootDialog : TrackerNumberDialog() {
     override val title = "Edit Coins"
 
     override var value: Int
-        get() = trackerModel.loot.value!!
+        get() = trackerModel.tracker.loot.value
         set(value) {
-            trackerModel.loot.value = value
+            trackerModel.tracker.loot.value = value
         }
 }
 
@@ -249,26 +254,26 @@ abstract class TrackerEditCardDialog : TrackerNumberDialog() {
 
     override var value: Int
         get() {
-            val drawCount = trackerModel.drawDeck.value!!.count { it == card }
-            val discardCount = trackerModel.discardDeck.value!!.count { it == card }
+            val drawCount = trackerModel.tracker.drawDeck.value.count { it == card }
+            val discardCount = trackerModel.tracker.discardDeck.value.count { it == card }
             return (drawCount + discardCount)
         }
         set(value) {
             val current = this.value
             if (current < value) {
                 for (index in current until value) {
-                    trackerModel.drawDeck.value!!.add(card)
+                    trackerModel.tracker.drawDeck.value.add(card)
                 }
             } else if (current > value) {
                 for (index in value until current) {
-                    if (trackerModel.drawDeck.value!!.contains(card)) {
-                        trackerModel.drawDeck.value!!.remove(card)
+                    if (trackerModel.tracker.drawDeck.value.contains(card)) {
+                        trackerModel.tracker.drawDeck.value.remove(card)
                     } else {
-                        trackerModel.discardDeck.value!!.remove(card)
+                        trackerModel.tracker.discardDeck.value.remove(card)
                     }
                 }
             }
-            trackerModel.drawDeck.value = trackerModel.drawDeck.value
+            trackerModel.tracker.drawDeck.value = trackerModel.tracker.drawDeck.value
         }
 }
 

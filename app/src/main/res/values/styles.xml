@@ -62,7 +62,7 @@
         <item name="android:inputType">numberSigned</item>
         <item name="android:maxLines">1</item>
         <item name="android:selectAllOnFocus">true</item>
-        <item name="android:imeOptions"> actionDone</item>
+        <item name="android:imeOptions">actionDone</item>
     </style>
 
     <style name="TagEditor.EditHex">

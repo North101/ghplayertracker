@@ -10,12 +10,12 @@ import net.north101.android.ghplayertracker.data.CharacterClassData
 import net.north101.android.ghplayertracker.data.CharacterData
 
 class ClassModel(
-        application: Application
+    application: Application
 ) : AndroidViewModel(application) {
     private val TAG = ClassModel::class.java.simpleName
 
-    val classList = ClassLiveData(this)
-    val characterList = CharacterLiveData(this)
+    val classList = ClassListLiveData(this)
+    val characterList = CharacterListLiveData(this)
 
     val context
         get() = this.getApplication<Application>()
@@ -27,10 +27,10 @@ enum class LiveDataState {
     FINISHED
 }
 
-class ClassLiveData(
-        private val model: ClassModel
+class ClassListLiveData(
+    private val model: ClassModel
 ) : MutableLiveData<ArrayList<CharacterClass>>() {
-    private val TAG = ClassLiveData::class.java.simpleName
+    private val TAG = ClassListLiveData::class.java.simpleName
 
     val state = MutableLiveData<LiveDataState>()
     var task: ClassListTask? = null
@@ -53,8 +53,8 @@ class ClassLiveData(
 }
 
 class ClassListTask(
-        private val model: ClassModel,
-        private val state: LiveDataState
+    private val model: ClassModel,
+    private val state: LiveDataState
 ) : AsyncTask<Void, Void, ArrayList<CharacterClass>>() {
     private val TAG = ClassListTask::class.java.simpleName
     override fun onPreExecute() {
@@ -72,10 +72,10 @@ class ClassListTask(
     }
 }
 
-class CharacterLiveData(
-        private val model: ClassModel
+class CharacterListLiveData(
+    private val model: ClassModel
 ) : MutableLiveData<List<Character>>() {
-    private val TAG = CharacterLiveData::class.java.simpleName
+    private val TAG = CharacterListLiveData::class.java.simpleName
 
     val state = MutableLiveData<LiveDataState>()
     var task: CharacterListLoadTask? = null
@@ -102,8 +102,8 @@ class CharacterLiveData(
 }
 
 class CharacterListLoadTask(
-        private val model: ClassModel,
-        private val state: LiveDataState
+    private val model: ClassModel,
+    private val state: LiveDataState
 ) : AsyncTask<Void, Void, Pair<ArrayList<CharacterClass>, ArrayList<Character>>>() {
     private val TAG = CharacterListLoadTask::class.java.simpleName
 

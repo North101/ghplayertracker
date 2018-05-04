@@ -14,7 +14,7 @@
 
         <android.support.v7.widget.CardView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="46dp"
             android:layout_marginBottom="4dp"
             android:layout_marginLeft="1dp"
             android:layout_marginRight="1dp"
@@ -23,7 +23,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
@@ -65,14 +65,15 @@
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:background="@drawable/preference_list_divider_material"/>
+
                 <LinearLayout
                     android:id="@+id/bless_container"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:foreground="?attr/selectableItemBackground"
-                    android:orientation="horizontal"
                     android:gravity="center_vertical"
+                    android:orientation="horizontal"
                     android:paddingLeft="8dp"
                     android:paddingRight="8dp">
 
@@ -80,12 +81,12 @@
                         android:id="@+id/bless_text"
                         style="@style/TagEditor.EditNumber"
                         android:layout_width="0dp"
-                        android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="4dp"
+                        android:layout_weight="1"
                         android:clickable="false"
-                        android:longClickable="false"
                         android:focusable="false"
+                        android:longClickable="false"
                         android:textSize="30sp"/>
 
                     <ImageView
@@ -97,9 +98,13 @@
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
+        <Space
+            android:layout_width="6dp"
+            android:layout_height="0dp"/>
+
         <android.support.v7.widget.CardView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="46dp"
             android:layout_marginBottom="4dp"
             android:layout_marginLeft="1dp"
             android:layout_marginRight="1dp"
@@ -108,7 +113,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
@@ -157,8 +162,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:foreground="?attr/selectableItemBackground"
-                    android:orientation="horizontal"
                     android:gravity="center_vertical"
+                    android:orientation="horizontal"
                     android:paddingLeft="8dp"
                     android:paddingRight="8dp">
 
@@ -166,12 +171,12 @@
                         android:id="@+id/curse_text"
                         style="@style/TagEditor.EditNumber"
                         android:layout_width="0dp"
-                        android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="4dp"
+                        android:layout_weight="1"
                         android:clickable="false"
-                        android:longClickable="false"
                         android:focusable="false"
+                        android:longClickable="false"
                         android:textSize="30sp"/>
 
                     <ImageView
@@ -193,7 +198,7 @@
 
         <android.support.v7.widget.CardView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="46dp"
             android:layout_marginBottom="4dp"
             android:layout_marginLeft="1dp"
             android:layout_marginRight="1dp"
@@ -202,7 +207,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">

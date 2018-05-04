@@ -10,9 +10,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.BaseAdapter
+import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.TextView
 import net.north101.android.ghplayertracker.data.ItemType
+import net.north101.android.ghplayertracker.livedata.ItemLiveData
 import org.androidannotations.annotations.AfterViews
 import org.androidannotations.annotations.EFragment
 import org.androidannotations.annotations.FragmentArg
@@ -33,10 +35,10 @@ open class CharacterItemDialog : DialogFragment() {
 
     lateinit var characterModel: CharacterModel
 
-    var items: ArrayList<ItemData>
-        get() = characterModel.items.value!!
+    var items: ArrayList<ItemLiveData>
+        get() = characterModel.character.items.value
         set(value) {
-            characterModel.items.value = value
+            characterModel.character.items.value = value
         }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -45,21 +47,21 @@ open class CharacterItemDialog : DialogFragment() {
         view2 = inflater.inflate(R.layout.character_item_layout, null as ViewGroup?)
 
         builder.setView(view2)
-                .setTitle("Edit Item")
-                .setPositiveButton("OK") { dialog, id ->
-                    val name = textView.text.toString()
-                    val type = typeView.selectedItem as ItemType
-                    if (index == null) {
-                        items.add(ItemData(name, type))
-                    } else {
-                        items[index!!].name.value = name
-                        items[index!!].type.value = type
-                    }
-                    items = items
+            .setTitle("Edit Item")
+            .setPositiveButton("OK") { dialog, id ->
+                val name = textView.text.toString()
+                val type = typeView.selectedItem as ItemType
+                if (index == null) {
+                    items.add(ItemLiveData(name, type))
+                } else {
+                    items[index!!].name.value = name
+                    items[index!!].type.value = type
                 }
-                .setNegativeButton("CANCEL") { dialog, id ->
-                    this@CharacterItemDialog.dialog.cancel()
-                }
+                items = items
+            }
+            .setNegativeButton("CANCEL") { dialog, id ->
+                this@CharacterItemDialog.dialog.cancel()
+            }
 
         return builder.create()
     }
@@ -80,7 +82,7 @@ open class CharacterItemDialog : DialogFragment() {
             textView.text = ""
         } else {
             textView.text = items[index!!].name.value
-            typeView.setSelection(items[index!!].type.value!!.ordinal)
+            typeView.setSelection(items[index!!].type.value.ordinal)
         }
     }
 }
@@ -102,10 +104,17 @@ class ItemTypeAdapter : BaseAdapter() {
         var convertedView = view
         if (convertedView == null) {
             convertedView = LayoutInflater
-                    .from(parent.context)
-                    .inflate(android.R.layout.simple_dropdown_item_1line, parent, false)
+                .from(parent.context)
+                .inflate(R.layout.character_item_type_spinner_item, parent, false)!!
         }
-        (convertedView!!.findViewById<View>(android.R.id.text1) as TextView).text = getItem(position).name
+        convertedView.findViewById<ImageView>(R.id.icon).setImageResource(when (getItem(position)) {
+            ItemType.Head -> R.drawable.icon_item_head
+            ItemType.Body -> R.drawable.icon_item_body
+            ItemType.Legs -> R.drawable.icon_item_legs
+            ItemType.OneHand -> R.drawable.icon_item_one_hand
+            ItemType.TwoHands -> R.drawable.icon_item_two_hands
+            ItemType.Small -> R.drawable.icon_items_small
+        })
         return convertedView
     }
 
@@ -113,10 +122,17 @@ class ItemTypeAdapter : BaseAdapter() {
         var convertedView = view
         if (convertedView == null) {
             convertedView = LayoutInflater
-                    .from(parent.context)
-                    .inflate(R.layout.spinner_text_view, parent, false)
+                .from(parent.context)
+                .inflate(R.layout.character_item_type_item, parent, false)!!
         }
-        (convertedView as TextView).text = getItem(position).name
+        convertedView.findViewById<ImageView>(R.id.icon).setImageResource(when (getItem(position)) {
+            ItemType.Head -> R.drawable.icon_item_head
+            ItemType.Body -> R.drawable.icon_item_body
+            ItemType.Legs -> R.drawable.icon_item_legs
+            ItemType.OneHand -> R.drawable.icon_item_one_hand
+            ItemType.TwoHands -> R.drawable.icon_item_two_hands
+            ItemType.Small -> R.drawable.icon_items_small
+        })
         return convertedView
     }
 }

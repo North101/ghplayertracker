@@ -10,7 +10,7 @@ import java.io.IOException
 
 @Parcelize
 data class BasicCards(
-        val basicDeck: HashMap<String, Int>
+    val basicDeck: HashMap<String, Int>
 ) : Parcelable {
     init {
         BasicCards.instance = this

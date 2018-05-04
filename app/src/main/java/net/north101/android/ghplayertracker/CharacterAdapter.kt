@@ -3,6 +3,7 @@ package net.north101.android.ghplayertracker
 import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
+import net.north101.android.ghplayertracker.livedata.*
 
 class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
     private val items = ArrayList<RecyclerItemCompare>()
@@ -15,12 +16,12 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
         Both(Left.id or Right.id)
     }
 
-    data class Stats(val character: CharacterModel) : RecyclerItemCompare {
+    data class Stats(val character: CharacterLiveData) : RecyclerItemCompare {
         override val compareItemId: String
             get() = ""
     }
 
-    data class Item(val item: ItemData) : RecyclerItemCompare {
+    data class Item(val item: ItemLiveData) : RecyclerItemCompare {
         override val compareItemId: String
             get() = item.name.toString()
     }
@@ -30,12 +31,12 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
             get() = note.value.toString()
     }
 
-    data class Perk(val perk: PerkData) : RecyclerItemCompare {
+    data class Perk(val perk: PerkLiveData) : RecyclerItemCompare {
         override val compareItemId: String
             get() = perk.perk.text
     }
 
-    data class PerkNote(val index: Int, val perkNote: PerkNoteData) : RecyclerItemCompare {
+    data class PerkNote(val index: Int, val perkNote: PerkNoteLiveData) : RecyclerItemCompare {
         override val compareItemId: String
             get() = index.toString()
     }
@@ -43,14 +44,14 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
     var onNumberEditClick: ((String) -> Unit)? = null
 
     var onItemAddClick: (() -> Unit)? = null
-    var onItemEditClick: ((ItemData) -> Unit)? = null
-    var onItemDeleteClick: ((ItemData) -> Unit)? = null
+    var onItemEditClick: ((ItemLiveData) -> Unit)? = null
+    var onItemDeleteClick: ((ItemLiveData) -> Unit)? = null
 
     var onNoteAddClick: (() -> Unit)? = null
     var onNoteEditClick: ((CharacterAdapter.Note) -> Unit)? = null
     var onNoteDeleteClick: ((CharacterAdapter.Note) -> Unit)? = null
 
-    fun updateItems(character: CharacterModel) {
+    fun updateItems(character: CharacterLiveData) {
         val newItems = ArrayList<RecyclerItemCompare>()
 
         if ((display.id and DisplayItems.Left.id) == DisplayItems.Left.id) {
@@ -60,25 +61,25 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
             newItems.add(TextHeaderAdd("Items", {
                 onItemAddClick?.invoke()
             }))
-            newItems.addAll(character.items.value!!.sortedBy { it.type.value }.map {
+            newItems.addAll(character.items.value.sortedBy { it.type.value }.map {
                 Item(it)
             })
             newItems.add(TextHeaderAdd("Notes", {
                 onNoteAddClick?.invoke()
             }))
-            newItems.addAll(character.notes.value!!.map {
+            newItems.addAll(character.notes.value.map {
                 Note(it)
             })
         }
 
         if ((display.id and DisplayItems.Right.id) == DisplayItems.Right.id) {
             newItems.add(TextHeader("Perks"))
-            newItems.addAll(character.perks.value!!.map {
+            newItems.addAll(character.perks.value.map {
                 Perk(it)
             })
 
             newItems.add(TextHeader("Perk Notes"))
-            newItems.addAll(character.perkNotes.value!!.withIndex().map {
+            newItems.addAll(character.perkNotes.value.withIndex().map {
                 PerkNote(it.index, it.value)
             })
         }

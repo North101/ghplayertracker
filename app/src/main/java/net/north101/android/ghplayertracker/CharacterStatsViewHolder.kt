@@ -1,15 +1,14 @@
 package net.north101.android.ghplayertracker
 
-import android.arch.lifecycle.Observer
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
+import net.north101.android.ghplayertracker.livedata.CharacterLiveData
 
-
-class CharacterStatsViewHolder(itemView: View) : BaseViewHolder<CharacterModel>(itemView) {
+class CharacterStatsViewHolder(itemView: View) : BaseViewHolder<CharacterLiveData>(itemView) {
     var nameView: TextView = itemView.findViewById(R.id.name)
     var levelsView: TextView = itemView.findViewById(R.id.level_text)
 
@@ -53,30 +52,30 @@ class CharacterStatsViewHolder(itemView: View) : BaseViewHolder<CharacterModel>(
             onNumberClick?.invoke("level")
         }
         levelPlusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
-            item!!.level.value = item!!.level.value!! + 1
+            item!!.level.value += 1
         })))
         levelMinusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
-            item!!.level.value = item!!.level.value!! - 1
+            item!!.level.value -= 1
         })))
 
         xpContainerView.setOnClickListener {
             onNumberClick?.invoke("xp")
         }
         xpPlusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
-            item!!.xp.value = item!!.xp.value!! + 1
+            item!!.xp.value += 1
         })))
         xpMinusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
-            item!!.xp.value = item!!.xp.value!! - 1
+            item!!.xp.value -= 1
         })))
 
         goldContainerView.setOnClickListener {
             onNumberClick?.invoke("gold")
         }
         goldPlusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
-            item!!.gold.value = item!!.gold.value!! + 1
+            item!!.gold.value += 1
         })))
         goldMinusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
-            item!!.gold.value = (item!!.gold.value!! - 1)
+            item!!.gold.value -= 1
         })))
         retiredView.setOnCheckedChangeListener { compoundButton, b ->
             if (item!!.retired.value != b) {
@@ -85,38 +84,28 @@ class CharacterStatsViewHolder(itemView: View) : BaseViewHolder<CharacterModel>(
         }
     }
 
-    val nameObserver = Observer<String> {
-        it?.let {
-            if (nameView.text.toString() != it) {
-                nameView.text = it
-            }
+    val nameObserver: (String) -> Unit = {
+        if (nameView.text.toString() != it) {
+            nameView.text = it
         }
     }
-    val levelObserver = Observer<Int> {
-        it?.let {
-            val levelInfo = item!!.characterClass.value!!.levels.find { levelInfo -> levelInfo.level == it }!!
-            levelsView.text = levelInfo.level.toString()
-            maxHealthView.text = levelInfo.health.toString()
-            maxXPView.text = levelInfo.maxXP?.toString() ?: "∞"
-        }
+    val levelObserver: (Int) -> Unit = {
+        val levelInfo = item!!.characterClass.levels.find { levelInfo -> levelInfo.level == it }!!
+        levelsView.text = levelInfo.level.toString()
+        maxHealthView.text = levelInfo.health.toString()
+        maxXPView.text = levelInfo.maxXP?.toString() ?: "∞"
     }
-    val xpObserver = Observer<Int> {
-        it?.let {
-            xpTextView.text = it.toString()
-        }
+    val xpObserver: (Int) -> Unit = {
+        xpTextView.text = it.toString()
     }
-    val goldObserver = Observer<Int> {
-        it?.let {
-            goldTextView.text = it.toString()
-        }
+    val goldObserver: (Int) -> Unit = {
+        goldTextView.text = it.toString()
     }
-    val retiredObserver = Observer<Boolean> {
-        it?.let {
-            retiredView.isChecked = it
-        }
+    val retiredObserver: (Boolean) -> Unit = {
+        retiredView.isChecked = it
     }
 
-    override fun bind(item: CharacterModel) {
+    override fun bind(item: CharacterLiveData) {
         super.bind(item)
 
         item.name.observeForever(nameObserver)

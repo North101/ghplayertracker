@@ -3,8 +3,8 @@ package net.north101.android.ghplayertracker
 import android.support.v7.util.DiffUtil
 
 class RecyclerListItemsCallback(
-        private val oldItems: List<RecyclerItemCompare>,
-        private val newItems: List<RecyclerItemCompare>
+    private val oldItems: List<RecyclerItemCompare>,
+    private val newItems: List<RecyclerItemCompare>
 ) : DiffUtil.Callback() {
     override fun getOldListSize(): Int {
         return oldItems.size

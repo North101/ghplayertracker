@@ -6,8 +6,8 @@ import net.north101.android.ghplayertracker.RecyclerItemCompare
 
 @Parcelize
 data class CharacterPerk(
-        val perk: Perk,
-        var ticks: Int
+    val perk: Perk,
+    var ticks: Int
 ) : Parcelable, RecyclerItemCompare {
     override val compareItemId: String
         get() = perk.text

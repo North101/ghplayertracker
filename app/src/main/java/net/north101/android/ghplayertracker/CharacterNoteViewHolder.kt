@@ -1,6 +1,5 @@
 package net.north101.android.ghplayertracker
 
-import android.arch.lifecycle.Observer
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -22,10 +21,8 @@ class CharacterNoteViewHolder(itemView: View) : BaseViewHolder<CharacterAdapter.
         }
     }
 
-    val noteObserver = Observer<String> {
-        it?.let {
-            textView.text = it
-        }
+    val noteObserver: ((String) -> Unit) = {
+        textView.text = it
     }
 
     override fun bind(item: CharacterAdapter.Note) {

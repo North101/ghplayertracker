@@ -11,7 +11,6 @@
         style="@style/TagEditor.EditNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:lines="1"
-        android:inputType="text"
-        android:imeOptions="actionDone"/>
+        android:imeOptions="actionDone"
+        android:lines="1"/>
 </LinearLayout>

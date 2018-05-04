@@ -1,13 +1,13 @@
 package net.north101.android.ghplayertracker
 
-import android.arch.lifecycle.Observer
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import net.north101.android.ghplayertracker.data.Status
+import net.north101.android.ghplayertracker.livedata.SummonLiveData
 
-class TrackerSummonViewHolder(itemView: View) : BaseViewHolder<Summon>(itemView) {
+class TrackerSummonViewHolder(itemView: View) : BaseViewHolder<SummonLiveData>(itemView) {
     val nameView: TextView = itemView.findViewById(R.id.name)
     val deleteView: ImageView = itemView.findViewById(R.id.delete)
 
@@ -27,62 +27,52 @@ class TrackerSummonViewHolder(itemView: View) : BaseViewHolder<Summon>(itemView)
     val statusMuddleView: ImageView = itemView.findViewById(R.id.status_muddle)
     val statusInvisibleView: ImageView = itemView.findViewById(R.id.status_invisible)
 
+    var onSummonDeleteClick: ((SummonLiveData) -> Unit)? = null
+
     init {
         deleteView.setOnClickListener {
-            item!!.tracker.summons.value!!.remove(item!!)
-            item!!.tracker.summons.value = item!!.tracker.summons.value
+            onSummonDeleteClick?.invoke(item!!)
         }
 
         healthPlusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
-            item!!.health.value = item!!.health.value!! + 1
+            item!!.health.value += 1
         })))
         healthMinusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
-            item!!.health.value = item!!.health.value!! - 1
+            item!!.health.value -= 1
         })))
 
         for (status in Status.values()) {
             statusToView(status).setOnClickListener {
-                item!!.status[status]!!.value = !(item!!.status[status]!!.value!!)
+                item!!.status[status]!!.value = !(item!!.status[status]!!.value)
             }
         }
     }
 
-    val nameObserver = Observer<String> {
-        if (it != null) {
-            nameView.text = it
-        }
+    val nameObserver: (String) -> Unit = {
+        nameView.text = it
     }
-    val healthObserver = Observer<Int> {
-        if (it != null) {
-            healthTextView.text = it.toString()
-            healthMinusView.isEnabled = (it > item!!.health.minValue!!)
-        }
+    val healthObserver: (Int) -> Unit = {
+        healthTextView.text = it.toString()
+        healthMinusView.isEnabled = (it > item!!.health.minValue!!)
     }
-    val moveObserver = Observer<Int> {
-        if (it != null) {
-            moveTextView.text = it.toString()
-        }
+    val moveObserver: (Int) -> Unit = {
+        moveTextView.text = it.toString()
     }
-    val attackObserver = Observer<Int> {
-        if (it != null) {
-            attackTextView.text = it.toString()
-        }
+    val attackObserver: (Int) -> Unit = {
+        attackTextView.text = it.toString()
     }
-    val rangeObserver = Observer<Int> {
-        if (it != null) {
-            rangeTextView.text = it.toString()
-        }
+    val rangeObserver: (Int) -> Unit = {
+        rangeTextView.text = it.toString()
     }
 
-    val statusObservers: Map<Status, Observer<Boolean>> = Status.values().map { status ->
-        status to Observer<Boolean> {
-            if (it != null) {
-                setImageViewGreyscale(statusToView(status), !it)
-            }
+    val statusObservers: Map<Status, (Boolean) -> Unit> = Status.values().map { status ->
+        val observer: (Boolean) -> Unit = {
+            setImageViewGreyscale(statusToView(status), !it)
         }
+        status to observer
     }.toMap()
 
-    override fun bind(item: Summon) {
+    override fun bind(item: SummonLiveData) {
         super.bind(item)
 
         item.name.observeForever(nameObserver)

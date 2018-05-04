@@ -17,8 +17,8 @@ open class MainActivity : AppCompatActivity() {
 
         val fragment = CharacterListFragment_()
         supportFragmentManager.beginTransaction()
-                .replace(R.id.content, fragment)
-                .commit()
+            .replace(R.id.content, fragment)
+            .commit()
 
         init = true
     }

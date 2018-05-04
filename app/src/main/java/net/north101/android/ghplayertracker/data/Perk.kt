@@ -8,9 +8,9 @@ import java.util.*
 
 @Parcelize
 class Perk(
-        val perkItems: List<PerkItem>,
-        val ticks: Int,
-        val text: String
+    val perkItems: List<PerkItem>,
+    val ticks: Int,
+    val text: String
 ) : Parcelable {
     companion object {
         @Throws(JSONException::class)

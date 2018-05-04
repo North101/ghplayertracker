@@ -8,9 +8,9 @@ import java.util.*
 
 @Parcelize
 class Card(
-        val id: String,
-        val deckType: DeckType,
-        val special: CardSpecial
+    val id: String,
+    val deckType: DeckType,
+    val special: CardSpecial
 ) : Parcelable {
     init {
         Card.cache[id] = this
