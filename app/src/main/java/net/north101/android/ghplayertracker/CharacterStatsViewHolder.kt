@@ -19,7 +19,6 @@ class CharacterStatsViewHolder(itemView: View) : BaseViewHolder<CharacterModel>(
     var levelMinusView: View = itemView.findViewById(R.id.level_minus)
 
     var maxHealthView: TextView = itemView.findViewById(R.id.health_text)
-    var minXPView: TextView = itemView.findViewById(R.id.min_xp_text)
     var maxXPView: TextView = itemView.findViewById(R.id.max_xp_text)
 
     var xpContainerView: View = itemView.findViewById(R.id.xp_container)
@@ -98,7 +97,6 @@ class CharacterStatsViewHolder(itemView: View) : BaseViewHolder<CharacterModel>(
             val levelInfo = item!!.characterClass.value!!.levels.find { levelInfo -> levelInfo.level == it }!!
             levelsView.text = levelInfo.level.toString()
             maxHealthView.text = levelInfo.health.toString()
-            minXPView.text = levelInfo.minXP.toString()
             maxXPView.text = levelInfo.maxXP?.toString() ?: "∞"
         }
     }
