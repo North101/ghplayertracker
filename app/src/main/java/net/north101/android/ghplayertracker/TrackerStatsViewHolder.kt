@@ -1,6 +1,5 @@
 package net.north101.android.ghplayertracker
 
-import android.arch.lifecycle.Observer
 import android.graphics.Rect
 import android.os.Handler
 import android.view.MotionEvent
@@ -8,9 +7,9 @@ import android.view.View
 import android.view.View.OnTouchListener
 import android.view.ViewGroup
 import android.widget.TextView
+import net.north101.android.ghplayertracker.livedata.TrackerLiveData
 
-
-class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerModel>(itemView) {
+class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(itemView) {
     var healthContainerView: View = itemView.findViewById(R.id.health_container)
     var healthTextView: TextView = itemView.findViewById(R.id.health_text)
     var healthPlusView: View = itemView.findViewById(R.id.health_plus)
@@ -33,54 +32,48 @@ class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerModel>(item
             onNumberClickListener?.invoke("health")
         }
         healthPlusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
-            item!!.health.value = item!!.health.value!! + 1
+            item!!.health.value += 1
         })))
         healthMinusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
-            item!!.health.value = item!!.health.value!! - 1
+            item!!.health.value -= 1
         })))
 
         xpContainerView.setOnClickListener {
             onNumberClickListener?.invoke("xp")
         }
         xpPlusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
-            item!!.xp.value = item!!.xp.value!! + 1
+            item!!.xp.value += 1
         })))
         xpMinusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
-            item!!.xp.value = item!!.xp.value!! - 1
+            item!!.xp.value -= 1
         })))
 
         lootContainerView.setOnClickListener {
             onNumberClickListener?.invoke("loot")
         }
         lootPlusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
-            item!!.loot.value = item!!.loot.value!! + 1
+            item!!.loot.value += 1
         })))
         lootMinusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
-            item!!.loot.value = (item!!.loot.value!! - 1)
+            item!!.loot.value -= 1
         })))
     }
 
-    val healthObserver = Observer<Int> {
-        if (it != null) {
-            healthTextView.text = it.toString()
-            healthPlusView.isEnabled = (it < item!!.health.maxValue!!)
-            healthMinusView.isEnabled = (it > item!!.health.minValue!!)
-        }
+    val healthObserver: (Int) -> Unit = {
+        healthTextView.text = it.toString()
+        healthPlusView.isEnabled = (it < item!!.health.maxValue!!)
+        healthMinusView.isEnabled = (it > item!!.health.minValue!!)
     }
-    val xpObserver = Observer<Int> {
-        if (it != null) {
-            xpTextView.text = it.toString()
-            xpMinusView.isEnabled = (it > item!!.health.minValue!!)
-        }
+    val xpObserver: (Int) -> Unit = {
+        xpTextView.text = it.toString()
+        xpMinusView.isEnabled = (it > item!!.health.minValue!!)
     }
-    val goldObserver = Observer<Int> {
-        if (it != null) {
-            lootTextView.text = it.toString()
-            lootMinusView.isEnabled = (it > item!!.health.minValue!!)
-        }
+    val goldObserver: (Int) -> Unit = {
+        lootTextView.text = it.toString()
+        lootMinusView.isEnabled = (it > item!!.health.minValue!!)
     }
 
-    override fun bind(item: TrackerModel) {
+    override fun bind(item: TrackerLiveData) {
         super.bind(item)
 
         item.health.observeForever(healthObserver)
@@ -109,9 +102,9 @@ class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerModel>(item
 
 
 class RepeatListener(
-        private val initialInterval: Long,
-        private val normalInterval: Long,
-        private val clickListener: View.OnClickListener?
+    private val initialInterval: Long,
+    private val normalInterval: Long,
+    private val clickListener: View.OnClickListener?
 ) : OnTouchListener {
 
     private val handler = Handler()

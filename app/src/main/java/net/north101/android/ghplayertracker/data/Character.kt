@@ -20,34 +20,34 @@ import kotlin.collections.ArrayList
 
 @Parcelize
 data class Character(
-        val id: UUID,
-        val characterClass: CharacterClass,
-        var name: String,
-        protected var _level: Int,
-        protected var _xp: Int,
-        protected var _gold: Int,
-        var perks: ArrayList<Int>,
-        var perkNotes: ArrayList<Int>,
-        val created: Date,
-        var modified: Date,
-        var retired: Boolean,
-        var items: ArrayList<Item>,
-        var notes: ArrayList<String>
+    val id: UUID,
+    val characterClass: CharacterClass,
+    var name: String,
+    protected var _level: Int,
+    protected var _xp: Int,
+    protected var _gold: Int,
+    var perks: ArrayList<Int>,
+    var perkNotes: ArrayList<Int>,
+    val created: Date,
+    var modified: Date,
+    var retired: Boolean,
+    var items: ArrayList<Item>,
+    var notes: ArrayList<String>
 ) : Parcelable {
     constructor(characterClass: CharacterClass) : this(
-            UUID.randomUUID(),
-            characterClass,
-            characterClass.name,
-            1,
-            0,
-            0,
-            ArrayList<Int>(characterClass.perks.indices.map { 0 }),
-            ArrayList<Int>(0.until(PERK_NOTES_COUNT).map { 0 }),
-            Date(),
-            Date(),
-            false,
-            ArrayList(),
-            ArrayList()
+        UUID.randomUUID(),
+        characterClass,
+        characterClass.name,
+        1,
+        0,
+        0,
+        ArrayList<Int>(characterClass.perks.indices.map { 0 }),
+        ArrayList<Int>(0.until(PERK_NOTES_COUNT).map { 0 }),
+        Date(),
+        Date(),
+        false,
+        ArrayList(),
+        ArrayList()
     )
 
     val currentLevel: Level
@@ -79,19 +79,19 @@ data class Character(
 
     fun copy(): Character {
         return Character(
-                id,
-                characterClass,
-                name,
-                level,
-                xp,
-                gold,
-                ArrayList(perks),
-                ArrayList(perkNotes.map { it }),
-                created,
-                modified,
-                retired,
-                ArrayList(items.map { it.copy() }),
-                ArrayList(notes.map { it })
+            id,
+            characterClass,
+            name,
+            level,
+            xp,
+            gold,
+            ArrayList(perks),
+            ArrayList(perkNotes.map { it }),
+            created,
+            modified,
+            retired,
+            ArrayList(items.map { it.copy() }),
+            ArrayList(notes.map { it })
         )
     }
 
@@ -172,19 +172,19 @@ data class Character(
             })
 
             return Character(
-                    id,
-                    characterClass,
-                    name,
-                    level,
-                    xp,
-                    gold,
-                    perks,
-                    perkNotes,
-                    created,
-                    modified,
-                    retired,
-                    items,
-                    notes
+                id,
+                characterClass,
+                name,
+                level,
+                xp,
+                gold,
+                perks,
+                perkNotes,
+                created,
+                modified,
+                retired,
+                items,
+                notes
             )
         }
     }

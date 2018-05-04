@@ -1,6 +1,5 @@
 package net.north101.android.ghplayertracker
 
-import android.arch.lifecycle.Observer
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.text.Spannable
@@ -11,8 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
+import net.north101.android.ghplayertracker.livedata.PerkLiveData
 
-class CharacterPerkViewHolder(itemView: View) : BaseViewHolder<PerkData>(itemView) {
+class CharacterPerkViewHolder(itemView: View) : BaseViewHolder<PerkLiveData>(itemView) {
     var perk1: CheckBox = itemView.findViewById(R.id.perk1)
     var perk2: CheckBox = itemView.findViewById(R.id.perk2)
     var perk3: CheckBox = itemView.findViewById(R.id.perk3)
@@ -52,14 +52,14 @@ class CharacterPerkViewHolder(itemView: View) : BaseViewHolder<PerkData>(itemVie
         textView.setText(ssb, TextView.BufferType.SPANNABLE)
     }
 
-    val perkTickObserver = Observer<Int> {
-        val ticks = item!!.value ?: 0
+    val perkTickObserver: (Int) -> Unit = {
+        val ticks = item!!.value
         perk1.isChecked = ticks >= 1
         perk2.isChecked = ticks >= 2
         perk3.isChecked = ticks >= 3
     }
 
-    override fun bind(item: PerkData) {
+    override fun bind(item: PerkLiveData) {
         super.bind(item)
 
         item.observeForever(perkTickObserver)
@@ -77,7 +77,7 @@ class CharacterPerkViewHolder(itemView: View) : BaseViewHolder<PerkData>(itemVie
     }
 
     override fun onClick(view: View) {
-        val ticks = this.item!!.value ?: 0
+        val ticks = this.item!!.value
         if (ticks == this.item!!.perk.ticks) {
             this.item!!.value = 0
         } else {

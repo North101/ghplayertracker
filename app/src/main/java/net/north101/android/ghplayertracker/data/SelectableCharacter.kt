@@ -6,8 +6,8 @@ import net.north101.android.ghplayertracker.RecyclerItemCompare
 
 @Parcelize
 data class SelectableCharacter(
-        val character: Character,
-        var selected: Boolean
+    val character: Character,
+    var selected: Boolean
 ) : Parcelable, RecyclerItemCompare {
     override val compareItemId: String
         get() = character.id.toString()

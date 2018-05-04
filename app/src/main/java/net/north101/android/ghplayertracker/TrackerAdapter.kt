@@ -3,6 +3,8 @@ package net.north101.android.ghplayertracker
 import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
+import net.north101.android.ghplayertracker.livedata.SummonLiveData
+import net.north101.android.ghplayertracker.livedata.TrackerLiveData
 
 class TrackerAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
     private val items = ArrayList<RecyclerItemCompare>()
@@ -10,6 +12,7 @@ class TrackerAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
 
     var onNumberClick: ((String) -> Unit)? = null
     var onSummonAddClick: (() -> Unit)? = null
+    var onSummonDeleteClick: ((SummonLiveData) -> Unit)? = null
 
     enum class DisplayItems(val id: Int) {
         None(1),
@@ -18,45 +21,41 @@ class TrackerAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
         Both(Left.id or Right.id)
     }
 
-    data class Stats(val tracker: TrackerModel) : RecyclerItemCompare {
+    data class Stats(val tracker: TrackerLiveData) : RecyclerItemCompare {
         override val compareItemId: String
-            get() = tracker.character.value!!.id.toString()
+            get() = tracker.character.id.toString()
     }
 
-    data class Status(val tracker: TrackerModel) : RecyclerItemCompare {
+    data class Status(val tracker: TrackerLiveData) : RecyclerItemCompare {
         override val compareItemId: String
-            get() = tracker.character.value!!.id.toString()
+            get() = tracker.character.id.toString()
     }
 
-    data class Deck(
-            val tracker: TrackerModel
-    ) : RecyclerItemCompare {
+    data class Deck(val tracker: TrackerLiveData) : RecyclerItemCompare {
         override val compareItemId: String
-            get() = tracker.character.value!!.id.toString()
+            get() = tracker.character.id.toString()
     }
 
-    fun updateItems(character: TrackerModel) {
+    fun updateItems(tracker: TrackerLiveData) {
         val newItems = ArrayList<RecyclerItemCompare>()
 
         if ((display.id and DisplayItems.Left.id) == DisplayItems.Left.id) {
             newItems.add(TextHeader("Stats"))
-            newItems.add(Stats(character))
-
-            newItems.add(TextHeader("Item Effects"))
-            newItems.add(Status(character))
+            newItems.add(Stats(tracker))
+            newItems.add(Status(tracker))
 
             newItems.add(TextHeaderAdd("Summons", {
                 onSummonAddClick?.invoke()
             }))
-            newItems.addAll(character.summons.value!!)
+            newItems.addAll(tracker.summons.value)
         }
 
         if ((display.id and DisplayItems.Right.id) == DisplayItems.Right.id) {
-            newItems.add(TextHeader("Attack Note"))
-            newItems.add(Deck(character))
+            newItems.add(TextHeader("Attack Deck"))
+            newItems.add(Deck(tracker))
 
             var wasShuffled: Int? = null
-            for ((index, item) in character.playedCards.value!!.withIndex().reversed()) {
+            for ((index, item) in tracker.playedCards.value.withIndex().reversed()) {
                 if (wasShuffled != item.shuffledIndex) {
                     newItems.add(TextHeader("Shuffle #" + item.shuffledIndex.toString()))
                     wasShuffled = item.shuffledIndex
@@ -119,7 +118,12 @@ class TrackerAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
                 }
             }
             is TrackerStatusViewHolder -> holder.bind((item as Status).tracker)
-            is TrackerSummonViewHolder -> holder.bind(item as Summon)
+            is TrackerSummonViewHolder -> {
+                holder.bind(item as SummonLiveData)
+                holder.onSummonDeleteClick = {
+                    onSummonDeleteClick?.invoke(it)
+                }
+            }
             is TrackerDeckViewHolder -> {
                 holder.bind((item as Deck).tracker)
                 holder.onNumberClickListener = {
@@ -149,7 +153,7 @@ class TrackerAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
             is TextHeader -> TrackerViewType.Header
             is Stats -> TrackerViewType.Stats
             is Status -> TrackerViewType.Status
-            is Summon -> TrackerViewType.Summon
+            is SummonLiveData -> TrackerViewType.Summon
             is Deck -> TrackerViewType.Deck
             is CardInfo -> TrackerViewType.CardInfo
             is CardDivider -> TrackerViewType.CardDivider

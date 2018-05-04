@@ -37,9 +37,9 @@ open class ClassListFragment : Fragment() {
             fragment.arguments = args
 
             fragmentManager!!.beginTransaction()
-                    .replace(R.id.content, fragment)
-                    .addToBackStack(null)
-                    .commit()
+                .replace(R.id.content, fragment)
+                .addToBackStack(null)
+                .commit()
         }
     }
 

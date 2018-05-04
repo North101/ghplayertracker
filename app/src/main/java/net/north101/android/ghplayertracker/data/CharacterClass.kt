@@ -19,12 +19,12 @@ import java.util.*
 
 @Parcelize
 data class CharacterClass(
-        val id: String,
-        val name: String,
-        val color: Int,
-        val levels: ArrayList<Level>,
-        val cards: HashMap<String, Card>,
-        val perks: List<Perk>
+    val id: String,
+    val name: String,
+    val color: Int,
+    val levels: ArrayList<Level>,
+    val cards: HashMap<String, Card>,
+    val perks: List<Perk>
 ) : Parcelable, RecyclerItemCompare {
     override val compareItemId: String
         get() = this.id

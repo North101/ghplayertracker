@@ -66,9 +66,9 @@ open class CharacterListFragment : Fragment(), ActionMode.Callback {
             fragment.arguments = args
 
             fragmentManager!!.beginTransaction()
-                    .replace(R.id.content, fragment)
-                    .addToBackStack(null)
-                    .commit()
+                .replace(R.id.content, fragment)
+                .addToBackStack(null)
+                .commit()
         }
 
         override fun onItemLongClick(holder: BaseViewHolder<SelectableCharacter>): Boolean {
@@ -94,9 +94,9 @@ open class CharacterListFragment : Fragment(), ActionMode.Callback {
         fab.setOnClickListener {
             val fragment = ClassListFragment_()
             fragmentManager!!.beginTransaction()
-                    .replace(R.id.content, fragment)
-                    .addToBackStack(null)
-                    .commit()
+                .replace(R.id.content, fragment)
+                .addToBackStack(null)
+                .commit()
         }
 
         val listViewLayoutManager = LinearLayoutManager(context)

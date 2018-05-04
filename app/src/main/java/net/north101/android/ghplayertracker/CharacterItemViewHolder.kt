@@ -1,19 +1,19 @@
 package net.north101.android.ghplayertracker
 
-import android.arch.lifecycle.Observer
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import net.north101.android.ghplayertracker.data.ItemType
+import net.north101.android.ghplayertracker.livedata.ItemLiveData
 
-class CharacterItemViewHolder(itemView: View) : BaseViewHolder<ItemData>(itemView) {
+class CharacterItemViewHolder(itemView: View) : BaseViewHolder<ItemLiveData>(itemView) {
     val textView: TextView = itemView.findViewById(R.id.text)
     val iconView: ImageView = itemView.findViewById(R.id.icon)
     val deleteView: ImageView = itemView.findViewById(R.id.delete)
 
-    var onItemEditClick: ((ItemData) -> Unit)? = null
-    var onItemDeleteClick: ((ItemData) -> Unit)? = null
+    var onItemEditClick: ((ItemLiveData) -> Unit)? = null
+    var onItemDeleteClick: ((ItemLiveData) -> Unit)? = null
 
     init {
         itemView.setOnClickListener {
@@ -24,25 +24,21 @@ class CharacterItemViewHolder(itemView: View) : BaseViewHolder<ItemData>(itemVie
         }
     }
 
-    val nameObserver = Observer<String> {
-        it?.let {
-            textView.text = it
-        }
+    val nameObserver: ((String) -> Unit) = {
+        textView.text = it
     }
-    val typeObserver = Observer<ItemType> {
-        it?.let {
-            iconView.setImageResource(when (it) {
-                ItemType.Head -> R.drawable.icon_item_head
-                ItemType.Body -> R.drawable.icon_item_body
-                ItemType.Legs -> R.drawable.icon_item_legs
-                ItemType.OneHand -> R.drawable.icon_item_one_hand
-                ItemType.TwoHands -> R.drawable.icon_item_two_hands
-                ItemType.Small -> R.drawable.icon_items_small
-            })
-        }
+    val typeObserver: ((ItemType) -> Unit) = {
+        iconView.setImageResource(when (it) {
+            ItemType.Head -> R.drawable.icon_item_head
+            ItemType.Body -> R.drawable.icon_item_body
+            ItemType.Legs -> R.drawable.icon_item_legs
+            ItemType.OneHand -> R.drawable.icon_item_one_hand
+            ItemType.TwoHands -> R.drawable.icon_item_two_hands
+            ItemType.Small -> R.drawable.icon_items_small
+        })
     }
 
-    override fun bind(item: ItemData) {
+    override fun bind(item: ItemLiveData) {
         super.bind(item)
 
         item.name.observeForever(nameObserver)

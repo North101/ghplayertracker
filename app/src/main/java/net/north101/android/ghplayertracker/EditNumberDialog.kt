@@ -29,11 +29,11 @@ abstract class EditNumberDialog : DialogFragment() {
         view2 = inflater.inflate(R.layout.edit_number_layout, null as ViewGroup?)
 
         builder.setView(view2)
-                .setTitle(title)
-                .setPositiveButton("OK", null)
-                .setNegativeButton("CANCEL") { dialog, id ->
-                    this@EditNumberDialog.dialog.cancel()
-                }
+            .setTitle(title)
+            .setPositiveButton("OK", null)
+            .setNegativeButton("CANCEL") { dialog, id ->
+                this@EditNumberDialog.dialog.cancel()
+            }
 
         return builder.create()
     }

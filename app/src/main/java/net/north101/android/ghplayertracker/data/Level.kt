@@ -5,8 +5,8 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Level(
-        val level: Int,
-        val health: Int
+    val level: Int,
+    val health: Int
 ) : Parcelable {
     val minXP: Int
         get() = LEVEL_XP_LIST[level - 1]

@@ -14,7 +14,6 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
-import android.util.Log
 import net.north101.android.ghplayertracker.data.Character
 import net.north101.android.ghplayertracker.data.CharacterData
 import org.androidannotations.annotations.*
@@ -53,15 +52,14 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
         trackerResultModel = ViewModelProviders.of(this).get(TrackerResultModel::class.java)
 
         if (state == null) {
-            characterModel.fromData(character)
+            characterModel.init(character)
         } else {
-            Log.d("test", (state.getParcelable("character_model") as Character).name)
-            characterModel.fromData(state.getParcelable("character_model"))
+            characterModel.fromBundle(state.getBundle("character_model"))
         }
     }
 
     override fun onSaveInstanceState(state: Bundle) {
-        state.putParcelable("character_model", characterModel.toData())
+        state.putBundle("character_model", characterModel.toBundle())
 
         super.onSaveInstanceState(state)
     }
@@ -69,11 +67,11 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
     @AfterViews
     fun afterViews() {
         if (trackerResultModel.gold > 0) {
-            characterModel.gold.value = (characterModel.gold.value ?: 0) + trackerResultModel.gold
+            characterModel.character.gold.value += trackerResultModel.gold
             trackerResultModel.gold = 0
         }
         if (trackerResultModel.xp > 0) {
-            characterModel.xp.value = (characterModel.xp.value ?: 0) + trackerResultModel.xp
+            characterModel.character.xp.value += trackerResultModel.xp
             trackerResultModel.xp = 0
         }
 
@@ -113,7 +111,7 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
         }
         listAdapter1.onItemEditClick = {
             val args = Bundle()
-            args.putInt("index", characterModel.items.value!!.indexOf(it))
+            args.putInt("index", characterModel.character.items.value.indexOf(it))
 
             val fragment = CharacterItemDialog_.builder().build()
             fragment.arguments = args
@@ -122,8 +120,8 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
             fragment.show(fragmentManager, "CharacterNoteDialog")
         }
         listAdapter1.onItemDeleteClick = {
-            characterModel.items.value!!.remove(it)
-            characterModel.items.value = characterModel.items.value
+            characterModel.character.items.value.remove(it)
+            characterModel.character.items.value = characterModel.character.items.value
 
         }
         listAdapter1.onNoteAddClick = {
@@ -134,7 +132,7 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
         }
         listAdapter1.onNoteEditClick = {
             val args = Bundle()
-            args.putInt("index", characterModel.notes.value!!.indexOf(it.note))
+            args.putInt("index", characterModel.character.notes.value.indexOf(it.note))
 
             val fragment = CharacterNoteDialog_.builder().build()
             fragment.arguments = args
@@ -143,8 +141,8 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
             fragment.show(fragmentManager, "CharacterNoteDialog")
         }
         listAdapter1.onNoteDeleteClick = {
-            characterModel.notes.value!!.remove(it.note)
-            characterModel.notes.value = characterModel.notes.value
+            characterModel.character.notes.value.remove(it.note)
+            characterModel.character.notes.value = characterModel.character.notes.value
         }
 
         val listLayoutManager1 = GridLayoutManager(context, 3)
@@ -186,37 +184,37 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
             listAdapter1.display = CharacterAdapter.DisplayItems.Left
             listAdapter2.display = CharacterAdapter.DisplayItems.Right
         }
-        listAdapter1.updateItems(characterModel)
-        listAdapter2.updateItems(characterModel)
+        listAdapter1.updateItems(characterModel.character)
+        listAdapter2.updateItems(characterModel.character)
 
-        characterModel.items.observe(this, Observer {
-            listAdapter1.updateItems(characterModel)
-            listAdapter2.updateItems(characterModel)
+        characterModel.character.items.observe(this, Observer {
+            listAdapter1.updateItems(characterModel.character)
+            listAdapter2.updateItems(characterModel.character)
         })
-        characterModel.notes.observe(this, Observer {
-            listAdapter1.updateItems(characterModel)
-            listAdapter2.updateItems(characterModel)
+        characterModel.character.notes.observe(this, Observer {
+            listAdapter1.updateItems(characterModel.character)
+            listAdapter2.updateItems(characterModel.character)
         })
     }
 
     override fun onBackPressed(): Boolean {
-        if (characterModel.toData() == character)
+        if (characterModel.character.toParcel() == character)
             return false
 
         val builder = AlertDialog.Builder(context!!)
         builder.setTitle("Would you like to save your changes?")
-                .setPositiveButton("Yes") { dialog, which ->
-                    saveCharacter(characterModel.toData(), Runnable {
-                        fragmentManager!!.popBackStack()
-                    })
-                }
-                .setNegativeButton("No") { dialog, which ->
+            .setPositiveButton("Yes") { dialog, which ->
+                saveCharacter(characterModel.character.toParcel(), Runnable {
                     fragmentManager!!.popBackStack()
-                }
-                .setNeutralButton("Cancel") { dialog, which ->
-                    dialog.dismiss()
-                }
-                .show()
+                })
+            }
+            .setNegativeButton("No") { dialog, which ->
+                fragmentManager!!.popBackStack()
+            }
+            .setNeutralButton("Cancel") { dialog, which ->
+                dialog.dismiss()
+            }
+            .show()
 
         return true
     }
@@ -224,21 +222,21 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
     @OptionsItem(R.id.start)
     fun onMenuStartClick() {
         val args = Bundle()
-        args.putParcelable("character", characterModel.toData())
+        args.putParcelable("character", characterModel.character.toParcel())
 
         val fragment = TrackerFragment_()
         fragment.arguments = args
         fragment.setTargetFragment(this, 1)
 
         fragmentManager!!.beginTransaction()
-                .replace(R.id.content, fragment)
-                .addToBackStack(null)
-                .commit()
+            .replace(R.id.content, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 
     @OptionsItem(R.id.save)
     fun onMenuSaveClick() {
-        character = characterModel.toData()
+        character = characterModel.character.toParcel()
         saveCharacter(character, null)
     }
 
@@ -304,9 +302,9 @@ open class CharacterEditLevelDialog : CharacterNumberDialog() {
     override val title = "Edit Level"
 
     override var value: Int
-        get() = characterModel.level.value!!
+        get() = characterModel.character.level.value
         set(value) {
-            characterModel.level.value = value
+            characterModel.character.level.value = value
         }
 }
 
@@ -316,9 +314,9 @@ open class CharacterEditXPDialog : CharacterNumberDialog() {
     override val title = "Edit XP"
 
     override var value: Int
-        get() = characterModel.xp.value!!
+        get() = characterModel.character.xp.value
         set(value) {
-            characterModel.xp.value = value
+            characterModel.character.xp.value = value
         }
 }
 
@@ -328,8 +326,8 @@ open class CharacterEditGoldDialog : CharacterNumberDialog() {
     override val title = "Edit Gold"
 
     override var value: Int
-        get() = characterModel.gold.value!!
+        get() = characterModel.character.gold.value
         set(value) {
-            characterModel.gold.value = value
+            characterModel.character.gold.value = value
         }
 }
