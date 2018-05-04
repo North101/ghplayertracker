@@ -7,16 +7,15 @@
     android:orientation="vertical"
     android:padding="8dp">
 
-
-    <TextView
-        style="@style/TagEditor.InputHint"
-        android:text="Name"/>
-
     <EditText
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxLines="1"/>
+        android:imeOptions="actionNext"
+        android:inputType="text"
+        android:lines="1"
+        android:nextFocusDown="@id/max_health"
+        android:nextFocusRight="@id/max_health"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,7 +28,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:imeOptions="actionNext"
+            android:lines="1"
+            android:nextFocusRight="@id/move"/>
 
         <ImageView
             android:layout_width="24dp"
@@ -44,7 +46,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:imeOptions="actionNext"
+            android:lines="1"
+            android:nextFocusRight="@id/attack"/>
 
         <ImageView
             android:layout_width="24dp"
@@ -65,7 +70,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:imeOptions="actionNext"
+            android:lines="1"
+            android:nextFocusRight="@id/range"/>
 
         <ImageView
             android:layout_width="24dp"
@@ -80,7 +88,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:imeOptions="actionDone"
+            android:lines="1"/>
 
         <ImageView
             android:layout_width="24dp"

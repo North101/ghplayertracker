@@ -1,15 +1,8 @@
 package net.north101.android.ghplayertracker
 
 import android.arch.lifecycle.Observer
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.text.Spannable
-import android.text.SpannableString
-import android.text.SpannableStringBuilder
-import android.text.style.ImageSpan
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 

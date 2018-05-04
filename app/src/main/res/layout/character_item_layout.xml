@@ -9,7 +9,11 @@
     <EditText
         android:id="@+id/text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:imeOptions="actionNext"
+        android:inputType="text"
+        android:lines="1"
+        android:nextFocusRight="@id/type"/>
 
     <LinearLayout
         android:layout_width="match_parent"

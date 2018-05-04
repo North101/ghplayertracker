@@ -37,7 +37,7 @@ class CharacterStatsViewHolder(itemView: View) : BaseViewHolder<CharacterModel>(
     var onNumberClick: ((String) -> Unit)? = null
 
     init {
-        nameView.addTextChangedListener(object: TextWatcher {
+        nameView.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
                 val text = p0.toString()
                 if (item!!.name.value != text) {
