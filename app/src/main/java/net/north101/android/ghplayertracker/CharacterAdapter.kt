@@ -80,7 +80,7 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
             newItems.addAll(character.items.value.sortedBy { it.type.value }.map {
                 Item(it)
             })
-            
+
             newItems.add(TextHeaderAdd("Notes", {
                 onNoteAddClick?.invoke()
             }))
