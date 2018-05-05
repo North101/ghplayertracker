@@ -9,6 +9,15 @@
     android:paddingTop="4dp">
 
     <TextView
+        android:id="@+id/index"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="4dp"
+        android:gravity="center_vertical"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+    <TextView
         android:id="@+id/text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

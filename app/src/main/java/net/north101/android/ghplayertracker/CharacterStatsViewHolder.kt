@@ -51,33 +51,49 @@ class CharacterStatsViewHolder(itemView: View) : BaseViewHolder<CharacterLiveDat
         levelContainerView.setOnClickListener {
             onNumberClick?.invoke("level")
         }
-        levelPlusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
+        levelPlusView.setOnTouchListener(RepeatListener({ _, _ ->
             item!!.level.value += 1
-        })))
-        levelMinusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
+        }))
+        levelMinusView.setOnTouchListener(RepeatListener({ _, _ ->
             item!!.level.value -= 1
-        })))
+        }))
 
         xpContainerView.setOnClickListener {
             onNumberClick?.invoke("xp")
         }
-        xpPlusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
-            item!!.xp.value += 1
-        })))
-        xpMinusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
-            item!!.xp.value -= 1
-        })))
+        xpPlusView.setOnTouchListener(RepeatListener({ _, count ->
+            if (count >= 10) {
+                item!!.xp.value = ((5 * Math.floor(item!!.xp.value / 5.0)) + 5).toInt()
+            } else {
+                item!!.xp.value += 1
+            }
+        }))
+        xpMinusView.setOnTouchListener(RepeatListener({ _, count ->
+            if (count >= 10) {
+                item!!.xp.value = ((5 * Math.ceil(item!!.xp.value / 5.0)) - 5).toInt()
+            } else {
+                item!!.xp.value -= 1
+            }
+        }))
 
         goldContainerView.setOnClickListener {
             onNumberClick?.invoke("gold")
         }
-        goldPlusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
-            item!!.gold.value += 1
-        })))
-        goldMinusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
-            item!!.gold.value -= 1
-        })))
-        retiredView.setOnCheckedChangeListener { compoundButton, b ->
+        goldPlusView.setOnTouchListener(RepeatListener({ _, count ->
+            if (count >= 10) {
+                item!!.gold.value = ((5 * Math.floor(item!!.gold.value / 5.0)) + 5).toInt()
+            } else {
+                item!!.gold.value += 1
+            }
+        }))
+        goldMinusView.setOnTouchListener(RepeatListener({ _, count ->
+            if (count >= 10) {
+                item!!.gold.value = ((5 * Math.ceil(item!!.gold.value / 5.0)) - 5).toInt()
+            } else {
+                item!!.gold.value -= 1
+            }
+        }))
+        retiredView.setOnCheckedChangeListener { _, b ->
             if (item!!.retired.value != b) {
                 item!!.retired.value = b
             }

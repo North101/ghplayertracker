@@ -19,8 +19,8 @@ class SummonLiveData : RecyclerItemCompare {
     constructor(
         id: UUID,
         name: String,
-        health: Int,
         maxHealth: Int,
+        health: Int,
         move: Int,
         attack: Int,
         range: Int,
@@ -28,8 +28,8 @@ class SummonLiveData : RecyclerItemCompare {
     ) {
         this.id = id
         this.name.value = name
-        this.health.value = health
         this.health.maxValue = maxHealth
+        this.health.value = health
         this.move.value = move
         this.attack.value = attack
         this.range.value = range
@@ -41,8 +41,8 @@ class SummonLiveData : RecyclerItemCompare {
     constructor(data: Summon) : this(
         data.id,
         data.name,
-        data.health,
         data.maxHealth,
+        data.health,
         data.move,
         data.attack,
         data.range,
@@ -56,8 +56,8 @@ class SummonLiveData : RecyclerItemCompare {
         return Summon(
             id,
             name.value,
-            health.value,
             health.maxValue!!,
+            health.value,
             move.value,
             attack.value,
             range.value,

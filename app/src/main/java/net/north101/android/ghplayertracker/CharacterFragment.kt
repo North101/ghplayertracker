@@ -124,6 +124,26 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
             characterModel.character.items.value = characterModel.character.items.value
 
         }
+        listAdapter1.onAbilityAddClick = {
+            val fragment = CharacterAbilityDialog_.builder().build()
+            fragment.setTargetFragment(this, 0)
+
+            fragment.show(fragmentManager, "CharacterAbilityDialog")
+        }
+        listAdapter1.onAbilityEditClick = {
+            val args = Bundle()
+            args.putInt("index", characterModel.character.abilities.value.indexOf(it.ability))
+
+            val fragment = CharacterAbilityDialog_.builder().build()
+            fragment.arguments = args
+            fragment.setTargetFragment(this, 0)
+
+            fragment.show(fragmentManager, "CharacterAbilityDialog")
+        }
+        listAdapter1.onAbilityDeleteClick = {
+            characterModel.character.abilities.value.remove(it.ability)
+            characterModel.character.abilities.value = characterModel.character.abilities.value
+        }
         listAdapter1.onNoteAddClick = {
             val fragment = CharacterNoteDialog_.builder().build()
             fragment.setTargetFragment(this, 0)
@@ -188,6 +208,10 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
         listAdapter2.updateItems(characterModel.character)
 
         characterModel.character.items.observe(this, Observer {
+            listAdapter1.updateItems(characterModel.character)
+            listAdapter2.updateItems(characterModel.character)
+        })
+        characterModel.character.abilities.observe(this, Observer {
             listAdapter1.updateItems(characterModel.character)
             listAdapter2.updateItems(characterModel.character)
         })

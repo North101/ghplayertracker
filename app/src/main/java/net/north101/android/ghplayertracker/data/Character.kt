@@ -32,6 +32,7 @@ data class Character(
     var modified: Date,
     var retired: Boolean,
     var items: ArrayList<Item>,
+    var abilities: ArrayList<String>,
     var notes: ArrayList<String>
 ) : Parcelable {
     constructor(characterClass: CharacterClass) : this(
@@ -46,6 +47,7 @@ data class Character(
         Date(),
         Date(),
         false,
+        ArrayList(),
         ArrayList(),
         ArrayList()
     )
@@ -91,6 +93,7 @@ data class Character(
             modified,
             retired,
             ArrayList(items.map { it.copy() }),
+            ArrayList(abilities.map { it }),
             ArrayList(notes.map { it })
         )
     }
@@ -115,6 +118,7 @@ data class Character(
             item.put("type", it.type.name)
             item
         }))
+        data.put("abilities", JSONArray(abilities))
         data.put("notes", JSONArray(notes))
 
         return data
@@ -166,6 +170,11 @@ data class Character(
                 }
             })
 
+            val abilitiesData = data.optJSONArray("abilities")
+            val abilities = ArrayList(0.until(abilitiesData?.length() ?: 0).mapNotNull {
+                abilitiesData.optString(it, null)
+            })
+
             val notesData = data.optJSONArray("notes")
             val notes = ArrayList(0.until(notesData?.length() ?: 0).mapNotNull {
                 notesData.optString(it, null)
@@ -184,6 +193,7 @@ data class Character(
                 modified,
                 retired,
                 items,
+                abilities,
                 notes
             )
         }

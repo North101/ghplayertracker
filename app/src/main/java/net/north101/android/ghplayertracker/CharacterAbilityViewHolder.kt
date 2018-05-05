@@ -5,13 +5,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 
-class CharacterNoteViewHolder(itemView: View) : BaseViewHolder<CharacterAdapter.Note>(itemView) {
+class CharacterAbilityViewHolder(itemView: View) : BaseViewHolder<CharacterAdapter.Ability>(itemView) {
     var indexView: TextView = itemView.findViewById(R.id.index)
     var textView: TextView = itemView.findViewById(R.id.text)
     val deleteView: ImageView = itemView.findViewById(R.id.delete)
 
-    var onItemEditClick: ((CharacterAdapter.Note) -> Unit)? = null
-    var onItemDeleteClick: ((CharacterAdapter.Note) -> Unit)? = null
+    var onItemEditClick: ((CharacterAdapter.Ability) -> Unit)? = null
+    var onItemDeleteClick: ((CharacterAdapter.Ability) -> Unit)? = null
 
     init {
         itemView.setOnClickListener {
@@ -26,15 +26,15 @@ class CharacterNoteViewHolder(itemView: View) : BaseViewHolder<CharacterAdapter.
         textView.text = it
     }
 
-    override fun bind(item: CharacterAdapter.Note) {
+    override fun bind(item: CharacterAdapter.Ability) {
         super.bind(item)
 
-        indexView.text = item.index.toString() + "."
-        item.note.observeForever(noteObserver)
+        indexView.text = item.level.toString() + "."
+        item.ability.observeForever(noteObserver)
     }
 
     override fun unbind() {
-        item?.note?.removeObserver(noteObserver)
+        item?.ability?.removeObserver(noteObserver)
 
         super.unbind()
     }
@@ -42,8 +42,8 @@ class CharacterNoteViewHolder(itemView: View) : BaseViewHolder<CharacterAdapter.
     companion object {
         var layout = R.layout.character_note_item
 
-        fun inflate(parent: ViewGroup): CharacterNoteViewHolder {
-            return CharacterNoteViewHolder(BaseViewHolder.inflate(parent, layout))
+        fun inflate(parent: ViewGroup): CharacterAbilityViewHolder {
+            return CharacterAbilityViewHolder(BaseViewHolder.inflate(parent, layout))
         }
     }
 }

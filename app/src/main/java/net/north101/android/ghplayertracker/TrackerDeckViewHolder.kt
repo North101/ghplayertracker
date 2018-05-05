@@ -88,42 +88,42 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         blessContainerView.setOnClickListener {
             onNumberClickListener?.invoke("bless")
         }
-        blessPlusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
+        blessPlusView.setOnTouchListener(RepeatListener({ _, _ ->
             drawDeck.add(blessCard)
             updateBlessText()
-        })))
-        blessMinusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
+        }))
+        blessMinusView.setOnTouchListener(RepeatListener({ _, _ ->
             drawDeck.remove(blessCard)
             updateBlessText()
-        })))
+        }))
 
         curseContainerView.setOnClickListener {
             onNumberClickListener?.invoke("curse")
         }
-        cursePlusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
+        cursePlusView.setOnTouchListener(RepeatListener({ _, _ ->
             drawDeck.add(curseCard)
             updateCurseText()
-        })))
-        curseMinusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
+        }))
+        curseMinusView.setOnTouchListener(RepeatListener({ _, _ ->
             drawDeck.remove(curseCard)
             updateCurseText()
-        })))
+        }))
 
         minus1ContainerView.setOnClickListener {
             onNumberClickListener?.invoke("minus_1")
         }
-        minus1PlusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
+        minus1PlusView.setOnTouchListener(RepeatListener({ _, _ ->
             drawDeck.add(minus1Card)
             updateMinus1Text()
-        })))
-        minus1MinusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
+        }))
+        minus1MinusView.setOnTouchListener(RepeatListener({ _, _ ->
             if (drawDeck.contains(minus1Card)) {
                 drawDeck.remove(minus1Card)
             } else if (discardDeck.contains(minus1Card)) {
                 discardDeck.remove(minus1Card)
             }
             updateMinus1Text()
-        })))
+        }))
 
         advantageView.setOnClickListener {
             attackStatus = if (attackStatus == AttackStatus.Advantage) {

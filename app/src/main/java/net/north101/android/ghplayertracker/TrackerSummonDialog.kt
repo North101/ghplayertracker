@@ -40,7 +40,7 @@ open class TrackerSummonDialog : DialogFragment() {
         view2 = inflater.inflate(R.layout.character_tracker_summon_layout, null as ViewGroup?)
 
         builder.setView(view2)
-            .setTitle("Add SummonLiveData")
+            .setTitle("Add Summon")
             .setPositiveButton("OK", null)
             .setNegativeButton("CANCEL") { dialog, id ->
                 this@TrackerSummonDialog.dialog.cancel()

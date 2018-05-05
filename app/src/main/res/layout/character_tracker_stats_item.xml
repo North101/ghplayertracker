@@ -32,8 +32,9 @@
 
                 <FrameLayout
                     android:id="@+id/health_minus"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:foreground="?attr/selectableItemBackground">
 
                     <ImageView
@@ -51,8 +52,9 @@
 
                 <FrameLayout
                     android:id="@+id/health_plus"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:foreground="?attr/selectableItemBackground">
 
                     <ImageView
@@ -72,7 +74,7 @@
                     android:id="@+id/health_container"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:foreground="?attr/selectableItemBackground"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
@@ -124,8 +126,9 @@
 
                 <FrameLayout
                     android:id="@+id/xp_minus"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:foreground="?attr/selectableItemBackground">
 
                     <ImageView
@@ -143,8 +146,9 @@
 
                 <FrameLayout
                     android:id="@+id/xp_plus"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:foreground="?attr/selectableItemBackground">
 
                     <ImageView
@@ -164,7 +168,7 @@
                     android:id="@+id/xp_container"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:foreground="?attr/selectableItemBackground"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"

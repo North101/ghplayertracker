@@ -34,12 +34,12 @@ class TrackerSummonViewHolder(itemView: View) : BaseViewHolder<SummonLiveData>(i
             onSummonDeleteClick?.invoke(item!!)
         }
 
-        healthPlusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
+        healthPlusView.setOnTouchListener(RepeatListener({ _, _ ->
             item!!.health.value += 1
-        })))
-        healthMinusView.setOnTouchListener(RepeatListener(400, 100, View.OnClickListener({
+        }))
+        healthMinusView.setOnTouchListener(RepeatListener({ _, _ ->
             item!!.health.value -= 1
-        })))
+        }))
 
         for (status in Status.values()) {
             statusToView(status).setOnClickListener {

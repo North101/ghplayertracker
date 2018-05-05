@@ -31,18 +31,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:gravity="center_vertical"
+                android:gravity="center"
                 android:orientation="horizontal">
 
                 <FrameLayout
                     android:id="@+id/level_minus"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:foreground="?attr/selectableItemBackground">
 
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:layout_margin="8dp"
                         android:adjustViewBounds="true"
                         app:srcCompat="@drawable/ic_remove_circle_black_24dp"/>
@@ -55,13 +57,15 @@
 
                 <FrameLayout
                     android:id="@+id/level_plus"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:foreground="?attr/selectableItemBackground">
 
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:layout_margin="8dp"
                         android:adjustViewBounds="true"
                         app:srcCompat="@drawable/ic_add_circle_black_24dp"/>
@@ -207,18 +211,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:gravity="center_vertical"
+                android:gravity="center"
                 android:orientation="horizontal">
 
                 <FrameLayout
                     android:id="@+id/xp_minus"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:foreground="?attr/selectableItemBackground">
 
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:layout_margin="8dp"
                         android:adjustViewBounds="true"
                         app:srcCompat="@drawable/ic_remove_circle_black_24dp"/>
@@ -231,13 +237,15 @@
 
                 <FrameLayout
                     android:id="@+id/xp_plus"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:foreground="?attr/selectableItemBackground">
 
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:layout_margin="8dp"
                         android:adjustViewBounds="true"
                         app:srcCompat="@drawable/ic_add_circle_black_24dp"/>
@@ -252,7 +260,7 @@
                     android:id="@+id/xp_container"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:foreground="?attr/selectableItemBackground"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
@@ -296,18 +304,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:gravity="center_vertical"
+                android:gravity="center"
                 android:orientation="horizontal">
 
                 <FrameLayout
                     android:id="@+id/gold_minus"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:foreground="?attr/selectableItemBackground">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:layout_margin="8dp"
                         app:srcCompat="@drawable/ic_remove_circle_black_24dp"/>
                 </FrameLayout>
@@ -319,13 +329,15 @@
 
                 <FrameLayout
                     android:id="@+id/gold_plus"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:foreground="?attr/selectableItemBackground">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:layout_margin="8dp"
                         app:srcCompat="@drawable/ic_add_circle_black_24dp"/>
                 </FrameLayout>
@@ -339,7 +351,7 @@
                     android:id="@+id/gold_container"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:foreground="?attr/selectableItemBackground"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"

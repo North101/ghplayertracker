@@ -26,9 +26,14 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
             get() = item.name.toString()
     }
 
-    data class Note(val note: InitLiveData<String>) : RecyclerItemCompare {
+    data class Note(val index: Int, val note: InitLiveData<String>) : RecyclerItemCompare {
         override val compareItemId: String
             get() = note.value.toString()
+    }
+
+    data class Ability(val level: Int, val ability: InitLiveData<String>) : RecyclerItemCompare {
+        override val compareItemId: String
+            get() = ability.value.toString()
     }
 
     data class Perk(val perk: PerkLiveData) : RecyclerItemCompare {
@@ -42,6 +47,10 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
     }
 
     var onNumberEditClick: ((String) -> Unit)? = null
+
+    var onAbilityAddClick: (() -> Unit)? = null
+    var onAbilityEditClick: ((Ability) -> Unit)? = null
+    var onAbilityDeleteClick: ((Ability) -> Unit)? = null
 
     var onItemAddClick: (() -> Unit)? = null
     var onItemEditClick: ((ItemLiveData) -> Unit)? = null
@@ -58,17 +67,25 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
             newItems.add(TextHeader("Character"))
             newItems.add(Stats(character))
 
+            newItems.add(TextHeaderAdd("Abilities", {
+                onAbilityAddClick?.invoke()
+            }))
+            newItems.addAll(character.abilities.value.withIndex().map {
+                Ability(it.index + 2, it.value)
+            })
+
             newItems.add(TextHeaderAdd("Items", {
                 onItemAddClick?.invoke()
             }))
             newItems.addAll(character.items.value.sortedBy { it.type.value }.map {
                 Item(it)
             })
+            
             newItems.add(TextHeaderAdd("Notes", {
                 onNoteAddClick?.invoke()
             }))
-            newItems.addAll(character.notes.value.map {
-                Note(it)
+            newItems.addAll(character.notes.value.withIndex().map {
+                Note(it.index + 1, it.value)
             })
         }
 
@@ -98,6 +115,7 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
             CharacterViewType.HeaderAdd -> TextHeaderAddViewHolder.inflate(parent)
             CharacterViewType.Stats -> CharacterStatsViewHolder.inflate(parent)
             CharacterViewType.Item -> CharacterItemViewHolder.inflate(parent)
+            CharacterViewType.Ability -> CharacterAbilityViewHolder.inflate(parent)
             CharacterViewType.Note -> CharacterNoteViewHolder.inflate(parent)
             CharacterViewType.Perk -> CharacterPerkViewHolder.inflate(parent)
             CharacterViewType.PerkNote -> CharacterPerkNoteViewHolder.inflate(parent)
@@ -122,6 +140,15 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
                 }
                 holder.onItemDeleteClick = {
                     onItemDeleteClick?.invoke(it)
+                }
+            }
+            is CharacterAbilityViewHolder -> {
+                holder.bind(item as Ability)
+                holder.onItemEditClick = {
+                    onAbilityEditClick?.invoke(it)
+                }
+                holder.onItemDeleteClick = {
+                    onAbilityDeleteClick?.invoke(it)
                 }
             }
             is CharacterNoteViewHolder -> {
@@ -156,6 +183,7 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
             is TextHeader -> CharacterViewType.Header
             is Stats -> CharacterViewType.Stats
             is Item -> CharacterViewType.Item
+            is Ability -> CharacterViewType.Ability
             is Note -> CharacterViewType.Note
             is Perk -> CharacterViewType.Perk
             is PerkNote -> CharacterViewType.PerkNote
@@ -173,11 +201,8 @@ enum class CharacterViewType {
     HeaderAdd,
     Stats,
     Item,
+    Ability,
     Note,
     Perk,
     PerkNote
-}
-
-interface OnItemClick<T> {
-    fun onItemClick(item: T)
 }
