@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.WindowManager
 import net.north101.android.ghplayertracker.data.Card
 import net.north101.android.ghplayertracker.data.Character
 import net.north101.android.ghplayertracker.livedata.SummonLiveData
@@ -63,6 +64,18 @@ open class TrackerFragment : Fragment() {
         state.putBundle("tracker_model", trackerModel.toBundle())
 
         super.onSaveInstanceState(state)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        activity?.window?.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+    }
+
+    override fun onPause() {
+        activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+
+        super.onPause()
     }
 
     @AfterViews
