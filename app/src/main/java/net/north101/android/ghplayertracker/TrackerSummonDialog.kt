@@ -34,7 +34,7 @@ open class TrackerSummonDialog : DialogFragment() {
 
     lateinit var trackerModel: TrackerModel
 
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+    override fun onCreateDialog(state: Bundle?): Dialog {
         val builder = AlertDialog.Builder(context!!)
         val inflater = activity!!.layoutInflater
         view2 = inflater.inflate(R.layout.character_tracker_summon_layout, null as ViewGroup?)
@@ -49,7 +49,7 @@ open class TrackerSummonDialog : DialogFragment() {
         return builder.create()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, state: Bundle?): View? {
         dialog.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
         dialog.setOnShowListener { dialog ->
             val button = (dialog as AlertDialog).getButton(AlertDialog.BUTTON_POSITIVE)

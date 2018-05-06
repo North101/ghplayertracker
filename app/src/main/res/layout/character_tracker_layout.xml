@@ -30,9 +30,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:clipToPadding="false"
-            android:focusableInTouchMode="true"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"/>
+            android:focusableInTouchMode="true"/>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/list2"
@@ -41,8 +39,6 @@
             android:layout_weight="1"
             android:clipToPadding="false"
             android:focusableInTouchMode="true"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
             android:visibility="gone"/>
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

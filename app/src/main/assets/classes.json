@@ -4,6 +4,124 @@
     "name": "QnJ1dGU=",
     "health": "high",
     "color": "#5180C1",
+    "abilities": {
+      "ability_class_01_001": {
+        "name": "Trample",
+        "level": 1
+      },
+      "ability_class_01_002": {
+        "name": "Eye for and Eye",
+        "level": 1
+      },
+      "ability_class_01_003": {
+        "name": "Sweeping Blow",
+        "level": 1
+      },
+      "ability_class_01_004": {
+        "name": "Provoking Roar",
+        "level": 1
+      },
+      "ability_class_01_005": {
+        "name": "Overwhelming Assault",
+        "level": 1
+      },
+      "ability_class_01_006": {
+        "name": "Grab and Go",
+        "level": 1
+      },
+      "ability_class_01_007": {
+        "name": "Warding Strength",
+        "level": 1
+      },
+      "ability_class_01_008": {
+        "name": "Shield Bash",
+        "level": 1
+      },
+      "ability_class_01_009": {
+        "name": "Leaping Cleave",
+        "level": 1
+      },
+      "ability_class_01_010": {
+        "name": "Spare Dagger",
+        "level": 1
+      },
+      "ability_class_01_011": {
+        "name": "Skewer",
+        "level": 1
+      },
+      "ability_class_01_012": {
+        "name": "Balanced Measure",
+        "level": 1
+      },
+      "ability_class_01_013": {
+        "name": "Wall of Doom",
+        "level": 1
+      },
+      "ability_class_01_014": {
+        "name": "Fatal Advance",
+        "level": 2
+      },
+      "ability_class_01_015": {
+        "name": "Juggernaut",
+        "level": 2
+      },
+      "ability_class_01_016": {
+        "name": "Hook and Chain",
+        "level": 3
+      },
+      "ability_class_01_017": {
+        "name": "Brute Force",
+        "level": 3
+      },
+      "ability_class_01_018": {
+        "name": "Unstoppable Charge",
+        "level": 4
+      },
+      "ability_class_01_019": {
+        "name": "Devastating Hack",
+        "level": 4
+      },
+      "ability_class_01_020": {
+        "name": "Whirlwind",
+        "level": 5
+      },
+      "ability_class_01_021": {
+        "name": "Skirmishing Maneuver",
+        "level": 5
+      },
+      "ability_class_01_022": {
+        "name": "Quietus",
+        "level": 6
+      },
+      "ability_class_01_023": {
+        "name": "Immovable Phalanx",
+        "level": 6
+      },
+      "ability_class_01_024": {
+        "name": "Defensive Tactics",
+        "level": 7
+      },
+      "ability_class_01_025": {
+        "name": "Crippling Offence",
+        "level": 7
+      },
+      "ability_class_01_026": {
+        "name": "Frenzied Onslaught",
+        "level": 8
+      },
+      "ability_class_01_027": {
+        "name": "Selfish Retribution",
+        "level": 8
+      },
+      "ability_class_01_028": {
+        "name": "King of the Hill",
+        "level": 9
+      },
+      "ability_class_01_029": {
+        "name": "Face Your End",
+        "level": 9
+      }
+    },
     "cards": {
       "mod_class_01_plus_1": {
         "deck": "class"
@@ -162,6 +280,132 @@
     "name": "VGlua2VyZXI=",
     "health": "medium",
     "color": "#C4B58D",
+    "abilities": {
+      "ability_class_02_030": {
+        "name": "Proximity Mine",
+        "level": 1
+      },
+      "ability_class_02_031": {
+        "name": "Harmless Contraption",
+        "level": 1
+      },
+      "ability_class_02_032": {
+        "name": "Flamethrower",
+        "level": 1
+      },
+      "ability_class_02_033": {
+        "name": "Hook Gun",
+        "level": 1
+      },
+      "ability_class_02_034": {
+        "name": "Ink Bomb",
+        "level": 1
+      },
+      "ability_class_02_035": {
+        "name": "Net Shooter",
+        "level": 1
+      },
+      "ability_class_02_036": {
+        "name": "Stun Gun",
+        "level": 1
+      },
+      "ability_class_02_037": {
+        "name": "Reinvigorating Elixir",
+        "level": 1
+      },
+      "ability_class_02_038": {
+        "name": "Restorative Mist",
+        "level": 1
+      },
+      "ability_class_02_039": {
+        "name": "Energizing Toxin",
+        "level": 1
+      },
+      "ability_class_02_040": {
+        "name": "Enhancement Field",
+        "level": 1
+      },
+      "ability_class_02_041": {
+        "name": "Toxic Bolt",
+        "level": 1
+      },
+      "ability_class_02_042": {
+        "name": "Reviving Shock",
+        "level": 1
+      },
+      "ability_class_02_043": {
+        "name": "Volatile Concoction",
+        "level": 1
+      },
+      "ability_class_02_044": {
+        "name": "Potent Potables",
+        "level": 1
+      },
+      "ability_class_02_045": {
+        "name": "Stamina Booster",
+        "level": 2
+      },
+      "ability_class_02_046": {
+        "name": "Disorienting Flash",
+        "level": 2
+      },
+      "ability_class_02_047": {
+        "name": "Tinkerer's Tools",
+        "level": 3
+      },
+      "ability_class_02_048": {
+        "name": "Crank Bow",
+        "level": 3
+      },
+      "ability_class_02_049": {
+        "name": "Dangerous Contraption",
+        "level": 4
+      },
+      "ability_class_02_050": {
+        "name": "Micro Bots",
+        "level": 4
+      },
+      "ability_class_02_051": {
+        "name": "Noxious Vials",
+        "level": 5
+      },
+      "ability_class_02_052": {
+        "name": "Disintegration Beam",
+        "level": 5
+      },
+      "ability_class_02_053": {
+        "name": "Gas Canister",
+        "level": 6
+      },
+      "ability_class_02_054": {
+        "name": "Auto Turret",
+        "level": 6
+      },
+      "ability_class_02_055": {
+        "name": "Murderous Contraption",
+        "level": 7
+      },
+      "ability_class_02_056": {
+        "name": "Curative Aerosol",
+        "level": 7
+      },
+      "ability_class_02_057": {
+        "name": "Jet Propulsion",
+        "level": 8
+      },
+      "ability_class_02_058": {
+        "name": "Harsh Stimulants",
+        "level": 8
+      },
+      "ability_class_02_059": {
+        "name": "Lethal Injection",
+        "level": 9
+      },
+      "ability_class_02_060": {
+        "name": "Chimeric Formula",
+        "level": 9
+      }
+    },
     "cards": {
       "mod_class_02_muddle_rolling": {
         "deck": "class",
@@ -316,6 +560,116 @@
     "name": "U3BlbGx3ZWF2ZXI=",
     "health": "low",
     "color": "#B578B3",
+    "abilities": {
+      "ability_class_03_061": {
+        "name": "Fire Orbs",
+        "level": 1
+      },
+      "ability_class_03_062": {
+        "name": "Impaling Eruption",
+        "level": 1
+      },
+      "ability_class_03_063": {
+        "name": "Reviving Ether",
+        "level": 1
+      },
+      "ability_class_03_064": {
+        "name": "Freezing Nova",
+        "level": 1
+      },
+      "ability_class_03_065": {
+        "name": "Mana Bolt",
+        "level": 1
+      },
+      "ability_class_03_066": {
+        "name": "Frost Armor",
+        "level": 1
+      },
+      "ability_class_03_067": {
+        "name": "Flame Strike",
+        "level": 1
+      },
+      "ability_class_03_068": {
+        "name": "Ride the Wind",
+        "level": 1
+      },
+      "ability_class_03_069": {
+        "name": "Crackling Air",
+        "level": 1
+      },
+      "ability_class_03_070": {
+        "name": "Hardened Spikes",
+        "level": 1
+      },
+      "ability_class_03_071": {
+        "name": "Air from the Ether",
+        "level": 1
+      },
+      "ability_class_03_072": {
+        "name": "Flashing Burst",
+        "level": 2
+      },
+      "ability_class_03_073": {
+        "name": "Icy Blast",
+        "level": 2
+      },
+      "ability_class_03_074": {
+        "name": "Cold Fire",
+        "level": 3
+      },
+      "ability_class_03_075": {
+        "name": "Elemental Aid",
+        "level": 3
+      },
+      "ability_class_03_076": {
+        "name": "Spirit of Doom",
+        "level": 4
+      },
+      "ability_class_03_077": {
+        "name": "Forked Beam",
+        "level": 4
+      },
+      "ability_class_03_078": {
+        "name": "Chromatic Explosion",
+        "level": 5
+      },
+      "ability_class_03_079": {
+        "name": "Engulfed in Flames",
+        "level": 5
+      },
+      "ability_class_03_080": {
+        "name": "Living Torch",
+        "level": 6
+      },
+      "ability_class_03_081": {
+        "name": "Frozen Night",
+        "level": 6
+      },
+      "ability_class_03_082": {
+        "name": "Twin Restoration",
+        "level": 7
+      },
+      "ability_class_03_083": {
+        "name": "Stone Fists",
+        "level": 7
+      },
+      "ability_class_03_084": {
+        "name": "Zephyr Wings",
+        "level": 8
+      },
+      "ability_class_03_085": {
+        "name": "Cold Front",
+        "level": 8
+      },
+      "ability_class_03_086": {
+        "name": "Black Hole",
+        "level": 9
+      },
+      "ability_class_03_087": {
+        "name": "Inferno",
+        "level": 9
+      }
+    },
     "cards": {
       "mod_class_03_earth_rolling": {
         "deck": "class",
@@ -478,6 +832,120 @@
     "name": "U2NvdW5kcmVs",
     "health": "medium",
     "color": "#A6D168",
+    "abilities": {
+      "ability_class_04_088": {
+        "name": "Single Out",
+        "level": 1
+      },
+      "ability_class_04_089": {
+        "name": "Flanking Strike",
+        "level": 1
+      },
+      "ability_class_04_090": {
+        "name": "Smoke Bomb",
+        "level": 1
+      },
+      "ability_class_04_091": {
+        "name": "Backstab",
+        "level": 1
+      },
+      "ability_class_04_092": {
+        "name": "Thief's Knack",
+        "level": 1
+      },
+      "ability_class_04_093": {
+        "name": "Venom Shiv",
+        "level": 1
+      },
+      "ability_class_04_094": {
+        "name": "Throwing Knives",
+        "level": 1
+      },
+      "ability_class_04_095": {
+        "name": "Quick Hands",
+        "level": 1
+      },
+      "ability_class_04_096": {
+        "name": "Special Mixture",
+        "level": 1
+      },
+      "ability_class_04_097": {
+        "name": "Sinister Opportunity",
+        "level": 1
+      },
+      "ability_class_04_098": {
+        "name": "Trickster's Reversal",
+        "level": 1
+      },
+      "ability_class_04_099": {
+        "name": "Swift Bow",
+        "level": 1
+      },
+      "ability_class_04_100": {
+        "name": "Open Wound",
+        "level": 2
+      },
+      "ability_class_04_101": {
+        "name": "Flintlock",
+        "level": 2
+      },
+      "ability_class_04_102": {
+        "name": "Hidden Daggers",
+        "level": 3
+      },
+      "ability_class_04_103": {
+        "name": "Duelist's Advance",
+        "level": 3
+      },
+      "ability_class_04_104": {
+        "name": "Flurry of Blades",
+        "level": 4
+      },
+      "ability_class_04_105": {
+        "name": "Gruesome Advantage",
+        "level": 4
+      },
+      "ability_class_04_106": {
+        "name": "Cull of Weak",
+        "level": 5
+      },
+      "ability_class_04_107": {
+        "name": "Visage of the Inevitable",
+        "level": 5
+      },
+      "ability_class_04_108": {
+        "name": "Crippling Poison",
+        "level": 6
+      },
+      "ability_class_04_109": {
+        "name": "Burning Oil",
+        "level": 6
+      },
+      "ability_class_04_110": {
+        "name": "Stick to the Shadows",
+        "level": 7
+      },
+      "ability_class_04_111": {
+        "name": "Spring the Trap",
+        "level": 7
+      },
+      "ability_class_04_112": {
+        "name": "Stiletto Storm",
+        "level": 8
+      },
+      "ability_class_04_113": {
+        "name": "Pain's End",
+        "level": 8
+      },
+      "ability_class_04_114": {
+        "name": "Long Con",
+        "level": 9
+      },
+      "ability_class_04_115": {
+        "name": "Watch it Burn",
+        "level": 9
+      }
+    },
     "cards": {
       "mod_class_scoundral_muddle_rolling": {
         "deck": "class",
@@ -632,6 +1100,128 @@
     "name": "Q3JhZ2hlYXJ0",
     "health": "high",
     "color": "#889439",
+    "abilities": {
+      "ability_class_05_116": {
+        "name": "Opposing Strike",
+        "level": 1
+      },
+      "ability_class_05_117": {
+        "name": "Crushing Grasp",
+        "level": 1
+      },
+      "ability_class_05_118": {
+        "name": "Avalanche",
+        "level": 1
+      },
+      "ability_class_05_119": {
+        "name": "Rumbling Advance",
+        "level": 1
+      },
+      "ability_class_05_120": {
+        "name": "Massive Boulder",
+        "level": 1
+      },
+      "ability_class_05_121": {
+        "name": "Backup Ammunition",
+        "level": 1
+      },
+      "ability_class_05_122": {
+        "name": "Rock Tunnel",
+        "level": 1
+      },
+      "ability_class_05_123": {
+        "name": "Unstable Upheaval",
+        "level": 1
+      },
+      "ability_class_05_124": {
+        "name": "Crater",
+        "level": 1
+      },
+      "ability_class_05_125": {
+        "name": "Dirt Tornado",
+        "level": 1
+      },
+      "ability_class_05_126": {
+        "name": "Earthen Clod",
+        "level": 1
+      },
+      "ability_class_05_127": {
+        "name": "Heaving Swing",
+        "level": 1
+      },
+      "ability_class_05_128": {
+        "name": "Forceful Storm",
+        "level": 1
+      },
+      "ability_class_05_129": {
+        "name": "Nature's Lift",
+        "level": 1
+      },
+      "ability_class_05_130": {
+        "name": "Explosive Punch",
+        "level": 2
+      },
+      "ability_class_05_131": {
+        "name": "Sentient Growth",
+        "level": 2
+      },
+      "ability_class_05_132": {
+        "name": "Clear the Way",
+        "level": 3
+      },
+      "ability_class_05_133": {
+        "name": "Blunt Force",
+        "level": 3
+      },
+      "ability_class_05_134": {
+        "name": "Rock Slide",
+        "level": 4
+      },
+      "ability_class_05_135": {
+        "name": "Kinetic Assault",
+        "level": 4
+      },
+      "ability_class_05_136": {
+        "name": "Petrify",
+        "level": 5
+      },
+      "ability_class_05_137": {
+        "name": "Stone Pummel",
+        "level": 5
+      },
+      "ability_class_05_138": {
+        "name": "Dig Pit",
+        "level": 6
+      },
+      "ability_class_05_139": {
+        "name": "Cataclysm",
+        "level": 6
+      },
+      "ability_class_05_140": {
+        "name": "Meteor",
+        "level": 7
+      },
+      "ability_class_05_141": {
+        "name": "Brutal Momentum",
+        "level": 7
+      },
+      "ability_class_05_142": {
+        "name": "Rocky End",
+        "level": 8
+      },
+      "ability_class_05_143": {
+        "name": "Lumbering Bash",
+        "level": 8
+      },
+      "ability_class_05_144": {
+        "name": "Blind Destruction",
+        "level": 9
+      },
+      "ability_class_05_145": {
+        "name": "Pulverize",
+        "level": 9
+      }
+    },
     "cards": {
       "mod_class_05_minus_2": {
         "deck": "class"
@@ -766,6 +1356,124 @@
     "name": "TWluZHRoaWVm",
     "health": "low",
     "color": "#657C9C",
+    "abilities": {
+      "ability_class_06_146": {
+        "name": "Submissive Affliction",
+        "level": 1
+      },
+      "ability_class_06_147": {
+        "name": "Into the Night",
+        "level": 1
+      },
+      "ability_class_06_148": {
+        "name": "Fearsome Blade",
+        "level": 1
+      },
+      "ability_class_06_149": {
+        "name": "Feedback Loop",
+        "level": 1
+      },
+      "ability_class_06_150": {
+        "name": "Gnawing Horde",
+        "level": 1
+      },
+      "ability_class_06_151": {
+        "name": "The Mind's Weakness",
+        "level": 1
+      },
+      "ability_class_06_152": {
+        "name": "Parasitic Influence",
+        "level": 1
+      },
+      "ability_class_06_153": {
+        "name": "Scurry",
+        "level": 1
+      },
+      "ability_class_06_154": {
+        "name": "Perverse Edge",
+        "level": 1
+      },
+      "ability_class_06_155": {
+        "name": "Empathetic Assault",
+        "level": 1
+      },
+      "ability_class_06_156": {
+        "name": "Withering Claw",
+        "level": 1
+      },
+      "ability_class_06_157": {
+        "name": "Possession",
+        "level": 1
+      },
+      "ability_class_06_158": {
+        "name": "Frigid Apparition",
+        "level": 1
+      },
+      "ability_class_06_159": {
+        "name": "Wreteched Creature",
+        "level": 2
+      },
+      "ability_class_06_160": {
+        "name": "Hostile Takeover",
+        "level": 2
+      },
+      "ability_class_06_161": {
+        "name": "Brain Leech",
+        "level": 3
+      },
+      "ability_class_06_162": {
+        "name": "Silent Scream",
+        "level": 3
+      },
+      "ability_class_06_163": {
+        "name": "Pilfer",
+        "level": 4
+      },
+      "ability_class_06_164": {
+        "name": "Cranium Overload",
+        "level": 4
+      },
+      "ability_class_06_165": {
+        "name": "Mass Hysteria",
+        "level": 5
+      },
+      "ability_class_06_166": {
+        "name": "Frozen Mind",
+        "level": 5
+      },
+      "ability_class_06_167": {
+        "name": "Corrupting Embrace",
+        "level": 6
+      },
+      "ability_class_06_168": {
+        "name": "Dark Frenzy",
+        "level": 6
+      },
+      "ability_class_06_169": {
+        "name": "Vicious Blood",
+        "level": 7
+      },
+      "ability_class_06_170": {
+        "name": "Psychic Projection",
+        "level": 7
+      },
+      "ability_class_06_171": {
+        "name": "Shared Nightmare",
+        "level": 8
+      },
+      "ability_class_06_172": {
+        "name": "Domination",
+        "level": 8
+      },
+      "ability_class_06_173": {
+        "name": "Many as One",
+        "level": 9
+      },
+      "ability_class_06_174": {
+        "name": "Phantasmal Killer",
+        "level": 9
+      }
+    },
     "cards": {
       "mod_class_06_plus_0": {
         "deck": "class"
@@ -935,6 +1643,128 @@
     "name": "U3Vua2VlcGVy",
     "health": "high",
     "color": "#F2C33B",
+    "abilities": {
+      "ability_class_07_175": {
+        "name": "Purifying Aura",
+        "level": 1
+      },
+      "ability_class_07_176": {
+        "name": "Cautious Advance",
+        "level": 1
+      },
+      "ability_class_07_177": {
+        "name": "Brilliant Prayer",
+        "level": 1
+      },
+      "ability_class_07_178": {
+        "name": "Empowering Command",
+        "level": 1
+      },
+      "ability_class_07_179": {
+        "name": "Protective Blessing",
+        "level": 1
+      },
+      "ability_class_07_180": {
+        "name": "Dazzling Charge",
+        "level": 1
+      },
+      "ability_class_07_181": {
+        "name": "Tactical Order",
+        "level": 1
+      },
+      "ability_class_07_182": {
+        "name": "Holy Strike",
+        "level": 1
+      },
+      "ability_class_07_183": {
+        "name": "Hammer Blow",
+        "level": 1
+      },
+      "ability_class_07_184": {
+        "name": "Defensive Stance",
+        "level": 1
+      },
+      "ability_class_07_185": {
+        "name": "Lay on Hands",
+        "level": 1
+      },
+      "ability_class_07_186": {
+        "name": "Daybreak",
+        "level": 1
+      },
+      "ability_class_07_187": {
+        "name": "Beacon of Light",
+        "level": 1
+      },
+      "ability_class_07_188": {
+        "name": "Glorious Bolt",
+        "level": 1
+      },
+      "ability_class_07_189": {
+        "name": "Practical Plans",
+        "level": 2
+      },
+      "ability_class_07_190": {
+        "name": "Unwavering Mandate",
+        "level": 2
+      },
+      "ability_class_07_191": {
+        "name": "Burning Flash",
+        "level": 3
+      },
+      "ability_class_07_192": {
+        "name": "Mobilizing Axiom",
+        "level": 3
+      },
+      "ability_class_07_193": {
+        "name": "Righteous Strength",
+        "level": 4
+      },
+      "ability_class_07_194": {
+        "name": "Engulfing Radiance",
+        "level": 4
+      },
+      "ability_class_07_195": {
+        "name": "Path of Glory",
+        "level": 5
+      },
+      "ability_class_07_196": {
+        "name": "Scales of Justice",
+        "level": 5
+      },
+      "ability_class_07_197": {
+        "name": "Supportive Chant",
+        "level": 6
+      },
+      "ability_class_07_198": {
+        "name": "Illuminate the Target",
+        "level": 6
+      },
+      "ability_class_07_199": {
+        "name": "Weapon of Purity",
+        "level": 7
+      },
+      "ability_class_07_200": {
+        "name": "Bright Aegis",
+        "level": 7
+      },
+      "ability_class_07_201": {
+        "name": "Cleaning Force",
+        "level": 8
+      },
+      "ability_class_07_202": {
+        "name": "Inspiring Sanctity",
+        "level": 8
+      },
+      "ability_class_07_203": {
+        "name": "Angelic Ascension",
+        "level": 9
+      },
+      "ability_class_07_204": {
+        "name": "Divine Intervention",
+        "level": 9
+      }
+    },
     "cards": {
       "mod_class_07_element_light_rolling": {
         "deck": "class",
@@ -1074,6 +1904,120 @@
     "name": "UXVhdGVybWFzdGVy",
     "health": "high",
     "color": "#D88929",
+    "abilities": {
+      "ability_class_08_205": {
+        "name": "Restock",
+        "level": 1
+      },
+      "ability_class_08_206": {
+        "name": "Oversized Pack",
+        "level": 1
+      },
+      "ability_class_08_207": {
+        "name": "Sharpening Kit",
+        "level": 1
+      },
+      "ability_class_08_208": {
+        "name": "Proficiency",
+        "level": 1
+      },
+      "ability_class_08_209": {
+        "name": "Iron Bulwark",
+        "level": 1
+      },
+      "ability_class_08_210": {
+        "name": "Hastened Step",
+        "level": 1
+      },
+      "ability_class_08_211": {
+        "name": "Cleaving Axe",
+        "level": 1
+      },
+      "ability_class_08_212": {
+        "name": "Impaling Spear",
+        "level": 1
+      },
+      "ability_class_08_213": {
+        "name": "Crippling Bow",
+        "level": 1
+      },
+      "ability_class_08_214": {
+        "name": "Crushing Hammer",
+        "level": 1
+      },
+      "ability_class_08_215": {
+        "name": "Scroll of Recall",
+        "level": 1
+      },
+      "ability_class_08_216": {
+        "name": "Reserved Energy",
+        "level": 1
+      },
+      "ability_class_08_217": {
+        "name": "Reforge",
+        "level": 2
+      },
+      "ability_class_08_218": {
+        "name": "Bladed Boomerang",
+        "level": 2
+      },
+      "ability_class_08_219": {
+        "name": "Continual Supply",
+        "level": 3
+      },
+      "ability_class_08_220": {
+        "name": "Scroll of Lightning",
+        "level": 3
+      },
+      "ability_class_08_221": {
+        "name": "Side Pouch",
+        "level": 4
+      },
+      "ability_class_08_222": {
+        "name": "Giant Club",
+        "level": 4
+      },
+      "ability_class_08_223": {
+        "name": "Reinforced Steel",
+        "level": 5
+      },
+      "ability_class_08_224": {
+        "name": "Scroll of Judgment",
+        "level": 5
+      },
+      "ability_class_08_225": {
+        "name": "Catastrophic Bomb",
+        "level": 6
+      },
+      "ability_class_08_226": {
+        "name": "Quiver of Arrows",
+        "level": 6
+      },
+      "ability_class_08_227": {
+        "name": "Scroll of Blizzards",
+        "level": 7
+      },
+      "ability_class_08_228": {
+        "name": "Refreshment",
+        "level": 7
+      },
+      "ability_class_08_229": {
+        "name": "Portable Ballista",
+        "level": 8
+      },
+      "ability_class_08_230": {
+        "name": "Fortified Position",
+        "level": 8
+      },
+      "ability_class_08_231": {
+        "name": "Scroll of Annihilation",
+        "level": 9
+      },
+      "ability_class_08_232": {
+        "name": "Bag of Holding",
+        "level": 9
+      }
+    },
     "cards": {
       "mod_class_08_muddle_rolling": {
         "deck": "class",
@@ -1217,6 +2161,120 @@
     "name": "U3VtbW9uZXI=",
     "health": "medium",
     "color": "#EA71A2",
+    "abilities": {
+      "ability_class_09_233": {
+        "name": "Forged Ferocity",
+        "level": 1
+      },
+      "ability_class_09_234": {
+        "name": "Wild Animation",
+        "level": 1
+      },
+      "ability_class_09_235": {
+        "name": "Living Night",
+        "level": 1
+      },
+      "ability_class_09_236": {
+        "name": "Unending Dominance",
+        "level": 1
+      },
+      "ability_class_09_237": {
+        "name": "Unwavering Hand",
+        "level": 1
+      },
+      "ability_class_09_238": {
+        "name": "Mighty Bond",
+        "level": 1
+      },
+      "ability_class_09_239": {
+        "name": "Bonded Might",
+        "level": 1
+      },
+      "ability_class_09_240": {
+        "name": "Biting Wind",
+        "level": 1
+      },
+      "ability_class_09_241": {
+        "name": "Black Fire",
+        "level": 1
+      },
+      "ability_class_09_242": {
+        "name": "Leathery Wings",
+        "level": 1
+      },
+      "ability_class_09_243": {
+        "name": "Volatile Flame",
+        "level": 1
+      },
+      "ability_class_09_244": {
+        "name": "Ethereal Vines",
+        "level": 1
+      },
+      "ability_class_09_245": {
+        "name": "Earthen Steed",
+        "level": 2
+      },
+      "ability_class_09_246": {
+        "name": "Grasping the Void",
+        "level": 2
+      },
+      "ability_class_09_247": {
+        "name": "Tear the Fabric",
+        "level": 3
+      },
+      "ability_class_09_248": {
+        "name": "Oozing Manifestation",
+        "level": 3
+      },
+      "ability_class_09_249": {
+        "name": "Living Mountain",
+        "level": 4
+      },
+      "ability_class_09_250": {
+        "name": "Divided Mind",
+        "level": 4
+      },
+      "ability_class_09_251": {
+        "name": "Strength in Numbers",
+        "level": 5
+      },
+      "ability_class_09_252": {
+        "name": "Conjured Aid",
+        "level": 5
+      },
+      "ability_class_09_253": {
+        "name": "Endless Spikes",
+        "level": 6
+      },
+      "ability_class_09_254": {
+        "name": "Inexorable Momentum",
+        "level": 6
+      },
+      "ability_class_09_255": {
+        "name": "Negative Energy",
+        "level": 7
+      },
+      "ability_class_09_256": {
+        "name": "Staff of Visions",
+        "level": 7
+      },
+      "ability_class_09_257": {
+        "name": "Intervening Apparitions",
+        "level": 8
+      },
+      "ability_class_09_258": {
+        "name": "Otherworldly Rage",
+        "level": 8
+      },
+      "ability_class_09_259": {
+        "name": "Interplanar Mastery",
+        "level": 9
+      },
+      "ability_class_09_260": {
+        "name": "Horned Majesty",
+        "level": 9
+      }
+    },
     "cards": {
       "mod_class_09_element_dark_rolling": {
         "deck": "class",
@@ -1379,6 +2437,120 @@
     "name": "TmlnaHRzaHJvdWQ=",
     "health": "medium",
     "color": "#9E9FCF",
+    "abilities": {
+      "ability_class_10_261": {
+        "name": "Black Knives",
+        "level": 1
+      },
+      "ability_class_10_262": {
+        "name": "Cloak of Shade",
+        "level": 1
+      },
+      "ability_class_10_263": {
+        "name": "Empowering Void",
+        "level": 1
+      },
+      "ability_class_10_264": {
+        "name": "Doomed Breeze",
+        "level": 1
+      },
+      "ability_class_10_265": {
+        "name": "Enervating Wound",
+        "level": 1
+      },
+      "ability_class_10_266": {
+        "name": "Spirit of the Night",
+        "level": 1
+      },
+      "ability_class_10_267": {
+        "name": "Dancing Shadows",
+        "level": 1
+      },
+      "ability_class_10_268": {
+        "name": "Silent Force",
+        "level": 1
+      },
+      "ability_class_10_269": {
+        "name": "Smoke Step",
+        "level": 1
+      },
+      "ability_class_10_270": {
+        "name": "Wings of the Night",
+        "level": 1
+      },
+      "ability_class_10_271": {
+        "name": "Concealed Dominance",
+        "level": 1
+      },
+      "ability_class_10_272": {
+        "name": "Dark Cloud",
+        "level": 1
+      },
+      "ability_class_10_273": {
+        "name": "Prepare for the Kill",
+        "level": 2
+      },
+      "ability_class_10_274": {
+        "name": "Soulfire",
+        "level": 2
+      },
+      "ability_class_10_275": {
+        "name": "Terror Blade",
+        "level": 3
+      },
+      "ability_class_10_276": {
+        "name": "Armor of the Night",
+        "level": 3
+      },
+      "ability_class_10_277": {
+        "name": "Nightfall",
+        "level": 4
+      },
+      "ability_class_10_278": {
+        "name": "Grim Sustenance",
+        "level": 4
+      },
+      "ability_class_10_279": {
+        "name": "Claws of the Night",
+        "level": 5
+      },
+      "ability_class_10_280": {
+        "name": "Black Arrow",
+        "level": 5
+      },
+      "ability_class_10_281": {
+        "name": "Unseen Dread",
+        "level": 6
+      },
+      "ability_class_10_282": {
+        "name": "Swallowed by Fear",
+        "level": 6
+      },
+      "ability_class_10_283": {
+        "name": "Eyes of the Night",
+        "level": 7
+      },
+      "ability_class_10_284": {
+        "name": "Quiet Frenzy",
+        "level": 7
+      },
+      "ability_class_10_285": {
+        "name": "Gloom Darts",
+        "level": 8
+      },
+      "ability_class_10_286": {
+        "name": "Lurking Ruin",
+        "level": 8
+      },
+      "ability_class_10_287": {
+        "name": "Angel of Death",
+        "level": 9
+      },
+      "ability_class_10_288": {
+        "name": "Voice of the Night",
+        "level": 9
+      }
+    },
     "cards": {
       "mod_class_10_curse_rolling": {
         "deck": "class",
@@ -1522,6 +2694,128 @@
     "name": "UGxhZ3VlaGVyYWxk",
     "health": "low",
     "color": "#76C7BB",
+    "abilities": {
+      "ability_class_11_289": {
+        "name": "Vile Pestilence",
+        "level": 1
+      },
+      "ability_class_11_290": {
+        "name": "Grasping Vermin",
+        "level": 1
+      },
+      "ability_class_11_291": {
+        "name": "Wretched Swarm",
+        "level": 1
+      },
+      "ability_class_11_292": {
+        "name": "Spread the Plague",
+        "level": 1
+      },
+      "ability_class_11_293": {
+        "name": "Biting Gnats",
+        "level": 1
+      },
+      "ability_class_11_294": {
+        "name": "Winged Congregation",
+        "level": 1
+      },
+      "ability_class_11_295": {
+        "name": "Creeping Curse",
+        "level": 1
+      },
+      "ability_class_11_296": {
+        "name": "Gathering Doom",
+        "level": 1
+      },
+      "ability_class_11_297": {
+        "name": "Paralyzing Bite",
+        "level": 1
+      },
+      "ability_class_11_298": {
+        "name": "Foul Wind",
+        "level": 1
+      },
+      "ability_class_11_299": {
+        "name": "Scattered Terror",
+        "level": 1
+      },
+      "ability_class_11_300": {
+        "name": "Epidemic",
+        "level": 1
+      },
+      "ability_class_11_301": {
+        "name": "Virulent Strain",
+        "level": 1
+      },
+      "ability_class_11_302": {
+        "name": "Blistering Vortex",
+        "level": 1
+      },
+      "ability_class_11_303": {
+        "name": "Under the Skin",
+        "level": 2
+      },
+      "ability_class_11_304": {
+        "name": "Rot Maggots",
+        "level": 2
+      },
+      "ability_class_11_305": {
+        "name": "Succumb to the Gift",
+        "level": 3
+      },
+      "ability_class_11_306": {
+        "name": "Fetid Flurry",
+        "level": 3
+      },
+      "ability_class_11_307": {
+        "name": "Storm of Wings",
+        "level": 4
+      },
+      "ability_class_11_308": {
+        "name": "Nightmarish Affliction",
+        "level": 4
+      },
+      "ability_class_11_309": {
+        "name": "Accelerated End",
+        "level": 5
+      },
+      "ability_class_11_310": {
+        "name": "Willing Sacrifice",
+        "level": 5
+      },
+      "ability_class_11_311": {
+        "name": "Stining Cloud",
+        "level": 6
+      },
+      "ability_class_11_312": {
+        "name": "Black Tides",
+        "level": 6
+      },
+      "ability_class_11_313": {
+        "name": "Airborne Toxin",
+        "level": 7
+      },
+      "ability_class_11_314": {
+        "name": "Baneful Hex",
+        "level": 7
+      },
+      "ability_class_11_315": {
+        "name": "Spreading Scourge",
+        "level": 8
+      },
+      "ability_class_11_316": {
+        "name": "Grim Bargain",
+        "level": 8
+      },
+      "ability_class_11_317": {
+        "name": "Mass Extinction",
+        "level": 9
+      },
+      "ability_class_11_318": {
+        "name": "Convert the Flock",
+        "level": 9
+      }
+    },
     "cards": {
       "mod_class_11_plus_0": {
         "deck": "class"
@@ -1670,6 +2964,124 @@
     "name": "QmVyc2Vya2Vy",
     "health": "high",
     "color": "#D14F4F",
+    "abilities": {
+      "ability_class_12_319": {
+        "name": "Resolute Stand",
+        "level": 1
+      },
+      "ability_class_12_320": {
+        "name": "Growling Rage",
+        "level": 1
+      },
+      "ability_class_12_321": {
+        "name": "Strength in Agony",
+        "level": 1
+      },
+      "ability_class_12_322": {
+        "name": "Defiance of Death",
+        "level": 1
+      },
+      "ability_class_12_323": {
+        "name": "From the Brink",
+        "level": 1
+      },
+      "ability_class_12_324": {
+        "name": "Blood Pact",
+        "level": 1
+      },
+      "ability_class_12_325": {
+        "name": "Cauterize",
+        "level": 1
+      },
+      "ability_class_12_326": {
+        "name": "Dazing Wound",
+        "level": 1
+      },
+      "ability_class_12_327": {
+        "name": "Furious Aid",
+        "level": 1
+      },
+      "ability_class_12_328": {
+        "name": "Bounce Back",
+        "level": 1
+      },
+      "ability_class_12_329": {
+        "name": "Unbridled Power",
+        "level": 1
+      },
+      "ability_class_12_330": {
+        "name": "Glass Hammer",
+        "level": 1
+      },
+      "ability_class_12_331": {
+        "name": "Numb the Pain",
+        "level": 1
+      },
+      "ability_class_12_332": {
+        "name": "Reckless Offensive",
+        "level": 2
+      },
+      "ability_class_12_333": {
+        "name": "Break the Chains",
+        "level": 2
+      },
+      "ability_class_12_334": {
+        "name": "Spiked Armor",
+        "level": 3
+      },
+      "ability_class_12_335": {
+        "name": "Fatal Fury",
+        "level": 3
+      },
+      "ability_class_12_336": {
+        "name": "Flurry of Axes",
+        "level": 4
+      },
+      "ability_class_12_337": {
+        "name": "Shiny Distraction",
+        "level": 4
+      },
+      "ability_class_12_338": {
+        "name": "Seeing Red",
+        "level": 5
+      },
+      "ability_class_12_339": {
+        "name": "Final Fight",
+        "level": 5
+      },
+      "ability_class_12_340": {
+        "name": "Devil Horns",
+        "level": 6
+      },
+      "ability_class_12_341": {
+        "name": "Unstoppable Destruction",
+        "level": 6
+      },
+      "ability_class_12_342": {
+        "name": "Burning Hatred",
+        "level": 7
+      },
+      "ability_class_12_343": {
+        "name": "Careless Charge",
+        "level": 7
+      },
+      "ability_class_12_344": {
+        "name": "Bone Breaker",
+        "level": 8
+      },
+      "ability_class_12_345": {
+        "name": "Vengeful Barrage",
+        "level": 8
+      },
+      "ability_class_12_346": {
+        "name": "Immortality",
+        "level": 9
+      },
+      "ability_class_12_347": {
+        "name": "The Maw of Madness",
+        "level": 9
+      }
+    },
     "cards": {
       "mod_class_12_heal_1_rolling": {
         "deck": "class",
@@ -1809,6 +3221,120 @@
     "name": "U29vdGhzaW5nZXI=",
     "health": "low",
     "color": "#DE7F7A",
+    "abilities": {
+      "ability_class_13_348": {
+        "name": "Power Ballad",
+        "level": 1
+      },
+      "ability_class_13_349": {
+        "name": "Defensive Ditty",
+        "level": 1
+      },
+      "ability_class_13_350": {
+        "name": "Song of Speed",
+        "level": 1
+      },
+      "ability_class_13_351": {
+        "name": "Tuning the Outcome",
+        "level": 1
+      },
+      "ability_class_13_352": {
+        "name": "Call to Action",
+        "level": 1
+      },
+      "ability_class_13_353": {
+        "name": "Warding Dagger",
+        "level": 1
+      },
+      "ability_class_13_354": {
+        "name": "Throw Voice",
+        "level": 1
+      },
+      "ability_class_13_355": {
+        "name": "Singing Arrow",
+        "level": 1
+      },
+      "ability_class_13_356": {
+        "name": "Marching Beat",
+        "level": 1
+      },
+      "ability_class_13_357": {
+        "name": "Wistful Wounding",
+        "level": 1
+      },
+      "ability_class_13_358": {
+        "name": "Unending Chant",
+        "level": 1
+      },
+      "ability_class_13_359": {
+        "name": "Nimble Knife",
+        "level": 1
+      },
+      "ability_class_13_360": {
+        "name": "Soothing Lullaby",
+        "level": 2
+      },
+      "ability_class_13_361": {
+        "name": "Change Tempo",
+        "level": 2
+      },
+      "ability_class_13_362": {
+        "name": "Echoing Aria",
+        "level": 3
+      },
+      "ability_class_13_363": {
+        "name": "Crippling Chorus",
+        "level": 3
+      },
+      "ability_class_13_364": {
+        "name": "Disorenting Dirge",
+        "level": 4
+      },
+      "ability_class_13_365": {
+        "name": "Inspiring Anthem",
+        "level": 4
+      },
+      "ability_class_13_366": {
+        "name": "Melody and Harmony",
+        "level": 5
+      },
+      "ability_class_13_367": {
+        "name": "Mobilizing Measure",
+        "level": 5
+      },
+      "ability_class_13_368": {
+        "name": "Pull the Strings",
+        "level": 6
+      },
+      "ability_class_13_369": {
+        "name": "Provoke Terror",
+        "level": 6
+      },
+      "ability_class_13_370": {
+        "name": "Nightmare Serenade",
+        "level": 7
+      },
+      "ability_class_13_371": {
+        "name": "Booming Proclamation",
+        "level": 7
+      },
+      "ability_class_13_372": {
+        "name": "Tranquil Trill",
+        "level": 8
+      },
+      "ability_class_13_373": {
+        "name": "Commanding Presence",
+        "level": 8
+      },
+      "ability_class_13_374": {
+        "name": "Captivating Performance",
+        "level": 9
+      },
+      "ability_class_13_375": {
+        "name": "Shadow Puppets",
+        "level": 9
+      }
+    },
     "cards": {
       "mod_class_13_curse_rolling": {
         "deck": "class",
@@ -1998,6 +3524,132 @@
     "name": "RG9vbXN0YWxrZXI=",
     "health": "medium",
     "color": "#37C2F1",
+    "abilities": {
+      "ability_class_14_376": {
+        "name": "Rain of Arrows",
+        "level": 1
+      },
+      "ability_class_14_377": {
+        "name": "Crippling Noose",
+        "level": 1
+      },
+      "ability_class_14_378": {
+        "name": "Felling Swoop",
+        "level": 1
+      },
+      "ability_class_14_379": {
+        "name": "Vital Charge",
+        "level": 1
+      },
+      "ability_class_14_380": {
+        "name": "Race to the Grave",
+        "level": 1
+      },
+      "ability_class_14_381": {
+        "name": "Multi-Pronged Assault",
+        "level": 1
+      },
+      "ability_class_14_382": {
+        "name": "Detonation",
+        "level": 1
+      },
+      "ability_class_14_383": {
+        "name": "Frightening Curse",
+        "level": 1
+      },
+      "ability_class_14_384": {
+        "name": "Foot Snare",
+        "level": 1
+      },
+      "ability_class_14_385": {
+        "name": "Solid Bow",
+        "level": 1
+      },
+      "ability_class_14_386": {
+        "name": "A Moment's Peace",
+        "level": 1
+      },
+      "ability_class_14_387": {
+        "name": "Swift Trickery",
+        "level": 1
+      },
+      "ability_class_14_388": {
+        "name": "Sap Life",
+        "level": 1
+      },
+      "ability_class_14_389": {
+        "name": "The Hunt Begins",
+        "level": 1
+      },
+      "ability_class_14_390": {
+        "name": "Fresh Kill",
+        "level": 1
+      },
+      "ability_class_14_391": {
+        "name": "Expose",
+        "level": 2
+      },
+      "ability_class_14_392": {
+        "name": "Relentless Offensive",
+        "level": 2
+      },
+      "ability_class_14_393": {
+        "name": "Darkended Skies",
+        "level": 3
+      },
+      "ability_class_14_394": {
+        "name": "Press the Attack",
+        "level": 3
+      },
+      "ability_class_14_395": {
+        "name": "Singular Focus",
+        "level": 4
+      },
+      "ability_class_14_396": {
+        "name": "Flight of Flame",
+        "level": 4
+      },
+      "ability_class_14_397": {
+        "name": "Incescapable Fate",
+        "level": 5
+      },
+      "ability_class_14_398": {
+        "name": "Wild Command",
+        "level": 5
+      },
+      "ability_class_14_399": {
+        "name": "Nature's Hunger",
+        "level": 6
+      },
+      "ability_class_14_400": {
+        "name": "Camouflage",
+        "level": 6
+      },
+      "ability_class_14_401": {
+        "name": "Impending End",
+        "level": 7
+      },
+      "ability_class_14_402": {
+        "name": "Crashing Wave",
+        "level": 7
+      },
+      "ability_class_14_403": {
+        "name": "Rising Momentum",
+        "level": 8
+      },
+      "ability_class_14_404": {
+        "name": "Feral Instincts",
+        "level": 8
+      },
+      "ability_class_14_405": {
+        "name": "Predator and Prey",
+        "level": 9
+      },
+      "ability_class_14_406": {
+        "name": "Lead to Slaughter",
+        "level": 9
+      }
+    },
     "cards": {
       "mod_class_14_plus_1_immobilize": {
         "deck": "class"
@@ -2127,34 +3779,195 @@
     ]
   },
   {
-    "id": "class_14",
-    "name": "RG9vbXN0YWxrZXI=",
+    "id": "class_15",
+    "name": "U2F3Ym9uZXM=",
     "health": "medium",
-    "color": "#37C2F1",
+    "color": "#E0DDCA",
+    "abilities": {
+      "ability_class_15_407": {
+        "name": "First Aid",
+        "level": 1
+      },
+      "ability_class_15_408": {
+        "name": "Hand of the Surgeon",
+        "level": 1
+      },
+      "ability_class_15_409": {
+        "name": "Hold Back the Pain",
+        "level": 1
+      },
+      "ability_class_15_410": {
+        "name": "Booster Shot",
+        "level": 1
+      },
+      "ability_class_15_411": {
+        "name": "Bloody Saw",
+        "level": 1
+      },
+      "ability_class_15_412": {
+        "name": "Curative Mixture",
+        "level": 1
+      },
+      "ability_class_15_413": {
+        "name": "Syringe",
+        "level": 1
+      },
+      "ability_class_15_414": {
+        "name": "Battlefield Medicine",
+        "level": 1
+      },
+      "ability_class_15_415": {
+        "name": "Triage",
+        "level": 1
+      },
+      "ability_class_15_416": {
+        "name": "Mobile Response",
+        "level": 1
+      },
+      "ability_class_15_417": {
+        "name": "Medical Pack",
+        "level": 1
+      },
+      "ability_class_15_418": {
+        "name": "Medical Pack",
+        "level": 1
+      },
+      "ability_class_15_419": {
+        "name": "Medical Pack",
+        "level": 1
+      },
+      "ability_class_15_420": {
+        "name": "Medical Pack",
+        "level": 1
+      },
+      "ability_class_15_421": {
+        "name": "Medical Pack",
+        "level": 1
+      },
+      "ability_class_15_422": {
+        "name": "Medical Pack",
+        "level": 1
+      },
+      "ability_class_15_423": {
+        "name": "Medical Pack",
+        "level": 1
+      },
+      "ability_class_15_424": {
+        "name": "Large Medical Pack",
+        "level": 1
+      },
+      "ability_class_15_425": {
+        "name": "Large Medical Pack",
+        "level": 1
+      },
+      "ability_class_15_426": {
+        "name": "Large Medical Pack",
+        "level": 1
+      },
+      "ability_class_15_427": {
+        "name": "Large Medical Pack",
+        "level": 1
+      },
+      "ability_class_15_428": {
+        "name": "Prevention Is Key",
+        "level": 1
+      },
+      "ability_class_15_429": {
+        "name": "Teamwork",
+        "level": 1
+      },
+      "ability_class_15_430": {
+        "name": "Vaccine",
+        "level": 1
+      },
+      "ability_class_15_431": {
+        "name": "Hamstring",
+        "level": 2
+      },
+      "ability_class_15_432": {
+        "name": "Precaution",
+        "level": 2
+      },
+      "ability_class_15_433": {
+        "name": "Regenerative Tissue",
+        "level": 3
+      },
+      "ability_class_15_434": {
+        "name": "Vital Strike",
+        "level": 3
+      },
+      "ability_class_15_435": {
+        "name": "Blood Transfusion",
+        "level": 4
+      },
+      "ability_class_15_436": {
+        "name": "Do No Harm",
+        "level": 4
+      },
+      "ability_class_15_437": {
+        "name": "Research the Cure",
+        "level": 5
+      },
+      "ability_class_15_438": {
+        "name": "Amputate",
+        "level": 5
+      },
+      "ability_class_15_439": {
+        "name": "Euthanize",
+        "level": 6
+      },
+      "ability_class_15_440": {
+        "name": "Prescription",
+        "level": 6
+      },
+      "ability_class_15_441": {
+        "name": "Master Physician",
+        "level": 7
+      },
+      "ability_class_15_442": {
+        "name": "Surgeon's Satchel",
+        "level": 7
+      },
+      "ability_class_15_443": {
+        "name": "Bedside Manner",
+        "level": 8
+      },
+      "ability_class_15_444": {
+        "name": "Gentleman's Anger",
+        "level": 8
+      },
+      "ability_class_15_445": {
+        "name": "Prep for Surgery",
+        "level": 9
+      },
+      "ability_class_15_446": {
+        "name": "Grisly Trauma",
+        "level": 9
+      }
+    },
     "cards": {
-      "mod_class_14_plus_1_immobilize": {
-        "deck": "class"
-      },
-      "mod_class_14_plus_1_poison": {
-        "deck": "class"
-      },
-      "mod_class_14_plus_1_rolling": {
+      "mod_class_15_heal_3_rolling": {
         "deck": "class",
         "special": "rolling"
       },
-      "mod_class_14_plus_1_wound": {
+      "mod_class_15_plus_1_immobilize": {
         "deck": "class"
       },
-      "mod_class_14_plus_1": {
+      "mod_class_15_plus_2_rolling": {
+        "deck": "class",
+        "special": "rolling"
+      },
+      "mod_class_15_plus_2": {
         "deck": "class"
       },
-      "mod_class_14_plus_2_muddle": {
+      "mod_class_15_refresh_item": {
         "deck": "class"
       },
-      "mod_class_14_stun": {
-        "deck": "class"
+      "mod_class_15_stun_rolling": {
+        "deck": "class",
+        "special": "rolling"
       },
-      "mod_class_14_target_rolling": {
+      "mod_class_15_wound_rolling": {
         "deck": "class",
         "special": "rolling"
       }
@@ -2172,90 +3985,87 @@
         "text": "Remove two [[icon_minus_1]] cards"
       },
       {
-        "ticks": 3,
         "cards": [
           {
             "action": "remove",
-            "repeat": 2,
+            "repeat": 4,
+            "card_id": "mod_basic_plus_0"
+          }
+        ],
+        "text": "Remove four [[icon_plus_0]] cards"
+      },
+      {
+        "ticks": 2,
+        "cards": [
+          {
+            "action": "remove",
             "card_id": "mod_basic_plus_0"
           },
           {
             "action": "add",
-            "repeat": 2,
-            "card_id": "mod_class_14_plus_1"
+            "card_id": "mod_class_15_plus_2"
           }
         ],
-        "text": "Replace two [[icon_plus_0]] cards with two [[icon_plus_1]] cards"
+        "text": "Replace one [[icon_plus_0]] with one [[icon_plus_2]] card"
       },
       {
         "ticks": 2,
         "cards": [
           {
             "action": "add",
-            "repeat": 2,
-            "card_id": "mod_class_14_plus_1_rolling"
+            "card_id": "mod_class_15_plus_2_rolling"
           }
         ],
-        "text": "Add two [[icon_rolling]] [[icon_plus_1]] card"
+        "text": "Add one [[icon_rolling]] [[icon_plus_2]] card"
       },
       {
+        "ticks": 2,
         "cards": [
           {
             "action": "add",
-            "card_id": "mod_class_14_plus_2_muddle"
-          }
-        ],
-        "text": "Add one [[icon_plus_2]] MUDDLE [[icon_status_muddle]] card"
-      },
-      {
-        "cards": [
-          {
-            "action": "add",
-            "card_id": "mod_class_14_plus_1_poison"
-          }
-        ],
-        "text": "Add one [[icon_plus_1]] POISON [[icon_status_poison]] card"
-      },
-      {
-        "cards": [
-          {
-            "action": "add",
-            "card_id": "mod_class_14_plus_1_wound"
-          }
-        ],
-        "text": "Add one [[icon_plus_1]] WOUND [[icon_status_wound]] card"
-      },
-      {
-        "cards": [
-          {
-            "action": "add",
-            "card_id": "mod_class_14_plus_1_immobilize"
+            "card_id": "mod_class_15_plus_1_immobilize"
           }
         ],
         "text": "Add one [[icon_plus_1]] IMMOBILIZE [[icon_status_immobilize]] card"
       },
       {
+        "ticks": 2,
         "cards": [
           {
             "action": "add",
-            "card_id": "mod_class_14_stun"
+            "repeat": 2,
+            "card_id": "mod_class_15_wound_rolling"
           }
         ],
-        "text": "Add one [[icon_plus_0]] STUN [[icon_status_stun]] card"
+        "text": "Add two [[icon_rolling]] WOUND [[icon_status_wound]] cards"
+      },
+      {
+        "cards": [
+          {
+            "action": "add",
+            "card_id": "mod_class_15_stun_rolling"
+          }
+        ],
+        "text": "Add one [[icon_rolling]] STUN [[icon_status_stun]] card"
       },
       {
         "ticks": 2,
         "cards": [
           {
             "action": "add",
-            "card_id": "mod_class_14_target_rolling"
+            "card_id": "mod_class_15_heal_3_rolling"
           }
         ],
-        "text": "Add one [[icon_rolling]] ADD TARGET [[icon_target]] card"
+        "text": "Add one [[icon_rolling]] Heal [[icon_heal]] 3 card"
       },
       {
-        "cards": [],
-        "text": "Ignore negative scenario effects"
+        "cards": [
+          {
+            "action": "add",
+            "card_id": "mod_class_15_refresh_item"
+          }
+        ],
+        "text": "Add one [[icon_plus_0]] Refresh an item card"
       }
     ]
   },
@@ -2264,6 +4074,124 @@
     "name": "RWxlbWVudGFsaXN0",
     "health": "low",
     "color": "#9E9E9E",
+    "abilities": {
+      "ability_class_16_447": {
+        "name": "Raw Enhancement",
+        "level": 1
+      },
+      "ability_class_16_448": {
+        "name": "Pure Augmentation",
+        "level": 1
+      },
+      "ability_class_16_449": {
+        "name": "Formless Power",
+        "level": 1
+      },
+      "ability_class_16_450": {
+        "name": "Shaping the Ether",
+        "level": 1
+      },
+      "ability_class_16_451": {
+        "name": "Stoking Hail",
+        "level": 1
+      },
+      "ability_class_16_452": {
+        "name": "Tremulant Cyclone",
+        "level": 1
+      },
+      "ability_class_16_453": {
+        "name": "Internal Vortex",
+        "level": 1
+      },
+      "ability_class_16_454": {
+        "name": "Lava Eruption",
+        "level": 1
+      },
+      "ability_class_16_455": {
+        "name": "Ice Spikes",
+        "level": 1
+      },
+      "ability_class_16_456": {
+        "name": "Frigid Torrent",
+        "level": 1
+      },
+      "ability_class_16_457": {
+        "name": "Malleable Evocation",
+        "level": 1
+      },
+      "ability_class_16_458": {
+        "name": "Brilliant Flash",
+        "level": 1
+      },
+      "ability_class_16_459": {
+        "name": "Encompassing Shadow",
+        "level": 1
+      },
+      "ability_class_16_460": {
+        "name": "Boiling Arc",
+        "level": 2
+      },
+      "ability_class_16_461": {
+        "name": "Crystallizing Blast",
+        "level": 2
+      },
+      "ability_class_16_462": {
+        "name": "Burial",
+        "level": 3
+      },
+      "ability_class_16_463": {
+        "name": "Chain Lightning",
+        "level": 3
+      },
+      "ability_class_16_464": {
+        "name": "Primal Duality",
+        "level": 4
+      },
+      "ability_class_16_465": {
+        "name": "Gravel Vortex",
+        "level": 4
+      },
+      "ability_class_16_466": {
+        "name": "Obsidian Shards",
+        "level": 5
+      },
+      "ability_class_16_467": {
+        "name": "Winter's Edge",
+        "level": 5
+      },
+      "ability_class_16_468": {
+        "name": "Eye of the Hurricane",
+        "level": 6
+      },
+      "ability_class_16_469": {
+        "name": "Simulacrum",
+        "level": 6
+      },
+      "ability_class_16_470": {
+        "name": "Vengeance",
+        "level": 7
+      },
+      "ability_class_16_471": {
+        "name": "Pragmatic Reinforcement",
+        "level": 7
+      },
+      "ability_class_16_472": {
+        "name": "Volatile Consumption",
+        "level": 8
+      },
+      "ability_class_16_473": {
+        "name": "Elemental Aegis",
+        "level": 8
+      },
+      "ability_class_16_474": {
+        "name": "Ethereal Manifestation",
+        "level": 9
+      },
+      "ability_class_16_475": {
+        "name": "Eternal Equilibrium",
+        "level": 9
+      }
+    },
     "cards": {
       "mod_class_16_element_air": {
         "deck": "class"
@@ -2455,6 +4383,124 @@
     "name": "QmVhc3QgVHlyYW50",
     "health": "low",
     "color": "#AC745D",
+    "abilities": {
+      "ability_class_17_477": {
+        "name": "Disorienting Roar",
+        "level": 1
+      },
+      "ability_class_17_478": {
+        "name": "Spirit Swap",
+        "level": 1
+      },
+      "ability_class_17_479": {
+        "name": "Venomous Ally",
+        "level": 1
+      },
+      "ability_class_17_480": {
+        "name": "Relentless Ally",
+        "level": 1
+      },
+      "ability_class_17_481": {
+        "name": "Concentrated Rage",
+        "level": 1
+      },
+      "ability_class_17_482": {
+        "name": "Disappearing Wounds",
+        "level": 1
+      },
+      "ability_class_17_483": {
+        "name": "Patch Fur",
+        "level": 1
+      },
+      "ability_class_17_484": {
+        "name": "Maul",
+        "level": 1
+      },
+      "ability_class_17_485": {
+        "name": "Forceful Swipe",
+        "level": 1
+      },
+      "ability_class_17_486": {
+        "name": "Howling Bolts",
+        "level": 1
+      },
+      "ability_class_17_487": {
+        "name": "Soaring Ally",
+        "level": 1
+      },
+      "ability_class_17_488": {
+        "name": "Focused Aggression",
+        "level": 1
+      },
+      "ability_class_17_489": {
+        "name": "Borrowed Essence",
+        "level": 1
+      },
+      "ability_class_17_490": {
+        "name": "Energizing Strike",
+        "level": 2
+      },
+      "ability_class_17_491": {
+        "name": "Earthen Spikes",
+        "level": 2
+      },
+      "ability_class_17_492": {
+        "name": "Vicious Ally",
+        "level": 3
+      },
+      "ability_class_17_493": {
+        "name": "Unstoppable Beast",
+        "level": 3
+      },
+      "ability_class_17_494": {
+        "name": "Ancient Ward",
+        "level": 4
+      },
+      "ability_class_17_495": {
+        "name": "Punch Through",
+        "level": 4
+      },
+      "ability_class_17_496": {
+        "name": "Rampage",
+        "level": 5
+      },
+      "ability_class_17_497": {
+        "name": "Stone Sigil",
+        "level": 5
+      },
+      "ability_class_17_498": {
+        "name": "Primal Blessing",
+        "level": 6
+      },
+      "ability_class_17_499": {
+        "name": "Blood Hunger",
+        "level": 6
+      },
+      "ability_class_17_500": {
+        "name": "Storm Sigil",
+        "level": 7
+      },
+      "ability_class_17_501": {
+        "name": "Tyrannical Force",
+        "level": 7
+      },
+      "ability_class_17_502": {
+        "name": "Lash Out",
+        "level": 8
+      },
+      "ability_class_17_503": {
+        "name": "Natural Remedy",
+        "level": 8
+      },
+      "ability_class_17_504": {
+        "name": "Jaws of Death",
+        "level": 9
+      },
+      "ability_class_17_505": {
+        "name": "Tribal Sigil",
+        "level": 9
+      }
+    },
     "cards": {
       "mod_class_17_element_earth_rolling": {
         "deck": "class"

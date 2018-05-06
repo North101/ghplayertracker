@@ -53,7 +53,7 @@ open class TrackerCompleteDialog : DialogFragment() {
 
     lateinit var trackerResultModel: TrackerResultModel
 
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+    override fun onCreateDialog(state: Bundle?): Dialog {
         val builder = AlertDialog.Builder(context!!)
         val inflater = activity!!.layoutInflater
         view2 = inflater.inflate(R.layout.character_tracker_complete_layout, null as ViewGroup?)
@@ -82,7 +82,7 @@ open class TrackerCompleteDialog : DialogFragment() {
         return builder.create()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, state: Bundle?): View? {
         dialog.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
         return view2
     }
@@ -140,6 +140,7 @@ open class TrackerCompleteDialog : DialogFragment() {
     data class ScenarioLevel(val level: Int, val gold: Int, val xp: Int)
 
     val scenarioLevels = listOf(
+        ScenarioLevel(-1, 0, 0),
         ScenarioLevel(0, 2, 4),
         ScenarioLevel(1, 2, 6),
         ScenarioLevel(2, 3, 8),
@@ -171,7 +172,15 @@ class ScenarioLevelAdapter(val items: List<TrackerCompleteDialog.ScenarioLevel>)
                 .from(parent.context)
                 .inflate(android.R.layout.simple_dropdown_item_1line, parent, false)
         }
-        convertedView!!.findViewById<TextView>(android.R.id.text1).text = getItem(position).level.toString()
+        val textView = convertedView!!.findViewById<TextView>(android.R.id.text1)
+        textView.text = getItem(position).level.let {
+            if (it == -1) {
+                "Failed"
+            } else {
+                it.toString()
+            }
+        }
+        textView.textAlignment = TextView.TEXT_ALIGNMENT_TEXT_END
         return convertedView
     }
 
@@ -182,7 +191,13 @@ class ScenarioLevelAdapter(val items: List<TrackerCompleteDialog.ScenarioLevel>)
                 .from(parent.context)
                 .inflate(R.layout.spinner_text_view, parent, false) as TextView
         }
-        convertedView.text = getItem(position).level.toString()
+        convertedView.text = getItem(position).level.let {
+            if (it == -1) {
+                "Failed"
+            } else {
+                it.toString()
+            }
+        }
         convertedView.textAlignment = TextView.TEXT_ALIGNMENT_TEXT_END
         return convertedView
     }

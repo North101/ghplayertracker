@@ -1,9 +1,12 @@
 package net.north101.android.ghplayertracker.livedata
 
+import android.arch.lifecycle.MutableLiveData
+import net.north101.android.ghplayertracker.data.Ability
 import net.north101.android.ghplayertracker.data.Character
 import net.north101.android.ghplayertracker.data.CharacterClass
 import net.north101.android.ghplayertracker.data.Item
 import java.util.*
+import kotlin.collections.ArrayList
 
 class CharacterLiveData {
     val id: UUID
@@ -20,7 +23,7 @@ class CharacterLiveData {
     val perkNotes = InitLiveData<List<PerkNoteLiveData>>(ArrayList())
     val retired = InitLiveData(false)
     val items = InitLiveData<ArrayList<ItemLiveData>>(ArrayList())
-    val abilities = InitLiveData<ArrayList<InitLiveData<String>>>(ArrayList())
+    val abilities = InitLiveData<ArrayList<MutableLiveData<Ability>>>(ArrayList())
     val notes = InitLiveData<ArrayList<InitLiveData<String>>>(ArrayList())
 
     constructor(character: Character) {
@@ -44,7 +47,9 @@ class CharacterLiveData {
             ItemLiveData(it.name, it.type)
         })
         abilities.value = ArrayList(character.abilities.map {
-            InitLiveData(it)
+            val item = MutableLiveData<Ability>()
+            item.value = it
+            item
         })
         notes.value = ArrayList(character.notes.map {
             InitLiveData(it)

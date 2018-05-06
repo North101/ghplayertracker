@@ -73,4 +73,8 @@ dependencies {
     implementation "org.androidannotations:androidannotations-api:$AAVersion"
 
     implementation "com.mikepenz:itemanimators:1.0.2@aar"
+
+    implementation "com.github.bumptech.glide:glide:3.8.0"
+    implementation "com.android.support:design:$AndroidSupportVersion"
+    implementation "com.github.chrisbanes:PhotoView:2.0.0"
 }

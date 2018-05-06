@@ -6,6 +6,13 @@
     android:orientation="horizontal"
     android:padding="8dp">
 
+    <Spinner
+        android:id="@+id/type"
+        style="@style/TagEditor.Spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="4dp"/>
+
     <EditText
         android:id="@+id/text"
         android:layout_width="0dp"
@@ -14,13 +21,5 @@
         android:gravity="bottom"
         android:imeOptions="actionNext"
         android:inputType="text"
-        android:lines="1"
-        android:nextFocusRight="@id/type"
-        android:paddingRight="4dp"/>
-
-    <Spinner
-        android:id="@+id/type"
-        style="@style/TagEditor.Spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:lines="1"/>
 </LinearLayout>

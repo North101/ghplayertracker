@@ -31,9 +31,7 @@ data class BasicCards(
         @Throws(JSONException::class)
         fun parse(data: JSONObject): BasicCards {
             val cardsData = data.getJSONObject("cards")
-            val cardsIterator = cardsData.keys()
-            while (cardsIterator.hasNext()) {
-                val cardId = cardsIterator.next()
+            for (cardId in cardsData.keys()) {
                 Card.parse(cardId, cardsData.getJSONObject(cardId))
             }
 

@@ -15,6 +15,7 @@ abstract class BaseViewHolder<T>(itemView: View) : RecyclerView.ViewHolder(itemV
     }
 
     open fun bind(item: T) {
+        this.unbind()
         this.item = item
 
     }

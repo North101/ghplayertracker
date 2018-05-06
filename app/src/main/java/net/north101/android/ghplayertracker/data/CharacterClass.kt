@@ -24,7 +24,8 @@ data class CharacterClass(
     val color: Int,
     val levels: ArrayList<Level>,
     val cards: HashMap<String, Card>,
-    val perks: List<Perk>
+    val perks: ArrayList<Perk>,
+    val abilities: HashMap<String, Ability>
 ) : Parcelable, RecyclerItemCompare {
     override val compareItemId: String
         get() = this.id
@@ -54,9 +55,7 @@ data class CharacterClass(
             }
 
             val cardsData = data.getJSONObject("cards")
-            val cardsIterator = cardsData.keys()
-            while (cardsIterator.hasNext()) {
-                val cardId = cardsIterator.next()
+            for (cardId in cardsData.keys()) {
                 val card = Card.parse(cardId, cardsData.getJSONObject(cardId))
                 cards[cardId] = card
             }
@@ -67,7 +66,15 @@ data class CharacterClass(
                 perks.add(Perk.parse(perkGroupsData.getJSONObject(i)))
             }
 
-            return CharacterClass(id, name, color, levels, cards, perks)
+            val abilities = HashMap<String, Ability>()
+            val abilitiesData = data.optJSONObject("abilities")
+            abilitiesData?.let {
+                for (key in abilitiesData.keys()) {
+                    abilities[key] = Ability.parse(key, abilitiesData.getJSONObject(key))
+                }
+            }
+
+            return CharacterClass(id, name, color, levels, cards, perks, abilities)
         }
 
         fun decrypt(value: String): String {

@@ -1,8 +1,12 @@
 package net.north101.android.ghplayertracker
 
+import android.arch.lifecycle.MutableLiveData
 import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView
+import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import net.north101.android.ghplayertracker.data.Ability
 import net.north101.android.ghplayertracker.livedata.*
 
 class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
@@ -31,9 +35,11 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
             get() = note.value.toString()
     }
 
-    data class Ability(val level: Int, val ability: InitLiveData<String>) : RecyclerItemCompare {
+    data class AbilityItem(val index: Int, val ability: MutableLiveData<Ability>) : RecyclerItemCompare {
+        val level = index + 2
+
         override val compareItemId: String
-            get() = ability.value.toString()
+            get() = index.toString()
     }
 
     data class Perk(val perk: PerkLiveData) : RecyclerItemCompare {
@@ -48,9 +54,8 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
 
     var onNumberEditClick: ((String) -> Unit)? = null
 
-    var onAbilityAddClick: (() -> Unit)? = null
-    var onAbilityEditClick: ((Ability) -> Unit)? = null
-    var onAbilityDeleteClick: ((Ability) -> Unit)? = null
+    var onAbilityEditClick: ((AbilityItem) -> Unit)? = null
+    var onAbilityViewClick: ((AbilityItem) -> Unit)? = null
 
     var onItemAddClick: (() -> Unit)? = null
     var onItemEditClick: ((ItemLiveData) -> Unit)? = null
@@ -68,37 +73,41 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
             newItems.add(Stats(character))
 
             newItems.add(TextHeaderAdd("Abilities", {
-                onAbilityAddClick?.invoke()
-            }))
-            newItems.addAll(character.abilities.value.withIndex().map {
-                Ability(it.index + 2, it.value)
-            })
+                onNoteAddClick?.invoke()
+            }, R.drawable.ic_view_comfy_black_24dp))
+            newItems.addAll(
+                character.abilities.value.withIndex()
+                    .map { AbilityItem(it.index, it.value) }
+                    .filter { it.level <= character.level.value }
+            )
 
             newItems.add(TextHeaderAdd("Items", {
                 onItemAddClick?.invoke()
             }))
-            newItems.addAll(character.items.value.sortedBy { it.type.value }.map {
-                Item(it)
-            })
+            newItems.addAll(
+                character.items.value
+                    .sortedBy { it.type.value }
+                    .map { Item(it) }
+            )
 
             newItems.add(TextHeaderAdd("Notes", {
                 onNoteAddClick?.invoke()
             }))
-            newItems.addAll(character.notes.value.withIndex().map {
-                Note(it.index + 1, it.value)
-            })
+            newItems.addAll(
+                character.notes.value.withIndex().map { Note(it.index + 1, it.value) }
+            )
         }
 
         if ((display.id and DisplayItems.Right.id) == DisplayItems.Right.id) {
             newItems.add(TextHeader("Perks"))
-            newItems.addAll(character.perks.value.map {
-                Perk(it)
-            })
+            newItems.addAll(
+                character.perks.value.map { Perk(it) }
+            )
 
             newItems.add(TextHeader("Perk Notes"))
-            newItems.addAll(character.perkNotes.value.withIndex().map {
-                PerkNote(it.index, it.value)
-            })
+            newItems.addAll(
+                character.perkNotes.value.withIndex().map { PerkNote(it.index, it.value) }
+            )
         }
 
         val diffCallback = RecyclerListItemsCallback(this.items, newItems)
@@ -143,12 +152,12 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
                 }
             }
             is CharacterAbilityViewHolder -> {
-                holder.bind(item as Ability)
+                holder.bind(item as AbilityItem)
                 holder.onItemEditClick = {
                     onAbilityEditClick?.invoke(it)
                 }
-                holder.onItemDeleteClick = {
-                    onAbilityDeleteClick?.invoke(it)
+                holder.onItemViewClick = {
+                    onAbilityViewClick?.invoke(it)
                 }
             }
             is CharacterNoteViewHolder -> {
@@ -166,11 +175,6 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
         }
     }
 
-    override fun onViewDetachedFromWindow(holder: BaseViewHolder<*>) {
-        super.onViewDetachedFromWindow(holder)
-
-        //holder.unbind()
-    }
 
     override fun getItemCount(): Int {
         return items.size
@@ -183,7 +187,7 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
             is TextHeader -> CharacterViewType.Header
             is Stats -> CharacterViewType.Stats
             is Item -> CharacterViewType.Item
-            is Ability -> CharacterViewType.Ability
+            is AbilityItem -> CharacterViewType.Ability
             is Note -> CharacterViewType.Note
             is Perk -> CharacterViewType.Perk
             is PerkNote -> CharacterViewType.PerkNote

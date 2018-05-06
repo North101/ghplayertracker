@@ -124,15 +124,9 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
             characterModel.character.items.value = characterModel.character.items.value
 
         }
-        listAdapter1.onAbilityAddClick = {
-            val fragment = CharacterAbilityDialog_.builder().build()
-            fragment.setTargetFragment(this, 0)
-
-            fragment.show(fragmentManager, "CharacterAbilityDialog")
-        }
         listAdapter1.onAbilityEditClick = {
             val args = Bundle()
-            args.putInt("index", characterModel.character.abilities.value.indexOf(it.ability))
+            args.putInt("index", it.index)
 
             val fragment = CharacterAbilityDialog_.builder().build()
             fragment.arguments = args
@@ -140,15 +134,34 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
 
             fragment.show(fragmentManager, "CharacterAbilityDialog")
         }
-        listAdapter1.onAbilityDeleteClick = {
-            characterModel.character.abilities.value.remove(it.ability)
-            characterModel.character.abilities.value = characterModel.character.abilities.value
+        listAdapter1.onAbilityViewClick = {
+            val images = ArrayList(characterClass.abilities.values
+                .filter { item -> it.ability.value!!.name == item.name }
+                .map { ImageModel(it.name, "https://raw.githubusercontent.com/North101/ghplayertracker/master/abilities/${it.id}.jpg") }
+            )
+
+            activity!!.supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.content, GalleryViewPagerFragment.newInstance(images, 0))
+                .addToBackStack(null)
+                .commit()
         }
         listAdapter1.onNoteAddClick = {
-            val fragment = CharacterNoteDialog_.builder().build()
-            fragment.setTargetFragment(this, 0)
+            val images = ArrayList(characterClass.abilities.values
+                .sortedBy { it.id }
+                .map { ImageModel(it.name, "https://raw.githubusercontent.com/North101/ghplayertracker/master/abilities/${it.id}.jpg") }
+            )
 
-            fragment.show(fragmentManager, "CharacterNoteDialog")
+            activity!!.supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.content, RecyclerViewFragment.newInstance(images))
+                .addToBackStack(null)
+                .commit()
+
+            //val fragment = CharacterNoteDialog_.builder().build()
+            //fragment.setTargetFragment(this, 0)
+
+            //fragment.show(fragmentManager, "CharacterNoteDialog")
         }
         listAdapter1.onNoteEditClick = {
             val args = Bundle()
@@ -207,22 +220,22 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
         listAdapter1.updateItems(characterModel.character)
         listAdapter2.updateItems(characterModel.character)
 
+        characterModel.character.level.observe(this, Observer {
+            listAdapter1.updateItems(characterModel.character)
+        })
         characterModel.character.items.observe(this, Observer {
             listAdapter1.updateItems(characterModel.character)
-            listAdapter2.updateItems(characterModel.character)
         })
         characterModel.character.abilities.observe(this, Observer {
             listAdapter1.updateItems(characterModel.character)
-            listAdapter2.updateItems(characterModel.character)
         })
         characterModel.character.notes.observe(this, Observer {
             listAdapter1.updateItems(characterModel.character)
-            listAdapter2.updateItems(characterModel.character)
         })
     }
 
     override fun onBackPressed(): Boolean {
-        if (characterModel.character.toParcel() == character)
+        if (characterModel.character.toParcel().hashCode() == character.hashCode())
             return false
 
         val builder = AlertDialog.Builder(context!!)
@@ -253,6 +266,7 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
         fragment.setTargetFragment(this, 1)
 
         fragmentManager!!.beginTransaction()
+            .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
             .replace(R.id.content, fragment)
             .addToBackStack(null)
             .commit()

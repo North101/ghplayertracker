@@ -23,9 +23,14 @@ open class NonNullLiveData<T>(private val defaultValue: T) : MutableLiveData<T>(
     }
 
     fun observeForever(body: (T) -> Unit) {
+        if (observers.containsKey(body)) {
+            removeObserver(body)
+        }
+
         val observer = Observer<T> {
             body(it ?: defaultValue)
         }
+        observers[body] = observer
         observeForever(observer)
     }
 

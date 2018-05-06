@@ -23,7 +23,7 @@ abstract class EditNumberDialog : DialogFragment() {
     abstract val title: String
     abstract var value: Int
 
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+    override fun onCreateDialog(state: Bundle?): Dialog {
         val builder = AlertDialog.Builder(context!!)
         val inflater = activity!!.layoutInflater
         view2 = inflater.inflate(R.layout.edit_number_layout, null as ViewGroup?)
@@ -38,7 +38,7 @@ abstract class EditNumberDialog : DialogFragment() {
         return builder.create()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, state: Bundle?): View? {
         dialog.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
         dialog.setOnShowListener { dialog ->
             val button = (dialog as AlertDialog).getButton(AlertDialog.BUTTON_POSITIVE)

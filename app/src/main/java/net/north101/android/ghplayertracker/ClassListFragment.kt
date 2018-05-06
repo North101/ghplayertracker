@@ -37,6 +37,7 @@ open class ClassListFragment : Fragment() {
             fragment.arguments = args
 
             fragmentManager!!.beginTransaction()
+                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
                 .replace(R.id.content, fragment)
                 .addToBackStack(null)
                 .commit()
@@ -47,7 +48,9 @@ open class ClassListFragment : Fragment() {
     fun afterViews() {
         classModel = ViewModelProviders.of(this.activity!!).get(ClassModel::class.java)
 
-        listAdapter = ClassListAdapter()
+        if (!::listAdapter.isInitialized) {
+            listAdapter = ClassListAdapter()
+        }
         listAdapter.setOnClickListener(onClickListener)
 
         val landscape = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE

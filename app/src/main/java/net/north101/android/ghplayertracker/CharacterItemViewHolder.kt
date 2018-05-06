@@ -10,7 +10,7 @@ import net.north101.android.ghplayertracker.livedata.ItemLiveData
 class CharacterItemViewHolder(itemView: View) : BaseViewHolder<ItemLiveData>(itemView) {
     val textView: TextView = itemView.findViewById(R.id.text)
     val iconView: ImageView = itemView.findViewById(R.id.icon)
-    val deleteView: ImageView = itemView.findViewById(R.id.delete)
+    val deleteView: View = itemView.findViewById(R.id.delete)
 
     var onItemEditClick: ((ItemLiveData) -> Unit)? = null
     var onItemDeleteClick: ((ItemLiveData) -> Unit)? = null

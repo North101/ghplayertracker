@@ -8,7 +8,7 @@ import android.widget.TextView
 class CharacterNoteViewHolder(itemView: View) : BaseViewHolder<CharacterAdapter.Note>(itemView) {
     var indexView: TextView = itemView.findViewById(R.id.index)
     var textView: TextView = itemView.findViewById(R.id.text)
-    val deleteView: ImageView = itemView.findViewById(R.id.delete)
+    val deleteView: View = itemView.findViewById(R.id.delete)
 
     var onItemEditClick: ((CharacterAdapter.Note) -> Unit)? = null
     var onItemDeleteClick: ((CharacterAdapter.Note) -> Unit)? = null

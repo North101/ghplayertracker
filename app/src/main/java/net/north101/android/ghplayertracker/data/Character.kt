@@ -32,7 +32,7 @@ data class Character(
     var modified: Date,
     var retired: Boolean,
     var items: ArrayList<Item>,
-    var abilities: ArrayList<String>,
+    var abilities: ArrayList<Ability?>,
     var notes: ArrayList<String>
 ) : Parcelable {
     constructor(characterClass: CharacterClass) : this(
@@ -42,13 +42,13 @@ data class Character(
         1,
         0,
         0,
-        ArrayList<Int>(characterClass.perks.indices.map { 0 }),
-        ArrayList<Int>(0.until(PERK_NOTES_COUNT).map { 0 }),
+        ArrayList(characterClass.perks.indices.map { 0 }),
+        ArrayList(0.until(PERK_NOTES_COUNT).map { 0 }),
         Date(),
         Date(),
         false,
         ArrayList(),
-        ArrayList(),
+        ArrayList(0.until(8).map { null }),
         ArrayList()
     )
 
@@ -118,7 +118,7 @@ data class Character(
             item.put("type", it.type.name)
             item
         }))
-        data.put("abilities", JSONArray(abilities))
+        data.put("abilities", JSONArray(abilities.map { it?.id }))
         data.put("notes", JSONArray(notes))
 
         return data
@@ -133,7 +133,7 @@ data class Character(
             DATE_FORMATTER.timeZone = TIMEZONE
         }
 
-        @Throws(JSONException::class, IOException::class, ParseException::class)
+        @Throws(JSONException::class, IOException::class, ParseException::class, kotlin.KotlinNullPointerException::class)
         fun parse(data: JSONObject, classList: List<CharacterClass>): Character {
             val id = UUID.fromString(data.getString("id"))
 
@@ -171,8 +171,9 @@ data class Character(
             })
 
             val abilitiesData = data.optJSONArray("abilities")
-            val abilities = ArrayList(0.until(abilitiesData?.length() ?: 0).mapNotNull {
-                abilitiesData.optString(it, null)
+            val abilities = ArrayList(0.until(8).map {
+                val ability = characterClass.abilities[abilitiesData?.optString(it, null)]
+                ability?.takeIf { it.level > 1 }
             })
 
             val notesData = data.optJSONArray("notes")
@@ -245,9 +246,7 @@ class CharacterData(val context: Context, val data: JSONObject) {
     fun toList(classList: List<CharacterClass>): ArrayList<Character> {
         val items = ArrayList<Character>()
 
-        val keys = data.keys()
-        while (keys.hasNext()) {
-            val key = keys.next()
+        for (key in data.keys()) {
             try {
                 val character = Character.parse(data.getJSONObject(key), classList)
                 items.add(character)
@@ -256,6 +255,8 @@ class CharacterData(val context: Context, val data: JSONObject) {
             } catch (e: IOException) {
                 e.printStackTrace()
             } catch (e: ParseException) {
+                e.printStackTrace()
+            } catch (e: kotlin.KotlinNullPointerException) {
                 e.printStackTrace()
             }
 
