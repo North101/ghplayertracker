@@ -39,7 +39,7 @@ open class TrackerFragment : Fragment() {
     protected lateinit var listAdapter1: TrackerAdapter
     protected lateinit var listAdapter2: TrackerAdapter
 
-    @FragmentArg("character")
+    @FragmentArg(ARG_CHARACTER)
     protected lateinit var character: Character
 
     lateinit var trackerResultModel: TrackerResultModel
@@ -208,6 +208,20 @@ open class TrackerFragment : Fragment() {
     @OptionsItem(R.id.houseRuleVantage)
     fun onHomebrewVantageClick() {
         trackerModel.tracker.houseRule.value = !(trackerModel.tracker.houseRule.value)
+    }
+
+    companion object {
+        const val ARG_CHARACTER = "character"
+
+        fun newInstance(character: Character) : TrackerFragment_ {
+            val args = Bundle()
+            args.putParcelable(ARG_CHARACTER, character)
+
+            val fragment = TrackerFragment_()
+            fragment.arguments = args
+
+            return fragment
+        }
     }
 }
 

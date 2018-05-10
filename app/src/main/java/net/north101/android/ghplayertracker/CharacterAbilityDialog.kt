@@ -72,7 +72,7 @@ open class CharacterAbilityDialog : DialogFragment() {
 
 
 class AbilityAdapter(val characterModel: CharacterModel, val index: Int) : BaseAdapter() {
-    val classAbilities = characterModel.character.characterClass.abilities.values
+    val classAbilities = characterModel.character.characterClass.abilities
         .filter { it.level > 1 && it.level <= index + 2 }
         .sortedWith(compareBy({ -it.level }, { it.id }))
     val characterAbilities = characterModel.character.abilities.value

@@ -36,7 +36,7 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
     protected lateinit var listAdapter1: CharacterAdapter
     protected lateinit var listAdapter2: CharacterAdapter
 
-    @FragmentArg("character")
+    @FragmentArg(ARG_CHARACTER)
     @InstanceState
     protected lateinit var character: Character
 
@@ -124,6 +124,14 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
             characterModel.character.items.value = characterModel.character.items.value
 
         }
+        listAdapter1.onAbilityGalleryClick = {
+            activity!!.supportFragmentManager
+                .beginTransaction()
+                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
+                .replace(R.id.content, AbilityImagePagerFragment.newInstance(characterClass, null))
+                .addToBackStack(null)
+                .commit()
+        }
         listAdapter1.onAbilityEditClick = {
             val args = Bundle()
             args.putInt("index", it.index)
@@ -135,33 +143,18 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
             fragment.show(fragmentManager, "CharacterAbilityDialog")
         }
         listAdapter1.onAbilityViewClick = {
-            val images = ArrayList(characterClass.abilities.values
-                .filter { item -> it.ability.value!!.name == item.name }
-                .map { ImageModel(it.name, "https://raw.githubusercontent.com/North101/ghplayertracker/master/abilities/${it.id}.jpg") }
-            )
-
             activity!!.supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.content, GalleryViewPagerFragment.newInstance(images, 0))
+                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
+                .replace(R.id.content, AbilityImagePagerFragment.newInstance(characterClass, it.ability.value!!))
                 .addToBackStack(null)
                 .commit()
         }
         listAdapter1.onNoteAddClick = {
-            val images = ArrayList(characterClass.abilities.values
-                .sortedBy { it.id }
-                .map { ImageModel(it.name, "https://raw.githubusercontent.com/North101/ghplayertracker/master/abilities/${it.id}.jpg") }
-            )
+            val fragment = CharacterNoteDialog_.builder().build()
+            fragment.setTargetFragment(this, 0)
 
-            activity!!.supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.content, RecyclerViewFragment.newInstance(images))
-                .addToBackStack(null)
-                .commit()
-
-            //val fragment = CharacterNoteDialog_.builder().build()
-            //fragment.setTargetFragment(this, 0)
-
-            //fragment.show(fragmentManager, "CharacterNoteDialog")
+            fragment.show(fragmentManager, "CharacterNoteDialog")
         }
         listAdapter1.onNoteEditClick = {
             val args = Bundle()
@@ -235,7 +228,7 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
     }
 
     override fun onBackPressed(): Boolean {
-        if (characterModel.character.toParcel().hashCode() == character.hashCode())
+        if (characterModel.character.toParcel() == character)
             return false
 
         val builder = AlertDialog.Builder(context!!)
@@ -261,8 +254,7 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
         val args = Bundle()
         args.putParcelable("character", characterModel.character.toParcel())
 
-        val fragment = TrackerFragment_()
-        fragment.arguments = args
+        val fragment = TrackerFragment.newInstance(characterModel.character.toParcel())
         fragment.setTargetFragment(this, 1)
 
         fragmentManager!!.beginTransaction()
@@ -317,6 +309,20 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
 
         if (callback != null) {
             activity!!.runOnUiThread(callback)
+        }
+    }
+
+    companion object {
+        const val ARG_CHARACTER = "character"
+
+        fun newInstance(character: Character): CharacterFragment_ {
+            val args = Bundle()
+            args.putParcelable(ARG_CHARACTER, character)
+
+            val fragment = CharacterFragment_()
+            fragment.arguments = args
+
+            return fragment
         }
     }
 }

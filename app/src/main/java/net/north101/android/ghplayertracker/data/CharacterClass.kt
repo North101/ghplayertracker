@@ -16,6 +16,7 @@ import java.io.IOException
 import java.io.InputStream
 import java.text.ParseException
 import java.util.*
+import kotlin.collections.ArrayList
 
 @Parcelize
 data class CharacterClass(
@@ -25,7 +26,7 @@ data class CharacterClass(
     val levels: ArrayList<Level>,
     val cards: HashMap<String, Card>,
     val perks: ArrayList<Perk>,
-    val abilities: HashMap<String, Ability>
+    val abilities: ArrayList<Ability>
 ) : Parcelable, RecyclerItemCompare {
     override val compareItemId: String
         get() = this.id
@@ -37,6 +38,10 @@ data class CharacterClass(
 
         const val LEVEL_MIN = 1
         const val LEVEL_MAX = 9
+
+        fun cardBack(id: String): String {
+            return "${id}_card_back"
+        }
 
         @Throws(JSONException::class)
         fun parse(data: JSONObject): CharacterClass {
@@ -66,15 +71,15 @@ data class CharacterClass(
                 perks.add(Perk.parse(perkGroupsData.getJSONObject(i)))
             }
 
-            val abilities = HashMap<String, Ability>()
+            val abilities = ArrayList<Ability>()
             val abilitiesData = data.optJSONObject("abilities")
             abilitiesData?.let {
                 for (key in abilitiesData.keys()) {
-                    abilities[key] = Ability.parse(key, abilitiesData.getJSONObject(key))
+                    abilities.add(Ability.parse(key, abilitiesData.getJSONObject(key)))
                 }
             }
 
-            return CharacterClass(id, name, color, levels, cards, perks, abilities)
+            return CharacterClass(id, name, color, levels, cards, perks, ArrayList(abilities.sortedBy { it.id }))
         }
 
         fun decrypt(value: String): String {

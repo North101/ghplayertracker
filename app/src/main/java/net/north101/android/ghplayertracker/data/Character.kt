@@ -124,6 +124,55 @@ data class Character(
         return data
     }
 
+    override fun equals(other: Any?): Boolean {
+        if (other !is Character)
+            return false
+
+        if (this.id != other.id)
+            return false
+
+        if (this.characterClass.id != other.characterClass.id)
+            return false
+
+        if (this.name != other.name)
+            return false
+
+        if (this.xp != other.xp)
+            return false
+
+        if (this.level != other.level)
+            return false
+
+        if (this.gold != other.gold)
+            return false
+
+        if (this.retired != other.retired)
+            return false
+
+        if (this.created != other.created)
+            return false
+
+        if (this.modified != other.modified)
+            return false
+
+        if (!this.perks.toArray().contentDeepEquals(other.perks.toArray()))
+            return false
+
+        if (!this.perkNotes.toArray().contentDeepEquals(other.perkNotes.toArray()))
+            return false
+
+        if (!this.items.toArray().contentDeepEquals(other.items.toArray()))
+            return false
+
+        if (!this.abilities.toArray().contentDeepEquals(other.abilities.toArray()))
+            return false
+
+        if (!this.notes.toArray().contentDeepEquals(other.notes.toArray()))
+            return false
+
+        return true
+    }
+
     companion object {
         var TIMEZONE = TimeZone.getTimeZone("UTC")!!
         var DATE_FORMATTER: DateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
@@ -172,7 +221,8 @@ data class Character(
 
             val abilitiesData = data.optJSONArray("abilities")
             val abilities = ArrayList(0.until(8).map {
-                val ability = characterClass.abilities[abilitiesData?.optString(it, null)]
+                val abilityId = abilitiesData?.optString(it, null)
+                val ability = characterClass.abilities.find { it.id == abilityId }
                 ability?.takeIf { it.level > 1 }
             })
 

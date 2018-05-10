@@ -35,7 +35,7 @@ object Util {
 fun setImageViewGreyscale(imageView: ImageView, set: Boolean) {
     if (set) {
         val matrix = ColorMatrix()
-        matrix.setSaturation(0f)  //0 means grayscale
+        matrix.setSaturation(0f)  //0 means greyscale
         val cf = ColorMatrixColorFilter(matrix)
         imageView.colorFilter = cf
         imageView.alpha = 0.5f

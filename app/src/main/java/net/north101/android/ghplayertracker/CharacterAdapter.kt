@@ -54,6 +54,7 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
 
     var onNumberEditClick: ((String) -> Unit)? = null
 
+    var onAbilityGalleryClick: (() -> Unit)? = null
     var onAbilityEditClick: ((AbilityItem) -> Unit)? = null
     var onAbilityViewClick: ((AbilityItem) -> Unit)? = null
 
@@ -73,7 +74,7 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
             newItems.add(Stats(character))
 
             newItems.add(TextHeaderAdd("Abilities", {
-                onNoteAddClick?.invoke()
+                onAbilityGalleryClick?.invoke()
             }, R.drawable.ic_view_comfy_black_24dp))
             newItems.addAll(
                 character.abilities.value.withIndex()

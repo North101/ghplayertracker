@@ -60,11 +60,7 @@ open class CharacterListFragment : Fragment(), ActionMode.Callback {
                 return
             }
 
-            val fragment = CharacterFragment_()
-            val args = Bundle()
-            args.putParcelable("character", holder.item!!.character.copy())
-            fragment.arguments = args
-
+            val fragment = CharacterFragment.newInstance(holder.item!!.character.copy())
             fragmentManager!!.beginTransaction()
                 .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
                 .replace(R.id.content, fragment)
@@ -93,7 +89,7 @@ open class CharacterListFragment : Fragment(), ActionMode.Callback {
         (activity as AppCompatActivity).setSupportActionBar(toolbar)
 
         fab.setOnClickListener {
-            val fragment = ClassListFragment_()
+            val fragment = ClassListFragment.newInstance()
             fragmentManager!!.beginTransaction()
                 .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
                 .replace(R.id.content, fragment)
@@ -220,5 +216,11 @@ open class CharacterListFragment : Fragment(), ActionMode.Callback {
         selectedCharacters.forEach { it.selected = false }
         listAdapter.notifyDataSetChanged()
         this.actionMode = null
+    }
+
+    companion object {
+        fun newInstance() : CharacterListFragment_ {
+            return CharacterListFragment_()
+        }
     }
 }

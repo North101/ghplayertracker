@@ -15,7 +15,7 @@ open class MainActivity : AppCompatActivity() {
     fun afterViews() {
         if (init) return
 
-        val fragment = CharacterListFragment_()
+        val fragment = CharacterListFragment.newInstance()
         supportFragmentManager.beginTransaction()
             .replace(R.id.content, fragment)
             .commit()

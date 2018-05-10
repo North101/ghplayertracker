@@ -3,7 +3,6 @@ package net.north101.android.ghplayertracker
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.res.Configuration
-import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -31,11 +30,7 @@ open class ClassListFragment : Fragment() {
         override fun onItemClick(holder: BaseViewHolder<CharacterClass>) {
             val character = Character(holder.item!!)
 
-            val fragment = CharacterFragment_()
-            val args = Bundle()
-            args.putParcelable("character", character)
-            fragment.arguments = args
-
+            val fragment = CharacterFragment.newInstance(character)
             fragmentManager!!.beginTransaction()
                 .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
                 .replace(R.id.content, fragment)
@@ -53,8 +48,8 @@ open class ClassListFragment : Fragment() {
         }
         listAdapter.setOnClickListener(onClickListener)
 
-        val landscape = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
-        val gridLayoutManager = GridLayoutManager(context, if (landscape) 4 else 2)
+        val maxSpan = if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) 4 else 2
+        val gridLayoutManager = GridLayoutManager(context, maxSpan)
         listView.layoutManager = gridLayoutManager
 
         val animator = SlideDownAlphaAnimator()
@@ -82,6 +77,12 @@ open class ClassListFragment : Fragment() {
 
         if (classList != null) {
             listAdapter.updateItems(classList)
+        }
+    }
+
+    companion object {
+        fun newInstance() : ClassListFragment_ {
+            return ClassListFragment_()
         }
     }
 }
