@@ -8,6 +8,7 @@ import android.transition.TransitionInflater
 import android.view.View
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.github.chrisbanes.photoview.PhotoView
 import net.north101.android.ghplayertracker.data.Ability
 import net.north101.android.ghplayertracker.data.CharacterClass
@@ -38,9 +39,12 @@ open class AbilityImageFragment : Fragment() {
     fun afterViews() {
         Glide.with(activity!!)
             .load(ability.url)
-            .placeholder(Util.getImageResource(context!!, CharacterClass.cardBack(classId)))
-            .fitCenter()
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .apply(
+                RequestOptions()
+                    .placeholder(Util.getImageResource(context!!, CharacterClass.cardBack(classId)))
+                    .fitCenter()
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+            )
             .into(imageView)
     }
 

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import net.north101.android.ghplayertracker.data.Ability
 import net.north101.android.ghplayertracker.data.CharacterClass
 
@@ -113,9 +114,12 @@ class AbilityImageViewHolder(itemView: View) : BaseViewHolder<AbilityGalleryAdap
 
             Glide.with(itemView.context)
                 .load(it.url)
-                .placeholder(Util.getImageResource(itemView.context, CharacterClass.cardBack(item.classId)))
-                .fitCenter()
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .apply(
+                    RequestOptions()
+                        .placeholder(Util.getImageResource(itemView.context, CharacterClass.cardBack(item.classId)))
+                        .fitCenter()
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                )
                 .into(imageView)
         }
     }
