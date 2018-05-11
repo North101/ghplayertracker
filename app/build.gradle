@@ -27,7 +27,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "net.north101.android.ghplayertracker"
-        minSdkVersion 19
+        minSdkVersion 16
         targetSdkVersion 27
         versionCode 12
         versionName "0.6.1"
