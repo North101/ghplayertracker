@@ -7,6 +7,8 @@ import android.util.Base64
 import kotlinx.android.parcel.Parcelize
 import net.north101.android.ghplayertracker.RecyclerItemCompare
 import net.north101.android.ghplayertracker.Util
+import net.north101.android.ghplayertracker.map
+import net.north101.android.ghplayertracker.mapNotNull
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
@@ -49,8 +51,6 @@ data class CharacterClass(
             val name = decrypt(data.getString("name"))
             val color = Color.parseColor(data.getString("color"))
 
-            val cards = HashMap<String, Card>()
-
             val health = data.getString("health")
             val levels = when (health) {
                 "high" -> HEALTH_HIGH
@@ -60,24 +60,19 @@ data class CharacterClass(
             }
 
             val cardsData = data.getJSONObject("cards")
-            for (cardId in cardsData.keys()) {
-                val card = Card.parse(cardId, cardsData.getJSONObject(cardId))
-                cards[cardId] = card
-            }
+            val cards = HashMap(cardsData.map {
+                it.key to Card.parse(it.key, it.getJSONObject())
+            }.toMap())
 
-            val perks = ArrayList<Perk>()
             val perkGroupsData = data.getJSONArray("perks")
-            for (i in 0 until perkGroupsData.length()) {
-                perks.add(Perk.parse(perkGroupsData.getJSONObject(i)))
-            }
+            val perks = ArrayList(perkGroupsData.map {
+                Perk.parse(it.getJSONObject())
+            })
 
-            val abilities = ArrayList<Ability>()
             val abilitiesData = data.optJSONObject("abilities")
-            abilitiesData?.let {
-                for (key in abilitiesData.keys()) {
-                    abilities.add(Ability.parse(key, abilitiesData.getJSONObject(key)))
-                }
-            }
+            val abilities = ArrayList(abilitiesData?.map {
+                Ability.parse(it.key, it.getJSONObject())
+            })
 
             return CharacterClass(id, name, color, levels, cards, perks, ArrayList(abilities.sortedBy { it.id }))
         }
@@ -118,22 +113,19 @@ class CharacterClassData(val context: Context, val data: JSONArray) {
     }
 
     fun toList(): ArrayList<CharacterClass> {
-        val items = ArrayList<CharacterClass>()
-
-        for (index in 0 until data.length()) {
+        return ArrayList(data.mapNotNull {
             try {
-                val character = CharacterClass.parse(data.getJSONObject(index))
-                items.add(character)
+                CharacterClass.parse(it.getJSONObject())
             } catch (e: JSONException) {
                 e.printStackTrace()
+                null
             } catch (e: IOException) {
                 e.printStackTrace()
+                null
             } catch (e: ParseException) {
                 e.printStackTrace()
+                null
             }
-
-        }
-
-        return items
+        })
     }
 }

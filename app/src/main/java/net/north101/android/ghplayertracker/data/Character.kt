@@ -1,10 +1,13 @@
 package net.north101.android.ghplayertracker.data
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Parcelable
 import kotlinx.android.parcel.IgnoredOnParcel
 import kotlinx.android.parcel.Parcelize
 import net.north101.android.ghplayertracker.Util
+import net.north101.android.ghplayertracker.map
+import net.north101.android.ghplayertracker.mapNotNull
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
@@ -23,9 +26,9 @@ data class Character(
     val id: UUID,
     val characterClass: CharacterClass,
     var name: String,
-    protected var _level: Int,
-    protected var _xp: Int,
-    protected var _gold: Int,
+    private var _level: Int,
+    private var _xp: Int,
+    private var _gold: Int,
     var perks: ArrayList<Int>,
     var perkNotes: ArrayList<Int>,
     val created: Date,
@@ -155,26 +158,45 @@ data class Character(
         if (this.modified != other.modified)
             return false
 
-        if (!this.perks.toArray().contentDeepEquals(other.perks.toArray()))
+        if (!this.perks.toArray()!!.contentDeepEquals(other.perks.toArray()))
             return false
 
-        if (!this.perkNotes.toArray().contentDeepEquals(other.perkNotes.toArray()))
+        if (!this.perkNotes.toArray()!!.contentDeepEquals(other.perkNotes.toArray()))
             return false
 
-        if (!this.items.toArray().contentDeepEquals(other.items.toArray()))
+        if (!this.items.toArray()!!.contentDeepEquals(other.items.toArray()))
             return false
 
-        if (!this.abilities.toArray().contentDeepEquals(other.abilities.toArray()))
+        if (!this.abilities.toArray()!!.contentDeepEquals(other.abilities.toArray()))
             return false
 
-        if (!this.notes.toArray().contentDeepEquals(other.notes.toArray()))
+        if (!this.notes.toArray()!!.contentDeepEquals(other.notes.toArray()))
             return false
 
         return true
     }
 
+    override fun hashCode(): Int {
+        var result = id.hashCode()
+        result = 31 * result + characterClass.hashCode()
+        result = 31 * result + name.hashCode()
+        result = 31 * result + _level
+        result = 31 * result + _xp
+        result = 31 * result + _gold
+        result = 31 * result + perks.hashCode()
+        result = 31 * result + perkNotes.hashCode()
+        result = 31 * result + created.hashCode()
+        result = 31 * result + modified.hashCode()
+        result = 31 * result + retired.hashCode()
+        result = 31 * result + items.hashCode()
+        result = 31 * result + abilities.hashCode()
+        result = 31 * result + notes.hashCode()
+        return result
+    }
+
     companion object {
         var TIMEZONE = TimeZone.getTimeZone("UTC")!!
+        @SuppressLint("SimpleDateFormat")
         var DATE_FORMATTER: DateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
         var PERK_NOTES_COUNT = 6
 
@@ -183,7 +205,7 @@ data class Character(
         }
 
         @Throws(JSONException::class, IOException::class, ParseException::class, kotlin.KotlinNullPointerException::class)
-        fun parse(data: JSONObject, classList: List<CharacterClass>): Character {
+        fun parse(data: JSONObject, classList: List<CharacterClass>, questList: List<PersonalQuest>? = null): Character {
             val id = UUID.fromString(data.getString("id"))
 
             val className = data.getString("class")
@@ -195,8 +217,8 @@ data class Character(
             val gold = data.optInt("gold", 0)
 
             val perksData = data.optJSONArray("perks")
-            val perks = ArrayList(0.until(perksData?.length() ?: 0).map {
-                perksData.optInt(it, 0)
+            val perks = ArrayList(perksData?.map {
+                it.optInt(0)
             })
 
             val perkNotesData = data.optJSONArray("perk_notes")
@@ -209,9 +231,9 @@ data class Character(
             val retired = data.optBoolean("retired", false)
 
             val itemsData = data.optJSONArray("items")
-            val items = ArrayList(0.until(itemsData?.length() ?: 0).mapNotNull {
+            val items = ArrayList(itemsData?.mapNotNull {
                 try {
-                    val itemData = itemsData.getJSONObject(it)
+                    val itemData = it.getJSONObject()
                     Item(itemData.getString("name"), ItemType.valueOf(itemData.getString("type")))
                 } catch (e: JSONException) {
                     e.printStackTrace()
@@ -227,8 +249,8 @@ data class Character(
             })
 
             val notesData = data.optJSONArray("notes")
-            val notes = ArrayList(0.until(notesData?.length() ?: 0).mapNotNull {
-                notesData.optString(it, null)
+            val notes = ArrayList(notesData?.mapNotNull {
+                it.optString(null)
             })
 
             return Character(
@@ -294,24 +316,22 @@ class CharacterData(val context: Context, val data: JSONObject) {
     }
 
     fun toList(classList: List<CharacterClass>): ArrayList<Character> {
-        val items = ArrayList<Character>()
-
-        for (key in data.keys()) {
+        return ArrayList(data.mapNotNull {
             try {
-                val character = Character.parse(data.getJSONObject(key), classList)
-                items.add(character)
+                Character.parse(it.getJSONObject(), classList)
             } catch (e: JSONException) {
                 e.printStackTrace()
+                null
             } catch (e: IOException) {
                 e.printStackTrace()
+                null
             } catch (e: ParseException) {
                 e.printStackTrace()
+                null
             } catch (e: kotlin.KotlinNullPointerException) {
                 e.printStackTrace()
+                null
             }
-
-        }
-
-        return items
+        })
     }
 }

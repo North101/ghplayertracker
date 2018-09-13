@@ -3,9 +3,7 @@ package net.north101.android.ghplayertracker
 import android.arch.lifecycle.MutableLiveData
 import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import net.north101.android.ghplayertracker.data.Ability
 import net.north101.android.ghplayertracker.livedata.*
 
@@ -176,6 +174,10 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
         }
     }
 
+    override fun onViewRecycled(holder: BaseViewHolder<*>) {
+        holder.unbind()
+        super.onViewRecycled(holder)
+    }
 
     override fun getItemCount(): Int {
         return items.size

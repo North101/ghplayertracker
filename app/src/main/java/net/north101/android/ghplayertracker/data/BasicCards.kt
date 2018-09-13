@@ -4,6 +4,8 @@ import android.content.Context
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 import net.north101.android.ghplayertracker.Util
+import net.north101.android.ghplayertracker.forEach
+import net.north101.android.ghplayertracker.map
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
@@ -31,19 +33,18 @@ data class BasicCards(
         @Throws(JSONException::class)
         fun parse(data: JSONObject): BasicCards {
             val cardsData = data.getJSONObject("cards")
-            for (cardId in cardsData.keys()) {
-                Card.parse(cardId, cardsData.getJSONObject(cardId))
+            cardsData.forEach {
+                Card.parse(it.key, it.getJSONObject())
             }
 
-            val basicDeck = HashMap<String, Int>()
             val basicData = data.getJSONArray("basic")
-            for (i in 0 until basicData.length()) {
-                val basicCardData = basicData.getJSONObject(i)
+            val basicDeck = HashMap<String, Int>(basicData.map {
+                val basicCardData = it.getJSONObject()
 
                 val cardId = basicCardData.getString("card_id")
                 val count = basicCardData.optInt("count", 1)
-                basicDeck[cardId] = count
-            }
+                cardId to count
+            }.toMap())
 
             return BasicCards(basicDeck)
         }
