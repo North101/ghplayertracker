@@ -58,7 +58,7 @@ open class ClassListFragment : Fragment() {
         listView.adapter = listAdapter
 
         if (classModel.classList.value == null) {
-            classModel.classList.load()
+            classModel.dataLoader.load()
         }
         view!!.post {
             classModel.classList.observe(this, Observer {
@@ -67,7 +67,7 @@ open class ClassListFragment : Fragment() {
         }
     }
 
-    open fun setClassList(classList: List<CharacterClass>?) {
+    open fun setClassList(classList: Map<String, CharacterClass>?) {
         if (this.isRemoving) {
             return
         }
@@ -76,7 +76,7 @@ open class ClassListFragment : Fragment() {
         listView.visibility = View.VISIBLE
 
         if (classList != null) {
-            listAdapter.updateItems(classList)
+            listAdapter.updateItems(classList.values.sortedBy { it.id })
         }
     }
 

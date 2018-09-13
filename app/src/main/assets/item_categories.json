@@ -1,0 +1,50 @@
+[
+    {
+        "id": "prosperity_01",
+        "name": "Prosperity 1"
+    },
+    {
+        "id": "prosperity_02",
+        "name": "Prosperity 2"
+    },
+    {
+        "id": "prosperity_03",
+        "name": "Prosperity 3"
+    },
+    {
+        "id": "prosperity_04",
+        "name": "Prosperity 4"
+    },
+    {
+        "id": "prosperity_05",
+        "name": "Prosperity 5"
+    },
+    {
+        "id": "prosperity_06",
+        "name": "Prosperity 6"
+    },
+    {
+        "id": "prosperity_07",
+        "name": "Prosperity 7"
+    },
+    {
+        "id": "prosperity_08",
+        "name": "Prosperity 8"
+    },
+    {
+        "id": "prosperity_09",
+        "name": "Prosperity 9"
+    },
+    {
+        "id": "random",
+        "name": "Random"
+    },
+    {
+        "id": "other",
+        "name": "Other"
+    },
+    {
+        "id": "solo",
+        "name": "Solo"
+    }
+]

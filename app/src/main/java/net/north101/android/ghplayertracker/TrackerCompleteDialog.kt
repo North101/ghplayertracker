@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.BaseAdapter
+import android.widget.CheckBox
 import android.widget.Spinner
 import android.widget.TextView
 import org.androidannotations.annotations.*
@@ -18,6 +19,8 @@ import org.androidannotations.annotations.*
 open class TrackerCompleteDialog : DialogFragment() {
     private lateinit var view2: View
 
+    @ViewById(R.id.successful)
+    protected lateinit var successfulView: CheckBox
     @ViewById(R.id.scenario_level)
     protected lateinit var scenarioLevelView: Spinner
     @ViewById(R.id.scenario_multiplier)
@@ -60,7 +63,7 @@ open class TrackerCompleteDialog : DialogFragment() {
 
         builder.setView(view2)
             .setTitle("Finish Scenario")
-            .setPositiveButton("OK") { dialog, id ->
+            .setPositiveButton("OK") { _, _ ->
                 trackerResultModel.gold = try {
                     parseGoldTotal()
                 } catch (e: Exception) {
@@ -108,6 +111,11 @@ open class TrackerCompleteDialog : DialogFragment() {
         }
     }
 
+    @CheckedChange(R.id.successful)
+    fun onSuccessfulChanged() {
+        onScenarioLevelSelect(true, scenarioLevelView.selectedItem as ScenarioLevel)
+    }
+
     fun parseGoldTotal(): Int {
         val value1 = Integer.parseInt(scenarioMultiplierText.text.toString())
         val value2 = Integer.parseInt(gainedLootText.text.toString())
@@ -134,13 +142,16 @@ open class TrackerCompleteDialog : DialogFragment() {
     @ItemSelect(R.id.scenario_level)
     fun onScenarioLevelSelect(selected: Boolean, selectedItem: ScenarioLevel) {
         scenarioMultiplierText.text = selectedItem.gold.toString()
-        scenarioXPText.text = selectedItem.xp.toString()
+        scenarioXPText.text = if (successfulView.isChecked) {
+            selectedItem.xp
+        } else {
+            0
+        }.toString()
     }
 
     data class ScenarioLevel(val level: Int, val gold: Int, val xp: Int)
 
     val scenarioLevels = listOf(
-        ScenarioLevel(-1, 0, 0),
         ScenarioLevel(0, 2, 4),
         ScenarioLevel(1, 2, 6),
         ScenarioLevel(2, 3, 8),
@@ -174,11 +185,7 @@ class ScenarioLevelAdapter(val items: List<TrackerCompleteDialog.ScenarioLevel>)
         }
         val textView = convertedView!!.findViewById<TextView>(android.R.id.text1)
         textView.text = getItem(position).level.let {
-            if (it == -1) {
-                "Failed"
-            } else {
-                it.toString()
-            }
+            "Level $it"
         }
         textView.textAlignment = TextView.TEXT_ALIGNMENT_TEXT_END
         return convertedView
@@ -192,11 +199,7 @@ class ScenarioLevelAdapter(val items: List<TrackerCompleteDialog.ScenarioLevel>)
                 .inflate(R.layout.spinner_text_view, parent, false) as TextView
         }
         convertedView.text = getItem(position).level.let {
-            if (it == -1) {
-                "Failed"
-            } else {
-                it.toString()
-            }
+            "Level $it"
         }
         convertedView.textAlignment = TextView.TEXT_ALIGNMENT_TEXT_END
         return convertedView

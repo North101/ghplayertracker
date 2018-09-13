@@ -4,7 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: "kotlin-allopen"
 apply plugin: "kotlin-kapt"
 
-def AndroidSupportVersion = '27.1.1'
+def AndroidSupportVersion = '28.0.0'
 def AAVersion = '4.5.0-SNAPSHOT'
 def ArchVersion = '1.1.1'
 
@@ -24,11 +24,11 @@ allprojects {
 }
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     defaultConfig {
         applicationId "net.north101.android.ghplayertracker"
-        minSdkVersion 16
-        targetSdkVersion 27
+        minSdkVersion 17
+        targetSdkVersion 28
         versionCode 12
         versionName "0.6.1"
         setProperty("archivesBaseName", "ghplayertracker v$versionName")
@@ -62,19 +62,19 @@ dependencies {
     implementation "com.android.support:preference-v7:$AndroidSupportVersion"
     implementation "com.android.support:preference-v14:$AndroidSupportVersion"
     implementation "com.android.support:cardview-v7:$AndroidSupportVersion"
-    implementation "com.android.support.constraint:constraint-layout:1.1.0"
     implementation "com.android.support:gridlayout-v7:$AndroidSupportVersion"
+    implementation "com.android.support:design:$AndroidSupportVersion"
+    implementation "com.android.support.constraint:constraint-layout:1.1.3"
 
-    implementation "android.arch.lifecycle:runtime:${ArchVersion}"
-    implementation "android.arch.lifecycle:extensions:${ArchVersion}"
-    kapt "android.arch.lifecycle:compiler:${ArchVersion}"
+    implementation "android.arch.lifecycle:runtime:$ArchVersion"
+    implementation "android.arch.lifecycle:extensions:$ArchVersion"
+    kapt "android.arch.lifecycle:compiler:$ArchVersion"
 
     kapt "org.androidannotations:androidannotations:$AAVersion"
     implementation "org.androidannotations:androidannotations-api:$AAVersion"
 
     implementation "com.mikepenz:itemanimators:1.0.2@aar"
 
-    implementation "com.github.bumptech.glide:glide:4.0.0"
-    implementation "com.android.support:design:$AndroidSupportVersion"
+    implementation "com.github.bumptech.glide:glide:4.8.0"
     implementation "com.github.chrisbanes:PhotoView:2.0.0"
 }

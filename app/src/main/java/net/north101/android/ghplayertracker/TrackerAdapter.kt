@@ -44,7 +44,7 @@ class TrackerAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
             newItems.add(Stats(tracker))
             newItems.add(Status(tracker))
 
-            newItems.add(TextHeaderAdd("Summons", {
+            newItems.add(TextHeaderIcon("Summons", {
                 onSummonAddClick?.invoke()
             }))
             newItems.addAll(tracker.summons.value)
@@ -96,7 +96,7 @@ class TrackerAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
         return when (TrackerViewType.values()[viewType]) {
             TrackerViewType.Header -> TextHeaderViewHolder.inflate(parent)
-            TrackerViewType.HeaderAdd -> TextHeaderAddViewHolder.inflate(parent)
+            TrackerViewType.HeaderAdd -> TextHeaderIconViewHolder.inflate(parent)
             TrackerViewType.Stats -> TrackerStatsViewHolder.inflate(parent)
             TrackerViewType.Status -> TrackerStatusViewHolder.inflate(parent)
             TrackerViewType.Summon -> TrackerSummonViewHolder.inflate(parent)
@@ -110,7 +110,7 @@ class TrackerAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
         val item = items[position]
         when (holder) {
             is TextHeaderViewHolder -> holder.bind(item as TextHeader)
-            is TextHeaderAddViewHolder -> holder.bind(item as TextHeaderAdd)
+            is TextHeaderIconViewHolder -> holder.bind(item as TextHeaderIcon)
             is TrackerStatsViewHolder -> {
                 holder.bind((item as Stats).tracker)
                 holder.onNumberClickListener = {
@@ -149,7 +149,7 @@ class TrackerAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
     override fun getItemViewType(position: Int): Int {
         val item = items[position]
         return when (item) {
-            is TextHeaderAdd -> TrackerViewType.HeaderAdd
+            is TextHeaderIcon -> TrackerViewType.HeaderAdd
             is TextHeader -> TrackerViewType.Header
             is Stats -> TrackerViewType.Stats
             is Status -> TrackerViewType.Status

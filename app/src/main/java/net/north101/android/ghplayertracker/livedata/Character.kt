@@ -22,7 +22,7 @@ class CharacterLiveData {
     val perks = InitLiveData<List<PerkLiveData>>(ArrayList())
     val perkNotes = InitLiveData<List<PerkNoteLiveData>>(ArrayList())
     val retired = InitLiveData(false)
-    val items = InitLiveData<ArrayList<ItemLiveData>>(ArrayList())
+    val items = InitLiveData<ArrayList<Item>>(ArrayList())
     val abilities = InitLiveData<ArrayList<MutableLiveData<Ability>>>(ArrayList())
     val notes = InitLiveData<ArrayList<InitLiveData<String>>>(ArrayList())
 
@@ -44,7 +44,7 @@ class CharacterLiveData {
         modified.value = character.modified
         retired.value = character.retired
         items.value = ArrayList(character.items.map {
-            ItemLiveData(it.name, it.type)
+            it
         })
         abilities.value = ArrayList(character.abilities.map {
             val item = MutableLiveData<Ability>()
@@ -74,7 +74,7 @@ class CharacterLiveData {
             modified.value,
             retired.value,
             ArrayList(items.value.map {
-                Item(it.name.value, it.type.value)
+                it
             }),
             ArrayList(abilities.value.map {
                 it.value

@@ -4,18 +4,20 @@ import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.MutableLiveData
 import android.os.AsyncTask
-import net.north101.android.ghplayertracker.data.Character
-import net.north101.android.ghplayertracker.data.CharacterClass
-import net.north101.android.ghplayertracker.data.CharacterClassData
-import net.north101.android.ghplayertracker.data.CharacterData
+import net.north101.android.ghplayertracker.data.*
+import net.north101.android.ghplayertracker.livedata.NonNullLiveData
 
 class ClassModel(
     application: Application
 ) : AndroidViewModel(application) {
     private val TAG = ClassModel::class.java.simpleName
 
-    val classList = ClassListLiveData(this)
-    val characterList = CharacterListLiveData(this)
+    val dataLoader = DataLoader(this)
+
+    val itemCategoryList = NonNullLiveData<ArrayList<ItemCategory>>(ArrayList())
+    val itemList = NonNullLiveData<HashMap<String, Item>>(HashMap())
+    val classList = NonNullLiveData<HashMap<String, CharacterClass>>(HashMap())
+    val characterList = NonNullLiveData<ArrayList<Character>>(ArrayList())
 
     val context
         get() = this.getApplication<Application>()
@@ -27,24 +29,24 @@ enum class LiveDataState {
     FINISHED
 }
 
-class ClassListLiveData(
+class DataLoader(
     private val model: ClassModel
-) : MutableLiveData<ArrayList<CharacterClass>>() {
-    private val TAG = ClassListLiveData::class.java.simpleName
+) {
+    private val TAG = DataLoader::class.java.simpleName
 
     val state = MutableLiveData<LiveDataState>()
-    var task: ClassListTask? = null
+    var task: DataLoaderTask? = null
 
     init {
         state.value = LiveDataState.INIT
     }
 
-    fun load(): ClassListTask {
+    fun load(): DataLoaderTask {
         var task = this.task
-        if (task != null && !task.isCancelled)
+        if (task != null && !task.isCancelled && task.status != AsyncTask.Status.FINISHED)
             return task
 
-        task = ClassListTask(this.model, LiveDataState.LOADING)
+        task = DataLoaderTask(this.model)
         task.execute()
         this.task = task
 
@@ -52,83 +54,37 @@ class ClassListLiveData(
     }
 }
 
-class ClassListTask(
-    private val model: ClassModel,
-    private val state: LiveDataState
-) : AsyncTask<Void, Void, ArrayList<CharacterClass>>() {
-    private val TAG = ClassListTask::class.java.simpleName
-    override fun onPreExecute() {
-        model.classList.state.value = state
-    }
+data class DataResult(
+    val itemCategoryList: ArrayList<ItemCategory>,
+    val itemList: HashMap<String, Item>,
+    val classList: HashMap<String, CharacterClass>,
+    val characterList: ArrayList<Character>
+)
 
-    override fun doInBackground(vararg voids: Void): ArrayList<CharacterClass> {
-        return CharacterClassData.load(model.context).toList()
-    }
-
-    override fun onPostExecute(data: ArrayList<CharacterClass>) {
-        model.classList.value = data
-        model.classList.state.value = LiveDataState.FINISHED
-        model.classList.task = null
-    }
-}
-
-class CharacterListLiveData(
+class DataLoaderTask(
     private val model: ClassModel
-) : MutableLiveData<List<Character>>() {
-    private val TAG = CharacterListLiveData::class.java.simpleName
-
-    val state = MutableLiveData<LiveDataState>()
-    var task: CharacterListLoadTask? = null
-
-    init {
-        state.value = LiveDataState.INIT
-    }
-
-    fun load(): CharacterListLoadTask {
-        var task = this.task
-        if (task != null && !task.isCancelled)
-            return task
-
-        task = CharacterListLoadTask(this.model, LiveDataState.LOADING)
-        task.execute()
-        this.task = task
-
-        return task
-    }
-
-    fun set(value: ArrayList<Character>) {
-        this.value = value
-    }
-}
-
-class CharacterListLoadTask(
-    private val model: ClassModel,
-    private val state: LiveDataState
-) : AsyncTask<Void, Void, Pair<ArrayList<CharacterClass>, ArrayList<Character>>>() {
-    private val TAG = CharacterListLoadTask::class.java.simpleName
+) : AsyncTask<Void, Void, DataResult>() {
+    private val TAG = DataLoaderTask::class.java.simpleName
 
     override fun onPreExecute() {
-        model.characterList.state.value = state
-        if (model.classList.value == null) {
-            model.classList.state.value = state
-        }
+        this.model.dataLoader.state.value = LiveDataState.LOADING
     }
 
-    override fun doInBackground(vararg voids: Void): Pair<ArrayList<CharacterClass>, ArrayList<Character>> {
-        var classList = model.classList.value
-        if (classList == null) {
-            classList = CharacterClassData.load(model.context).toList()
-        }
-        val characterList = CharacterData.load(model.context).toList(classList)
-        return Pair(classList, characterList)
+    override fun doInBackground(vararg voids: Void): DataResult {
+        val itemCategoryList = ItemCategoryData.load(model.context).toList()
+        val itemMap = ItemData.load(model.context).toList(itemCategoryList)
+        val classMap = CharacterClassData.load(model.context).toList()
+        val characterList = CharacterData.load(model.context).toList(classMap, itemMap)
+
+        return DataResult(itemCategoryList, itemMap, classMap, characterList)
     }
 
-    override fun onPostExecute(data: Pair<ArrayList<CharacterClass>, ArrayList<Character>>) {
-        model.classList.value = data.first
-        model.classList.state.value = LiveDataState.FINISHED
-        model.characterList.value = data.second
-        model.characterList.state.value = LiveDataState.FINISHED
+    override fun onPostExecute(data: DataResult) {
+        model.itemCategoryList.value = data.itemCategoryList
+        model.itemList.value = data.itemList
+        model.classList.value = data.classList
+        model.characterList.value = data.characterList
 
-        model.characterList.task = null
+        this.model.dataLoader.state.value = LiveDataState.FINISHED
     }
 }

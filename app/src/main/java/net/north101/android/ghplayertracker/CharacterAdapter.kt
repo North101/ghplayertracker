@@ -3,11 +3,13 @@ package net.north101.android.ghplayertracker
 import android.arch.lifecycle.MutableLiveData
 import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import net.north101.android.ghplayertracker.data.Ability
-import net.north101.android.ghplayertracker.livedata.*
+import net.north101.android.ghplayertracker.data.Item
+import net.north101.android.ghplayertracker.livedata.CharacterLiveData
+import net.north101.android.ghplayertracker.livedata.InitLiveData
+import net.north101.android.ghplayertracker.livedata.PerkLiveData
+import net.north101.android.ghplayertracker.livedata.PerkNoteLiveData
 
 class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
     private val items = ArrayList<RecyclerItemCompare>()
@@ -23,11 +25,6 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
     data class Stats(val character: CharacterLiveData) : RecyclerItemCompare {
         override val compareItemId: String
             get() = ""
-    }
-
-    data class Item(val item: ItemLiveData) : RecyclerItemCompare {
-        override val compareItemId: String
-            get() = item.name.toString()
     }
 
     data class Note(val index: Int, val note: InitLiveData<String>) : RecyclerItemCompare {
@@ -52,15 +49,15 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
             get() = index.toString()
     }
 
-    var onNumberEditClick: ((String) -> Unit)? = null
+    var onNumberEditClick: ((CharacterNumericValue) -> Unit)? = null
 
     var onAbilityGalleryClick: (() -> Unit)? = null
     var onAbilityEditClick: ((AbilityItem) -> Unit)? = null
     var onAbilityViewClick: ((AbilityItem) -> Unit)? = null
 
     var onItemAddClick: (() -> Unit)? = null
-    var onItemEditClick: ((ItemLiveData) -> Unit)? = null
-    var onItemDeleteClick: ((ItemLiveData) -> Unit)? = null
+    var onItemViewClick: ((Item) -> Unit)? = null
+    var onItemDeleteClick: ((Item) -> Unit)? = null
 
     var onNoteAddClick: (() -> Unit)? = null
     var onNoteEditClick: ((CharacterAdapter.Note) -> Unit)? = null
@@ -73,7 +70,7 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
             newItems.add(TextHeader("Character"))
             newItems.add(Stats(character))
 
-            newItems.add(TextHeaderAdd("Abilities", {
+            newItems.add(TextHeaderIcon("Abilities", {
                 onAbilityGalleryClick?.invoke()
             }, R.drawable.ic_view_comfy_black_24dp))
             newItems.addAll(
@@ -82,16 +79,18 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
                     .filter { it.level <= character.level.value }
             )
 
-            newItems.add(TextHeaderAdd("Items", {
+            newItems.add(TextHeaderIcon("Items", {
                 onItemAddClick?.invoke()
             }))
             newItems.addAll(
                 character.items.value
-                    .sortedBy { it.type.value }
-                    .map { Item(it) }
+                    .also {
+                        it.sortWith(compareBy({ it.type }, { it.name }))
+                    }
+                    .map { it }
             )
 
-            newItems.add(TextHeaderAdd("Notes", {
+            newItems.add(TextHeaderIcon("Notes", {
                 onNoteAddClick?.invoke()
             }))
             newItems.addAll(
@@ -122,7 +121,7 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
         return when (CharacterViewType.values()[viewType]) {
             CharacterViewType.Header -> TextHeaderViewHolder.inflate(parent)
-            CharacterViewType.HeaderAdd -> TextHeaderAddViewHolder.inflate(parent)
+            CharacterViewType.HeaderAdd -> TextHeaderIconViewHolder.inflate(parent)
             CharacterViewType.Stats -> CharacterStatsViewHolder.inflate(parent)
             CharacterViewType.Item -> CharacterItemViewHolder.inflate(parent)
             CharacterViewType.Ability -> CharacterAbilityViewHolder.inflate(parent)
@@ -136,7 +135,7 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
         val item = items[position]
         when (holder) {
             is TextHeaderViewHolder -> holder.bind(item as TextHeader)
-            is TextHeaderAddViewHolder -> holder.bind(item as TextHeaderAdd)
+            is TextHeaderIconViewHolder -> holder.bind(item as TextHeaderIcon)
             is CharacterStatsViewHolder -> {
                 holder.bind((item as Stats).character)
                 holder.onNumberClick = {
@@ -144,9 +143,9 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
                 }
             }
             is CharacterItemViewHolder -> {
-                holder.bind((item as Item).item)
-                holder.onItemEditClick = {
-                    onItemEditClick?.invoke(it)
+                holder.bind(item as Item)
+                holder.onItemViewClick = {
+                    onItemViewClick?.invoke(it)
                 }
                 holder.onItemDeleteClick = {
                     onItemDeleteClick?.invoke(it)
@@ -176,6 +175,10 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
         }
     }
 
+    override fun onViewRecycled(holder: BaseViewHolder<*>) {
+        holder.unbind()
+        super.onViewRecycled(holder)
+    }
 
     override fun getItemCount(): Int {
         return items.size
@@ -184,7 +187,7 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
     override fun getItemViewType(position: Int): Int {
         val item = items[position]
         return when (item) {
-            is TextHeaderAdd -> CharacterViewType.HeaderAdd
+            is TextHeaderIcon -> CharacterViewType.HeaderAdd
             is TextHeader -> CharacterViewType.Header
             is Stats -> CharacterViewType.Stats
             is Item -> CharacterViewType.Item

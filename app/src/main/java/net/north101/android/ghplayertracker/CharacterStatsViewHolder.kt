@@ -32,7 +32,7 @@ class CharacterStatsViewHolder(itemView: View) : BaseViewHolder<CharacterLiveDat
 
     var retiredView: CheckBox = itemView.findViewById(R.id.retired)
 
-    var onNumberClick: ((String) -> Unit)? = null
+    var onNumberClick: ((CharacterNumericValue) -> Unit)? = null
 
     init {
         nameView.addTextChangedListener(object : TextWatcher {
@@ -49,7 +49,7 @@ class CharacterStatsViewHolder(itemView: View) : BaseViewHolder<CharacterLiveDat
         })
 
         levelContainerView.setOnClickListener {
-            onNumberClick?.invoke("level")
+            onNumberClick?.invoke(CharacterNumericValue.Level)
         }
         levelPlusView.setOnTouchListener(RepeatListener({ _, _ ->
             item!!.level.value += 1
@@ -59,7 +59,7 @@ class CharacterStatsViewHolder(itemView: View) : BaseViewHolder<CharacterLiveDat
         }))
 
         xpContainerView.setOnClickListener {
-            onNumberClick?.invoke("xp")
+            onNumberClick?.invoke(CharacterNumericValue.XP)
         }
         xpPlusView.setOnTouchListener(RepeatListener({ _, count ->
             if (count >= 10) {
@@ -77,7 +77,7 @@ class CharacterStatsViewHolder(itemView: View) : BaseViewHolder<CharacterLiveDat
         }))
 
         goldContainerView.setOnClickListener {
-            onNumberClick?.invoke("gold")
+            onNumberClick?.invoke(CharacterNumericValue.Gold)
         }
         goldPlusView.setOnTouchListener(RepeatListener({ _, count ->
             if (count >= 10) {
@@ -148,4 +148,10 @@ class CharacterStatsViewHolder(itemView: View) : BaseViewHolder<CharacterLiveDat
             return CharacterStatsViewHolder(BaseViewHolder.inflate(parent, layout))
         }
     }
+}
+
+enum class CharacterNumericValue {
+    Level,
+    XP,
+    Gold,
 }

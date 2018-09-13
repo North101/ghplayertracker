@@ -1,1086 +1,902 @@
-{
-  "item_495": {
-    "name": "Boots of Levitation",
-    "type": "legs"
-  },
-  "item_496": {
-    "name": "Shoes of Happiness",
-    "type": "legs"
-  },
-  "item_497": {
-    "name": "Blinking Cape",
-    "type": "body"
-  },
-  "item_498": {
-    "name": "Swordedge Armor",
-    "type": "body"
-  },
-  "item_499": {
-    "name": "Circlet of Elements",
-    "type": "head"
-  },
-  "item_500": {
-    "name": "Chain Hood",
-    "type": "head"
-  },
-  "item_501": {
-    "name": "Frigid Blade",
-    "type": "onehand"
-  },
-  "item_502": {
-    "name": "Storm Blade",
-    "type": "onehand"
-  },
-  "item_503": {
-    "name": "Inferno Blade",
-    "type": "onehand"
-  },
-  "item_504": {
-    "name": "Tremor Blade",
-    "type": "onehand"
-  },
-  "item_505": {
-    "name": "Brilliant Blade",
-    "type": "onehand"
-  },
-  "item_506": {
-    "name": "Night Blade",
-    "type": "onehand"
-  },
-  "item_507": {
-    "name": "Wand of Frost",
-    "type": "onehand"
-  },
-  "item_508": {
-    "name": "Wand of Storms",
-    "type": "onehand"
-  },
-  "item_509": {
-    "name": "Wand of Infernos",
-    "type": "onehand"
-  },
-  "item_510": {
-    "name": "Wand of Tremors",
-    "type": "onehand"
-  },
-  "item_511": {
-    "name": "Wand of Brilliance",
-    "type": "onehand"
-  },
-  "item_512": {
-    "name": "Wand of Darkness",
-    "type": "onehand"
-  },
-  "item_513": {
-    "name": "Minor Cure Potion",
-    "type": "onehand"
-  },
-  "item_514": {
-    "name": "Major Cure Potion",
-    "type": "onehand"
-  },
-  "item_515": {
-    "name": "Steel Ring",
-    "type": "small"
-  },
-  "item_516": {
-    "name": "Dampening Ring",
-    "type": "small"
-  },
-  "item_517": {
-    "name": "Scroll of Power",
-    "type": "small"
-  },
-  "item_518": {
-    "name": "Scroll of Healing",
-    "type": "small"
-  },
-  "item_519": {
-    "name": "Scroll of Stamina",
-    "type": "small"
-  },
-  "item_748": {
-    "name": "Boots of Striding",
-    "type": "legs"
-  },
-  "item_749": {
-    "name": "Boots of Striding",
-    "type": "legs"
-  },
-  "item_750": {
-    "name": "Winged Shoes",
-    "type": "legs"
-  },
-  "item_751": {
-    "name": "Winged Shoes",
-    "type": "legs"
-  },
-  "item_752": {
-    "name": "Hide Armor",
-    "type": "body"
-  },
-  "item_753": {
-    "name": "Hide Armor",
-    "type": "body"
-  },
-  "item_754": {
-    "name": "Leather Armor",
-    "type": "body"
-  },
-  "item_755": {
-    "name": "Leather Armor",
-    "type": "body"
-  },
-  "item_756": {
-    "name": "Cloak of Invisibility",
-    "type": "body"
-  },
-  "item_757": {
-    "name": "Cloak of Invisibility",
-    "type": "body"
-  },
-  "item_758": {
-    "name": "Eagle-Eye Goggles",
-    "type": "head"
-  },
-  "item_759": {
-    "name": "Eagle-Eye Goggles",
-    "type": "head"
-  },
-  "item_760": {
-    "name": "Iron Helmet",
-    "type": "head"
-  },
-  "item_761": {
-    "name": "Iron Helmet",
-    "type": "head"
-  },
-  "item_762": {
-    "name": "Heater Shield",
-    "type": "onehand"
-  },
-  "item_763": {
-    "name": "Heater Shield",
-    "type": "onehand"
-  },
-  "item_764": {
-    "name": "Piercing Bow",
-    "type": "twohands"
-  },
-  "item_765": {
-    "name": "Piercing Bow",
-    "type": "twohands"
-  },
-  "item_766": {
-    "name": "War Hammer",
-    "type": "twohands"
-  },
-  "item_767": {
-    "name": "War Hammer",
-    "type": "twohands"
-  },
-  "item_768": {
-    "name": "Poison Dagger",
-    "type": "onehand"
-  },
-  "item_769": {
-    "name": "Poison Dagger",
-    "type": "onehand"
-  },
-  "item_770": {
-    "name": "Minor Healing Potion",
-    "type": "small"
-  },
-  "item_771": {
-    "name": "Minor Healing Potion",
-    "type": "small"
-  },
-  "item_772": {
-    "name": "Minor Healing Potion",
-    "type": "small"
-  },
-  "item_773": {
-    "name": "Minor Healing Potion",
-    "type": "small"
-  },
-  "item_774": {
-    "name": "Minor Stamina Potion",
-    "type": "small"
-  },
-  "item_775": {
-    "name": "Minor Stamina Potion",
-    "type": "small"
-  },
-  "item_776": {
-    "name": "Minor Stamina Potion",
-    "type": "small"
-  },
-  "item_777": {
-    "name": "Minor Stamina Potion",
-    "type": "small"
-  },
-  "item_778": {
-    "name": "Minor Power Potion",
-    "type": "small"
-  },
-  "item_779": {
-    "name": "Minor Power Potion",
-    "type": "small"
-  },
-  "item_780": {
-    "name": "Minor Power Potion",
-    "type": "small"
-  },
-  "item_781": {
-    "name": "Minor Power Potion",
-    "type": "small"
-  },
-  "item_782": {
-    "name": "Boots of Speed",
-    "type": "legs"
-  },
-  "item_783": {
-    "name": "Boots of Speed",
-    "type": "legs"
-  },
-  "item_784": {
-    "name": "Cloak of Pockets",
-    "type": "body"
-  },
-  "item_785": {
-    "name": "Cloak of Pockets",
-    "type": "body"
-  },
-  "item_786": {
-    "name": "Empowering Talisman",
-    "type": "head"
-  },
-  "item_787": {
-    "name": "Empowering Talisman",
-    "type": "head"
-  },
-  "item_788": {
-    "name": "Battle-Axe",
-    "type": "onehand"
-  },
-  "item_789": {
-    "name": "Battle-Axe",
-    "type": "onehand"
-  },
-  "item_790": {
-    "name": "Weighted Net",
-    "type": "twohands"
-  },
-  "item_791": {
-    "name": "Weighted Net",
-    "type": "twohands"
-  },
-  "item_792": {
-    "name": "Minor Mana Potion",
-    "type": "small"
-  },
-  "item_793": {
-    "name": "Minor Mana Potion",
-    "type": "small"
-  },
-  "item_794": {
-    "name": "Minor Mana Potion",
-    "type": "small"
-  },
-  "item_795": {
-    "name": "Minor Mana Potion",
-    "type": "small"
-  },
-  "item_796": {
-    "name": "Stun Power",
-    "type": "small"
-  },
-  "item_797": {
-    "name": "Stun Power",
-    "type": "small"
-  },
-  "item_798": {
-    "name": "Heavy Greaves",
-    "type": "legs"
-  },
-  "item_799": {
-    "name": "Heavy Greaves",
-    "type": "legs"
-  },
-  "item_800": {
-    "name": "Chainmail",
-    "type": "body"
-  },
-  "item_801": {
-    "name": "Chainmail",
-    "type": "body"
-  },
-  "item_802": {
-    "name": "Amulet of Life",
-    "type": "head"
-  },
-  "item_803": {
-    "name": "Amulet of Life",
-    "type": "head"
-  },
-  "item_804": {
-    "name": "Jagged Sword",
-    "type": "onehand"
-  },
-  "item_805": {
-    "name": "Jagged Sword",
-    "type": "onehand"
-  },
-  "item_806": {
-    "name": "Long Spear",
-    "type": "twohands"
-  },
-  "item_807": {
-    "name": "Long Spear",
-    "type": "twohands"
-  },
-  "item_808": {
-    "name": "Major Healing Potion",
-    "type": "small"
-  },
-  "item_809": {
-    "name": "Major Healing Potion",
-    "type": "small"
-  },
-  "item_810": {
-    "name": "Major Healing Potion",
-    "type": "small"
-  },
-  "item_811": {
-    "name": "Major Healing Potion",
-    "type": "small"
-  },
-  "item_812": {
-    "name": "Moon Earring",
-    "type": "small"
-  },
-  "item_813": {
-    "name": "Moon Earring",
-    "type": "small"
-  },
-  "item_814": {
-    "name": "Comfortable Shoes",
-    "type": "legs"
-  },
-  "item_815": {
-    "name": "Comfortable Shoes",
-    "type": "legs"
-  },
-  "item_816": {
-    "name": "Studded Leather",
-    "type": "body"
-  },
-  "item_817": {
-    "name": "Studded Leather",
-    "type": "body"
-  },
-  "item_818": {
-    "name": "Hawk Helm",
-    "type": "head"
-  },
-  "item_819": {
-    "name": "Hawk Helm",
-    "type": "head"
-  },
-  "item_820": {
-    "name": "Tower Shield",
-    "type": "onehand"
-  },
-  "item_821": {
-    "name": "Tower Shield",
-    "type": "onehand"
-  },
-  "item_822": {
-    "name": "Volatile Bomb",
-    "type": "onehand"
-  },
-  "item_823": {
-    "name": "Volatile Bomb",
-    "type": "onehand"
-  },
-  "item_824": {
-    "name": "Major Stamina Potion",
-    "type": "small"
-  },
-  "item_825": {
-    "name": "Major Stamina Potion",
-    "type": "small"
-  },
-  "item_826": {
-    "name": "Major Stamina Potion",
-    "type": "small"
-  },
-  "item_827": {
-    "name": "Major Stamina Potion",
-    "type": "small"
-  },
-  "item_828": {
-    "name": "Falcon Figurine",
-    "type": "small"
-  },
-  "item_829": {
-    "name": "Falcon Figurine",
-    "type": "small"
-  },
-  "item_830": {
-    "name": "Boots of Dashing",
-    "type": "legs"
-  },
-  "item_831": {
-    "name": "Boots of Dashing",
-    "type": "legs"
-  },
-  "item_832": {
-    "name": "Robes of Evocation",
-    "type": "body"
-  },
-  "item_833": {
-    "name": "Robes of Evocation",
-    "type": "body"
-  },
-  "item_834": {
-    "name": "Heavy Basinet",
-    "type": "head"
-  },
-  "item_835": {
-    "name": "Heavy Basinet",
-    "type": "head"
-  },
-  "item_836": {
-    "name": "Hooked Chain",
-    "type": "twohands"
-  },
-  "item_837": {
-    "name": "Hooked Chain",
-    "type": "twohands"
-  },
-  "item_838": {
-    "name": "Veratile Dagger",
-    "type": "onehand"
-  },
-  "item_839": {
-    "name": "Veratile Dagger",
-    "type": "onehand"
-  },
-  "item_840": {
-    "name": "Major Power Potion",
-    "type": "small"
-  },
-  "item_841": {
-    "name": "Major Power Potion",
-    "type": "small"
-  },
-  "item_842": {
-    "name": "Major Power Potion",
-    "type": "small"
-  },
-  "item_843": {
-    "name": "Major Power Potion",
-    "type": "small"
-  },
-  "item_844": {
-    "name": "Ring of Haste",
-    "type": "small"
-  },
-  "item_845": {
-    "name": "Ring of Haste",
-    "type": "small"
-  },
-  "item_846": {
-    "name": "Boots of Quickness",
-    "type": "legs"
-  },
-  "item_847": {
-    "name": "Boots of Quickness",
-    "type": "legs"
-  },
-  "item_848": {
-    "name": "Splintmail",
-    "type": "body"
-  },
-  "item_849": {
-    "name": "Splintmail",
-    "type": "body"
-  },
-  "item_850": {
-    "name": "Pendant of Dark Pacts",
-    "type": "head"
-  },
-  "item_851": {
-    "name": "Pendant of Dark Pacts",
-    "type": "head"
-  },
-  "item_852": {
-    "name": "Spiked Shield",
-    "type": "onehand"
-  },
-  "item_853": {
-    "name": "Spiked Shield",
-    "type": "onehand"
-  },
-  "item_854": {
-    "name": "Reaping Scythe",
-    "type": "twohands"
-  },
-  "item_855": {
-    "name": "Reaping Scythe",
-    "type": "twohands"
-  },
-  "item_856": {
-    "name": "Major Mana Potion",
-    "type": "small"
-  },
-  "item_857": {
-    "name": "Major Mana Potion",
-    "type": "small"
-  },
-  "item_858": {
-    "name": "Major Mana Potion",
-    "type": "small"
-  },
-  "item_859": {
-    "name": "Major Mana Potion",
-    "type": "small"
-  },
-  "item_860": {
-    "name": "Sun Earring",
-    "type": "small"
-  },
-  "item_861": {
-    "name": "Sun Earring",
-    "type": "small"
-  },
-  "item_862": {
-    "name": "Steel Sabatons",
-    "type": "legs"
-  },
-  "item_863": {
-    "name": "Steel Sabatons",
-    "type": "legs"
-  },
-  "item_864": {
-    "name": "Shadow Armor",
-    "type": "body"
-  },
-  "item_865": {
-    "name": "Shadow Armor",
-    "type": "body"
-  },
-  "item_866": {
-    "name": "Protective Chain",
-    "type": "head"
-  },
-  "item_867": {
-    "name": "Protective Chain",
-    "type": "head"
-  },
-  "item_868": {
-    "name": "Black Knife",
-    "type": "onehand"
-  },
-  "item_869": {
-    "name": "Black Knife",
-    "type": "onehand"
-  },
-  "item_870": {
-    "name": "Staff of Eminence",
-    "type": "twohands"
-  },
-  "item_871": {
-    "name": "Staff of Eminence",
-    "type": "twohands"
-  },
-  "item_872": {
-    "name": "Super Healing Potion",
-    "type": "small"
-  },
-  "item_873": {
-    "name": "Super Healing Potion",
-    "type": "small"
-  },
-  "item_874": {
-    "name": "Super Healing Potion",
-    "type": "small"
-  },
-  "item_875": {
-    "name": "Super Healing Potion",
-    "type": "small"
-  },
-  "item_876": {
-    "name": "Ring of Brutality",
-    "type": "small"
-  },
-  "item_877": {
-    "name": "Ring of Brutality",
-    "type": "small"
-  },
-  "item_878": {
-    "name": "Serence Sandals",
-    "type": "legs"
-  },
-  "item_879": {
-    "name": "Serence Sandals",
-    "type": "legs"
-  },
-  "item_880": {
-    "name": "Cloak of Phasing",
-    "type": "body"
-  },
-  "item_881": {
-    "name": "Cloak of Phasing",
-    "type": "body"
-  },
-  "item_882": {
-    "name": "Telescoptic Lens",
-    "type": "head"
-  },
-  "item_883": {
-    "name": "Telescoptic Lens",
-    "type": "head"
-  },
-  "item_884": {
-    "name": "Unstable Explosives",
-    "type": "onehand"
-  },
-  "item_885": {
-    "name": "Unstable Explosives",
-    "type": "onehand"
-  },
-  "item_886": {
-    "name": "Wall Shield",
-    "type": "twohands"
-  },
-  "item_887": {
-    "name": "Wall Shield",
-    "type": "twohands"
-  },
-  "item_888": {
-    "name": "Doom Powder",
-    "type": "small"
-  },
-  "item_889": {
-    "name": "Doom Powder",
-    "type": "small"
-  },
-  "item_890": {
-    "name": "Lucky Eye",
-    "type": "small"
-  },
-  "item_891": {
-    "name": "Lucky Eye",
-    "type": "small"
-  },
-  "item_892": {
-    "name": "Boots of Sprinting",
-    "type": "legs"
-  },
-  "item_893": {
-    "name": "Boots of Sprinting",
-    "type": "legs"
-  },
-  "item_894": {
-    "name": "Platemail",
-    "type": "body"
-  },
-  "item_895": {
-    "name": "Platemail",
-    "type": "body"
-  },
-  "item_896": {
-    "name": "Mask of Terror",
-    "type": "head"
-  },
-  "item_897": {
-    "name": "Mask of Terror",
-    "type": "head"
-  },
-  "item_898": {
-    "name": "Balanced Blade",
-    "type": "onehand"
-  },
-  "item_899": {
-    "name": "Balanced Blade",
-    "type": "onehand"
-  },
-  "item_900": {
-    "name": "Halberd",
-    "type": "twohands"
-  },
-  "item_901": {
-    "name": "Halberd",
-    "type": "twohands"
-  },
-  "item_902": {
-    "name": "Star Earring",
-    "type": "small"
-  },
-  "item_903": {
-    "name": "Star Earring",
-    "type": "small"
-  },
-  "item_904": {
-    "name": "Second Chance Ring",
-    "type": "small"
-  },
-  "item_905": {
-    "name": "Second Chance Ring",
-    "type": "small"
-  },
-  "item_906": {
-    "name": "Boots of Levitation",
-    "type": "legs"
-  },
-  "item_907": {
-    "name": "Shoes of Happiness",
-    "type": "legs"
-  },
-  "item_908": {
-    "name": "Blinking Cape",
-    "type": "body"
-  },
-  "item_909": {
-    "name": "Swordedge Armor",
-    "type": "body"
-  },
-  "item_910": {
-    "name": "Circlet of Elements",
-    "type": "head"
-  },
-  "item_911": {
-    "name": "Chain Hood",
-    "type": "head"
-  },
-  "item_912": {
-    "name": "Frigid Blade",
-    "type": "onehand"
-  },
-  "item_913": {
-    "name": "Storm Blade",
-    "type": "onehand"
-  },
-  "item_914": {
-    "name": "Inferno Blade",
-    "type": "onehand"
-  },
-  "item_915": {
-    "name": "Tremor Blade",
-    "type": "onehand"
-  },
-  "item_916": {
-    "name": "Brilliant Blade",
-    "type": "onehand"
-  },
-  "item_917": {
-    "name": "Night Blade",
-    "type": "onehand"
-  },
-  "item_918": {
-    "name": "Wand of Frost",
-    "type": "onehand"
-  },
-  "item_919": {
-    "name": "Wand of Storms",
-    "type": "onehand"
-  },
-  "item_920": {
-    "name": "Wand of Infernos",
-    "type": "onehand"
-  },
-  "item_921": {
-    "name": "Wand of Tremors",
-    "type": "onehand"
-  },
-  "item_922": {
-    "name": "Wand of Brilliance",
-    "type": "onehand"
-  },
-  "item_923": {
-    "name": "Wand of Darkness",
-    "type": "onehand"
-  },
-  "item_924": {
-    "name": "Minor Cure Potion",
-    "type": "small"
-  },
-  "item_925": {
-    "name": "Major Cure Potion",
-    "type": "small"
-  },
-  "item_926": {
-    "name": "Steel Ring",
-    "type": "small"
-  },
-  "item_927": {
-    "name": "Dapening Ring",
-    "type": "small"
-  },
-  "item_928": {
-    "name": "Scroll of Power",
-    "type": "small"
-  },
-  "item_929": {
-    "name": "Scroll of Healing",
-    "type": "small"
-  },
-  "item_930": {
-    "name": "Scroll of Stamina",
-    "type": "small"
-  },
-  "item_931": {
-    "name": "Rocket Boots",
-    "type": "legs"
-  },
-  "item_932": {
-    "name": "Rocket Boots",
-    "type": "legs"
-  },
-  "item_933": {
-    "name": "Endurance Footwraps",
-    "type": "legs"
-  },
-  "item_934": {
-    "name": "Drakescale Boots",
-    "type": "legs"
-  },
-  "item_935": {
-    "name": "Magma Waders",
-    "type": "legs"
-  },
-  "item_936": {
-    "name": "Robes of Summoning",
-    "type": "body"
-  },
-  "item_937": {
-    "name": "Second Skin",
-    "type": "body"
-  },
-  "item_938": {
-    "name": "Sacrificial Robes",
-    "type": "body"
-  },
-  "item_939": {
-    "name": "Drakescale Armor",
-    "type": "body"
-  },
-  "item_940": {
-    "name": "Steam Armor",
-    "type": "body"
-  },
-  "item_941": {
-    "name": "Flea-Bitten Shawl",
-    "type": "body"
-  },
-  "item_942": {
-    "name": "Necklace of Teeth",
-    "type": "head"
-  },
-  "item_943": {
-    "name": "Horned Helm",
-    "type": "head"
-  },
-  "item_944": {
-    "name": "Horned Helm",
-    "type": "head"
-  },
-  "item_945": {
-    "name": "Drakescale Helm",
-    "type": "head"
-  },
-  "item_946": {
-    "name": "Thief's Hood",
-    "type": "head"
-  },
-  "item_947": {
-    "name": "Helm of the Mountain",
-    "type": "head"
-  },
-  "item_948": {
-    "name": "Wave Crest",
-    "type": "head"
-  },
-  "item_949": {
-    "name": "Ancient Drill",
-    "type": "twohands"
-  },
-  "item_950": {
-    "name": "Ancient Drill",
-    "type": "twohands"
-  },
-  "item_951": {
-    "name": "Skullbane Axe",
-    "type": "twohands"
-  },
-  "item_952": {
-    "name": "Staff of Xorn",
-    "type": "twohands"
-  },
-  "item_953": {
-    "name": "Mountain Hammer",
-    "type": "twohands"
-  },
-  "item_954": {
-    "name": "Fueled Falchion",
-    "type": "onehand"
-  },
-  "item_955": {
-    "name": "Fueled Falchion",
-    "type": "onehand"
-  },
-  "item_956": {
-    "name": "Bloody Axe",
-    "type": "onehand"
-  },
-  "item_957": {
-    "name": "Bloody Axe",
-    "type": "onehand"
-  },
-  "item_958": {
-    "name": "Staff of Elements",
-    "type": "twohands"
-  },
-  "item_959": {
-    "name": "Staff of Elements",
-    "type": "twohands"
-  },
-  "item_960": {
-    "name": "Skull of Hatred",
-    "type": "onehand"
-  },
-  "item_961": {
-    "name": "Skull of Hatred",
-    "type": "onehand"
-  },
-  "item_962": {
-    "name": "Staff of Summoning",
-    "type": "twohands"
-  },
-  "item_963": {
-    "name": "Orb of Dawn",
-    "type": "onehand"
-  },
-  "item_964": {
-    "name": "Orb of Twilight",
-    "type": "onehand"
-  },
-  "item_965": {
-    "name": "Ring of Skulls",
-    "type": "small"
-  },
-  "item_966": {
-    "name": "Ring of Skulls",
-    "type": "small"
-  },
-  "item_967": {
-    "name": "Doomed Compass",
-    "type": "small"
-  },
-  "item_968": {
-    "name": "Curious Gear",
-    "type": "small"
-  },
-  "item_969": {
-    "name": "Remote Spider",
-    "type": "small"
-  },
-  "item_970": {
-    "name": "Giant Remote Spider",
-    "type": "small"
-  },
-  "item_971": {
-    "name": "Black Censer",
-    "type": "small"
-  },
-  "item_972": {
-    "name": "Black Card",
-    "type": "small"
-  },
-  "item_973": {
-    "name": "Helix Ring",
-    "type": "small"
-  },
-  "item_974": {
-    "name": "Heart of the Betrayer",
-    "type": "small"
-  },
-  "item_975": {
-    "name": "Power Core",
-    "type": "small"
-  },
-  "item_976": {
-    "name": "Resonant Crystal",
-    "type": "small"
-  },
-  "item_S01": {
-    "name": "Imposing Blade",
-    "type": "onehand"
-  },
-  "item_S02": {
-    "name": "Focusing Ray",
-    "type": "onehand"
-  },
-  "item_S03": {
-    "name": "Volatile Elixir",
-    "type": "small"
-  },
-  "item_S04": {
-    "name": "Silent Stiletto",
-    "type": "onehand"
-  },
-  "item_S05": {
-    "name": "Stone Charm",
-    "type": "head"
-  },
-  "item_S06": {
-    "name": "Psychic Knife",
-    "type": "onehand"
-  },
-  "item_S07": {
-    "name": "Sun Shield",
-    "type": "onehand"
-  },
-  "item_S08": {
-    "name": "Utility Belt",
-    "type": "small"
-  },
-  "item_S09": {
-    "name": "Phasing Idol",
-    "type": "small"
-  },
-  "item_S10": {
-    "name": "Smoke Elixir",
-    "type": "small"
-  },
-  "item_S11": {
-    "name": "Pendant of the Plague",
-    "type": "head"
-  },
-  "item_S12": {
-    "name": "Mask of Death",
-    "type": "head"
-  },
-  "item_S13": {
-    "name": "Master's Lute",
-    "type": "twohands"
-  },
-  "item_S14": {
-    "name": "Cloak of the Hunter",
-    "type": "body"
-  },
-  "item_S15": {
-    "name": "Doctor's Coat",
-    "type": "body"
-  },
-  "item_S16": {
-    "name": "Elemental Boots",
-    "type": "legs"
-  },
-  "item_S17": {
-    "name": "Staff of Command",
-    "type": "twohands"
-  }
-}
+[
+    {
+        "category": "prosperity_01",
+        "id": "item_001",
+        "name": "Boots of Striding",
+        "type": "legs"
+    },
+    {
+        "category": "prosperity_01",
+        "id": "item_002",
+        "name": "Winged Shoes",
+        "type": "legs"
+    },
+    {
+        "category": "prosperity_01",
+        "id": "item_003",
+        "name": "Hide Armor",
+        "type": "body"
+    },
+    {
+        "category": "prosperity_01",
+        "id": "item_004",
+        "name": "Leather Armor",
+        "type": "body"
+    },
+    {
+        "category": "prosperity_01",
+        "id": "item_005",
+        "name": "Cloak of Invisibility",
+        "type": "body"
+    },
+    {
+        "category": "prosperity_01",
+        "id": "item_006",
+        "name": "Eagle-Eye Goggles",
+        "type": "head"
+    },
+    {
+        "category": "prosperity_01",
+        "id": "item_007",
+        "name": "Iron Helmet",
+        "type": "head"
+    },
+    {
+        "category": "prosperity_01",
+        "id": "item_008",
+        "name": "Heater Shield",
+        "type": "onehand"
+    },
+    {
+        "category": "prosperity_01",
+        "id": "item_009",
+        "name": "Piercing Bow",
+        "type": "twohands"
+    },
+    {
+        "category": "prosperity_01",
+        "id": "item_010",
+        "name": "War Hammer",
+        "type": "twohands"
+    },
+    {
+        "category": "prosperity_01",
+        "id": "item_011",
+        "name": "Poison Dagger",
+        "type": "onehand"
+    },
+    {
+        "category": "prosperity_01",
+        "id": "item_012",
+        "name": "Minor Healing Potion",
+        "type": "small"
+    },
+    {
+        "category": "prosperity_01",
+        "id": "item_013",
+        "name": "Minor Stamina Potion",
+        "type": "small"
+    },
+    {
+        "category": "prosperity_01",
+        "id": "item_014",
+        "name": "Minor Power Potion",
+        "type": "small"
+    },
+    {
+        "category": "prosperity_02",
+        "id": "item_015",
+        "name": "Boots of Speed",
+        "type": "legs"
+    },
+    {
+        "category": "prosperity_02",
+        "id": "item_016",
+        "name": "Cloak of Pockets",
+        "type": "body"
+    },
+    {
+        "category": "prosperity_02",
+        "id": "item_017",
+        "name": "Empowering Talisman",
+        "type": "head"
+    },
+    {
+        "category": "prosperity_02",
+        "id": "item_018",
+        "name": "Battle-Axe",
+        "type": "onehand"
+    },
+    {
+        "category": "prosperity_02",
+        "id": "item_019",
+        "name": "Weighted Net",
+        "type": "twohands"
+    },
+    {
+        "category": "prosperity_02",
+        "id": "item_020",
+        "name": "Minor Mana Potion",
+        "type": "small"
+    },
+    {
+        "category": "prosperity_02",
+        "id": "item_021",
+        "name": "Stun Power",
+        "type": "small"
+    },
+    {
+        "category": "prosperity_03",
+        "id": "item_022",
+        "name": "Heavy Greaves",
+        "type": "legs"
+    },
+    {
+        "category": "prosperity_03",
+        "id": "item_023",
+        "name": "Chainmail",
+        "type": "body"
+    },
+    {
+        "category": "prosperity_03",
+        "id": "item_024",
+        "name": "Amulet of Life",
+        "type": "head"
+    },
+    {
+        "category": "prosperity_03",
+        "id": "item_025",
+        "name": "Jagged Sword",
+        "type": "onehand"
+    },
+    {
+        "category": "prosperity_03",
+        "id": "item_026",
+        "name": "Long Spear",
+        "type": "twohands"
+    },
+    {
+        "category": "prosperity_03",
+        "id": "item_027",
+        "name": "Major Healing Potion",
+        "type": "small"
+    },
+    {
+        "category": "prosperity_03",
+        "id": "item_028",
+        "name": "Moon Earring",
+        "type": "small"
+    },
+    {
+        "category": "prosperity_04",
+        "id": "item_029",
+        "name": "Comfortable Shoes",
+        "type": "legs"
+    },
+    {
+        "category": "prosperity_04",
+        "id": "item_030",
+        "name": "Studded Leather",
+        "type": "body"
+    },
+    {
+        "category": "prosperity_04",
+        "id": "item_031",
+        "name": "Hawk Helm",
+        "type": "head"
+    },
+    {
+        "category": "prosperity_04",
+        "id": "item_032",
+        "name": "Tower Shield",
+        "type": "onehand"
+    },
+    {
+        "category": "prosperity_04",
+        "id": "item_033",
+        "name": "Volatile Bomb",
+        "type": "onehand"
+    },
+    {
+        "category": "prosperity_04",
+        "id": "item_034",
+        "name": "Major Stamina Potion",
+        "type": "small"
+    },
+    {
+        "category": "prosperity_04",
+        "id": "item_035",
+        "name": "Falcon Figurine",
+        "type": "small"
+    },
+    {
+        "category": "prosperity_05",
+        "id": "item_036",
+        "name": "Boots of Dashing",
+        "type": "legs"
+    },
+    {
+        "category": "prosperity_05",
+        "id": "item_037",
+        "name": "Robes of Evocation",
+        "type": "body"
+    },
+    {
+        "category": "prosperity_05",
+        "id": "item_038",
+        "name": "Heavy Basinet",
+        "type": "head"
+    },
+    {
+        "category": "prosperity_05",
+        "id": "item_039",
+        "name": "Hooked Chain",
+        "type": "twohands"
+    },
+    {
+        "category": "prosperity_05",
+        "id": "item_040",
+        "name": "Veratile Dagger",
+        "type": "onehand"
+    },
+    {
+        "category": "prosperity_05",
+        "id": "item_041",
+        "name": "Major Power Potion",
+        "type": "small"
+    },
+    {
+        "category": "prosperity_05",
+        "id": "item_042",
+        "name": "Ring of Haste",
+        "type": "small"
+    },
+    {
+        "category": "prosperity_06",
+        "id": "item_043",
+        "name": "Boots of Quickness",
+        "type": "legs"
+    },
+    {
+        "category": "prosperity_06",
+        "id": "item_044",
+        "name": "Splintmail",
+        "type": "body"
+    },
+    {
+        "category": "prosperity_06",
+        "id": "item_045",
+        "name": "Pendant of Dark Pacts",
+        "type": "head"
+    },
+    {
+        "category": "prosperity_06",
+        "id": "item_046",
+        "name": "Spiked Shield",
+        "type": "onehand"
+    },
+    {
+        "category": "prosperity_06",
+        "id": "item_047",
+        "name": "Reaping Scythe",
+        "type": "twohands"
+    },
+    {
+        "category": "prosperity_06",
+        "id": "item_048",
+        "name": "Major Mana Potion",
+        "type": "small"
+    },
+    {
+        "category": "prosperity_06",
+        "id": "item_049",
+        "name": "Sun Earring",
+        "type": "small"
+    },
+    {
+        "category": "prosperity_07",
+        "id": "item_050",
+        "name": "Steel Sabatons",
+        "type": "legs"
+    },
+    {
+        "category": "prosperity_07",
+        "id": "item_051",
+        "name": "Shadow Armor",
+        "type": "body"
+    },
+    {
+        "category": "prosperity_07",
+        "id": "item_052",
+        "name": "Protective Chain",
+        "type": "head"
+    },
+    {
+        "category": "prosperity_07",
+        "id": "item_053",
+        "name": "Black Knife",
+        "type": "onehand"
+    },
+    {
+        "category": "prosperity_07",
+        "id": "item_054",
+        "name": "Staff of Eminence",
+        "type": "twohands"
+    },
+    {
+        "category": "prosperity_07",
+        "id": "item_055",
+        "name": "Super Healing Potion",
+        "type": "small"
+    },
+    {
+        "category": "prosperity_07",
+        "id": "item_056",
+        "name": "Ring of Brutality",
+        "type": "small"
+    },
+    {
+        "category": "prosperity_08",
+        "id": "item_057",
+        "name": "Serence Sandals",
+        "type": "legs"
+    },
+    {
+        "category": "prosperity_08",
+        "id": "item_058",
+        "name": "Cloak of Phasing",
+        "type": "body"
+    },
+    {
+        "category": "prosperity_08",
+        "id": "item_059",
+        "name": "Telescoptic Lens",
+        "type": "head"
+    },
+    {
+        "category": "prosperity_08",
+        "id": "item_060",
+        "name": "Unstable Explosives",
+        "type": "onehand"
+    },
+    {
+        "category": "prosperity_08",
+        "id": "item_061",
+        "name": "Wall Shield",
+        "type": "twohands"
+    },
+    {
+        "category": "prosperity_08",
+        "id": "item_062",
+        "name": "Doom Powder",
+        "type": "small"
+    },
+    {
+        "category": "prosperity_08",
+        "id": "item_063",
+        "name": "Lucky Eye",
+        "type": "small"
+    },
+    {
+        "category": "prosperity_09",
+        "id": "item_064",
+        "name": "Boots of Sprinting",
+        "type": "legs"
+    },
+    {
+        "category": "prosperity_09",
+        "id": "item_065",
+        "name": "Platemail",
+        "type": "body"
+    },
+    {
+        "category": "prosperity_09",
+        "id": "item_066",
+        "name": "Mask of Terror",
+        "type": "head"
+    },
+    {
+        "category": "prosperity_09",
+        "id": "item_067",
+        "name": "Balanced Blade",
+        "type": "onehand"
+    },
+    {
+        "category": "prosperity_09",
+        "id": "item_068",
+        "name": "Halberd",
+        "type": "twohands"
+    },
+    {
+        "category": "prosperity_09",
+        "id": "item_069",
+        "name": "Star Earring",
+        "type": "small"
+    },
+    {
+        "category": "prosperity_09",
+        "id": "item_070",
+        "name": "Second Chance Ring",
+        "type": "small"
+    },
+    {
+        "category": "random",
+        "id": "item_071",
+        "name": "Boots of Levitation",
+        "type": "legs"
+    },
+    {
+        "category": "random",
+        "id": "item_072",
+        "name": "Shoes of Happiness",
+        "type": "legs"
+    },
+    {
+        "category": "random",
+        "id": "item_073",
+        "name": "Blinking Cape",
+        "type": "body"
+    },
+    {
+        "category": "random",
+        "id": "item_074",
+        "name": "Swordedge Armor",
+        "type": "body"
+    },
+    {
+        "category": "random",
+        "id": "item_075",
+        "name": "Circlet of Elements",
+        "type": "head"
+    },
+    {
+        "category": "random",
+        "id": "item_076",
+        "name": "Chain Hood",
+        "type": "head"
+    },
+    {
+        "category": "random",
+        "id": "item_077",
+        "name": "Frigid Blade",
+        "type": "onehand"
+    },
+    {
+        "category": "random",
+        "id": "item_078",
+        "name": "Storm Blade",
+        "type": "onehand"
+    },
+    {
+        "category": "random",
+        "id": "item_079",
+        "name": "Inferno Blade",
+        "type": "onehand"
+    },
+    {
+        "category": "random",
+        "id": "item_080",
+        "name": "Tremor Blade",
+        "type": "onehand"
+    },
+    {
+        "category": "random",
+        "id": "item_081",
+        "name": "Brilliant Blade",
+        "type": "onehand"
+    },
+    {
+        "category": "random",
+        "id": "item_082",
+        "name": "Night Blade",
+        "type": "onehand"
+    },
+    {
+        "category": "random",
+        "id": "item_083",
+        "name": "Wand of Frost",
+        "type": "onehand"
+    },
+    {
+        "category": "random",
+        "id": "item_084",
+        "name": "Wand of Storms",
+        "type": "onehand"
+    },
+    {
+        "category": "random",
+        "id": "item_085",
+        "name": "Wand of Infernos",
+        "type": "onehand"
+    },
+    {
+        "category": "random",
+        "id": "item_086",
+        "name": "Wand of Tremors",
+        "type": "onehand"
+    },
+    {
+        "category": "random",
+        "id": "item_087",
+        "name": "Wand of Brilliance",
+        "type": "onehand"
+    },
+    {
+        "category": "random",
+        "id": "item_088",
+        "name": "Wand of Darkness",
+        "type": "onehand"
+    },
+    {
+        "category": "random",
+        "id": "item_089",
+        "name": "Minor Cure Potion",
+        "type": "onehand"
+    },
+    {
+        "category": "random",
+        "id": "item_090",
+        "name": "Major Cure Potion",
+        "type": "onehand"
+    },
+    {
+        "category": "random",
+        "id": "item_091",
+        "name": "Steel Ring",
+        "type": "small"
+    },
+    {
+        "category": "random",
+        "id": "item_092",
+        "name": "Dampening Ring",
+        "type": "small"
+    },
+    {
+        "category": "random",
+        "id": "item_093",
+        "name": "Scroll of Power",
+        "type": "small"
+    },
+    {
+        "category": "random",
+        "id": "item_094",
+        "name": "Scroll of Healing",
+        "type": "small"
+    },
+    {
+        "category": "random",
+        "id": "item_095",
+        "name": "Scroll of Stamina",
+        "type": "small"
+    },
+    {
+        "category": "other",
+        "id": "item_096",
+        "name": "Rocket Boots",
+        "type": "legs"
+    },
+    {
+        "category": "other",
+        "id": "item_097",
+        "name": "Endurance Footwraps",
+        "type": "legs"
+    },
+    {
+        "category": "other",
+        "id": "item_098",
+        "name": "Drakescale Boots",
+        "type": "legs"
+    },
+    {
+        "category": "other",
+        "id": "item_099",
+        "name": "Magma Waders",
+        "type": "legs"
+    },
+    {
+        "category": "other",
+        "id": "item_100",
+        "name": "Robes of Summoning",
+        "type": "body"
+    },
+    {
+        "category": "other",
+        "id": "item_101",
+        "name": "Second Skin",
+        "type": "body"
+    },
+    {
+        "category": "other",
+        "id": "item_102",
+        "name": "Sacrificial Robes",
+        "type": "body"
+    },
+    {
+        "category": "other",
+        "id": "item_103",
+        "name": "Drakescale Armor",
+        "type": "body"
+    },
+    {
+        "category": "other",
+        "id": "item_104",
+        "name": "Steam Armor",
+        "type": "body"
+    },
+    {
+        "category": "other",
+        "id": "item_105",
+        "name": "Flea-Bitten Shawl",
+        "type": "body"
+    },
+    {
+        "category": "other",
+        "id": "item_106",
+        "name": "Necklace of Teeth",
+        "type": "head"
+    },
+    {
+        "category": "other",
+        "id": "item_107",
+        "name": "Horned Helm",
+        "type": "head"
+    },
+    {
+        "category": "other",
+        "id": "item_108",
+        "name": "Drakescale Helm",
+        "type": "head"
+    },
+    {
+        "category": "other",
+        "id": "item_109",
+        "name": "Thief's Hood",
+        "type": "head"
+    },
+    {
+        "category": "other",
+        "id": "item_110",
+        "name": "Helm of the Mountain",
+        "type": "head"
+    },
+    {
+        "category": "other",
+        "id": "item_111",
+        "name": "Wave Crest",
+        "type": "head"
+    },
+    {
+        "category": "other",
+        "id": "item_112",
+        "name": "Ancient Drill",
+        "type": "twohands"
+    },
+    {
+        "category": "other",
+        "id": "item_113",
+        "name": "Skullbane Axe",
+        "type": "twohands"
+    },
+    {
+        "category": "other",
+        "id": "item_114",
+        "name": "Staff of Xorn",
+        "type": "twohands"
+    },
+    {
+        "category": "other",
+        "id": "item_115",
+        "name": "Mountain Hammer",
+        "type": "twohands"
+    },
+    {
+        "category": "other",
+        "id": "item_116",
+        "name": "Fueled Falchion",
+        "type": "onehand"
+    },
+    {
+        "category": "other",
+        "id": "item_117",
+        "name": "Bloody Axe",
+        "type": "onehand"
+    },
+    {
+        "category": "other",
+        "id": "item_118",
+        "name": "Staff of Elements",
+        "type": "twohands"
+    },
+    {
+        "category": "other",
+        "id": "item_119",
+        "name": "Skull of Hatred",
+        "type": "onehand"
+    },
+    {
+        "category": "other",
+        "id": "item_120",
+        "name": "Staff of Summoning",
+        "type": "twohands"
+    },
+    {
+        "category": "other",
+        "id": "item_121",
+        "name": "Orb of Dawn",
+        "type": "onehand"
+    },
+    {
+        "category": "other",
+        "id": "item_122",
+        "name": "Orb of Twilight",
+        "type": "onehand"
+    },
+    {
+        "category": "other",
+        "id": "item_123",
+        "name": "Ring of Skulls",
+        "type": "small"
+    },
+    {
+        "category": "other",
+        "id": "item_124",
+        "name": "Doomed Compass",
+        "type": "small"
+    },
+    {
+        "category": "other",
+        "id": "item_125",
+        "name": "Curious Gear",
+        "type": "small"
+    },
+    {
+        "category": "other",
+        "id": "item_126",
+        "name": "Remote Spider",
+        "type": "small"
+    },
+    {
+        "category": "other",
+        "id": "item_127",
+        "name": "Giant Remote Spider",
+        "type": "small"
+    },
+    {
+        "category": "other",
+        "id": "item_128",
+        "name": "Black Censer",
+        "type": "small"
+    },
+    {
+        "category": "other",
+        "id": "item_129",
+        "name": "Black Card",
+        "type": "small"
+    },
+    {
+        "category": "other",
+        "id": "item_130",
+        "name": "Helix Ring",
+        "type": "small"
+    },
+    {
+        "category": "other",
+        "id": "item_131",
+        "name": "Heart of the Betrayer",
+        "type": "small"
+    },
+    {
+        "category": "other",
+        "id": "item_132",
+        "name": "Power Core",
+        "type": "small"
+    },
+    {
+        "category": "other",
+        "id": "item_133",
+        "name": "Resonant Crystal",
+        "type": "small"
+    },
+    {
+        "category": "solo",
+        "id": "item_134",
+        "name": "Imposing Blade",
+        "type": "onehand"
+    },
+    {
+        "category": "solo",
+        "id": "item_135",
+        "name": "Focusing Ray",
+        "type": "onehand"
+    },
+    {
+        "category": "solo",
+        "id": "item_136",
+        "name": "Volatile Elixir",
+        "type": "small"
+    },
+    {
+        "category": "solo",
+        "id": "item_137",
+        "name": "Silent Stiletto",
+        "type": "onehand"
+    },
+    {
+        "category": "solo",
+        "id": "item_138",
+        "name": "Stone Charm",
+        "type": "head"
+    },
+    {
+        "category": "solo",
+        "id": "item_139",
+        "name": "Psychic Knife",
+        "type": "onehand"
+    },
+    {
+        "category": "solo",
+        "id": "item_140",
+        "name": "Sun Shield",
+        "type": "onehand"
+    },
+    {
+        "category": "solo",
+        "id": "item_141",
+        "name": "Utility Belt",
+        "type": "small"
+    },
+    {
+        "category": "solo",
+        "id": "item_142",
+        "name": "Phasing Idol",
+        "type": "small"
+    },
+    {
+        "category": "solo",
+        "id": "item_143",
+        "name": "Smoke Elixir",
+        "type": "small"
+    },
+    {
+        "category": "solo",
+        "id": "item_144",
+        "name": "Pendant of the Plague",
+        "type": "head"
+    },
+    {
+        "category": "solo",
+        "id": "item_145",
+        "name": "Mask of Death",
+        "type": "head"
+    },
+    {
+        "category": "solo",
+        "id": "item_146",
+        "name": "Master's Lute",
+        "type": "twohands"
+    },
+    {
+        "category": "solo",
+        "id": "item_147",
+        "name": "Cloak of the Hunter",
+        "type": "body"
+    },
+    {
+        "category": "solo",
+        "id": "item_148",
+        "name": "Doctor's Coat",
+        "type": "body"
+    },
+    {
+        "category": "solo",
+        "id": "item_149",
+        "name": "Elemental Boots",
+        "type": "legs"
+    },
+    {
+        "category": "solo",
+        "id": "item_150",
+        "name": "Staff of Command",
+        "type": "twohands"
+    }
+]

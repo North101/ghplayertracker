@@ -43,6 +43,7 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
     lateinit var classModel: ClassModel
     lateinit var characterModel: CharacterModel
     lateinit var trackerResultModel: TrackerResultModel
+    lateinit var selectedItemModel: SelectedItemModel
 
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
@@ -50,6 +51,7 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
         classModel = ViewModelProviders.of(this.activity!!).get(ClassModel::class.java)
         characterModel = ViewModelProviders.of(this).get(CharacterModel::class.java)
         trackerResultModel = ViewModelProviders.of(this).get(TrackerResultModel::class.java)
+        selectedItemModel = ViewModelProviders.of(this).get(SelectedItemModel::class.java)
 
         if (state == null) {
             characterModel.init(character)
@@ -74,6 +76,12 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
             characterModel.character.xp.value += trackerResultModel.xp
             trackerResultModel.xp = 0
         }
+        selectedItemModel.selectedItem.observe(this, Observer {
+            if (it != null) {
+                characterModel.character.items.value.add(it)
+                selectedItemModel.selectedItem.value = null
+            }
+        })
 
         (activity as AppCompatActivity).setSupportActionBar(toolbar)
         actionBar = (activity as AppCompatActivity).supportActionBar!!
@@ -95,29 +103,34 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
         }
         listAdapter1.onNumberEditClick = callback@{
             val fragment = when (it) {
-                "level" -> CharacterEditLevelDialog_.builder().build()
-                "xp" -> CharacterEditXPDialog_.builder().build()
-                "gold" -> CharacterEditGoldDialog_.builder().build()
-                else -> null
+                CharacterNumericValue.Level -> CharacterEditLevelDialog_.builder().build()
+                CharacterNumericValue.XP -> CharacterEditXPDialog_.builder().build()
+                CharacterNumericValue.Gold -> CharacterEditGoldDialog_.builder().build()
             } ?: return@callback
             fragment.setTargetFragment(this@CharacterFragment, 0)
             fragment.show(fragmentManager, "CharacterNumberEdit")
         }
         listAdapter1.onItemAddClick = {
-            val fragment = CharacterItemDialog_.builder().build()
-            fragment.setTargetFragment(this, 0)
+            val items = characterModel.character.items.value
+            val fragment = ItemListFragment.newInstance(items)
+            fragment.setTargetFragment(this, 1)
 
-            fragment.show(fragmentManager, "CharacterItemDialog_")
+            fragmentManager!!.beginTransaction()
+                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
+                .replace(R.id.content, fragment)
+                .addToBackStack(null)
+                .commit()
         }
-        listAdapter1.onItemEditClick = {
-            val args = Bundle()
-            args.putInt("index", characterModel.character.items.value.indexOf(it))
+        listAdapter1.onItemViewClick = {
+            val items = characterModel.character.items.value
+            val fragment = ImagePagerFragment.newInstance(items as ArrayList<ImageUrl>, items.indexOf(it))
 
-            val fragment = CharacterItemDialog_.builder().build()
-            fragment.arguments = args
-            fragment.setTargetFragment(this, 0)
-
-            fragment.show(fragmentManager, "CharacterNoteDialog")
+            activity!!.supportFragmentManager
+                .beginTransaction()
+                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
+                .replace(R.id.content, fragment)
+                .addToBackStack(null)
+                .commit()
         }
         listAdapter1.onItemDeleteClick = {
             characterModel.character.items.value.remove(it)
@@ -125,14 +138,33 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
 
         }
         listAdapter1.onAbilityGalleryClick = {
+            val fragment = ImagePagerFragment.newInstance(characterClass.abilities as ArrayList<ImageUrl>)
+
             activity!!.supportFragmentManager
                 .beginTransaction()
                 .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
-                .replace(R.id.content, AbilityImagePagerFragment.newInstance(characterClass, null))
+                .replace(R.id.content, fragment)
                 .addToBackStack(null)
                 .commit()
         }
         listAdapter1.onAbilityEditClick = {
+            val abilities = characterClass.abilities.filter {
+                it.level == 1
+            } + characterModel.character.abilities.value.mapNotNull {
+                it.value
+            }
+            val fragment = ImagePagerFragment.newInstance(
+                abilities as ArrayList<ImageUrl>,
+                abilities.indexOf(it.ability.value!!)
+            )
+            activity!!.supportFragmentManager
+                .beginTransaction()
+                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
+                .replace(R.id.content, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
+        listAdapter1.onAbilityViewClick = {
             val args = Bundle()
             args.putInt("index", it.index)
 
@@ -141,14 +173,6 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
             fragment.setTargetFragment(this, 0)
 
             fragment.show(fragmentManager, "CharacterAbilityDialog")
-        }
-        listAdapter1.onAbilityViewClick = {
-            activity!!.supportFragmentManager
-                .beginTransaction()
-                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
-                .replace(R.id.content, AbilityImagePagerFragment.newInstance(characterClass, it.ability.value!!))
-                .addToBackStack(null)
-                .commit()
         }
         listAdapter1.onNoteAddClick = {
             val fragment = CharacterNoteDialog_.builder().build()
@@ -293,7 +317,7 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
         try {
             data.save()
 
-            classModel.characterList.load()
+            classModel.dataLoader.load()
         } catch (e: IOException) {
             e.printStackTrace()
 
