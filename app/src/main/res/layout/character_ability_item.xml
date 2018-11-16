@@ -50,6 +50,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:adjustViewBounds="true"
-            app:srcCompat="@drawable/ic_image_black_24dp"/>
+            app:srcCompat="@drawable/baseline_edit_black_24"/>
     </FrameLayout>
 </LinearLayout>

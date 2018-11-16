@@ -116,10 +116,7 @@ data class Character(
         data.put("modified", DATE_FORMATTER.format(modified))
         data.put("retired", retired)
         data.put("items", JSONArray(items.map {
-            val item = JSONObject()
-            item.put("name", it.name)
-            item.put("type", it.type.name)
-            item
+            it.id
         }))
         data.put("abilities", JSONArray(abilities.map { it?.id }))
         data.put("notes", JSONArray(notes))
@@ -158,19 +155,19 @@ data class Character(
         if (this.modified != other.modified)
             return false
 
-        if (!this.perks.toArray()!!.contentDeepEquals(other.perks.toArray()))
+        if (!this.perks.equalContentWith(other.perks))
             return false
 
-        if (!this.perkNotes.toArray()!!.contentDeepEquals(other.perkNotes.toArray()))
+        if (!this.perkNotes.equalContentWith(other.perkNotes))
             return false
 
-        if (!this.items.toArray()!!.contentDeepEquals(other.items.toArray()))
+        if (!this.items.sameContentWith(other.items))
             return false
 
-        if (!this.abilities.toArray()!!.contentDeepEquals(other.abilities.toArray()))
+        if (!this.abilities.equalContentWith(other.abilities))
             return false
 
-        if (!this.notes.toArray()!!.contentDeepEquals(other.notes.toArray()))
+        if (!this.notes.equalContentWith(other.notes))
             return false
 
         return true
@@ -205,11 +202,11 @@ data class Character(
         }
 
         @Throws(JSONException::class, IOException::class, ParseException::class, kotlin.KotlinNullPointerException::class)
-        fun parse(data: JSONObject, classList: List<CharacterClass>, questList: List<PersonalQuest>? = null): Character {
+        fun parse(data: JSONObject, classList: Map<String, CharacterClass>, itemMap: Map<String, Item>): Character {
             val id = UUID.fromString(data.getString("id"))
 
             val className = data.getString("class")
-            val characterClass = classList.find { it.id == className }!!
+            val characterClass = classList[className]!!
 
             val name = data.getString("name")
             val xp = data.optInt("xp", 0)
@@ -219,7 +216,7 @@ data class Character(
             val perksData = data.optJSONArray("perks")
             val perks = ArrayList(perksData?.map {
                 it.optInt(0)
-            })
+            }.orEmpty())
 
             val perkNotesData = data.optJSONArray("perk_notes")
             val perkNotes = ArrayList(0.until(PERK_NOTES_COUNT).map {
@@ -233,25 +230,36 @@ data class Character(
             val itemsData = data.optJSONArray("items")
             val items = ArrayList(itemsData?.mapNotNull {
                 try {
-                    val itemData = it.getJSONObject()
-                    Item(itemData.getString("name"), ItemType.valueOf(itemData.getString("type")))
+                    val itemData = it.get()
+                    when (itemData) {
+                        is String -> itemMap[itemData]
+                        is JSONObject -> {
+                            val itemName = itemData.getString("name")
+                            itemMap.values.find {
+                                it.name == itemName
+                            }
+                        }
+                        else -> null
+                    }
                 } catch (e: JSONException) {
                     e.printStackTrace()
                     null
                 }
-            })
+            }.orEmpty())
 
             val abilitiesData = data.optJSONArray("abilities")
             val abilities = ArrayList(0.until(8).map {
                 val abilityId = abilitiesData?.optString(it, null)
-                val ability = characterClass.abilities.find { it.id == abilityId }
-                ability?.takeIf { it.level > 1 }
+                    ?.replace("""ability_class_(\d+)_(\d+)""".toRegex(), """class_$1_ability_$2""")
+                characterClass.abilities.find {
+                    it.id == abilityId
+                }?.takeIf { it.level > 1 }
             })
 
             val notesData = data.optJSONArray("notes")
             val notes = ArrayList(notesData?.mapNotNull {
                 it.optString(null)
-            })
+            }.orEmpty())
 
             return Character(
                 id,
@@ -315,10 +323,10 @@ class CharacterData(val context: Context, val data: JSONObject) {
         }
     }
 
-    fun toList(classList: List<CharacterClass>): ArrayList<Character> {
+    fun toList(classMap: Map<String, CharacterClass>, itemMap: Map<String, Item>): ArrayList<Character> {
         return ArrayList(data.mapNotNull {
             try {
-                Character.parse(it.getJSONObject(), classList)
+                Character.parse(it.getJSONObject(), classMap, itemMap)
             } catch (e: JSONException) {
                 e.printStackTrace()
                 null
@@ -333,5 +341,27 @@ class CharacterData(val context: Context, val data: JSONObject) {
                 null
             }
         })
+    }
+}
+
+infix fun <T> Collection<T>?.sameContentWith(collection: Collection<T>?): Boolean {
+    return if (this == collection) {
+        true
+    } else if (this != null && collection != null) {
+        this.size == collection.size && this.containsAll(collection)
+    } else {
+        false
+    }
+}
+
+infix fun <T> List<T>?.equalContentWith(list: List<T>?): Boolean {
+    return if (this == list) {
+        true
+    } else if (this != null && list != null) {
+        this.size == list.size && this.withIndex().all {
+            list[it.index] == it.value
+        }
+    } else {
+        false
     }
 }

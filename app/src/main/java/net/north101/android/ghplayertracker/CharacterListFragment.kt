@@ -2,7 +2,6 @@ package net.north101.android.ghplayertracker
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
-import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
@@ -26,6 +25,7 @@ import java.text.ParseException
 import java.util.*
 import kotlin.collections.ArrayList
 
+@OptionsMenu(R.menu.character_list)
 @EFragment(R.layout.character_list_layout)
 open class CharacterListFragment : Fragment(), ActionMode.Callback {
     @ViewById(R.id.toolbar)
@@ -121,8 +121,8 @@ open class CharacterListFragment : Fragment(), ActionMode.Callback {
                     setCharacterList(it)
                 }
             })
-            if (classModel.characterList.value == null) {
-                classModel.characterList.load()
+            if (classModel.dataLoader.state.value != LiveDataState.FINISHED) {
+                classModel.dataLoader.load()
             }
         }
     }
@@ -187,7 +187,7 @@ open class CharacterListFragment : Fragment(), ActionMode.Callback {
             }
 
             view!!.post {
-                classModel.characterList.load()
+                classModel.dataLoader.load()
             }
         }
         Snackbar.make(activity!!.findViewById(R.id.content), "Deleted " + characterList.count().toString() + " item(s)", Snackbar.LENGTH_SHORT).show()
@@ -219,8 +219,19 @@ open class CharacterListFragment : Fragment(), ActionMode.Callback {
     }
 
     companion object {
-        fun newInstance() : CharacterListFragment_ {
+        fun newInstance(): CharacterListFragment_ {
             return CharacterListFragment_()
         }
+    }
+
+    @OptionsItem(R.id.item_shop)
+    fun onMenuItemShop() {
+        val fragment = ItemListFragment.newInstance()
+
+        fragmentManager!!.beginTransaction()
+            .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
+            .replace(R.id.content, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 }

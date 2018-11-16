@@ -4,7 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: "kotlin-allopen"
 apply plugin: "kotlin-kapt"
 
-def AndroidSupportVersion = '28.0.0-rc02'
+def AndroidSupportVersion = '28.0.0'
 def AAVersion = '4.5.0-SNAPSHOT'
 def ArchVersion = '1.1.1'
 
@@ -27,7 +27,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "net.north101.android.ghplayertracker"
-        minSdkVersion 16
+        minSdkVersion 17
         targetSdkVersion 28
         versionCode 12
         versionName "0.6.1"
@@ -75,6 +75,6 @@ dependencies {
 
     implementation "com.mikepenz:itemanimators:1.0.2@aar"
 
-    implementation "com.github.bumptech.glide:glide:4.0.0"
+    implementation "com.github.bumptech.glide:glide:4.8.0"
     implementation "com.github.chrisbanes:PhotoView:2.0.0"
 }

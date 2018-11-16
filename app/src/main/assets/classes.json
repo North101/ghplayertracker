@@ -5,122 +5,122 @@
     "health": "high",
     "color": "#5180C1",
     "abilities": {
-      "ability_class_01_001": {
+      "class_01_ability_001": {
         "name": "Trample",
         "level": 1
       },
-      "ability_class_01_002": {
+      "class_01_ability_002": {
         "name": "Eye for and Eye",
         "level": 1
       },
-      "ability_class_01_003": {
+      "class_01_ability_003": {
         "name": "Sweeping Blow",
         "level": 1
       },
-      "ability_class_01_004": {
+      "class_01_ability_004": {
         "name": "Provoking Roar",
         "level": 1
       },
-      "ability_class_01_005": {
+      "class_01_ability_005": {
         "name": "Overwhelming Assault",
         "level": 1
       },
-      "ability_class_01_006": {
+      "class_01_ability_006": {
         "name": "Grab and Go",
         "level": 1
       },
-      "ability_class_01_007": {
+      "class_01_ability_007": {
         "name": "Warding Strength",
         "level": 1
       },
-      "ability_class_01_008": {
+      "class_01_ability_008": {
         "name": "Shield Bash",
         "level": 1
       },
-      "ability_class_01_009": {
+      "class_01_ability_009": {
         "name": "Leaping Cleave",
         "level": 1
       },
-      "ability_class_01_010": {
+      "class_01_ability_010": {
         "name": "Spare Dagger",
         "level": 1
       },
-      "ability_class_01_011": {
+      "class_01_ability_011": {
         "name": "Skewer",
         "level": 1,
         "special": "X"
       },
-      "ability_class_01_012": {
+      "class_01_ability_012": {
         "name": "Balanced Measure",
         "level": 1,
         "special": "X"
       },
-      "ability_class_01_013": {
+      "class_01_ability_013": {
         "name": "Wall of Doom",
         "level": 1,
         "special": "X"
       },
-      "ability_class_01_014": {
+      "class_01_ability_014": {
         "name": "Fatal Advance",
         "level": 2
       },
-      "ability_class_01_015": {
+      "class_01_ability_015": {
         "name": "Juggernaut",
         "level": 2
       },
-      "ability_class_01_016": {
+      "class_01_ability_016": {
         "name": "Hook and Chain",
         "level": 3
       },
-      "ability_class_01_017": {
+      "class_01_ability_017": {
         "name": "Brute Force",
         "level": 3
       },
-      "ability_class_01_018": {
+      "class_01_ability_018": {
         "name": "Unstoppable Charge",
         "level": 4
       },
-      "ability_class_01_019": {
+      "class_01_ability_019": {
         "name": "Devastating Hack",
         "level": 4
       },
-      "ability_class_01_020": {
+      "class_01_ability_020": {
         "name": "Whirlwind",
         "level": 5
       },
-      "ability_class_01_021": {
+      "class_01_ability_021": {
         "name": "Skirmishing Maneuver",
         "level": 5
       },
-      "ability_class_01_022": {
+      "class_01_ability_022": {
         "name": "Quietus",
         "level": 6
       },
-      "ability_class_01_023": {
+      "class_01_ability_023": {
         "name": "Immovable Phalanx",
         "level": 6
       },
-      "ability_class_01_024": {
+      "class_01_ability_024": {
         "name": "Defensive Tactics",
         "level": 7
       },
-      "ability_class_01_025": {
+      "class_01_ability_025": {
         "name": "Crippling Offence",
         "level": 7
       },
-      "ability_class_01_026": {
+      "class_01_ability_026": {
         "name": "Frenzied Onslaught",
         "level": 8
       },
-      "ability_class_01_027": {
+      "class_01_ability_027": {
         "name": "Selfish Retribution",
         "level": 8
       },
-      "ability_class_01_028": {
+      "class_01_ability_028": {
         "name": "King of the Hill",
         "level": 9
       },
-      "ability_class_01_029": {
+      "class_01_ability_029": {
         "name": "Face Your End",
         "level": 9
       }
@@ -169,7 +169,7 @@
             "card_id": "mod_basic_minus_1"
           }
         ],
-        "text": "Remove two [[icon_minus_1]] cards"
+        "text": "Remove two [-1] cards"
       },
       {
         "cards": [
@@ -182,7 +182,7 @@
             "card_id": "mod_class_01_plus_1"
           }
         ],
-        "text": "Replace one [[icon_minus_1]] card with one [[icon_plus_1]] card"
+        "text": "Replace one [-1] card with one [+1] card"
       },
       {
         "ticks": 2,
@@ -193,7 +193,7 @@
             "card_id": "mod_class_01_plus_1"
           }
         ],
-        "text": "Add two [[icon_plus_1]] cards"
+        "text": "Add two [+1] cards"
       },
       {
         "cards": [
@@ -202,7 +202,7 @@
             "card_id": "mod_class_01_plus_3"
           }
         ],
-        "text": "Add one [[icon_plus_3]] card"
+        "text": "Add one [+3] card"
       },
       {
         "ticks": 2,
@@ -265,7 +265,7 @@
             "card_id": "mod_class_01_plus_1_shield_1"
           }
         ],
-        "text": "Add one [[icon_plus_1]] SHIELD [[icon_shield]] 1, Self card"
+        "text": "Add one [+1] SHIELD [[icon_shield]] 1, Self card"
       },
       {
         "cards": [
@@ -274,7 +274,7 @@
             "card_id": "mod_class_01_plus_1"
           }
         ],
-        "text": "Ignore negative item effects and add one [[icon_plus_1]] card"
+        "text": "Ignore negative item effects and add one [+1] card"
       }
     ]
   },
@@ -284,130 +284,130 @@
     "health": "medium",
     "color": "#C4B58D",
     "abilities": {
-      "ability_class_02_030": {
+      "class_02_ability_030": {
         "name": "Proximity Mine",
         "level": 1
       },
-      "ability_class_02_031": {
+      "class_02_ability_031": {
         "name": "Harmless Contraption",
         "level": 1
       },
-      "ability_class_02_032": {
+      "class_02_ability_032": {
         "name": "Flamethrower",
         "level": 1
       },
-      "ability_class_02_033": {
+      "class_02_ability_033": {
         "name": "Hook Gun",
         "level": 1
       },
-      "ability_class_02_034": {
+      "class_02_ability_034": {
         "name": "Ink Bomb",
         "level": 1
       },
-      "ability_class_02_035": {
+      "class_02_ability_035": {
         "name": "Net Shooter",
         "level": 1
       },
-      "ability_class_02_036": {
+      "class_02_ability_036": {
         "name": "Stun Gun",
         "level": 1
       },
-      "ability_class_02_037": {
+      "class_02_ability_037": {
         "name": "Reinvigorating Elixir",
         "level": 1
       },
-      "ability_class_02_038": {
+      "class_02_ability_038": {
         "name": "Restorative Mist",
         "level": 1
       },
-      "ability_class_02_039": {
+      "class_02_ability_039": {
         "name": "Energizing Toxin",
         "level": 1
       },
-      "ability_class_02_040": {
+      "class_02_ability_040": {
         "name": "Enhancement Field",
         "level": 1
       },
-      "ability_class_02_041": {
+      "class_02_ability_041": {
         "name": "Toxic Bolt",
         "level": 1
       },
-      "ability_class_02_042": {
+      "class_02_ability_042": {
         "name": "Reviving Shock",
         "level": 1,
         "special": "X"
       },
-      "ability_class_02_043": {
+      "class_02_ability_043": {
         "name": "Volatile Concoction",
         "level": 1,
         "special": "X"
       },
-      "ability_class_02_044": {
+      "class_02_ability_044": {
         "name": "Potent Potables",
         "level": 1,
         "special": "X"
       },
-      "ability_class_02_045": {
+      "class_02_ability_045": {
         "name": "Stamina Booster",
         "level": 2
       },
-      "ability_class_02_046": {
+      "class_02_ability_046": {
         "name": "Disorienting Flash",
         "level": 2
       },
-      "ability_class_02_047": {
+      "class_02_ability_047": {
         "name": "Tinkerer's Tools",
         "level": 3
       },
-      "ability_class_02_048": {
+      "class_02_ability_048": {
         "name": "Crank Bow",
         "level": 3
       },
-      "ability_class_02_049": {
+      "class_02_ability_049": {
         "name": "Dangerous Contraption",
         "level": 4
       },
-      "ability_class_02_050": {
+      "class_02_ability_050": {
         "name": "Micro Bots",
         "level": 4
       },
-      "ability_class_02_051": {
+      "class_02_ability_051": {
         "name": "Noxious Vials",
         "level": 5
       },
-      "ability_class_02_052": {
+      "class_02_ability_052": {
         "name": "Disintegration Beam",
         "level": 5
       },
-      "ability_class_02_053": {
+      "class_02_ability_053": {
         "name": "Gas Canister",
         "level": 6
       },
-      "ability_class_02_054": {
+      "class_02_ability_054": {
         "name": "Auto Turret",
         "level": 6
       },
-      "ability_class_02_055": {
+      "class_02_ability_055": {
         "name": "Murderous Contraption",
         "level": 7
       },
-      "ability_class_02_056": {
+      "class_02_ability_056": {
         "name": "Curative Aerosol",
         "level": 7
       },
-      "ability_class_02_057": {
+      "class_02_ability_057": {
         "name": "Jet Propulsion",
         "level": 8
       },
-      "ability_class_02_058": {
+      "class_02_ability_058": {
         "name": "Harsh Stimulants",
         "level": 8
       },
-      "ability_class_02_059": {
+      "class_02_ability_059": {
         "name": "Lethal Injection",
         "level": 9
       },
-      "ability_class_02_060": {
+      "class_02_ability_060": {
         "name": "Chimeric Formula",
         "level": 9
       }
@@ -438,7 +438,7 @@
       "mod_class_02_target": {
         "deck": "class"
       },
-      "mod_class_02_wound_rolling": {
+      "mod_class_02_element_fire_rolling": {
         "deck": "class",
         "special": "rolling"
       }
@@ -452,7 +452,7 @@
             "card_id": "mod_basic_minus_1"
           }
         ],
-        "text": "Remove two [[icon_minus_1]] cards",
+        "text": "Remove two [-1] cards",
         "ticks": 2
       },
       {
@@ -466,7 +466,7 @@
             "card_id": "mod_class_02_plus_0"
           }
         ],
-        "text": "Replace one [[icon_minus_2]] card with one [[icon_plus_0]] card"
+        "text": "Replace one [-2] card with one [+0] card"
       },
       {
         "cards": [
@@ -476,7 +476,7 @@
             "card_id": "mod_basic_plus_0"
           }
         ],
-        "text": "Remove four [[icon_plus_0]] cards"
+        "text": "Remove four [+0] cards"
       },
       {
         "cards": [
@@ -486,7 +486,7 @@
             "card_id": "mod_class_02_plus_1"
           }
         ],
-        "text": "Add two [[icon_plus_1]] card"
+        "text": "Add two [+1] card"
       },
       {
         "cards": [
@@ -495,16 +495,16 @@
             "card_id": "mod_class_02_plus_3"
           }
         ],
-        "text": "Add one [[icon_plus_3]] card"
+        "text": "Add one [+3] card"
       },
       {
         "cards": [
           {
             "action": "add",
-            "card_id": "mod_class_02_wound_rolling"
+            "card_id": "mod_class_02_element_fire_rolling"
           }
         ],
-        "text": "Add two [[icon_rolling]] WOUND [[icon_status_wound]] cards"
+        "text": "Add two [[icon_rolling]] [[icon_element_fire]] cards"
       },
       {
         "cards": [
@@ -524,7 +524,7 @@
             "card_id": "mod_class_02_plus_1_wound"
           }
         ],
-        "text": "Add one [[icon_plus_1]] WOUND [[icon_status_wound]] card"
+        "text": "Add one [+1] WOUND [[icon_status_wound]] card"
       },
       {
         "ticks": 2,
@@ -534,7 +534,7 @@
             "card_id": "mod_class_02_plus_1_immobilize"
           }
         ],
-        "text": "Add one [[icon_plus_1]] IMMOBILIZE [[icon_status_immobilize]] card"
+        "text": "Add one [+1] IMMOBILIZE [[icon_status_immobilize]] card"
       },
       {
         "ticks": 2,
@@ -544,7 +544,7 @@
             "card_id": "mod_class_02_plus_1_heal_2"
           }
         ],
-        "text": "Add one [[icon_plus_1]] HEAL [[icon_heal]] 2 card"
+        "text": "Add one [+1] HEAL [[icon_heal]] 2 card"
       },
       {
         "cards": [
@@ -567,114 +567,114 @@
     "health": "low",
     "color": "#B578B3",
     "abilities": {
-      "ability_class_03_061": {
+      "class_03_ability_061": {
         "name": "Fire Orbs",
         "level": 1
       },
-      "ability_class_03_062": {
+      "class_03_ability_062": {
         "name": "Impaling Eruption",
         "level": 1
       },
-      "ability_class_03_063": {
+      "class_03_ability_063": {
         "name": "Reviving Ether",
         "level": 1
       },
-      "ability_class_03_064": {
+      "class_03_ability_064": {
         "name": "Freezing Nova",
         "level": 1
       },
-      "ability_class_03_065": {
+      "class_03_ability_065": {
         "name": "Mana Bolt",
         "level": 1
       },
-      "ability_class_03_066": {
+      "class_03_ability_066": {
         "name": "Frost Armor",
         "level": 1
       },
-      "ability_class_03_067": {
+      "class_03_ability_067": {
         "name": "Flame Strike",
         "level": 1
       },
-      "ability_class_03_068": {
+      "class_03_ability_068": {
         "name": "Ride the Wind",
         "level": 1
       },
-      "ability_class_03_069": {
+      "class_03_ability_069": {
         "name": "Crackling Air",
         "level": 1,
         "special": "X"
       },
-      "ability_class_03_070": {
+      "class_03_ability_070": {
         "name": "Hardened Spikes",
         "level": 1,
         "special": "X"
       },
-      "ability_class_03_071": {
+      "class_03_ability_071": {
         "name": "Air from the Ether",
         "level": 1,
         "special": "X"
       },
-      "ability_class_03_072": {
+      "class_03_ability_072": {
         "name": "Flashing Burst",
         "level": 2
       },
-      "ability_class_03_073": {
+      "class_03_ability_073": {
         "name": "Icy Blast",
         "level": 2
       },
-      "ability_class_03_074": {
+      "class_03_ability_074": {
         "name": "Cold Fire",
         "level": 3
       },
-      "ability_class_03_075": {
+      "class_03_ability_075": {
         "name": "Elemental Aid",
         "level": 3
       },
-      "ability_class_03_076": {
+      "class_03_ability_076": {
         "name": "Spirit of Doom",
         "level": 4
       },
-      "ability_class_03_077": {
+      "class_03_ability_077": {
         "name": "Forked Beam",
         "level": 4
       },
-      "ability_class_03_078": {
+      "class_03_ability_078": {
         "name": "Chromatic Explosion",
         "level": 5
       },
-      "ability_class_03_079": {
+      "class_03_ability_079": {
         "name": "Engulfed in Flames",
         "level": 5
       },
-      "ability_class_03_080": {
+      "class_03_ability_080": {
         "name": "Living Torch",
         "level": 6
       },
-      "ability_class_03_081": {
+      "class_03_ability_081": {
         "name": "Frozen Night",
         "level": 6
       },
-      "ability_class_03_082": {
+      "class_03_ability_082": {
         "name": "Twin Restoration",
         "level": 7
       },
-      "ability_class_03_083": {
+      "class_03_ability_083": {
         "name": "Stone Fists",
         "level": 7
       },
-      "ability_class_03_084": {
+      "class_03_ability_084": {
         "name": "Zephyr Wings",
         "level": 8
       },
-      "ability_class_03_085": {
+      "class_03_ability_085": {
         "name": "Cold Front",
         "level": 8
       },
-      "ability_class_03_086": {
+      "class_03_ability_086": {
         "name": "Black Hole",
         "level": 9
       },
-      "ability_class_03_087": {
+      "class_03_ability_087": {
         "name": "Inferno",
         "level": 9
       }
@@ -725,7 +725,7 @@
             "card_id": "mod_basic_plus_0"
           }
         ],
-        "text": "Remove four [[icon_plus_0]] cards"
+        "text": "Remove four [+0] cards"
       },
       {
         "ticks": 2,
@@ -739,7 +739,7 @@
             "card_id": "mod_class_03_plus_1"
           }
         ],
-        "text": "Replace one [[icon_minus_1]] card with one [[icon_plus_1]] card"
+        "text": "Replace one [-1] card with one [+1] card"
       },
       {
         "ticks": 2,
@@ -750,7 +750,7 @@
             "card_id": "mod_class_03_plus_1"
           }
         ],
-        "text": "Add two [[icon_plus_1]] cards"
+        "text": "Add two [+1] cards"
       },
       {
         "cards": [
@@ -768,7 +768,7 @@
             "card_id": "mod_class_03_plus_1_wound"
           }
         ],
-        "text": "Add one [[icon_plus_1]] WOUND [[icon_status_wound]] card"
+        "text": "Add one [+1] WOUND [[icon_status_wound]] card"
       },
       {
         "cards": [
@@ -777,7 +777,7 @@
             "card_id": "mod_class_03_plus_1_immobilize"
           }
         ],
-        "text": "Add one [[icon_plus_1]] IMMOBILIZE [[icon_status_immobilize]] card"
+        "text": "Add one [+1] IMMOBILIZE [[icon_status_immobilize]] card"
       },
       {
         "cards": [
@@ -786,7 +786,7 @@
             "card_id": "mod_class_03_plus_1_curse"
           }
         ],
-        "text": "Add one [[icon_plus_1]] CURSE [[icon_curse]] card"
+        "text": "Add one [+1] CURSE [[icon_curse]] card"
       },
       {
         "ticks": 2,
@@ -796,7 +796,7 @@
             "card_id": "mod_class_03_plus_2_fire"
           }
         ],
-        "text": "Add one [[icon_plus_2]] [[icon_element_fire]] card"
+        "text": "Add one [+2] [[icon_element_fire]] card"
       },
       {
         "ticks": 2,
@@ -806,7 +806,7 @@
             "card_id": "mod_class_03_plus_2_ice"
           }
         ],
-        "text": "Add one [[icon_plus_2]] [[icon_element_ice]] card"
+        "text": "Add one [+2] [[icon_element_ice]] card"
       },
       {
         "cards": [
@@ -842,118 +842,118 @@
     "health": "medium",
     "color": "#A6D168",
     "abilities": {
-      "ability_class_04_088": {
+      "class_04_ability_088": {
         "name": "Single Out",
         "level": 1
       },
-      "ability_class_04_089": {
+      "class_04_ability_089": {
         "name": "Flanking Strike",
         "level": 1
       },
-      "ability_class_04_090": {
+      "class_04_ability_090": {
         "name": "Smoke Bomb",
         "level": 1
       },
-      "ability_class_04_091": {
+      "class_04_ability_091": {
         "name": "Backstab",
         "level": 1
       },
-      "ability_class_04_092": {
+      "class_04_ability_092": {
         "name": "Thief's Knack",
         "level": 1
       },
-      "ability_class_04_093": {
+      "class_04_ability_093": {
         "name": "Venom Shiv",
         "level": 1
       },
-      "ability_class_04_094": {
+      "class_04_ability_094": {
         "name": "Throwing Knives",
         "level": 1
       },
-      "ability_class_04_095": {
+      "class_04_ability_095": {
         "name": "Quick Hands",
         "level": 1
       },
-      "ability_class_04_096": {
+      "class_04_ability_096": {
         "name": "Special Mixture",
         "level": 1
       },
-      "ability_class_04_097": {
+      "class_04_ability_097": {
         "name": "Sinister Opportunity",
         "level": 1,
         "special": "X"
       },
-      "ability_class_04_098": {
+      "class_04_ability_098": {
         "name": "Trickster's Reversal",
         "level": 1,
         "special": "X"
       },
-      "ability_class_04_099": {
+      "class_04_ability_099": {
         "name": "Swift Bow",
         "level": 1,
         "special": "X"
       },
-      "ability_class_04_100": {
+      "class_04_ability_100": {
         "name": "Open Wound",
         "level": 2
       },
-      "ability_class_04_101": {
+      "class_04_ability_101": {
         "name": "Flintlock",
         "level": 2
       },
-      "ability_class_04_102": {
+      "class_04_ability_102": {
         "name": "Hidden Daggers",
         "level": 3
       },
-      "ability_class_04_103": {
+      "class_04_ability_103": {
         "name": "Duelist's Advance",
         "level": 3
       },
-      "ability_class_04_104": {
+      "class_04_ability_104": {
         "name": "Flurry of Blades",
         "level": 4
       },
-      "ability_class_04_105": {
+      "class_04_ability_105": {
         "name": "Gruesome Advantage",
         "level": 4
       },
-      "ability_class_04_106": {
+      "class_04_ability_106": {
         "name": "Cull of Weak",
         "level": 5
       },
-      "ability_class_04_107": {
+      "class_04_ability_107": {
         "name": "Visage of the Inevitable",
         "level": 5
       },
-      "ability_class_04_108": {
+      "class_04_ability_108": {
         "name": "Crippling Poison",
         "level": 6
       },
-      "ability_class_04_109": {
+      "class_04_ability_109": {
         "name": "Burning Oil",
         "level": 6
       },
-      "ability_class_04_110": {
+      "class_04_ability_110": {
         "name": "Stick to the Shadows",
         "level": 7
       },
-      "ability_class_04_111": {
+      "class_04_ability_111": {
         "name": "Spring the Trap",
         "level": 7
       },
-      "ability_class_04_112": {
+      "class_04_ability_112": {
         "name": "Stiletto Storm",
         "level": 8
       },
-      "ability_class_04_113": {
+      "class_04_ability_113": {
         "name": "Pain's End",
         "level": 8
       },
-      "ability_class_04_114": {
+      "class_04_ability_114": {
         "name": "Long Con",
         "level": 9
       },
-      "ability_class_04_115": {
+      "class_04_ability_115": {
         "name": "Watch it Burn",
         "level": 9
       }
@@ -999,7 +999,7 @@
             "card_id": "mod_basic_minus_1"
           }
         ],
-        "text": "Remove two [[icon_minus_1]] cards"
+        "text": "Remove two [-1] cards"
       },
       {
         "cards": [
@@ -1009,7 +1009,7 @@
             "card_id": "mod_basic_plus_0"
           }
         ],
-        "text": "Remove four [[icon_plus_0]] cards"
+        "text": "Remove four [+0] cards"
       },
       {
         "cards": [
@@ -1022,7 +1022,7 @@
             "card_id": "mod_class_scoundral_plus_0"
           }
         ],
-        "text": "Replace one [[icon_minus_2]] card with one [[icon_plus_0]] card"
+        "text": "Replace one [-2] card with one [+0] card"
       },
       {
         "cards": [
@@ -1035,7 +1035,7 @@
             "card_id": "mod_class_scoundral_plus_1"
           }
         ],
-        "text": "Replace one [[icon_minus_1]] card with one [[icon_plus_1]] card"
+        "text": "Replace one [-1] card with one [+1] card"
       },
       {
         "ticks": 2,
@@ -1049,7 +1049,7 @@
             "card_id": "mod_class_scoundral_plus_2"
           }
         ],
-        "text": "Replace one [[icon_plus_0]] card with one [[icon_plus_2]] card"
+        "text": "Replace one [+0] card with one [+2] card"
       },
       {
         "ticks": 2,
@@ -1059,7 +1059,7 @@
             "card_id": "mod_class_scoundral_plus_1_rolling"
           }
         ],
-        "text": "Add two [[icon_rolling]] [[icon_plus_1]] cards"
+        "text": "Add two [[icon_rolling]] [+1] cards"
       },
       {
         "cards": [
@@ -1113,126 +1113,126 @@
     "health": "high",
     "color": "#889439",
     "abilities": {
-      "ability_class_05_116": {
+      "class_05_ability_116": {
         "name": "Opposing Strike",
         "level": 1
       },
-      "ability_class_05_117": {
+      "class_05_ability_117": {
         "name": "Crushing Grasp",
         "level": 1
       },
-      "ability_class_05_118": {
+      "class_05_ability_118": {
         "name": "Avalanche",
         "level": 1
       },
-      "ability_class_05_119": {
+      "class_05_ability_119": {
         "name": "Rumbling Advance",
         "level": 1
       },
-      "ability_class_05_120": {
+      "class_05_ability_120": {
         "name": "Massive Boulder",
         "level": 1
       },
-      "ability_class_05_121": {
+      "class_05_ability_121": {
         "name": "Backup Ammunition",
         "level": 1
       },
-      "ability_class_05_122": {
+      "class_05_ability_122": {
         "name": "Rock Tunnel",
         "level": 1
       },
-      "ability_class_05_123": {
+      "class_05_ability_123": {
         "name": "Unstable Upheaval",
         "level": 1
       },
-      "ability_class_05_124": {
+      "class_05_ability_124": {
         "name": "Crater",
         "level": 1
       },
-      "ability_class_05_125": {
+      "class_05_ability_125": {
         "name": "Dirt Tornado",
         "level": 1
       },
-      "ability_class_05_126": {
+      "class_05_ability_126": {
         "name": "Earthen Clod",
         "level": 1
       },
-      "ability_class_05_127": {
+      "class_05_ability_127": {
         "name": "Heaving Swing",
         "level": 1,
         "special": "X"
       },
-      "ability_class_05_128": {
+      "class_05_ability_128": {
         "name": "Forceful Storm",
         "level": 1,
         "special": "X"
       },
-      "ability_class_05_129": {
+      "class_05_ability_129": {
         "name": "Nature's Lift",
         "level": 1,
         "special": "X"
       },
-      "ability_class_05_130": {
+      "class_05_ability_130": {
         "name": "Explosive Punch",
         "level": 2
       },
-      "ability_class_05_131": {
+      "class_05_ability_131": {
         "name": "Sentient Growth",
         "level": 2
       },
-      "ability_class_05_132": {
+      "class_05_ability_132": {
         "name": "Clear the Way",
         "level": 3
       },
-      "ability_class_05_133": {
+      "class_05_ability_133": {
         "name": "Blunt Force",
         "level": 3
       },
-      "ability_class_05_134": {
+      "class_05_ability_134": {
         "name": "Rock Slide",
         "level": 4
       },
-      "ability_class_05_135": {
+      "class_05_ability_135": {
         "name": "Kinetic Assault",
         "level": 4
       },
-      "ability_class_05_136": {
+      "class_05_ability_136": {
         "name": "Petrify",
         "level": 5
       },
-      "ability_class_05_137": {
+      "class_05_ability_137": {
         "name": "Stone Pummel",
         "level": 5
       },
-      "ability_class_05_138": {
+      "class_05_ability_138": {
         "name": "Dig Pit",
         "level": 6
       },
-      "ability_class_05_139": {
+      "class_05_ability_139": {
         "name": "Cataclysm",
         "level": 6
       },
-      "ability_class_05_140": {
+      "class_05_ability_140": {
         "name": "Meteor",
         "level": 7
       },
-      "ability_class_05_141": {
+      "class_05_ability_141": {
         "name": "Brutal Momentum",
         "level": 7
       },
-      "ability_class_05_142": {
+      "class_05_ability_142": {
         "name": "Rocky End",
         "level": 8
       },
-      "ability_class_05_143": {
+      "class_05_ability_143": {
         "name": "Lumbering Bash",
         "level": 8
       },
-      "ability_class_05_144": {
+      "class_05_ability_144": {
         "name": "Blind Destruction",
         "level": 9
       },
-      "ability_class_05_145": {
+      "class_05_ability_145": {
         "name": "Pulverize",
         "level": 9
       }
@@ -1275,7 +1275,7 @@
             "card_id": "mod_basic_plus_0"
           }
         ],
-        "text": "Remove four [[icon_plus_0]] cards"
+        "text": "Remove four [+0] cards"
       },
       {
         "ticks": 3,
@@ -1289,7 +1289,7 @@
             "card_id": "mod_class_05_plus_1"
           }
         ],
-        "text": "Replace one [[icon_minus_1]] card with one [[icon_plus_1]] card"
+        "text": "Replace one [-1] card with one [+1] card"
       },
       {
         "cards": [
@@ -1303,7 +1303,7 @@
             "card_id": "mod_class_05_plus_2"
           }
         ],
-        "text": "Add one [[icon_minus_2]] card and two [[icon_plus_2]] cards"
+        "text": "Add one [-2] card and two [+2] cards"
       },
       {
         "ticks": 2,
@@ -1313,7 +1313,7 @@
             "card_id": "mod_class_05_plus_1_immobilize"
           }
         ],
-        "text": "Add one [[icon_plus_1]] IMMOBILIZE [[icon_status_immobilize]] card"
+        "text": "Add one [+1] IMMOBILIZE [[icon_status_immobilize]] card"
       },
       {
         "ticks": 2,
@@ -1323,7 +1323,7 @@
             "card_id": "mod_class_05_plus_2_muddle"
           }
         ],
-        "text": "Add one [[icon_plus_2]] MUDDLE [[icon_status_muddle]] card"
+        "text": "Add one [+2] MUDDLE [[icon_status_muddle]] card"
       },
       {
         "cards": [
@@ -1372,122 +1372,122 @@
     "health": "low",
     "color": "#657C9C",
     "abilities": {
-      "ability_class_06_146": {
+      "class_06_ability_146": {
         "name": "Submissive Affliction",
         "level": 1
       },
-      "ability_class_06_147": {
+      "class_06_ability_147": {
         "name": "Into the Night",
         "level": 1
       },
-      "ability_class_06_148": {
+      "class_06_ability_148": {
         "name": "Fearsome Blade",
         "level": 1
       },
-      "ability_class_06_149": {
+      "class_06_ability_149": {
         "name": "Feedback Loop",
         "level": 1
       },
-      "ability_class_06_150": {
+      "class_06_ability_150": {
         "name": "Gnawing Horde",
         "level": 1
       },
-      "ability_class_06_151": {
+      "class_06_ability_151": {
         "name": "The Mind's Weakness",
         "level": 1
       },
-      "ability_class_06_152": {
+      "class_06_ability_152": {
         "name": "Parasitic Influence",
         "level": 1
       },
-      "ability_class_06_153": {
+      "class_06_ability_153": {
         "name": "Scurry",
         "level": 1
       },
-      "ability_class_06_154": {
+      "class_06_ability_154": {
         "name": "Perverse Edge",
         "level": 1
       },
-      "ability_class_06_155": {
+      "class_06_ability_155": {
         "name": "Empathetic Assault",
         "level": 1
       },
-      "ability_class_06_156": {
+      "class_06_ability_156": {
         "name": "Withering Claw",
         "level": 1,
         "special": "X"
       },
-      "ability_class_06_157": {
+      "class_06_ability_157": {
         "name": "Possession",
         "level": 1,
         "special": "X"
       },
-      "ability_class_06_158": {
+      "class_06_ability_158": {
         "name": "Frigid Apparition",
         "level": 1,
         "special": "X"
       },
-      "ability_class_06_159": {
+      "class_06_ability_159": {
         "name": "Wreteched Creature",
         "level": 2
       },
-      "ability_class_06_160": {
+      "class_06_ability_160": {
         "name": "Hostile Takeover",
         "level": 2
       },
-      "ability_class_06_161": {
+      "class_06_ability_161": {
         "name": "Brain Leech",
         "level": 3
       },
-      "ability_class_06_162": {
+      "class_06_ability_162": {
         "name": "Silent Scream",
         "level": 3
       },
-      "ability_class_06_163": {
+      "class_06_ability_163": {
         "name": "Pilfer",
         "level": 4
       },
-      "ability_class_06_164": {
+      "class_06_ability_164": {
         "name": "Cranium Overload",
         "level": 4
       },
-      "ability_class_06_165": {
+      "class_06_ability_165": {
         "name": "Mass Hysteria",
         "level": 5
       },
-      "ability_class_06_166": {
+      "class_06_ability_166": {
         "name": "Frozen Mind",
         "level": 5
       },
-      "ability_class_06_167": {
+      "class_06_ability_167": {
         "name": "Corrupting Embrace",
         "level": 6
       },
-      "ability_class_06_168": {
+      "class_06_ability_168": {
         "name": "Dark Frenzy",
         "level": 6
       },
-      "ability_class_06_169": {
+      "class_06_ability_169": {
         "name": "Vicious Blood",
         "level": 7
       },
-      "ability_class_06_170": {
+      "class_06_ability_170": {
         "name": "Psychic Projection",
         "level": 7
       },
-      "ability_class_06_171": {
+      "class_06_ability_171": {
         "name": "Shared Nightmare",
         "level": 8
       },
-      "ability_class_06_172": {
+      "class_06_ability_172": {
         "name": "Domination",
         "level": 8
       },
-      "ability_class_06_173": {
+      "class_06_ability_173": {
         "name": "Many as One",
         "level": 9
       },
-      "ability_class_06_174": {
+      "class_06_ability_174": {
         "name": "Phantasmal Killer",
         "level": 9
       }
@@ -1537,7 +1537,7 @@
             "card_id": "mod_basic_minus_1"
           }
         ],
-        "text": "Remove two [[icon_minus_1]] cards"
+        "text": "Remove two [-1] cards"
       },
       {
         "cards": [
@@ -1547,7 +1547,7 @@
             "card_id": "mod_basic_plus_0"
           }
         ],
-        "text": "Remove four [[icon_plus_0]] cards"
+        "text": "Remove four [+0] cards"
       },
       {
         "cards": [
@@ -1562,7 +1562,7 @@
             "card_id": "mod_class_06_plus_2"
           }
         ],
-        "text": "Replace two [[icon_plus_1]] cards with two [[icon_plus_2]] cards"
+        "text": "Replace two [+1] cards with two [+2] cards"
       },
       {
         "cards": [
@@ -1575,7 +1575,7 @@
             "card_id": "mod_class_06_plus_0"
           }
         ],
-        "text": "Replace one [[icon_minus_2]] card with one [[icon_plus_0]] card"
+        "text": "Replace one [-2] card with one [+0] card"
       },
       {
         "ticks": 2,
@@ -1585,7 +1585,7 @@
             "card_id": "mod_class_06_plus_2_ice"
           }
         ],
-        "text": "Add one [[icon_plus_2]] [[icon_element_ice]] card"
+        "text": "Add one [+2] [[icon_element_ice]] card"
       },
       {
         "ticks": 2,
@@ -1596,7 +1596,7 @@
             "card_id": "mod_class_06_plus_1_rolling"
           }
         ],
-        "text": "Add two [[icon_rolling]] [[icon_plus_1]] cards"
+        "text": "Add two [[icon_rolling]] [+1] cards"
       },
       {
         "cards": [
@@ -1662,126 +1662,126 @@
     "health": "high",
     "color": "#F2C33B",
     "abilities": {
-      "ability_class_07_175": {
+      "class_07_ability_175": {
         "name": "Purifying Aura",
         "level": 1
       },
-      "ability_class_07_176": {
+      "class_07_ability_176": {
         "name": "Cautious Advance",
         "level": 1
       },
-      "ability_class_07_177": {
+      "class_07_ability_177": {
         "name": "Brilliant Prayer",
         "level": 1
       },
-      "ability_class_07_178": {
+      "class_07_ability_178": {
         "name": "Empowering Command",
         "level": 1
       },
-      "ability_class_07_179": {
+      "class_07_ability_179": {
         "name": "Protective Blessing",
         "level": 1
       },
-      "ability_class_07_180": {
+      "class_07_ability_180": {
         "name": "Dazzling Charge",
         "level": 1
       },
-      "ability_class_07_181": {
+      "class_07_ability_181": {
         "name": "Tactical Order",
         "level": 1
       },
-      "ability_class_07_182": {
+      "class_07_ability_182": {
         "name": "Holy Strike",
         "level": 1
       },
-      "ability_class_07_183": {
+      "class_07_ability_183": {
         "name": "Hammer Blow",
         "level": 1
       },
-      "ability_class_07_184": {
+      "class_07_ability_184": {
         "name": "Defensive Stance",
         "level": 1
       },
-      "ability_class_07_185": {
+      "class_07_ability_185": {
         "name": "Lay on Hands",
         "level": 1
       },
-      "ability_class_07_186": {
+      "class_07_ability_186": {
         "name": "Daybreak",
         "level": 1,
         "special": "X"
       },
-      "ability_class_07_187": {
+      "class_07_ability_187": {
         "name": "Beacon of Light",
         "level": 1,
         "special": "X"
       },
-      "ability_class_07_188": {
+      "class_07_ability_188": {
         "name": "Glorious Bolt",
         "level": 1,
         "special": "X"
       },
-      "ability_class_07_189": {
+      "class_07_ability_189": {
         "name": "Practical Plans",
         "level": 2
       },
-      "ability_class_07_190": {
+      "class_07_ability_190": {
         "name": "Unwavering Mandate",
         "level": 2
       },
-      "ability_class_07_191": {
+      "class_07_ability_191": {
         "name": "Burning Flash",
         "level": 3
       },
-      "ability_class_07_192": {
+      "class_07_ability_192": {
         "name": "Mobilizing Axiom",
         "level": 3
       },
-      "ability_class_07_193": {
+      "class_07_ability_193": {
         "name": "Righteous Strength",
         "level": 4
       },
-      "ability_class_07_194": {
+      "class_07_ability_194": {
         "name": "Engulfing Radiance",
         "level": 4
       },
-      "ability_class_07_195": {
+      "class_07_ability_195": {
         "name": "Path of Glory",
         "level": 5
       },
-      "ability_class_07_196": {
+      "class_07_ability_196": {
         "name": "Scales of Justice",
         "level": 5
       },
-      "ability_class_07_197": {
+      "class_07_ability_197": {
         "name": "Supportive Chant",
         "level": 6
       },
-      "ability_class_07_198": {
+      "class_07_ability_198": {
         "name": "Illuminate the Target",
         "level": 6
       },
-      "ability_class_07_199": {
+      "class_07_ability_199": {
         "name": "Weapon of Purity",
         "level": 7
       },
-      "ability_class_07_200": {
+      "class_07_ability_200": {
         "name": "Bright Aegis",
         "level": 7
       },
-      "ability_class_07_201": {
+      "class_07_ability_201": {
         "name": "Cleaning Force",
         "level": 8
       },
-      "ability_class_07_202": {
+      "class_07_ability_202": {
         "name": "Inspiring Sanctity",
         "level": 8
       },
-      "ability_class_07_203": {
+      "class_07_ability_203": {
         "name": "Angelic Ascension",
         "level": 9
       },
-      "ability_class_07_204": {
+      "class_07_ability_204": {
         "name": "Divine Intervention",
         "level": 9
       }
@@ -1827,7 +1827,7 @@
             "card_id": "mod_basic_minus_1"
           }
         ],
-        "text": "Remove two [[icon_minus_1]] cards"
+        "text": "Remove two [-1] cards"
       },
       {
         "cards": [
@@ -1837,7 +1837,7 @@
             "card_id": "mod_basic_plus_0"
           }
         ],
-        "text": "Remove four [[icon_plus_0]] cards"
+        "text": "Remove four [+0] cards"
       },
       {
         "cards": [
@@ -1850,7 +1850,7 @@
             "card_id": "mod_class_07_plus_0"
           }
         ],
-        "text": "Replace one [[icon_minus_2]] card with one [[icon_plus_0]] card"
+        "text": "Replace one [-2] card with one [+0] card"
       },
       {
         "ticks": 2,
@@ -1861,7 +1861,7 @@
             "card_id": "mod_class_07_plus_1_rolling"
           }
         ],
-        "text": "Add two [[icon_rolling]] [[icon_plus_1]] cards"
+        "text": "Add two [[icon_rolling]] [+1] cards"
       },
       {
         "ticks": 2,
@@ -1912,7 +1912,7 @@
             "card_id": "mod_class_07_plus_1"
           }
         ],
-        "text": "Ignore negative item effects and add two [[icon_plus_1]] cards"
+        "text": "Ignore negative item effects and add two [+1] cards"
       },
       {
         "cards": [],
@@ -1926,118 +1926,118 @@
     "health": "high",
     "color": "#D88929",
     "abilities": {
-      "ability_class_08_205": {
+      "class_08_ability_205": {
         "name": "Restock",
         "level": 1
       },
-      "ability_class_08_206": {
+      "class_08_ability_206": {
         "name": "Oversized Pack",
         "level": 1
       },
-      "ability_class_08_207": {
+      "class_08_ability_207": {
         "name": "Sharpening Kit",
         "level": 1
       },
-      "ability_class_08_208": {
+      "class_08_ability_208": {
         "name": "Proficiency",
         "level": 1
       },
-      "ability_class_08_209": {
+      "class_08_ability_209": {
         "name": "Iron Bulwark",
         "level": 1
       },
-      "ability_class_08_210": {
+      "class_08_ability_210": {
         "name": "Hastened Step",
         "level": 1
       },
-      "ability_class_08_211": {
+      "class_08_ability_211": {
         "name": "Cleaving Axe",
         "level": 1
       },
-      "ability_class_08_212": {
+      "class_08_ability_212": {
         "name": "Impaling Spear",
         "level": 1
       },
-      "ability_class_08_213": {
+      "class_08_ability_213": {
         "name": "Crippling Bow",
         "level": 1
       },
-      "ability_class_08_214": {
+      "class_08_ability_214": {
         "name": "Crushing Hammer",
         "level": 1,
         "special": "X"
       },
-      "ability_class_08_215": {
+      "class_08_ability_215": {
         "name": "Scroll of Recall",
         "level": 1,
         "special": "X"
       },
-      "ability_class_08_216": {
+      "class_08_ability_216": {
         "name": "Reserved Energy",
         "level": 1,
         "special": "X"
       },
-      "ability_class_08_217": {
+      "class_08_ability_217": {
         "name": "Reforge",
         "level": 2
       },
-      "ability_class_08_218": {
+      "class_08_ability_218": {
         "name": "Bladed Boomerang",
         "level": 2
       },
-      "ability_class_08_219": {
+      "class_08_ability_219": {
         "name": "Continual Supply",
         "level": 3
       },
-      "ability_class_08_220": {
+      "class_08_ability_220": {
         "name": "Scroll of Lightning",
         "level": 3
       },
-      "ability_class_08_221": {
+      "class_08_ability_221": {
         "name": "Side Pouch",
         "level": 4
       },
-      "ability_class_08_222": {
+      "class_08_ability_222": {
         "name": "Giant Club",
         "level": 4
       },
-      "ability_class_08_223": {
+      "class_08_ability_223": {
         "name": "Reinforced Steel",
         "level": 5
       },
-      "ability_class_08_224": {
+      "class_08_ability_224": {
         "name": "Scroll of Judgment",
         "level": 5
       },
-      "ability_class_08_225": {
+      "class_08_ability_225": {
         "name": "Catastrophic Bomb",
         "level": 6
       },
-      "ability_class_08_226": {
+      "class_08_ability_226": {
         "name": "Quiver of Arrows",
         "level": 6
       },
-      "ability_class_08_227": {
+      "class_08_ability_227": {
         "name": "Scroll of Blizzards",
         "level": 7
       },
-      "ability_class_08_228": {
+      "class_08_ability_228": {
         "name": "Refreshment",
         "level": 7
       },
-      "ability_class_08_229": {
+      "class_08_ability_229": {
         "name": "Portable Ballista",
         "level": 8
       },
-      "ability_class_08_230": {
+      "class_08_ability_230": {
         "name": "Fortified Position",
         "level": 8
       },
-      "ability_class_08_231": {
+      "class_08_ability_231": {
         "name": "Scroll of Annihilation",
         "level": 9
       },
-      "ability_class_08_232": {
+      "class_08_ability_232": {
         "name": "Bag of Holding",
         "level": 9
       }
@@ -2083,7 +2083,7 @@
             "card_id": "mod_basic_minus_1"
           }
         ],
-        "text": "Remove two [[icon_minus_1]] cards"
+        "text": "Remove two [-1] cards"
       },
       {
         "cards": [
@@ -2093,7 +2093,7 @@
             "card_id": "mod_basic_plus_0"
           }
         ],
-        "text": "Remove four [[icon_plus_0]] cards"
+        "text": "Remove four [+0] cards"
       },
       {
         "ticks": 2,
@@ -2107,7 +2107,7 @@
             "card_id": "mod_class_08_plus_2"
           }
         ],
-        "text": "Replace one [[icon_plus_0]] card with one [[icon_plus_2]] card"
+        "text": "Replace one [+0] card with one [+2] card"
       },
       {
         "ticks": 2,
@@ -2118,7 +2118,7 @@
             "card_id": "mod_class_08_plus_1_rolling"
           }
         ],
-        "text": "Add two [[icon_rolling]] [[icon_plus_1]] cards"
+        "text": "Add two [[icon_rolling]] [+1] cards"
       },
       {
         "cards": [
@@ -2166,7 +2166,7 @@
             "card_id": "mod_class_08_refresh_item"
           }
         ],
-        "text": "Add one [[icon_plus_0]] Refresh an item card"
+        "text": "Add one [+0] Refresh an item card"
       },
       {
         "cards": [
@@ -2176,7 +2176,7 @@
             "card_id": "mod_class_08_plus_1"
           }
         ],
-        "text": "Ignore negative item effects and add two [[icon_plus_1]] cards"
+        "text": "Ignore negative item effects and add two [+1] cards"
       }
     ]
   },
@@ -2186,118 +2186,118 @@
     "health": "medium",
     "color": "#EA71A2",
     "abilities": {
-      "ability_class_09_233": {
+      "class_09_ability_233": {
         "name": "Forged Ferocity",
         "level": 1
       },
-      "ability_class_09_234": {
+      "class_09_ability_234": {
         "name": "Wild Animation",
         "level": 1
       },
-      "ability_class_09_235": {
+      "class_09_ability_235": {
         "name": "Living Night",
         "level": 1
       },
-      "ability_class_09_236": {
+      "class_09_ability_236": {
         "name": "Unending Dominance",
         "level": 1
       },
-      "ability_class_09_237": {
+      "class_09_ability_237": {
         "name": "Unwavering Hand",
         "level": 1
       },
-      "ability_class_09_238": {
+      "class_09_ability_238": {
         "name": "Mighty Bond",
         "level": 1
       },
-      "ability_class_09_239": {
+      "class_09_ability_239": {
         "name": "Bonded Might",
         "level": 1
       },
-      "ability_class_09_240": {
+      "class_09_ability_240": {
         "name": "Biting Wind",
         "level": 1
       },
-      "ability_class_09_241": {
+      "class_09_ability_241": {
         "name": "Black Fire",
         "level": 1
       },
-      "ability_class_09_242": {
+      "class_09_ability_242": {
         "name": "Leathery Wings",
         "level": 1,
         "special": "X"
       },
-      "ability_class_09_243": {
+      "class_09_ability_243": {
         "name": "Volatile Flame",
         "level": 1,
         "special": "X"
       },
-      "ability_class_09_244": {
+      "class_09_ability_244": {
         "name": "Ethereal Vines",
         "level": 1,
         "special": "X"
       },
-      "ability_class_09_245": {
+      "class_09_ability_245": {
         "name": "Earthen Steed",
         "level": 2
       },
-      "ability_class_09_246": {
+      "class_09_ability_246": {
         "name": "Grasping the Void",
         "level": 2
       },
-      "ability_class_09_247": {
+      "class_09_ability_247": {
         "name": "Tear the Fabric",
         "level": 3
       },
-      "ability_class_09_248": {
+      "class_09_ability_248": {
         "name": "Oozing Manifestation",
         "level": 3
       },
-      "ability_class_09_249": {
+      "class_09_ability_249": {
         "name": "Living Mountain",
         "level": 4
       },
-      "ability_class_09_250": {
+      "class_09_ability_250": {
         "name": "Divided Mind",
         "level": 4
       },
-      "ability_class_09_251": {
+      "class_09_ability_251": {
         "name": "Strength in Numbers",
         "level": 5
       },
-      "ability_class_09_252": {
+      "class_09_ability_252": {
         "name": "Conjured Aid",
         "level": 5
       },
-      "ability_class_09_253": {
+      "class_09_ability_253": {
         "name": "Endless Spikes",
         "level": 6
       },
-      "ability_class_09_254": {
+      "class_09_ability_254": {
         "name": "Inexorable Momentum",
         "level": 6
       },
-      "ability_class_09_255": {
+      "class_09_ability_255": {
         "name": "Negative Energy",
         "level": 7
       },
-      "ability_class_09_256": {
+      "class_09_ability_256": {
         "name": "Staff of Visions",
         "level": 7
       },
-      "ability_class_09_257": {
+      "class_09_ability_257": {
         "name": "Intervening Apparitions",
         "level": 8
       },
-      "ability_class_09_258": {
+      "class_09_ability_258": {
         "name": "Otherworldly Rage",
         "level": 8
       },
-      "ability_class_09_259": {
+      "class_09_ability_259": {
         "name": "Interplanar Mastery",
         "level": 9
       },
-      "ability_class_09_260": {
+      "class_09_ability_260": {
         "name": "Horned Majesty",
         "level": 9
       }
@@ -2343,7 +2343,6 @@
     },
     "perks": [
       {
-        "ticks": 2,
         "cards": [
           {
             "action": "remove",
@@ -2351,7 +2350,7 @@
             "card_id": "mod_basic_minus_1"
           }
         ],
-        "text": "Remove two [[icon_minus_1]] cards"
+        "text": "Remove two [-1] cards"
       },
       {
         "cards": [
@@ -2364,7 +2363,7 @@
             "card_id": "mod_basic_plus_0"
           }
         ],
-        "text": "Replace one [[icon_minus_2]] card with one [[icon_plus_0]] card"
+        "text": "Replace one [-2] card with one [+0] card"
       },
       {
         "ticks": 3,
@@ -2378,7 +2377,7 @@
             "card_id": "mod_class_09_plus_1"
           }
         ],
-        "text": "Replace one [[icon_minus_1]] card with one [[icon_plus_1]] card"
+        "text": "Replace one [-1] card with one [+1] card"
       },
       {
         "ticks": 2,
@@ -2388,7 +2387,7 @@
             "card_id": "mod_class_09_plus_2"
           }
         ],
-        "text": "Add one [[icon_plus_2]] card"
+        "text": "Add one [+2] card"
       },
       {
         "cards": [
@@ -2455,7 +2454,7 @@
             "card_id": "mod_class_09_plus_1"
           }
         ],
-        "text": "Ignore negative scenario effects and add two [[icon_plus_1]] cards"
+        "text": "Ignore negative scenario effects and add two [+1] cards"
       }
     ]
   },
@@ -2465,118 +2464,118 @@
     "health": "medium",
     "color": "#9E9FCF",
     "abilities": {
-      "ability_class_10_261": {
+      "class_10_ability_261": {
         "name": "Black Knives",
         "level": 1
       },
-      "ability_class_10_262": {
+      "class_10_ability_262": {
         "name": "Cloak of Shade",
         "level": 1
       },
-      "ability_class_10_263": {
+      "class_10_ability_263": {
         "name": "Empowering Void",
         "level": 1
       },
-      "ability_class_10_264": {
+      "class_10_ability_264": {
         "name": "Doomed Breeze",
         "level": 1
       },
-      "ability_class_10_265": {
+      "class_10_ability_265": {
         "name": "Enervating Wound",
         "level": 1
       },
-      "ability_class_10_266": {
+      "class_10_ability_266": {
         "name": "Spirit of the Night",
         "level": 1
       },
-      "ability_class_10_267": {
+      "class_10_ability_267": {
         "name": "Dancing Shadows",
         "level": 1
       },
-      "ability_class_10_268": {
+      "class_10_ability_268": {
         "name": "Silent Force",
         "level": 1
       },
-      "ability_class_10_269": {
+      "class_10_ability_269": {
         "name": "Smoke Step",
         "level": 1
       },
-      "ability_class_10_270": {
+      "class_10_ability_270": {
         "name": "Wings of the Night",
         "level": 1,
         "special": "X"
       },
-      "ability_class_10_271": {
+      "class_10_ability_271": {
         "name": "Concealed Dominance",
         "level": 1,
         "special": "X"
       },
-      "ability_class_10_272": {
+      "class_10_ability_272": {
         "name": "Dark Cloud",
         "level": 1,
         "special": "X"
       },
-      "ability_class_10_273": {
+      "class_10_ability_273": {
         "name": "Prepare for the Kill",
         "level": 2
       },
-      "ability_class_10_274": {
+      "class_10_ability_274": {
         "name": "Soulfire",
         "level": 2
       },
-      "ability_class_10_275": {
+      "class_10_ability_275": {
         "name": "Terror Blade",
         "level": 3
       },
-      "ability_class_10_276": {
+      "class_10_ability_276": {
         "name": "Armor of the Night",
         "level": 3
       },
-      "ability_class_10_277": {
+      "class_10_ability_277": {
         "name": "Nightfall",
         "level": 4
       },
-      "ability_class_10_278": {
+      "class_10_ability_278": {
         "name": "Grim Sustenance",
         "level": 4
       },
-      "ability_class_10_279": {
+      "class_10_ability_279": {
         "name": "Claws of the Night",
         "level": 5
       },
-      "ability_class_10_280": {
+      "class_10_ability_280": {
         "name": "Black Arrow",
         "level": 5
       },
-      "ability_class_10_281": {
+      "class_10_ability_281": {
         "name": "Unseen Dread",
         "level": 6
       },
-      "ability_class_10_282": {
+      "class_10_ability_282": {
         "name": "Swallowed by Fear",
         "level": 6
       },
-      "ability_class_10_283": {
+      "class_10_ability_283": {
         "name": "Eyes of the Night",
         "level": 7
       },
-      "ability_class_10_284": {
+      "class_10_ability_284": {
         "name": "Quiet Frenzy",
         "level": 7
       },
-      "ability_class_10_285": {
+      "class_10_ability_285": {
         "name": "Gloom Darts",
         "level": 8
       },
-      "ability_class_10_286": {
+      "class_10_ability_286": {
         "name": "Lurking Ruin",
         "level": 8
       },
-      "ability_class_10_287": {
+      "class_10_ability_287": {
         "name": "Angel of Death",
         "level": 9
       },
-      "ability_class_10_288": {
+      "class_10_ability_288": {
         "name": "Voice of the Night",
         "level": 9
       }
@@ -2621,7 +2620,7 @@
             "card_id": "mod_basic_minus_1"
           }
         ],
-        "text": "Remove two [[icon_minus_1]] cards"
+        "text": "Remove two [-1] cards"
       },
       {
         "cards": [
@@ -2631,7 +2630,7 @@
             "card_id": "mod_basic_plus_0"
           }
         ],
-        "text": "Remove four [[icon_plus_0]] cards"
+        "text": "Remove four [+0] cards"
       },
       {
         "ticks": 2,
@@ -2641,7 +2640,7 @@
             "card_id": "mod_class_10_minus_1_element_dark"
           }
         ],
-        "text": "Add one [[icon_minus_1]] [[icon_element_dark]] card"
+        "text": "Add one [-1] [[icon_element_dark]] card"
       },
       {
         "ticks": 2,
@@ -2655,7 +2654,7 @@
             "card_id": "mod_class_10_plus_1_element_dark"
           }
         ],
-        "text": "Replace one [[icon_minus_1]] [[icon_element_dark]] card with with one [[icon_plus_1]] [[icon_element_dark]] card"
+        "text": "Replace one [-1] [[icon_element_dark]] card with with one [+1] [[icon_element_dark]] card"
       },
       {
         "ticks": 2,
@@ -2665,7 +2664,7 @@
             "card_id": "mod_class_10_plus_1_invisible"
           }
         ],
-        "text": "Add one [[icon_plus_1]] INVISIBLE [[icon_status_invisible]] card"
+        "text": "Add one [+1] INVISIBLE [[icon_status_invisible]] card"
       },
       {
         "ticks": 2,
@@ -2715,7 +2714,7 @@
             "card_id": "mod_class_10_plus_1"
           }
         ],
-        "text": "Ignore negative scenario effects and add two [[icon_plus_1]] cards"
+        "text": "Ignore negative scenario effects and add two [+1] cards"
       }
     ]
   },
@@ -2725,126 +2724,126 @@
     "health": "low",
     "color": "#76C7BB",
     "abilities": {
-      "ability_class_11_289": {
+      "class_11_ability_289": {
         "name": "Vile Pestilence",
         "level": 1
       },
-      "ability_class_11_290": {
+      "class_11_ability_290": {
         "name": "Grasping Vermin",
         "level": 1
       },
-      "ability_class_11_291": {
+      "class_11_ability_291": {
         "name": "Wretched Swarm",
         "level": 1
       },
-      "ability_class_11_292": {
+      "class_11_ability_292": {
         "name": "Spread the Plague",
         "level": 1
       },
-      "ability_class_11_293": {
+      "class_11_ability_293": {
         "name": "Biting Gnats",
         "level": 1
       },
-      "ability_class_11_294": {
+      "class_11_ability_294": {
         "name": "Winged Congregation",
         "level": 1
       },
-      "ability_class_11_295": {
+      "class_11_ability_295": {
         "name": "Creeping Curse",
         "level": 1
       },
-      "ability_class_11_296": {
+      "class_11_ability_296": {
         "name": "Gathering Doom",
         "level": 1
       },
-      "ability_class_11_297": {
+      "class_11_ability_297": {
         "name": "Paralyzing Bite",
         "level": 1
       },
-      "ability_class_11_298": {
+      "class_11_ability_298": {
         "name": "Foul Wind",
         "level": 1
       },
-      "ability_class_11_299": {
+      "class_11_ability_299": {
         "name": "Scattered Terror",
         "level": 1
       },
-      "ability_class_11_300": {
+      "class_11_ability_300": {
         "name": "Epidemic",
         "level": 1,
         "special": "X"
       },
-      "ability_class_11_301": {
+      "class_11_ability_301": {
         "name": "Virulent Strain",
         "level": 1,
         "special": "X"
       },
-      "ability_class_11_302": {
+      "class_11_ability_302": {
         "name": "Blistering Vortex",
         "level": 1,
         "special": "X"
       },
-      "ability_class_11_303": {
+      "class_11_ability_303": {
         "name": "Under the Skin",
         "level": 2
       },
-      "ability_class_11_304": {
+      "class_11_ability_304": {
         "name": "Rot Maggots",
         "level": 2
       },
-      "ability_class_11_305": {
+      "class_11_ability_305": {
         "name": "Succumb to the Gift",
         "level": 3
       },
-      "ability_class_11_306": {
+      "class_11_ability_306": {
         "name": "Fetid Flurry",
         "level": 3
       },
-      "ability_class_11_307": {
+      "class_11_ability_307": {
         "name": "Storm of Wings",
         "level": 4
       },
-      "ability_class_11_308": {
+      "class_11_ability_308": {
         "name": "Nightmarish Affliction",
         "level": 4
       },
-      "ability_class_11_309": {
+      "class_11_ability_309": {
         "name": "Accelerated End",
         "level": 5
       },
-      "ability_class_11_310": {
+      "class_11_ability_310": {
         "name": "Willing Sacrifice",
         "level": 5
       },
-      "ability_class_11_311": {
+      "class_11_ability_311": {
         "name": "Stining Cloud",
         "level": 6
       },
-      "ability_class_11_312": {
+      "class_11_ability_312": {
         "name": "Black Tides",
         "level": 6
       },
-      "ability_class_11_313": {
+      "class_11_ability_313": {
         "name": "Airborne Toxin",
         "level": 7
       },
-      "ability_class_11_314": {
+      "class_11_ability_314": {
         "name": "Baneful Hex",
         "level": 7
       },
-      "ability_class_11_315": {
+      "class_11_ability_315": {
         "name": "Spreading Scourge",
         "level": 8
       },
-      "ability_class_11_316": {
+      "class_11_ability_316": {
         "name": "Grim Bargain",
         "level": 8
       },
-      "ability_class_11_317": {
+      "class_11_ability_317": {
         "name": "Mass Extinction",
         "level": 9
       },
-      "ability_class_11_318": {
+      "class_11_ability_318": {
         "name": "Convert the Flock",
         "level": 9
       }
@@ -2891,7 +2890,7 @@
             "card_id": "mod_class_11_plus_0"
           }
         ],
-        "text": "Replace one [[icon_minus_2]] with one [[icon_plus_0]] card"
+        "text": "Replace one [-2] with one [+0] card"
       },
       {
         "ticks": 2,
@@ -2905,7 +2904,7 @@
             "card_id": "mod_class_11_plus_1"
           }
         ],
-        "text": "Replace one [[icon_minus_1]] with one [[icon_plus_1]] card"
+        "text": "Replace one [-1] with one [+1] card"
       },
       {
         "ticks": 2,
@@ -2919,7 +2918,7 @@
             "card_id": "mod_class_11_plus_2"
           }
         ],
-        "text": "Replace one [[icon_plus_0]] with one [[icon_plus_2]] card"
+        "text": "Replace one [+0] with one [+2] card"
       },
       {
         "cards": [
@@ -2929,7 +2928,7 @@
             "card_id": "mod_class_11_plus_1"
           }
         ],
-        "text": "Add two [[icon_plus_1]] cards"
+        "text": "Add two [+1] cards"
       },
       {
         "ticks": 3,
@@ -2939,7 +2938,7 @@
             "card_id": "mod_class_11_plus_1_element_air"
           }
         ],
-        "text": "Add one [[icon_plus_1]] [[icon_element_air]] card"
+        "text": "Add one [+1] [[icon_element_air]] card"
       },
       {
         "cards": [
@@ -2988,7 +2987,7 @@
             "card_id": "mod_class_11_plus_1"
           }
         ],
-        "text": "Ignore negative scenario effects and add one [[icon_plus_1]] card"
+        "text": "Ignore negative scenario effects and add one [+1] card"
       }
     ]
   },
@@ -2998,122 +2997,122 @@
     "health": "high",
     "color": "#D14F4F",
     "abilities": {
-      "ability_class_12_319": {
+      "class_12_ability_319": {
         "name": "Resolute Stand",
         "level": 1
       },
-      "ability_class_12_320": {
+      "class_12_ability_320": {
         "name": "Growling Rage",
         "level": 1
       },
-      "ability_class_12_321": {
+      "class_12_ability_321": {
         "name": "Strength in Agony",
         "level": 1
       },
-      "ability_class_12_322": {
+      "class_12_ability_322": {
         "name": "Defiance of Death",
         "level": 1
       },
-      "ability_class_12_323": {
+      "class_12_ability_323": {
         "name": "From the Brink",
         "level": 1
       },
-      "ability_class_12_324": {
+      "class_12_ability_324": {
         "name": "Blood Pact",
         "level": 1
       },
-      "ability_class_12_325": {
+      "class_12_ability_325": {
         "name": "Cauterize",
         "level": 1
       },
-      "ability_class_12_326": {
+      "class_12_ability_326": {
         "name": "Dazing Wound",
         "level": 1
       },
-      "ability_class_12_327": {
+      "class_12_ability_327": {
         "name": "Furious Aid",
         "level": 1
       },
-      "ability_class_12_328": {
+      "class_12_ability_328": {
         "name": "Bounce Back",
         "level": 1
       },
-      "ability_class_12_329": {
+      "class_12_ability_329": {
         "name": "Unbridled Power",
         "level": 1,
         "special": "X"
       },
-      "ability_class_12_330": {
+      "class_12_ability_330": {
         "name": "Glass Hammer",
         "level": 1,
         "special": "X"
       },
-      "ability_class_12_331": {
+      "class_12_ability_331": {
         "name": "Numb the Pain",
         "level": 1,
         "special": "X"
       },
-      "ability_class_12_332": {
+      "class_12_ability_332": {
         "name": "Reckless Offensive",
         "level": 2
       },
-      "ability_class_12_333": {
+      "class_12_ability_333": {
         "name": "Break the Chains",
         "level": 2
       },
-      "ability_class_12_334": {
+      "class_12_ability_334": {
         "name": "Spiked Armor",
         "level": 3
       },
-      "ability_class_12_335": {
+      "class_12_ability_335": {
         "name": "Fatal Fury",
         "level": 3
       },
-      "ability_class_12_336": {
+      "class_12_ability_336": {
         "name": "Flurry of Axes",
         "level": 4
       },
-      "ability_class_12_337": {
+      "class_12_ability_337": {
         "name": "Shiny Distraction",
         "level": 4
       },
-      "ability_class_12_338": {
+      "class_12_ability_338": {
         "name": "Seeing Red",
         "level": 5
       },
-      "ability_class_12_339": {
+      "class_12_ability_339": {
         "name": "Final Fight",
         "level": 5
       },
-      "ability_class_12_340": {
+      "class_12_ability_340": {
         "name": "Devil Horns",
         "level": 6
       },
-      "ability_class_12_341": {
+      "class_12_ability_341": {
         "name": "Unstoppable Destruction",
         "level": 6
       },
-      "ability_class_12_342": {
+      "class_12_ability_342": {
         "name": "Burning Hatred",
         "level": 7
       },
-      "ability_class_12_343": {
+      "class_12_ability_343": {
         "name": "Careless Charge",
         "level": 7
       },
-      "ability_class_12_344": {
+      "class_12_ability_344": {
         "name": "Bone Breaker",
         "level": 8
       },
-      "ability_class_12_345": {
+      "class_12_ability_345": {
         "name": "Vengeful Barrage",
         "level": 8
       },
-      "ability_class_12_346": {
+      "class_12_ability_346": {
         "name": "Immortality",
         "level": 9
       },
-      "ability_class_12_347": {
+      "class_12_ability_347": {
         "name": "The Maw of Madness",
         "level": 9
       }
@@ -3155,7 +3154,7 @@
             "card_id": "mod_basic_minus_1"
           }
         ],
-        "text": "Remove two [[icon_minus_1]] cards"
+        "text": "Remove two [-1] cards"
       },
       {
         "cards": [
@@ -3165,7 +3164,7 @@
             "card_id": "mod_basic_plus_0"
           }
         ],
-        "text": "Remove four [[icon_plus_0]] cards"
+        "text": "Remove four [+0] cards"
       },
       {
         "ticks": 2,
@@ -3179,7 +3178,7 @@
             "card_id": "mod_class_12_plus_1"
           }
         ],
-        "text": "Replace one [[icon_minus_1]] with one [[icon_plus_1]] card"
+        "text": "Replace one [-1] with one [+1] card"
       },
       {
         "ticks": 2,
@@ -3193,7 +3192,7 @@
             "card_id": "mod_class_12_plus_2_rolling"
           }
         ],
-        "text": "Replace one [[icon_plus_0]] with one [[icon_rolling]] [[icon_plus_2]] card"
+        "text": "Replace one [+0] with one [[icon_rolling]] [+2] card"
       },
       {
         "ticks": 2,
@@ -3224,7 +3223,7 @@
             "card_id": "mod_class_12_plus_1_disarm_rolling"
           }
         ],
-        "text": "Add one [[icon_rolling]] [[icon_plus_1]] DISARM [[icon_status_disarm]] card"
+        "text": "Add one [[icon_rolling]] [+1] DISARM [[icon_status_disarm]] card"
       },
       {
         "cards": [
@@ -3244,7 +3243,7 @@
             "card_id": "mod_class_12_plus_2_element_fire"
           }
         ],
-        "text": "Add one [[icon_plus_2]] [[icon_element_fire]] card"
+        "text": "Add one [+2] [[icon_element_fire]] card"
       },
       {
         "cards": [],
@@ -3258,118 +3257,118 @@
     "health": "low",
     "color": "#DE7F7A",
     "abilities": {
-      "ability_class_13_348": {
+      "class_13_ability_348": {
         "name": "Power Ballad",
         "level": 1
       },
-      "ability_class_13_349": {
+      "class_13_ability_349": {
         "name": "Defensive Ditty",
         "level": 1
       },
-      "ability_class_13_350": {
+      "class_13_ability_350": {
         "name": "Song of Speed",
         "level": 1
       },
-      "ability_class_13_351": {
+      "class_13_ability_351": {
         "name": "Tuning the Outcome",
         "level": 1
       },
-      "ability_class_13_352": {
+      "class_13_ability_352": {
         "name": "Call to Action",
         "level": 1
       },
-      "ability_class_13_353": {
+      "class_13_ability_353": {
         "name": "Warding Dagger",
         "level": 1
       },
-      "ability_class_13_354": {
+      "class_13_ability_354": {
         "name": "Throw Voice",
         "level": 1
       },
-      "ability_class_13_355": {
+      "class_13_ability_355": {
         "name": "Singing Arrow",
         "level": 1
       },
-      "ability_class_13_356": {
+      "class_13_ability_356": {
         "name": "Marching Beat",
         "level": 1
       },
-      "ability_class_13_357": {
+      "class_13_ability_357": {
         "name": "Wistful Wounding",
         "level": 1,
         "special": "X"
       },
-      "ability_class_13_358": {
+      "class_13_ability_358": {
         "name": "Unending Chant",
         "level": 1,
         "special": "X"
       },
-      "ability_class_13_359": {
+      "class_13_ability_359": {
         "name": "Nimble Knife",
         "level": 1,
         "special": "X"
       },
-      "ability_class_13_360": {
+      "class_13_ability_360": {
         "name": "Soothing Lullaby",
         "level": 2
       },
-      "ability_class_13_361": {
+      "class_13_ability_361": {
         "name": "Change Tempo",
         "level": 2
       },
-      "ability_class_13_362": {
+      "class_13_ability_362": {
         "name": "Echoing Aria",
         "level": 3
       },
-      "ability_class_13_363": {
+      "class_13_ability_363": {
         "name": "Crippling Chorus",
         "level": 3
       },
-      "ability_class_13_364": {
+      "class_13_ability_364": {
         "name": "Disorenting Dirge",
         "level": 4
       },
-      "ability_class_13_365": {
+      "class_13_ability_365": {
         "name": "Inspiring Anthem",
         "level": 4
       },
-      "ability_class_13_366": {
+      "class_13_ability_366": {
         "name": "Melody and Harmony",
         "level": 5
       },
-      "ability_class_13_367": {
+      "class_13_ability_367": {
         "name": "Mobilizing Measure",
         "level": 5
       },
-      "ability_class_13_368": {
+      "class_13_ability_368": {
         "name": "Pull the Strings",
         "level": 6
       },
-      "ability_class_13_369": {
+      "class_13_ability_369": {
         "name": "Provoke Terror",
         "level": 6
       },
-      "ability_class_13_370": {
+      "class_13_ability_370": {
         "name": "Nightmare Serenade",
         "level": 7
       },
-      "ability_class_13_371": {
+      "class_13_ability_371": {
         "name": "Booming Proclamation",
         "level": 7
       },
-      "ability_class_13_372": {
+      "class_13_ability_372": {
         "name": "Tranquil Trill",
         "level": 8
       },
-      "ability_class_13_373": {
+      "class_13_ability_373": {
         "name": "Commanding Presence",
         "level": 8
       },
-      "ability_class_13_374": {
+      "class_13_ability_374": {
         "name": "Captivating Performance",
         "level": 9
       },
-      "ability_class_13_375": {
+      "class_13_ability_375": {
         "name": "Shadow Puppets",
         "level": 9
       }
@@ -3418,7 +3417,7 @@
             "card_id": "mod_basic_minus_1"
           }
         ],
-        "text": "Remove two [[icon_minus_1]] cards"
+        "text": "Remove two [-1] cards"
       },
       {
         "cards": [
@@ -3427,7 +3426,7 @@
             "card_id": "mod_basic_minus_2"
           }
         ],
-        "text": "Remove one [[icon_minus_2]] cards"
+        "text": "Remove one [-2] cards"
       },
       {
         "ticks": 2,
@@ -3442,7 +3441,7 @@
             "card_id": "mod_class_13_plus_4"
           }
         ],
-        "text": "Replace two [[icon_plus_1]] with one [[icon_plus_4]] card"
+        "text": "Replace two [+1] with one [+4] card"
       },
       {
         "cards": [
@@ -3455,7 +3454,7 @@
             "card_id": "mod_class_13_plus_1_immobilize"
           }
         ],
-        "text": "Replace one [[icon_plus_0]] with one [[icon_plus_1]] IMMOBILIZE [[icon_status_immobilize]] card"
+        "text": "Replace one [+0] with one [+1] IMMOBILIZE [[icon_status_immobilize]] card"
       },
       {
         "cards": [
@@ -3468,7 +3467,7 @@
             "card_id": "mod_class_13_plus_1_disarm"
           }
         ],
-        "text": "Replace one [[icon_plus_0]] with one [[icon_plus_1]] DISARM [[icon_status_disarm]] card"
+        "text": "Replace one [+0] with one [+1] DISARM [[icon_status_disarm]] card"
       },
       {
         "cards": [
@@ -3481,7 +3480,7 @@
             "card_id": "mod_class_13_plus_2_wound"
           }
         ],
-        "text": "Replace one [[icon_plus_0]] with one [[icon_plus_2]] WOUND [[icon_status_wound]] card"
+        "text": "Replace one [+0] with one [+2] WOUND [[icon_status_wound]] card"
       },
       {
         "cards": [
@@ -3494,7 +3493,7 @@
             "card_id": "mod_class_13_plus_2_poison"
           }
         ],
-        "text": "Replace one [[icon_plus_0]] with one [[icon_plus_2]] POISON [[icon_status_poison]] card"
+        "text": "Replace one [+0] with one [+2] POISON [[icon_status_poison]] card"
       },
       {
         "cards": [
@@ -3507,7 +3506,7 @@
             "card_id": "mod_class_13_plus_2_curse"
           }
         ],
-        "text": "Replace one [[icon_plus_0]] with one [[icon_plus_2]] CURSE [[icon_curse]] card"
+        "text": "Replace one [+0] with one [+2] CURSE [[icon_curse]] card"
       },
       {
         "cards": [
@@ -3520,7 +3519,7 @@
             "card_id": "mod_class_13_plus_3_muddle"
           }
         ],
-        "text": "Replace one [[icon_plus_0]] with one [[icon_plus_3]] MUDDLE [[icon_status_muddle]] card"
+        "text": "Replace one [+0] with one [+3] MUDDLE [[icon_status_muddle]] card"
       },
       {
         "cards": [
@@ -3533,7 +3532,7 @@
             "card_id": "mod_class_13_stun"
           }
         ],
-        "text": "Replace one [[icon_minus_1]] with one [[icon_plus_0]] STUN [[icon_status_stun]] card"
+        "text": "Replace one [-1] with one [+0] STUN [[icon_status_stun]] card"
       },
       {
         "cards": [
@@ -3543,7 +3542,7 @@
             "card_id": "mod_class_13_plus_1_rolling"
           }
         ],
-        "text": "Add three [[icon_rolling]] [[icon_plus_1]] cards"
+        "text": "Add three [[icon_rolling]] [+1] cards"
       },
       {
         "ticks": 2,
@@ -3564,130 +3563,130 @@
     "health": "medium",
     "color": "#37C2F1",
     "abilities": {
-      "ability_class_14_376": {
+      "class_14_ability_376": {
         "name": "Rain of Arrows",
         "level": 1
       },
-      "ability_class_14_377": {
+      "class_14_ability_377": {
         "name": "Crippling Noose",
         "level": 1
       },
-      "ability_class_14_378": {
+      "class_14_ability_378": {
         "name": "Felling Swoop",
         "level": 1
       },
-      "ability_class_14_379": {
+      "class_14_ability_379": {
         "name": "Vital Charge",
         "level": 1
       },
-      "ability_class_14_380": {
+      "class_14_ability_380": {
         "name": "Race to the Grave",
         "level": 1
       },
-      "ability_class_14_381": {
+      "class_14_ability_381": {
         "name": "Multi-Pronged Assault",
         "level": 1
       },
-      "ability_class_14_382": {
+      "class_14_ability_382": {
         "name": "Detonation",
         "level": 1
       },
-      "ability_class_14_383": {
+      "class_14_ability_383": {
         "name": "Frightening Curse",
         "level": 1
       },
-      "ability_class_14_384": {
+      "class_14_ability_384": {
         "name": "Foot Snare",
         "level": 1
       },
-      "ability_class_14_385": {
+      "class_14_ability_385": {
         "name": "Solid Bow",
         "level": 1
       },
-      "ability_class_14_386": {
+      "class_14_ability_386": {
         "name": "A Moment's Peace",
         "level": 1
       },
-      "ability_class_14_387": {
+      "class_14_ability_387": {
         "name": "Swift Trickery",
         "level": 1
       },
-      "ability_class_14_388": {
+      "class_14_ability_388": {
         "name": "Sap Life",
         "level": 1,
         "special": "X"
       },
-      "ability_class_14_389": {
+      "class_14_ability_389": {
         "name": "The Hunt Begins",
         "level": 1,
         "special": "X"
       },
-      "ability_class_14_390": {
+      "class_14_ability_390": {
         "name": "Fresh Kill",
         "level": 1,
         "special": "X"
       },
-      "ability_class_14_391": {
+      "class_14_ability_391": {
         "name": "Expose",
         "level": 2
       },
-      "ability_class_14_392": {
+      "class_14_ability_392": {
         "name": "Relentless Offensive",
         "level": 2
       },
-      "ability_class_14_393": {
+      "class_14_ability_393": {
         "name": "Darkended Skies",
         "level": 3
       },
-      "ability_class_14_394": {
+      "class_14_ability_394": {
         "name": "Press the Attack",
         "level": 3
       },
-      "ability_class_14_395": {
+      "class_14_ability_395": {
         "name": "Singular Focus",
         "level": 4
       },
-      "ability_class_14_396": {
+      "class_14_ability_396": {
         "name": "Flight of Flame",
         "level": 4
       },
-      "ability_class_14_397": {
+      "class_14_ability_397": {
         "name": "Incescapable Fate",
         "level": 5
       },
-      "ability_class_14_398": {
+      "class_14_ability_398": {
         "name": "Wild Command",
         "level": 5
       },
-      "ability_class_14_399": {
+      "class_14_ability_399": {
         "name": "Nature's Hunger",
         "level": 6
       },
-      "ability_class_14_400": {
+      "class_14_ability_400": {
         "name": "Camouflage",
         "level": 6
       },
-      "ability_class_14_401": {
+      "class_14_ability_401": {
         "name": "Impending End",
         "level": 7
       },
-      "ability_class_14_402": {
+      "class_14_ability_402": {
         "name": "Crashing Wave",
         "level": 7
       },
-      "ability_class_14_403": {
+      "class_14_ability_403": {
         "name": "Rising Momentum",
         "level": 8
       },
-      "ability_class_14_404": {
+      "class_14_ability_404": {
         "name": "Feral Instincts",
         "level": 8
       },
-      "ability_class_14_405": {
+      "class_14_ability_405": {
         "name": "Predator and Prey",
         "level": 9
       },
-      "ability_class_14_406": {
+      "class_14_ability_406": {
         "name": "Lead to Slaughter",
         "level": 9
       }
@@ -3730,7 +3729,7 @@
             "card_id": "mod_basic_minus_1"
           }
         ],
-        "text": "Remove two [[icon_minus_1]] cards"
+        "text": "Remove two [-1] cards"
       },
       {
         "ticks": 3,
@@ -3746,7 +3745,7 @@
             "card_id": "mod_class_14_plus_1"
           }
         ],
-        "text": "Replace two [[icon_plus_0]] cards with two [[icon_plus_1]] cards"
+        "text": "Replace two [+0] cards with two [+1] cards"
       },
       {
         "ticks": 2,
@@ -3757,7 +3756,7 @@
             "card_id": "mod_class_14_plus_1_rolling"
           }
         ],
-        "text": "Add two [[icon_rolling]] [[icon_plus_1]] card"
+        "text": "Add two [[icon_rolling]] [+1] card"
       },
       {
         "cards": [
@@ -3766,7 +3765,7 @@
             "card_id": "mod_class_14_plus_2_muddle"
           }
         ],
-        "text": "Add one [[icon_plus_2]] MUDDLE [[icon_status_muddle]] card"
+        "text": "Add one [+2] MUDDLE [[icon_status_muddle]] card"
       },
       {
         "cards": [
@@ -3775,7 +3774,7 @@
             "card_id": "mod_class_14_plus_1_poison"
           }
         ],
-        "text": "Add one [[icon_plus_1]] POISON [[icon_status_poison]] card"
+        "text": "Add one [+1] POISON [[icon_status_poison]] card"
       },
       {
         "cards": [
@@ -3784,7 +3783,7 @@
             "card_id": "mod_class_14_plus_1_wound"
           }
         ],
-        "text": "Add one [[icon_plus_1]] WOUND [[icon_status_wound]] card"
+        "text": "Add one [+1] WOUND [[icon_status_wound]] card"
       },
       {
         "cards": [
@@ -3793,7 +3792,7 @@
             "card_id": "mod_class_14_plus_1_immobilize"
           }
         ],
-        "text": "Add one [[icon_plus_1]] IMMOBILIZE [[icon_status_immobilize]] card"
+        "text": "Add one [+1] IMMOBILIZE [[icon_status_immobilize]] card"
       },
       {
         "cards": [
@@ -3802,7 +3801,7 @@
             "card_id": "mod_class_14_stun"
           }
         ],
-        "text": "Add one [[icon_plus_0]] STUN [[icon_status_stun]] card"
+        "text": "Add one [+0] STUN [[icon_status_stun]] card"
       },
       {
         "ticks": 2,
@@ -3826,177 +3825,177 @@
     "health": "medium",
     "color": "#E0DDCA",
     "abilities": {
-      "ability_class_15_407": {
+      "class_15_ability_407": {
         "name": "First Aid",
         "level": 1
       },
-      "ability_class_15_408": {
+      "class_15_ability_408": {
         "name": "Hand of the Surgeon",
         "level": 1
       },
-      "ability_class_15_409": {
+      "class_15_ability_409": {
         "name": "Hold Back the Pain",
         "level": 1
       },
-      "ability_class_15_410": {
+      "class_15_ability_410": {
         "name": "Booster Shot",
         "level": 1
       },
-      "ability_class_15_411": {
+      "class_15_ability_411": {
         "name": "Bloody Saw",
         "level": 1
       },
-      "ability_class_15_412": {
+      "class_15_ability_412": {
         "name": "Curative Mixture",
         "level": 1
       },
-      "ability_class_15_413": {
+      "class_15_ability_413": {
         "name": "Syringe",
         "level": 1
       },
-      "ability_class_15_414": {
+      "class_15_ability_414": {
         "name": "Battlefield Medicine",
         "level": 1
       },
-      "ability_class_15_415": {
+      "class_15_ability_415": {
         "name": "Triage",
         "level": 1
       },
-      "ability_class_15_416": {
+      "class_15_ability_416": {
         "name": "Mobile Response",
         "level": 1
       },
-      "ability_class_15_417": {
+      "class_15_ability_417": {
         "name": "Medical Pack",
         "level": 1,
         "special": "M"
       },
-      "ability_class_15_418": {
+      "class_15_ability_418": {
         "name": "Medical Pack",
         "level": 1,
         "special": "M"
       },
-      "ability_class_15_419": {
+      "class_15_ability_419": {
         "name": "Medical Pack",
         "level": 1,
         "special": "M"
       },
-      "ability_class_15_420": {
+      "class_15_ability_420": {
         "name": "Medical Pack",
         "level": 1,
         "special": "M"
       },
-      "ability_class_15_421": {
+      "class_15_ability_421": {
         "name": "Medical Pack",
         "level": 1,
         "special": "M"
       },
-      "ability_class_15_422": {
+      "class_15_ability_422": {
         "name": "Medical Pack",
         "level": 1,
         "special": "M"
       },
-      "ability_class_15_423": {
+      "class_15_ability_423": {
         "name": "Medical Pack",
         "level": 1,
         "special": "M"
       },
-      "ability_class_15_424": {
+      "class_15_ability_424": {
         "name": "Large Medical Pack",
         "level": 1,
         "special": "M"
       },
-      "ability_class_15_425": {
+      "class_15_ability_425": {
         "name": "Large Medical Pack",
         "level": 1,
         "special": "M"
       },
-      "ability_class_15_426": {
+      "class_15_ability_426": {
         "name": "Large Medical Pack",
         "level": 1,
         "special": "M"
       },
-      "ability_class_15_427": {
+      "class_15_ability_427": {
         "name": "Large Medical Pack",
         "level": 1,
         "special": "M"
       },
-      "ability_class_15_428": {
+      "class_15_ability_428": {
         "name": "Prevention Is Key",
         "level": 1,
         "special": "X"
       },
-      "ability_class_15_429": {
+      "class_15_ability_429": {
         "name": "Teamwork",
         "level": 1,
         "special": "X"
       },
-      "ability_class_15_430": {
+      "class_15_ability_430": {
         "name": "Vaccine",
         "level": 1,
         "special": "X"
       },
-      "ability_class_15_431": {
+      "class_15_ability_431": {
         "name": "Hamstring",
         "level": 2
       },
-      "ability_class_15_432": {
+      "class_15_ability_432": {
         "name": "Precaution",
         "level": 2
       },
-      "ability_class_15_433": {
+      "class_15_ability_433": {
         "name": "Regenerative Tissue",
         "level": 3
       },
-      "ability_class_15_434": {
+      "class_15_ability_434": {
         "name": "Vital Strike",
         "level": 3
       },
-      "ability_class_15_435": {
+      "class_15_ability_435": {
         "name": "Blood Transfusion",
         "level": 4
       },
-      "ability_class_15_436": {
+      "class_15_ability_436": {
         "name": "Do No Harm",
         "level": 4
       },
-      "ability_class_15_437": {
+      "class_15_ability_437": {
         "name": "Research the Cure",
         "level": 5
       },
-      "ability_class_15_438": {
+      "class_15_ability_438": {
         "name": "Amputate",
         "level": 5
       },
-      "ability_class_15_439": {
+      "class_15_ability_439": {
         "name": "Euthanize",
         "level": 6
       },
-      "ability_class_15_440": {
+      "class_15_ability_440": {
         "name": "Prescription",
         "level": 6
       },
-      "ability_class_15_441": {
+      "class_15_ability_441": {
         "name": "Master Physician",
         "level": 7
       },
-      "ability_class_15_442": {
+      "class_15_ability_442": {
         "name": "Surgeon's Satchel",
         "level": 7
       },
-      "ability_class_15_443": {
+      "class_15_ability_443": {
         "name": "Bedside Manner",
         "level": 8
       },
-      "ability_class_15_444": {
+      "class_15_ability_444": {
         "name": "Gentleman's Anger",
         "level": 8
       },
-      "ability_class_15_445": {
+      "class_15_ability_445": {
         "name": "Prep for Surgery",
         "level": 9
       },
-      "ability_class_15_446": {
+      "class_15_ability_446": {
         "name": "Grisly Trauma",
         "level": 9
       }
@@ -4038,7 +4037,7 @@
             "card_id": "mod_basic_minus_1"
           }
         ],
-        "text": "Remove two [[icon_minus_1]] cards"
+        "text": "Remove two [-1] cards"
       },
       {
         "cards": [
@@ -4048,7 +4047,7 @@
             "card_id": "mod_basic_plus_0"
           }
         ],
-        "text": "Remove four [[icon_plus_0]] cards"
+        "text": "Remove four [+0] cards"
       },
       {
         "ticks": 2,
@@ -4062,7 +4061,7 @@
             "card_id": "mod_class_15_plus_2"
           }
         ],
-        "text": "Replace one [[icon_plus_0]] with one [[icon_plus_2]] card"
+        "text": "Replace one [+0] with one [+2] card"
       },
       {
         "ticks": 2,
@@ -4072,7 +4071,7 @@
             "card_id": "mod_class_15_plus_2_rolling"
           }
         ],
-        "text": "Add one [[icon_rolling]] [[icon_plus_2]] card"
+        "text": "Add one [[icon_rolling]] [+2] card"
       },
       {
         "ticks": 2,
@@ -4082,7 +4081,7 @@
             "card_id": "mod_class_15_plus_1_immobilize"
           }
         ],
-        "text": "Add one [[icon_plus_1]] IMMOBILIZE [[icon_status_immobilize]] card"
+        "text": "Add one [+1] IMMOBILIZE [[icon_status_immobilize]] card"
       },
       {
         "ticks": 2,
@@ -4121,7 +4120,7 @@
             "card_id": "mod_class_15_refresh_item"
           }
         ],
-        "text": "Add one [[icon_plus_0]] Refresh an item card"
+        "text": "Add one [+0] Refresh an item card"
       }
     ]
   },
@@ -4131,122 +4130,122 @@
     "health": "low",
     "color": "#9E9E9E",
     "abilities": {
-      "ability_class_16_447": {
+      "class_16_ability_447": {
         "name": "Raw Enhancement",
         "level": 1
       },
-      "ability_class_16_448": {
+      "class_16_ability_448": {
         "name": "Pure Augmentation",
         "level": 1
       },
-      "ability_class_16_449": {
+      "class_16_ability_449": {
         "name": "Formless Power",
         "level": 1
       },
-      "ability_class_16_450": {
+      "class_16_ability_450": {
         "name": "Shaping the Ether",
         "level": 1
       },
-      "ability_class_16_451": {
+      "class_16_ability_451": {
         "name": "Stoking Hail",
         "level": 1
       },
-      "ability_class_16_452": {
+      "class_16_ability_452": {
         "name": "Tremulant Cyclone",
         "level": 1
       },
-      "ability_class_16_453": {
+      "class_16_ability_453": {
         "name": "Internal Vortex",
         "level": 1
       },
-      "ability_class_16_454": {
+      "class_16_ability_454": {
         "name": "Lava Eruption",
         "level": 1
       },
-      "ability_class_16_455": {
+      "class_16_ability_455": {
         "name": "Ice Spikes",
         "level": 1
       },
-      "ability_class_16_456": {
+      "class_16_ability_456": {
         "name": "Frigid Torrent",
         "level": 1
       },
-      "ability_class_16_457": {
+      "class_16_ability_457": {
         "name": "Malleable Evocation",
         "level": 1,
         "special": "X"
       },
-      "ability_class_16_458": {
+      "class_16_ability_458": {
         "name": "Brilliant Flash",
         "level": 1,
         "special": "X"
       },
-      "ability_class_16_459": {
+      "class_16_ability_459": {
         "name": "Encompassing Shadow",
         "level": 1,
         "special": "X"
       },
-      "ability_class_16_460": {
+      "class_16_ability_460": {
         "name": "Boiling Arc",
         "level": 2
       },
-      "ability_class_16_461": {
+      "class_16_ability_461": {
         "name": "Crystallizing Blast",
         "level": 2
       },
-      "ability_class_16_462": {
+      "class_16_ability_462": {
         "name": "Burial",
         "level": 3
       },
-      "ability_class_16_463": {
+      "class_16_ability_463": {
         "name": "Chain Lightning",
         "level": 3
       },
-      "ability_class_16_464": {
+      "class_16_ability_464": {
         "name": "Primal Duality",
         "level": 4
       },
-      "ability_class_16_465": {
+      "class_16_ability_465": {
         "name": "Gravel Vortex",
         "level": 4
       },
-      "ability_class_16_466": {
+      "class_16_ability_466": {
         "name": "Obsidian Shards",
         "level": 5
       },
-      "ability_class_16_467": {
+      "class_16_ability_467": {
         "name": "Winter's Edge",
         "level": 5
       },
-      "ability_class_16_468": {
+      "class_16_ability_468": {
         "name": "Eye of the Hurricane",
         "level": 6
       },
-      "ability_class_16_469": {
+      "class_16_ability_469": {
         "name": "Simulacrum",
         "level": 6
       },
-      "ability_class_16_470": {
+      "class_16_ability_470": {
         "name": "Vengeance",
         "level": 7
       },
-      "ability_class_16_471": {
+      "class_16_ability_471": {
         "name": "Pragmatic Reinforcement",
         "level": 7
       },
-      "ability_class_16_472": {
+      "class_16_ability_472": {
         "name": "Volatile Consumption",
         "level": 8
       },
-      "ability_class_16_473": {
+      "class_16_ability_473": {
         "name": "Elemental Aegis",
         "level": 8
       },
-      "ability_class_16_474": {
+      "class_16_ability_474": {
         "name": "Ethereal Manifestation",
         "level": 9
       },
-      "ability_class_16_475": {
+      "class_16_ability_475": {
         "name": "Eternal Equilibrium",
         "level": 9
       }
@@ -4293,7 +4292,7 @@
             "card_id": "mod_basic_minus_1"
           }
         ],
-        "text": "Remove two [[icon_minus_1]] cards"
+        "text": "Remove two [-1] cards"
       },
       {
         "cards": [
@@ -4306,7 +4305,7 @@
             "card_id": "mod_class_16_plus_1"
           }
         ],
-        "text": "Replace one [[icon_minus_1]] with one [[icon_plus_1]] card"
+        "text": "Replace one [-1] with one [+1] card"
       },
       {
         "ticks": 2,
@@ -4320,7 +4319,7 @@
             "card_id": "mod_class_16_plus_2"
           }
         ],
-        "text": "Replace one [[icon_plus_0]] with one [[icon_plus_2]] card"
+        "text": "Replace one [+0] with one [+2] card"
       },
       {
         "cards": [
@@ -4330,7 +4329,7 @@
             "card_id": "mod_class_16_element_fire"
           }
         ],
-        "text": "Add three [[icon_plus_0]] [[icon_element_fire]] cards"
+        "text": "Add three [+0] [[icon_element_fire]] cards"
       },
       {
         "cards": [
@@ -4340,7 +4339,7 @@
             "card_id": "mod_class_16_element_ice"
           }
         ],
-        "text": "Add three [[icon_plus_0]] [[icon_element_ice]] cards"
+        "text": "Add three [+0] [[icon_element_ice]] cards"
       },
       {
         "cards": [
@@ -4350,7 +4349,7 @@
             "card_id": "mod_class_16_element_air"
           }
         ],
-        "text": "Add three [[icon_plus_0]] [[icon_element_air]] cards"
+        "text": "Add three [+0] [[icon_element_air]] cards"
       },
       {
         "cards": [
@@ -4360,7 +4359,7 @@
             "card_id": "mod_class_16_element_earth"
           }
         ],
-        "text": "Add three [[icon_plus_0]] [[icon_element_earth]] cards"
+        "text": "Add three [+0] [[icon_element_earth]] cards"
       },
       {
         "cards": [
@@ -4378,7 +4377,7 @@
             "card_id": "mod_class_16_element_earth"
           }
         ],
-        "text": "Replace two [[icon_plus_0]] cards with one [[icon_plus_0]] [[icon_element_fire]] and one [[icon_plus_0]] [[icon_element_earth]]"
+        "text": "Replace two [+0] cards with one [+0] [[icon_element_fire]] and one [+0] [[icon_element_earth]]"
       },
       {
         "cards": [
@@ -4396,7 +4395,7 @@
             "card_id": "mod_class_16_element_air"
           }
         ],
-        "text": "Replace two [[icon_plus_0]] cards with one [[icon_plus_0]] [[icon_element_ice]] and one [[icon_plus_0]] [[icon_element_air]]"
+        "text": "Replace two [+0] cards with one [+0] [[icon_element_ice]] and one [+0] [[icon_element_air]]"
       },
       {
         "cards": [
@@ -4406,7 +4405,7 @@
             "card_id": "mod_class_16_plus_1_push_1"
           }
         ],
-        "text": "Add two [[icon_plus_1]] PUSH [[icon_push]] 1 cards"
+        "text": "Add two [+1] PUSH [[icon_push]] 1 cards"
       },
       {
         "cards": [
@@ -4415,7 +4414,7 @@
             "card_id": "mod_class_16_plus_1_wound"
           }
         ],
-        "text": "Add one [[icon_plus_1]] WOUND [[icon_statuc_wound]] card"
+        "text": "Add one [+1] WOUND [[icon_status_wound]] card"
       },
       {
         "cards": [
@@ -4424,7 +4423,7 @@
             "card_id": "mod_class_16_stun"
           }
         ],
-        "text": "Add one [[icon_plus_0]] STUN [[icon_status_stun]] 1 card"
+        "text": "Add one [+0] STUN [[icon_status_stun]] 1 card"
       },
       {
         "cards": [
@@ -4433,7 +4432,7 @@
             "card_id": "mod_class_16_target"
           }
         ],
-        "text": "Add one [[icon_plus_0]] ADD TARGET [[icon_target]] card"
+        "text": "Add one [+0] ADD TARGET [[icon_target]] card"
       }
     ]
   },
@@ -4443,122 +4442,122 @@
     "health": "low",
     "color": "#AC745D",
     "abilities": {
-      "ability_class_17_477": {
+      "class_17_ability_477": {
         "name": "Disorienting Roar",
         "level": 1
       },
-      "ability_class_17_478": {
+      "class_17_ability_478": {
         "name": "Spirit Swap",
         "level": 1
       },
-      "ability_class_17_479": {
+      "class_17_ability_479": {
         "name": "Venomous Ally",
         "level": 1
       },
-      "ability_class_17_480": {
+      "class_17_ability_480": {
         "name": "Relentless Ally",
         "level": 1
       },
-      "ability_class_17_481": {
+      "class_17_ability_481": {
         "name": "Concentrated Rage",
         "level": 1
       },
-      "ability_class_17_482": {
+      "class_17_ability_482": {
         "name": "Disappearing Wounds",
         "level": 1
       },
-      "ability_class_17_483": {
+      "class_17_ability_483": {
         "name": "Patch Fur",
         "level": 1
       },
-      "ability_class_17_484": {
+      "class_17_ability_484": {
         "name": "Maul",
         "level": 1
       },
-      "ability_class_17_485": {
+      "class_17_ability_485": {
         "name": "Forceful Swipe",
         "level": 1
       },
-      "ability_class_17_486": {
+      "class_17_ability_486": {
         "name": "Howling Bolts",
         "level": 1
       },
-      "ability_class_17_487": {
+      "class_17_ability_487": {
         "name": "Soaring Ally",
         "level": 1,
         "special": "X"
       },
-      "ability_class_17_488": {
+      "class_17_ability_488": {
         "name": "Focused Aggression",
         "level": 1,
         "special": "X"
       },
-      "ability_class_17_489": {
+      "class_17_ability_489": {
         "name": "Borrowed Essence",
         "level": 1,
         "special": "X"
       },
-      "ability_class_17_490": {
+      "class_17_ability_490": {
         "name": "Energizing Strike",
         "level": 2
       },
-      "ability_class_17_491": {
+      "class_17_ability_491": {
         "name": "Earthen Spikes",
         "level": 2
       },
-      "ability_class_17_492": {
+      "class_17_ability_492": {
         "name": "Vicious Ally",
         "level": 3
       },
-      "ability_class_17_493": {
+      "class_17_ability_493": {
         "name": "Unstoppable Beast",
         "level": 3
       },
-      "ability_class_17_494": {
+      "class_17_ability_494": {
         "name": "Ancient Ward",
         "level": 4
       },
-      "ability_class_17_495": {
+      "class_17_ability_495": {
         "name": "Punch Through",
         "level": 4
       },
-      "ability_class_17_496": {
+      "class_17_ability_496": {
         "name": "Rampage",
         "level": 5
       },
-      "ability_class_17_497": {
+      "class_17_ability_497": {
         "name": "Stone Sigil",
         "level": 5
       },
-      "ability_class_17_498": {
+      "class_17_ability_498": {
         "name": "Primal Blessing",
         "level": 6
       },
-      "ability_class_17_499": {
+      "class_17_ability_499": {
         "name": "Blood Hunger",
         "level": 6
       },
-      "ability_class_17_500": {
+      "class_17_ability_500": {
         "name": "Storm Sigil",
         "level": 7
       },
-      "ability_class_17_501": {
+      "class_17_ability_501": {
         "name": "Tyrannical Force",
         "level": 7
       },
-      "ability_class_17_502": {
+      "class_17_ability_502": {
         "name": "Lash Out",
         "level": 8
       },
-      "ability_class_17_503": {
+      "class_17_ability_503": {
         "name": "Natural Remedy",
         "level": 8
       },
-      "ability_class_17_504": {
+      "class_17_ability_504": {
         "name": "Jaws of Death",
         "level": 9
       },
-      "ability_class_17_505": {
+      "class_17_ability_505": {
         "name": "Tribal Sigil",
         "level": 9
       }
@@ -4593,7 +4592,7 @@
             "card_id": "mod_basic_minus_1"
           }
         ],
-        "text": "Remove two [[icon_minus_1]] cards"
+        "text": "Remove two [-1] cards"
       },
       {
         "ticks": 3,
@@ -4607,7 +4606,7 @@
             "card_id": "mod_class_17_plus_1"
           }
         ],
-        "text": "Replace one [[icon_minus_1]] with one [[icon_plus_1]] card"
+        "text": "Replace one [-1] with one [+1] card"
       },
       {
         "ticks": 2,
@@ -4621,7 +4620,7 @@
             "card_id": "mod_class_17_plus_2"
           }
         ],
-        "text": "Replace one [[icon_plus_0]] with one [[icon_plus_2]] card"
+        "text": "Replace one [+0] with one [+2] card"
       },
       {
         "ticks": 2,
@@ -4631,7 +4630,7 @@
             "card_id": "mod_class_17_plus_1_wound"
           }
         ],
-        "text": "Add one [[icon_plus_1]] WOUND [[icon_status_wound]] card"
+        "text": "Add one [+1] WOUND [[icon_status_wound]] card"
       },
       {
         "ticks": 2,
@@ -4641,7 +4640,7 @@
             "card_id": "mod_class_17_plus_1_immobilize"
           }
         ],
-        "text": "Add one [[icon_plus_1]] IMMOBILIZE [[icon_status_immobilize]] card"
+        "text": "Add one [+1] IMMOBILIZE [[icon_status_immobilize]] card"
       },
       {
         "ticks": 3,
@@ -4667,6 +4666,324 @@
       {
         "cards": [],
         "text": "Ignore negative scenario effects"
+      }
+    ]
+  },
+  {
+    "id": "class_19",
+    "name": "RGl2aW5lcg==",
+    "health": "low",
+    "color": "#AC745D",
+    "abilities": {
+      "class_19_ability_574": {
+        "name": "Peer into Battle",
+        "level": 1
+      },
+      "class_19_ability_575": {
+        "name": "Anticipate Intricacies",
+        "level": 1
+      },
+      "class_19_ability_576": {
+        "name": "Protective Aura",
+        "level": 1
+      },
+      "class_19_ability_577": {
+        "name": "Clairvoyance",
+        "level": 1
+      },
+      "class_19_ability_578": {
+        "name": "Otherworldly Journey",
+        "level": 1
+      },
+      "class_19_ability_579": {
+        "name": "Ray of Light",
+        "level": 1
+      },
+      "class_19_ability_580": {
+        "name": "Dimensional Transfer",
+        "level": 1
+      },
+      "class_19_ability_581": {
+        "name": "Void Snare",
+        "level": 1
+      },
+      "class_19_ability_582": {
+        "name": "Cursed Ground",
+        "level": 1
+      },
+      "class_19_ability_583": {
+        "name": "Bad Omen",
+        "level": 1,
+        "special": "X"
+      },
+      "class_19_ability_584": {
+        "name": "Inspiration from Beyond",
+        "level": 1,
+        "special": "X"
+      },
+      "class_19_ability_585": {
+        "name": "Duality Shards",
+        "level": 1,
+        "special": "X"
+      },
+      "class_19_ability_586": {
+        "name": "Revitalizing Fount",
+        "level": 2
+      },
+      "class_19_ability_587": {
+        "name": "Gift of the Void",
+        "level": 2
+      },
+      "class_19_ability_588": {
+        "name": "Envision the Course",
+        "level": 3
+      },
+      "class_19_ability_589": {
+        "name": "Call of the Nether",
+        "level": 3
+      },
+      "class_19_ability_590": {
+        "name": "Preordain Path",
+        "level": 4
+      },
+      "class_19_ability_591": {
+        "name": "Cleansing Rite",
+        "level": 4
+      },
+      "class_19_ability_592": {
+        "name": "Seal Their Fate",
+        "level": 5
+      },
+      "class_19_ability_593": {
+        "name": "Dimensional Divide",
+        "level": 5
+      },
+      "class_19_ability_594": {
+        "name": "Enfeebling Hex",
+        "level": 6
+      },
+      "class_19_ability_595": {
+        "name": "Careful Attunement",
+        "level": 6
+      },
+      "class_19_ability_596": {
+        "name": "Curative Flux",
+        "level": 7
+      },
+      "class_19_ability_597": {
+        "name": "Ethereal Vortex",
+        "level": 7
+      },
+      "class_19_ability_598": {
+        "name": "Deep Contemplation",
+        "level": 8
+      },
+      "class_19_ability_599": {
+        "name": "Anguish and Salvation",
+        "level": 8
+      },
+      "class_19_ability_600": {
+        "name": "Hand of Destiny",
+        "level": 9
+      },
+      "class_19_ability_601": {
+        "name": "Planar Fissure",
+        "level": 9
+      }
+    },
+    "cards": {
+      "mod_class_19_plus_1": {
+        "deck": "class"
+      },
+      "mod_class_19_plus_3_self": {
+        "deck": "class",
+        "special": "rolling"
+      },
+      "mod_class_19_plus_1_ally": {
+        "deck": "class"
+      },
+      "mod_class_19_plus_2_element_dark": {
+        "deck": "class"
+      },
+      "mod_class_19_plus_2_element_light": {
+        "deck": "class"
+      },
+      "mod_class_19_plus_3_status_muddle": {
+        "deck": "class"
+      },
+      "mod_class_19_plus_3_curse": {
+        "deck": "class"
+      },
+      "mod_class_19_plus_3_status_regenerate": {
+        "deck": "class"
+      },
+      "mod_class_19_plus_1_heal_2_ally": {
+        "deck": "class"
+      },
+      "mod_class_19_heal_1_self_rolling": {
+        "deck": "class",
+        "special": "rolling"
+      },
+      "mod_class_19_curse_rolling": {
+        "deck": "class",
+        "special": "rolling"
+      }
+    },
+    "perks": [
+      {
+        "cards": [
+          {
+            "action": "remove",
+            "repeat": 2,
+            "card_id": "mod_basic_minus_1"
+          }
+        ],
+        "text": "Remove two [-1] cards"
+      },
+      {
+        "cards": [
+          {
+            "action": "remove",
+            "card_id": "mod_basic_minus_2"
+          }
+        ],
+        "text": "Remove one [-2] card"
+      },
+      {
+        "ticks": 2,
+        "cards": [
+          {
+            "action": "remove",
+            "repeat": 2,
+            "card_id": "mod_basic_plus_1"
+          },
+          {
+            "action": "add",
+            "card_id": "mod_class_19_plus_3_shield_1_self"
+          }
+        ],
+        "text": "Replace two [+1] with one [+3] Shield [[icon_shield]] 1, Self card"
+      },
+      {
+        "cards": [
+          {
+            "action": "remove",
+            "card_id": "mod_basic_plus_0"
+          },
+          {
+            "action": "add",
+            "card_id": "mod_class_19_plus_1_shield_1_ally"
+          }
+        ],
+        "text": "Replace one [+0] with one [+1] Shield [[icon_shield]] 1, Affect any ally card"
+      },
+      {
+        "cards": [
+          {
+            "action": "remove",
+            "card_id": "mod_basic_plus_0"
+          },
+          {
+            "action": "add",
+            "card_id": "mod_class_19_plus_2_element_dark"
+          }
+        ],
+        "text": "Replace one [+0] with one [+2] [[icon_element_dark]] card"
+      },
+      {
+        "cards": [
+          {
+            "action": "remove",
+            "card_id": "mod_basic_plus_0"
+          },
+          {
+            "action": "add",
+            "card_id": "mod_class_19_plus_2_element_light"
+          }
+        ],
+        "text": "Replace one [+0] with one [+2] [[icon_element_light]] card"
+      },
+      {
+        "cards": [
+          {
+            "action": "remove",
+            "card_id": "mod_basic_plus_0"
+          },
+          {
+            "action": "add",
+            "card_id": "mod_class_19_plus_3_status_muddle"
+          }
+        ],
+        "text": "Replace one [+0] with one [+3] MUDDLE [[icon_status_muddle]] card"
+      },
+      {
+        "cards": [
+          {
+            "action": "remove",
+            "card_id": "mod_basic_plus_0"
+          },
+          {
+            "action": "add",
+            "card_id": "mod_class_19_plus_2_curse"
+          }
+        ],
+        "text": "Replace one [+0] with one [+2] CURSE [[icon_curse]] card"
+      },
+      {
+        "cards": [
+          {
+            "action": "remove",
+            "card_id": "mod_basic_plus_0"
+          },
+          {
+            "action": "add",
+            "card_id": "mod_class_19_plus_2_status_regenerate_self"
+          }
+        ],
+        "text": "Replace one [+0] with one [+2] REGENERATE [[icon_status_regenerate]], Self card"
+      },
+      {
+        "cards": [
+          {
+            "action": "remove",
+            "card_id": "mod_basic_minus_1"
+          },
+          {
+            "action": "add",
+            "card_id": "mod_class_19_plus_1_heal_2_ally"
+          }
+        ],
+        "text": "Replace one [+0] with one [+1] Heal [[icon_heal]] 2, Affect any ally card"
+      },
+      {
+        "cards": [
+          {
+            "action": "add",
+            "repeat": 2,
+            "card_id": "mod_class_19_heal_1_self_rolling"
+          }
+        ],
+        "text": "Add two [[icon_rolling]] Heal [[icon_heal]] 1, Self card"
+      },
+      {
+        "cards": [
+          {
+            "action": "add",
+            "repeat": 2,
+            "card_id": "mod_class_19_curse_rolling"
+          }
+        ],
+        "text": "Add two [[icon_rolling]] CURSE [[icon_curse]] card"
+      },
+      {
+        "cards": [
+          {
+            "action": "add",
+            "repeat": 2,
+            "card_id": "mod_class_19_plus_1"
+          }
+        ],
+        "text": "Ignore negative scenario effects and add two [+1] cards"
       }
     ]
   }

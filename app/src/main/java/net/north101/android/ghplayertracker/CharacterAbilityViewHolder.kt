@@ -17,7 +17,11 @@ class CharacterAbilityViewHolder(itemView: View) : BaseViewHolder<CharacterAdapt
 
     init {
         itemView.setOnClickListener {
-            onItemEditClick?.invoke(item!!)
+            if (item!!.ability.value == null) {
+                onItemViewClick?.invoke(item!!)
+            } else {
+                onItemEditClick?.invoke(item!!)
+            }
         }
         viewView.setOnClickListener {
             onItemViewClick?.invoke(item!!)

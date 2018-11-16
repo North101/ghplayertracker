@@ -71,8 +71,8 @@ data class CharacterClass(
 
             val abilitiesData = data.optJSONObject("abilities")
             val abilities = ArrayList(abilitiesData?.map {
-                Ability.parse(it.key, it.getJSONObject())
-            })
+                Ability.parse(it.key, cardBack(id), it.getJSONObject())
+            }.orEmpty())
 
             return CharacterClass(id, name, color, levels, cards, perks, ArrayList(abilities.sortedBy { it.id }))
         }
@@ -112,10 +112,11 @@ class CharacterClassData(val context: Context, val data: JSONArray) {
         }
     }
 
-    fun toList(): ArrayList<CharacterClass> {
-        return ArrayList(data.mapNotNull {
+    fun toList(): HashMap<String, CharacterClass> {
+        return HashMap(data.mapNotNull {
             try {
-                CharacterClass.parse(it.getJSONObject())
+                val value = CharacterClass.parse(it.getJSONObject())
+                value.id to value
             } catch (e: JSONException) {
                 e.printStackTrace()
                 null
@@ -126,6 +127,6 @@ class CharacterClassData(val context: Context, val data: JSONArray) {
                 e.printStackTrace()
                 null
             }
-        })
+        }.toMap())
     }
 }
