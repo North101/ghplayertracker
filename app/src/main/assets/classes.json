@@ -4670,6 +4670,298 @@
     ]
   },
   {
+    "id": "class_18",
+    "name": "QmxhZGVzd2FybQ==",
+    "health": "medium",
+    "color": "#916556",
+    "abilities": {
+      "class_18_ability_X01": {
+        "name": "Hive Mind",
+        "level": 1
+      },
+      "class_18_ability_X02": {
+        "name": "Engulfing Stingers",
+        "level": 1
+      },
+      "class_18_ability_X03": {
+        "name": "Corrupting Parasites",
+        "level": 1
+      },
+      "class_18_ability_X04": {
+        "name": "Death March",
+        "level": 1
+      },
+      "class_18_ability_X05": {
+        "name": "Deflecting Blades",
+        "level": 1
+      },
+      "class_18_ability_X06": {
+        "name": "Omniscient Assault",
+        "level": 1
+      },
+      "class_18_ability_X07": {
+        "name": "Call of the Grave",
+        "level": 1
+      },
+      "class_18_ability_X08": {
+        "name": "Venomous Barbs",
+        "level": 1
+      },
+      "class_18_ability_X09": {
+        "name": "Scattered Defense",
+        "level": 1
+      },
+      "class_18_ability_X10": {
+        "name": "Swarming Minions",
+        "level": 1
+      },
+      "class_18_ability_X11": {
+        "name": "The Storm's Edge",
+        "level": 1
+      },
+      "class_18_ability_X12": {
+        "name": "Unstoppable Army",
+        "level": 1,
+        "special": "X"
+      },
+      "class_18_ability_X13": {
+        "name": "Grasping Advance",
+        "level": 1,
+        "special": "X"
+      },
+      "class_18_ability_X14": {
+        "name": "Tomb of the Immortal",
+        "level": 1,
+        "special": "X"
+      },
+      "class_18_ability_X15": {
+        "name": "Vampiric Tempest",
+        "level": 2
+      },
+      "class_18_ability_X16": {
+        "name": "Infest",
+        "level": 2
+      },
+      "class_18_ability_X17": {
+        "name": "Putrid Grubs",
+        "level": 3
+      },
+      "class_18_ability_X18": {
+        "name": "Sand Scythe",
+        "level": 3
+      },
+      "class_18_ability_X19": {
+        "name": "Sword of Tenacity",
+        "level": 4
+      },
+      "class_18_ability_X20": {
+        "name": "Incubation",
+        "level": 4
+      },
+      "class_18_ability_X21": {
+        "name": "Bioluminescence",
+        "level": 5
+      },
+      "class_18_ability_X22": {
+        "name": "Bone Daggers",
+        "level": 5
+      },
+      "class_18_ability_X23": {
+        "name": "Prismatic Cyclone",
+        "level": 6
+      },
+      "class_18_ability_X24": {
+        "name": "Erosion",
+        "level": 6
+      },
+      "class_18_ability_X25": {
+        "name": "Solitary Horde",
+        "level": 7
+      },
+      "class_18_ability_X26": {
+        "name": "Sunstroke",
+        "level": 7
+      },
+      "class_18_ability_X27": {
+        "name": "Focused Scourage",
+        "level": 8
+      },
+      "class_18_ability_X28": {
+        "name": "Blood Drain",
+        "level": 8
+      },
+      "class_18_ability_X29": {
+        "name": "Wasteland",
+        "level": 9
+      },
+      "class_18_ability_X30": {
+        "name": "Oasis",
+        "level": 9
+      }
+    },
+    "cards": {
+      "mod_class_18_heal_1_self_rolling": {
+        "deck": "class",
+        "special": "rolling"
+      },
+      "mod_class_18_plus_1_element_dark": {
+        "deck": "class"
+      },
+      "mod_class_18_plus_1_element_earth": {
+        "deck": "class"
+      },
+      "mod_class_18_plus_1_element_light": {
+        "deck": "class"
+      },
+      "mod_class_18_plus_1_element_air": {
+        "deck": "class"
+      },
+      "mod_class_18_plus_1_status_poison": {
+        "deck": "class"
+      },
+      "mod_class_18_plus_1_status_wound": {
+        "deck": "class"
+      },
+      "mod_class_18_plus_1": {
+        "deck": "class"
+      },
+      "mod_class_18_plus_2_status_muddle": {
+        "deck": "class"
+      }
+    },
+    "perks": [
+      {
+        "cards": [
+          {
+            "action": "remove",
+            "card_id": "mod_basic_minus_2"
+          }
+        ],
+        "text": "Remove one [-2] card"
+      },
+      {
+        "cards": [
+          {
+            "action": "remove",
+            "repeat": 4,
+            "card_id": "mod_basic_plus_0"
+          }
+        ],
+        "text": "Remove four [+0] cards"
+      },
+      {
+        "cards": [
+          {
+            "action": "remove",
+            "card_id": "mod_basic_minus_1"
+          },
+          {
+            "action": "add",
+            "card_id": "mod_class_18_plus_1_element_air"
+          }
+        ],
+        "text": "Replace one [-1] with one [+1] [[icon_element_air]] card"
+      },
+      {
+        "cards": [
+          {
+            "action": "remove",
+            "card_id": "mod_basic_minus_1"
+          },
+          {
+            "action": "add",
+            "card_id": "mod_class_18_plus_1_element_earth"
+          }
+        ],
+        "text": "Replace one [-1] with one [+1] [[icon_element_earth]] card"
+      },
+      {
+        "cards": [
+          {
+            "action": "remove",
+            "card_id": "mod_basic_minus_1"
+          },
+          {
+            "action": "add",
+            "card_id": "mod_class_18_plus_1_element_light"
+          }
+        ],
+        "text": "Replace one [-1] with one [+1] [[icon_element_light]] card"
+      },
+      {
+        "cards": [
+          {
+            "action": "remove",
+            "card_id": "mod_basic_minus_1"
+          },
+          {
+            "action": "add",
+            "card_id": "mod_class_18_plus_1_element_dark"
+          }
+        ],
+        "text": "Replace one [-1] with one [+1] [[icon_element_dark]] card"
+      },
+      {
+        "ticks": 2,
+        "cards": [
+          {
+            "action": "add",
+            "repeat": 2,
+            "card_id": "mod_class_18_heal_1_self_rolling"
+          }
+        ],
+        "text": "Add two [[icon_rolling]] Heal [[icon_heal]] 1 cards"
+      },
+      {
+        "ticks": 2,
+        "cards": [
+          {
+            "action": "add",
+            "card_id": "mod_class_18_plus_1_status_wound"
+          }
+        ],
+        "text": "Add one [+1] WOUND [[icon_status_wound]] card"
+      },
+      {
+        "ticks": 2,
+        "cards": [
+          {
+            "action": "add",
+            "card_id": "mod_class_18_plus_1_status_poison"
+          }
+        ],
+        "text": "Add one [+1] POISON [[icon_status_poison]] card"
+      },
+      {
+        "cards": [
+          {
+            "action": "add",
+            "card_id": "mod_class_18_plus_2_status_muddle"
+          }
+        ],
+        "text": "Add one [+2] MUDDLE [[icon_status_muddle]] card"
+      },
+      {
+        "cards": [
+          {
+            "action": "add",
+            "card_id": "mod_class_18_plus_1"
+          }
+        ],
+        "text": "Ignore negative item effects and add one [+1] card"
+      },
+      {
+        "cards": [
+          {
+            "action": "add",
+            "card_id": "mod_class_18_plus_1"
+          }
+        ],
+        "text": "Ignore negative scenario effects and add one [+1] card"
+      }
+    ]
+  },
+  {
     "id": "class_19",
     "name": "RGl2aW5lcg==",
     "health": "low",
@@ -4795,11 +5087,10 @@
       "mod_class_19_plus_1": {
         "deck": "class"
       },
-      "mod_class_19_plus_3_self": {
-        "deck": "class",
-        "special": "rolling"
+      "mod_class_19_plus_3_shield_1_self": {
+        "deck": "class"
       },
-      "mod_class_19_plus_1_ally": {
+      "mod_class_19_plus_1_shield_1_ally": {
         "deck": "class"
       },
       "mod_class_19_plus_2_element_dark": {
@@ -4811,10 +5102,10 @@
       "mod_class_19_plus_3_status_muddle": {
         "deck": "class"
       },
-      "mod_class_19_plus_3_curse": {
+      "mod_class_19_plus_2_curse": {
         "deck": "class"
       },
-      "mod_class_19_plus_3_status_regenerate": {
+      "mod_class_19_plus_2_status_regenerate_self": {
         "deck": "class"
       },
       "mod_class_19_plus_1_heal_2_ally": {
