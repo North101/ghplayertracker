@@ -112,11 +112,10 @@ class CharacterClassData(val context: Context, val data: JSONArray) {
         }
     }
 
-    fun toList(): HashMap<String, CharacterClass> {
-        return HashMap(data.mapNotNull {
+    fun toList(): ArrayList<CharacterClassGroup> {
+        return ArrayList(data.mapNotNull {
             try {
-                val value = CharacterClass.parse(it.getJSONObject())
-                value.id to value
+                CharacterClassGroup.parse(it.getJSONObject())
             } catch (e: JSONException) {
                 e.printStackTrace()
                 null
@@ -127,6 +126,6 @@ class CharacterClassData(val context: Context, val data: JSONArray) {
                 e.printStackTrace()
                 null
             }
-        }.toMap())
+        })
     }
 }

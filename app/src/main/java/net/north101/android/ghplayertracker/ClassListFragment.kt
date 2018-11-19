@@ -10,6 +10,7 @@ import android.view.View
 import com.mikepenz.itemanimators.SlideDownAlphaAnimator
 import net.north101.android.ghplayertracker.data.Character
 import net.north101.android.ghplayertracker.data.CharacterClass
+import net.north101.android.ghplayertracker.data.CharacterClassGroup
 import org.androidannotations.annotations.AfterViews
 import org.androidannotations.annotations.EFragment
 import org.androidannotations.annotations.ViewById
@@ -50,6 +51,16 @@ open class ClassListFragment : Fragment() {
 
         val maxSpan = if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) 4 else 2
         val gridLayoutManager = GridLayoutManager(context, maxSpan)
+        gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int): Int {
+                val item = listAdapter.getItem(position)
+                return if (item is CharacterClass) {
+                    1
+                } else {
+                    maxSpan
+                }
+            }
+        }
         listView.layoutManager = gridLayoutManager
 
         val animator = SlideDownAlphaAnimator()
@@ -57,17 +68,17 @@ open class ClassListFragment : Fragment() {
 
         listView.adapter = listAdapter
 
-        if (classModel.classList.value == null) {
+        if (classModel.classGroupList.value == null) {
             classModel.dataLoader.load()
         }
         view!!.post {
-            classModel.classList.observe(this, Observer {
+            classModel.classGroupList.observe(this, Observer {
                 setClassList(it)
             })
         }
     }
 
-    open fun setClassList(classList: Map<String, CharacterClass>?) {
+    open fun setClassList(classGroupList: ArrayList<CharacterClassGroup>?) {
         if (this.isRemoving) {
             return
         }
@@ -75,13 +86,13 @@ open class ClassListFragment : Fragment() {
         loadingView.visibility = View.GONE
         listView.visibility = View.VISIBLE
 
-        if (classList != null) {
-            listAdapter.updateItems(classList.values.sortedBy { it.id })
+        if (classGroupList != null) {
+            listAdapter.updateItems(classGroupList)
         }
     }
 
     companion object {
-        fun newInstance() : ClassListFragment_ {
+        fun newInstance(): ClassListFragment_ {
             return ClassListFragment_()
         }
     }

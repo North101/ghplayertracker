@@ -56,7 +56,7 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
         if (state == null) {
             characterModel.init(character)
         } else {
-            characterModel.fromBundle(state.getBundle("character_model"))
+            characterModel.fromBundle(state.getBundle("character_model")!!)
         }
     }
 
@@ -123,7 +123,9 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
         }
         listAdapter1.onItemViewClick = {
             val items = characterModel.character.items.value
-            val fragment = ImagePagerFragment.newInstance(items as ArrayList<ImageUrl>, items.indexOf(it))
+            val fragment = ImagePagerFragment.newInstance(ArrayList(characterClass.abilities.map {
+                it as ImageUrl
+            }), items.indexOf(it))
 
             activity!!.supportFragmentManager
                 .beginTransaction()
@@ -138,7 +140,9 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
 
         }
         listAdapter1.onAbilityGalleryClick = {
-            val fragment = ImagePagerFragment.newInstance(characterClass.abilities as ArrayList<ImageUrl>)
+            val fragment = ImagePagerFragment.newInstance(ArrayList(characterClass.abilities.map {
+                it as ImageUrl
+            }))
 
             activity!!.supportFragmentManager
                 .beginTransaction()
@@ -147,14 +151,16 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
                 .addToBackStack(null)
                 .commit()
         }
-        listAdapter1.onAbilityEditClick = {
-            val abilities = characterClass.abilities.filter {
-                it.level == 1
-            } + characterModel.character.abilities.value.mapNotNull {
-                it.value
+        listAdapter1.onAbilityEditClick = { it ->
+            val abilities = characterClass.abilities.filter { ability ->
+                ability.level == 1
+            } + characterModel.character.abilities.value.mapNotNull { ability ->
+                ability.value
             }
             val fragment = ImagePagerFragment.newInstance(
-                abilities as ArrayList<ImageUrl>,
+                ArrayList(abilities.map {
+                    it as ImageUrl
+                }),
                 abilities.indexOf(it.ability.value!!)
             )
             activity!!.supportFragmentManager

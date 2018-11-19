@@ -16,7 +16,7 @@ class ClassModel(
 
     val itemCategoryList = NonNullLiveData<ArrayList<ItemCategory>>(ArrayList())
     val itemList = NonNullLiveData<HashMap<String, Item>>(HashMap())
-    val classList = NonNullLiveData<HashMap<String, CharacterClass>>(HashMap())
+    val classGroupList = NonNullLiveData<ArrayList<CharacterClassGroup>>(ArrayList())
     val characterList = NonNullLiveData<ArrayList<Character>>(ArrayList())
 
     val context
@@ -57,7 +57,7 @@ class DataLoader(
 data class DataResult(
     val itemCategoryList: ArrayList<ItemCategory>,
     val itemList: HashMap<String, Item>,
-    val classList: HashMap<String, CharacterClass>,
+    val classGroupList: ArrayList<CharacterClassGroup>,
     val characterList: ArrayList<Character>
 )
 
@@ -73,16 +73,22 @@ class DataLoaderTask(
     override fun doInBackground(vararg voids: Void): DataResult {
         val itemCategoryList = ItemCategoryData.load(model.context).toList()
         val itemMap = ItemData.load(model.context).toList(itemCategoryList)
-        val classMap = CharacterClassData.load(model.context).toList()
-        val characterList = CharacterData.load(model.context).toList(classMap, itemMap)
+        val classGroupList = CharacterClassData.load(model.context).toList()
+        val characterList = CharacterData.load(model.context).toList(
+            classGroupList.fold(HashMap()) { map, classGroup ->
+                map.putAll(classGroup.classes.map {
+                    it.id to it
+                }.toMap())
+                map
+            }, itemMap)
 
-        return DataResult(itemCategoryList, itemMap, classMap, characterList)
+        return DataResult(itemCategoryList, itemMap, classGroupList, characterList)
     }
 
     override fun onPostExecute(data: DataResult) {
         model.itemCategoryList.value = data.itemCategoryList
         model.itemList.value = data.itemList
-        model.classList.value = data.classList
+        model.classGroupList.value = data.classGroupList
         model.characterList.value = data.characterList
 
         this.model.dataLoader.state.value = LiveDataState.FINISHED

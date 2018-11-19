@@ -135,7 +135,7 @@ open class CharacterListFragment : Fragment(), ActionMode.Callback {
 
         selectedCharacters = ArrayList(selectedCharacters.map { it.copy() })
         classModel.characterList.removeObservers(this)
-        classModel.classList.removeObservers(this)
+        classModel.classGroupList.removeObservers(this)
     }
 
     @UiThread(propagation = UiThread.Propagation.REUSE)
