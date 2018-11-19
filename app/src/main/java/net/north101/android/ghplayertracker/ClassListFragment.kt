@@ -68,7 +68,7 @@ open class ClassListFragment : Fragment() {
 
         listView.adapter = listAdapter
 
-        if (classModel.classGroupList.value == null) {
+        if (classModel.dataLoader.state.value != LiveDataState.FINISHED) {
             classModel.dataLoader.load()
         }
         view!!.post {

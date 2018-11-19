@@ -122,7 +122,6 @@ open class CharacterListFragment : Fragment(), ActionMode.Callback {
         view?.post {
             classModel.characterList.observe(this, Observer {
                 if (it != null) {
-                    Log.d("setCharacterList", UUID.randomUUID().toString())
                     setCharacterList(it)
                 }
             })
@@ -131,10 +130,7 @@ open class CharacterListFragment : Fragment(), ActionMode.Callback {
 
     override fun onPause() {
         super.onPause()
-        if (actionMode != null) {
-            actionMode!!.finish()
-        }
-
+        
         selectedCharacters = ArrayList(selectedCharacters.map { it.copy() })
         classModel.characterList.removeObservers(this)
         classModel.classGroupList.removeObservers(this)
@@ -159,6 +155,9 @@ open class CharacterListFragment : Fragment(), ActionMode.Callback {
             }?.selected ?: false)
         })
         listAdapter.updateItems(selectedCharacters)
+        if (selectedCharacters.filter { it.selected }.count() != 0 && actionMode == null) {
+            actionMode = (activity as AppCompatActivity).startSupportActionMode(this)
+        }
     }
 
     @Background
