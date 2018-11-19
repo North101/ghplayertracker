@@ -9,18 +9,10 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
-import org.androidannotations.annotations.AfterViews
-import org.androidannotations.annotations.EFragment
-import org.androidannotations.annotations.FragmentArg
-import org.androidannotations.annotations.ViewById
+import org.androidannotations.annotations.*
 
 @EFragment(R.layout.image_gallery_layout)
 open class ImageGalleryFragment : Fragment(), OnBackPressedListener {
-    override fun onBackPressed(): Boolean {
-        imageGalleryModel.showGallery.value = false
-        return !isHidden
-    }
-
     protected lateinit var actionBar: ActionBar
     @ViewById(R.id.toolbar)
     protected lateinit var toolbar: Toolbar
@@ -35,9 +27,9 @@ open class ImageGalleryFragment : Fragment(), OnBackPressedListener {
 
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
+        setHasOptionsMenu(true)
 
         imageGalleryModel = ViewModelProviders.of(this.activity!!).get(ImageGalleryModel::class.java)
-        setHasOptionsMenu(false)
     }
 
     @AfterViews
@@ -61,6 +53,12 @@ open class ImageGalleryFragment : Fragment(), OnBackPressedListener {
 
         adapter.updateItems(imageList)
     }
+    
+    override fun onBackPressed(): Boolean {
+        imageGalleryModel.showGallery.value = false
+        return false
+    }
+
 
     companion object {
         val TAG = ImageGalleryFragment::class.java.simpleName

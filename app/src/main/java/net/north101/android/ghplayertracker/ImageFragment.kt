@@ -1,11 +1,7 @@
 package net.north101.android.ghplayertracker
 
-import android.graphics.Rect
-import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.transition.TransitionInflater
-import android.view.View
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
@@ -25,10 +21,6 @@ open class ImageFragment : Fragment() {
 
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
-        }
     }
 
     @AfterViews
@@ -42,18 +34,6 @@ open class ImageFragment : Fragment() {
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
             )
             .into(imageView)
-    }
-
-    fun getSharedElements(): ArrayList<View>? {
-        return if (isViewInBounds(activity!!.window.decorView, imageView)) {
-            arrayListOf(imageView)
-        } else null
-    }
-
-    fun isViewInBounds(container: View, view: View): Boolean {
-        val containerBounds = Rect()
-        container.getHitRect(containerBounds)
-        return view.getLocalVisibleRect(containerBounds)
     }
 
     companion object {

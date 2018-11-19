@@ -32,7 +32,7 @@ open class ImagePagerFragment : Fragment() {
     protected lateinit var imageList: ArrayList<ImageUrl>
     @FragmentArg(ARG_IMAGE_INDEX)
     @JvmField
-    protected var imageIndex = 0
+    protected var imageIndex: Int? = null
 
     protected lateinit var galleryFragment: ImageGalleryFragment
 
@@ -40,33 +40,48 @@ open class ImagePagerFragment : Fragment() {
 
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
+        setHasOptionsMenu(true)
 
         val supportFragmentManager = activity!!.supportFragmentManager
         galleryFragment = supportFragmentManager
             .findFragmentByTag(ImageGalleryFragment.TAG) as ImageGalleryFragment?
             ?: ImageGalleryFragment.newInstance(imageList)
 
-        imageGalleryModel = ViewModelProviders.of(this.activity!!).get(ImageGalleryModel::class.java)
-        if (state == null) {
-            imageGalleryModel.currentIndex.value = imageIndex
-        } else {
-            imageGalleryModel.currentIndex.value = state.getInt("index")
-        }
-
         postponeEnterTransition()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+        }
+
+        imageGalleryModel = ViewModelProviders.of(this.activity!!).get(ImageGalleryModel::class.java)
+        if (state == null) {
+            imageGalleryModel.currentIndex.value = imageIndex ?: 0
+            imageGalleryModel.showGallery.postValue(imageIndex == null)
+        } else {
+            imageGalleryModel.currentIndex.value = state.getInt("index")
+            imageGalleryModel.showGallery.value = state.getBoolean("showGallery")
         }
     }
 
     override fun onSaveInstanceState(state: Bundle) {
         state.putInt("index", imageGalleryModel.currentIndex.value)
+        state.putBoolean("showGallery", imageGalleryModel.showGallery.value)
 
         super.onSaveInstanceState(state)
     }
 
     val showGallery: Boolean
         get() = imageList.size > 1
+
+    override fun onPrepareOptionsMenu(menu: Menu?) {
+        super.onPrepareOptionsMenu(menu)
+
+        galleryMenu.isVisible = !imageGalleryModel.showGallery.value
+    }
+
+    @OptionsItem(R.id.gallery)
+    fun onGalleryMenuClick() {
+        imageGalleryModel.showGallery.value = true
+    }
 
     @AfterViews
     fun afterViews() {
@@ -98,6 +113,7 @@ open class ImagePagerFragment : Fragment() {
                     activity!!.supportFragmentManager
                         .beginTransaction()
                         .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
+                        .hide(this)
                         .add(R.id.content, galleryFragment, ImageGalleryFragment.TAG)
                         .show(galleryFragment)
                         .commit()
@@ -108,37 +124,32 @@ open class ImagePagerFragment : Fragment() {
                         .beginTransaction()
                         .hide(galleryFragment)
                         .remove(galleryFragment)
+                        .show(this)
                         .commit()
                 }
             }
+            if (::galleryMenu.isInitialized) {
+                galleryMenu.isVisible = !it
+            }
         }
-    }
-
-    override fun onPrepareOptionsMenu(menu: Menu?) {
-        super.onPrepareOptionsMenu(menu)
-
-        galleryMenu.isVisible = showGallery
     }
 
     companion object {
         protected const val ARG_IMAGE_LIST = "image_list"
         protected const val ARG_IMAGE_INDEX = "image_index"
 
-        fun newInstance(imageList: ArrayList<ImageUrl>, imageIndex: Int = 0): ImagePagerFragment_ {
+        fun newInstance(imageList: ArrayList<ImageUrl>, imageIndex: Int? = null): ImagePagerFragment_ {
             val args = Bundle()
             args.putParcelableArrayList(ARG_IMAGE_LIST, imageList)
-            args.putInt(ARG_IMAGE_INDEX, imageIndex)
+            if (imageIndex != null) {
+                args.putInt(ARG_IMAGE_INDEX, imageIndex)
+            }
 
             val fragment = ImagePagerFragment_()
             fragment.arguments = args
 
             return fragment
         }
-    }
-
-    @OptionsItem(R.id.gallery)
-    fun onGalleryMenuClick() {
-        imageGalleryModel.showGallery.value = true
     }
 }
 
