@@ -18,8 +18,8 @@ class RecyclerListItemsCallback(
         val oldItem = oldItems[oldItemPosition]
         val newItem = newItems[newItemPosition]
         return when {
-            oldItem == newItem -> return true
-            oldItem::class == newItem::class -> return oldItem.compareItemId == newItem.compareItemId
+            oldItem == newItem -> true
+            oldItem::class == newItem::class -> oldItem.compareItemId == newItem.compareItemId
             else -> false
         }
     }
@@ -28,6 +28,6 @@ class RecyclerListItemsCallback(
         val oldItem = oldItems[oldItemPosition]
         val newItem = newItems[newItemPosition]
 
-        return oldItem === newItem
+        return oldItem.contentsSame(newItem)
     }
 }

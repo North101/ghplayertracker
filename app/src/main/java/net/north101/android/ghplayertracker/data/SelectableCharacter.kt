@@ -15,4 +15,19 @@ data class SelectableCharacter(
     fun copy(): SelectableCharacter {
         return SelectableCharacter(character.copy(), selected)
     }
+
+    override fun equals(other: Any?): Boolean {
+        if (other !is SelectableCharacter)
+            return false
+
+        return this.selected == other.selected && this.character == other.character
+    }
+
+    override fun hashCode(): Int {
+       return compareItemId.hashCode()
+    }
+
+    override fun contentsSame(other: RecyclerItemCompare): Boolean {
+        return this == other
+    }
 }

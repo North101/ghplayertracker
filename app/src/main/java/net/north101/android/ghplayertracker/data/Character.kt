@@ -174,21 +174,7 @@ data class Character(
     }
 
     override fun hashCode(): Int {
-        var result = id.hashCode()
-        result = 31 * result + characterClass.hashCode()
-        result = 31 * result + name.hashCode()
-        result = 31 * result + _level
-        result = 31 * result + _xp
-        result = 31 * result + _gold
-        result = 31 * result + perks.hashCode()
-        result = 31 * result + perkNotes.hashCode()
-        result = 31 * result + created.hashCode()
-        result = 31 * result + modified.hashCode()
-        result = 31 * result + retired.hashCode()
-        result = 31 * result + items.hashCode()
-        result = 31 * result + abilities.hashCode()
-        result = 31 * result + notes.hashCode()
-        return result
+        return this.id.hashCode()
     }
 
     companion object {

@@ -70,9 +70,11 @@ open class ItemListFragment : Fragment(), OnBackPressedListener, SearchView.OnQu
             )
         }
         listAdapter.onItemImageClick = {
-            val items = listAdapter.items.filter {
-                it is Item
-            } as ArrayList<ImageUrl>
+            val items = ArrayList(listAdapter.items.filter { item ->
+                item is Item
+            }.map { item ->
+                item as ImageUrl
+            })
             val fragment = ImagePagerFragment.newInstance(items, items.indexOf(it))
 
             activity!!.supportFragmentManager
@@ -93,23 +95,22 @@ open class ItemListFragment : Fragment(), OnBackPressedListener, SearchView.OnQu
         //listAdapter.setOnClickListener(onClickListener)
         listView.adapter = listAdapter
 
-        view!!.post {
-            listAdapter.updateItems(classModel.itemList.value, classModel.itemCategoryList.value, disabledItemList)
+        listAdapter.updateItems(classModel.itemList.value, classModel.itemCategoryList.value, disabledItemList)
+
+        if (classModel.dataLoader.state.value != LiveDataState.FINISHED) {
+            classModel.dataLoader.load()
         }
     }
 
     override fun onResume() {
         super.onResume()
 
-        view!!.post {
+        view?.post {
             classModel.itemList.observe(this, Observer {
                 if (it != null) {
                     setItemList(it)
                 }
             })
-            if (classModel.dataLoader.state.value != LiveDataState.FINISHED) {
-                classModel.dataLoader.load()
-            }
         }
     }
 

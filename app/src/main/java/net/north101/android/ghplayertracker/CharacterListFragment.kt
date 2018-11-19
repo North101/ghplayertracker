@@ -103,27 +103,29 @@ open class CharacterListFragment : Fragment(), ActionMode.Callback {
         val animator = SlideDownAlphaAnimator()
         listView.itemAnimator = animator
 
-        listAdapter = CharacterListAdapter()
-        listAdapter.updateItems(selectedCharacters)
+        if (!::listAdapter.isInitialized) {
+            listAdapter = CharacterListAdapter()
+        }
         listAdapter.setOnClickListener(onClickListener)
         listView.adapter = listAdapter
 
         listAdapter.updateItems(selectedCharacters)
+
+        if (classModel.dataLoader.state.value != LiveDataState.FINISHED) {
+            classModel.dataLoader.load()
+        }
     }
 
     override fun onResume() {
         super.onResume()
 
-        view!!.post {
+        view?.post {
             classModel.characterList.observe(this, Observer {
                 if (it != null) {
                     Log.d("setCharacterList", UUID.randomUUID().toString())
                     setCharacterList(it)
                 }
             })
-            if (classModel.dataLoader.state.value != LiveDataState.FINISHED) {
-                classModel.dataLoader.load()
-            }
         }
     }
 
@@ -136,6 +138,8 @@ open class CharacterListFragment : Fragment(), ActionMode.Callback {
         selectedCharacters = ArrayList(selectedCharacters.map { it.copy() })
         classModel.characterList.removeObservers(this)
         classModel.classGroupList.removeObservers(this)
+
+        actionMode?.finish()
     }
 
     @UiThread(propagation = UiThread.Propagation.REUSE)
@@ -213,7 +217,9 @@ open class CharacterListFragment : Fragment(), ActionMode.Callback {
     }
 
     override fun onDestroyActionMode(actionMode: ActionMode) {
-        selectedCharacters.forEach { it.selected = false }
+        if (this.isResumed) {
+            selectedCharacters.forEach { it.selected = false }
+        }
         listAdapter.notifyDataSetChanged()
         this.actionMode = null
     }
